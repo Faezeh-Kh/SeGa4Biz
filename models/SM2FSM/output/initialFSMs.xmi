@@ -1,0 +1,2762 @@
+<?xml version="1.0" encoding="ISO-8859-1"?>
+<xmi:XMI xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:FiniteStateMachine="www.FiniteStateMachine.com">
+  <FiniteStateMachine:StateMachine name="Player:Student" ownerObject="Student">
+    <systemEvents xsi:type="FiniteStateMachine:CoreEvents">
+      <triggerTransition xsi:type="FiniteStateMachine:LocalTransition" target="/0/@states.0"/>
+    </systemEvents>
+    <states name="Start" isStartState="true">
+      <events xsi:type="FiniteStateMachine:CoreEvents" name="FINISHED">
+        <triggerTransition xsi:type="FiniteStateMachine:LocalTransition" target="/0/@states.1" sourceState="/0/@states.0"/>
+      </events>
+    </states>
+    <states name="4 Performed">
+      <actions xsi:type="FiniteStateMachine:CustomAction" title="/4:walk to the computer"/>
+      <actions xsi:type="FiniteStateMachine:SystemAction" title="Send Event" category="State Machine">
+        <parameters name="Event Target" value="Game Object FSM"/>
+        <parameters name="Send Event" value="4:walk to the computer"/>
+        <parameters name="Game Object" value="Student"/>
+        <parameters name="FSM Name" value="student_walking"/>
+      </actions>
+      <events xsi:type="FiniteStateMachine:CoreEvents" name="FINISHED">
+        <triggerTransition xsi:type="FiniteStateMachine:LocalTransition" target="/0/@states.2" sourceState="/0/@states.1"/>
+      </events>
+    </states>
+    <states name="9 Performed">
+      <actions xsi:type="FiniteStateMachine:CustomAction" title="/9:stand behind the computer"/>
+      <actions xsi:type="FiniteStateMachine:SystemAction" title="Send Event" category="State Machine">
+        <parameters name="Event Target" value="Game Object FSM"/>
+        <parameters name="Send Event" value="9:stand behind the computer"/>
+        <parameters name="Game Object" value="Student"/>
+        <parameters name="FSM Name" value="form_preparation"/>
+      </actions>
+      <events xsi:type="FiniteStateMachine:CoreEvents" name="FINISHED">
+        <triggerTransition xsi:type="FiniteStateMachine:LocalTransition" target="/0/@states.3" sourceState="/0/@states.2"/>
+      </events>
+    </states>
+    <states name="12 Performed">
+      <actions xsi:type="FiniteStateMachine:CustomAction" title="/12:choose download option"/>
+      <actions xsi:type="FiniteStateMachine:SystemAction" title="Send Event" category="State Machine">
+        <parameters name="Event Target" value="Game Object FSM"/>
+        <parameters name="Send Event" value="12:choose download option"/>
+        <parameters name="Game Object" value="Student"/>
+        <parameters name="FSM Name" value="URL_challenge_finished"/>
+      </actions>
+      <events xsi:type="FiniteStateMachine:CoreEvents" name="FINISHED">
+        <triggerTransition xsi:type="FiniteStateMachine:LocalTransition" target="/0/@states.4" sourceState="/0/@states.3"/>
+      </events>
+    </states>
+    <states name="13 Performed">
+      <actions xsi:type="FiniteStateMachine:CustomAction" title="/13:choose print option"/>
+      <actions xsi:type="FiniteStateMachine:SystemAction" title="Send Event" category="State Machine">
+        <parameters name="Event Target" value="Game Object FSM"/>
+        <parameters name="Send Event" value="13:choose print option"/>
+        <parameters name="Game Object" value="Student"/>
+        <parameters name="FSM Name" value="URL_challenge_finished"/>
+      </actions>
+      <events xsi:type="FiniteStateMachine:CoreEvents" name="FINISHED">
+        <triggerTransition xsi:type="FiniteStateMachine:LocalTransition" target="/0/@states.5" sourceState="/0/@states.4"/>
+      </events>
+    </states>
+    <states name="18 Performed">
+      <actions xsi:type="FiniteStateMachine:CustomAction" title="/18:walk to the supervisor room"/>
+      <actions xsi:type="FiniteStateMachine:SystemAction" title="Send Event" category="State Machine">
+        <parameters name="Event Target" value="Game Object FSM"/>
+        <parameters name="Send Event" value="18:walk to the supervisor room"/>
+        <parameters name="Game Object" value="Student"/>
+        <parameters name="FSM Name" value="meeting_supervisor"/>
+      </actions>
+      <events xsi:type="FiniteStateMachine:CoreEvents" name="FINISHED">
+        <triggerTransition xsi:type="FiniteStateMachine:LocalTransition" target="/0/@states.6" sourceState="/0/@states.5"/>
+      </events>
+    </states>
+    <states name="19 Performed">
+      <actions xsi:type="FiniteStateMachine:CustomAction" title="/19:enter to the room"/>
+      <actions xsi:type="FiniteStateMachine:SystemAction" title="Send Event" category="State Machine">
+        <parameters name="Event Target" value="Game Object FSM"/>
+        <parameters name="Send Event" value="19:enter to the room"/>
+        <parameters name="Game Object" value="Student"/>
+        <parameters name="FSM Name" value="meeting_supervisor"/>
+      </actions>
+      <events xsi:type="FiniteStateMachine:CoreEvents" name="FINISHED">
+        <triggerTransition xsi:type="FiniteStateMachine:LocalTransition" target="/0/@states.7" sourceState="/0/@states.6"/>
+      </events>
+    </states>
+    <states name="20 Performed">
+      <actions xsi:type="FiniteStateMachine:CustomAction" title="/20:stand in front of supervisor character"/>
+      <actions xsi:type="FiniteStateMachine:SystemAction" title="Send Event" category="State Machine">
+        <parameters name="Event Target" value="Game Object FSM"/>
+        <parameters name="Send Event" value="20:stand in front of supervisor character"/>
+        <parameters name="Game Object" value="Student"/>
+        <parameters name="FSM Name" value="meeting_supervisor"/>
+      </actions>
+      <events xsi:type="FiniteStateMachine:CoreEvents" name="FINISHED">
+        <triggerTransition xsi:type="FiniteStateMachine:LocalTransition" target="/0/@states.8" sourceState="/0/@states.7"/>
+      </events>
+    </states>
+    <states name="23 Performed">
+      <actions xsi:type="FiniteStateMachine:CustomAction" title="/23:give the form to the supervisor character"/>
+      <actions xsi:type="FiniteStateMachine:SystemAction" title="Send Event" category="State Machine">
+        <parameters name="Event Target" value="Game Object FSM"/>
+        <parameters name="Send Event" value="23:give the form to the supervisor character"/>
+        <parameters name="Game Object" value="Student"/>
+        <parameters name="FSM Name" value="form_delivery"/>
+      </actions>
+    </states>
+  </FiniteStateMachine:StateMachine>
+  <FiniteStateMachine:StateMachine name="Start_Level" ownerObject="Student">
+    <systemEvents xsi:type="FiniteStateMachine:CoreEvents">
+      <triggerTransition xsi:type="FiniteStateMachine:LocalTransition" target="/1/@states.0"/>
+    </systemEvents>
+    <states name="Start" isStartState="true">
+      <events xsi:type="FiniteStateMachine:CoreEvents" name="FINISHED">
+        <triggerTransition xsi:type="FiniteStateMachine:LocalTransition" target="/1/@states.1" sourceState="/1/@states.0"/>
+      </events>
+    </states>
+    <states name="0 Performed">
+      <actions xsi:type="FiniteStateMachine:CustomAction" title="/0:show level startup screen "/>
+      <actions xsi:type="FiniteStateMachine:SystemAction" title="Send Event" category="State Machine">
+        <parameters name="Event Target" value="Self"/>
+        <parameters name="Send Event" value="0:show level startup screen "/>
+      </actions>
+      <events xsi:type="FiniteStateMachine:CustomEvent" name="0:show level startup screen ">
+        <triggerTransition xsi:type="FiniteStateMachine:LocalTransition" target="/1/@states.2" sourceState="/1/@states.1"/>
+      </events>
+    </states>
+    <states name="0 Received">
+      <events xsi:type="FiniteStateMachine:CoreEvents" name="FINISHED">
+        <triggerTransition xsi:type="FiniteStateMachine:LocalTransition" target="/1/@states.3" sourceState="/1/@states.2"/>
+      </events>
+    </states>
+    <states name="1 Performed">
+      <actions xsi:type="FiniteStateMachine:CustomAction" title="/1:show"/>
+      <actions xsi:type="FiniteStateMachine:SystemAction" title="Send Event" category="State Machine">
+        <parameters name="Event Target" value="Game Object FSM"/>
+        <parameters name="Send Event" value="1:show"/>
+        <parameters name="Game Object" value="level startup"/>
+        <parameters name="FSM Name" value="level_startup"/>
+      </actions>
+      <events xsi:type="FiniteStateMachine:CoreEvents" name="FINISHED">
+        <triggerTransition xsi:type="FiniteStateMachine:LocalTransition" target="/1/@states.4" sourceState="/1/@states.3"/>
+      </events>
+    </states>
+    <states name="2 Performed">
+      <actions xsi:type="FiniteStateMachine:CustomAction" title="/2:set level start time in player log"/>
+      <actions xsi:type="FiniteStateMachine:SystemAction" title="Send Event" category="State Machine">
+        <parameters name="Event Target" value="Self"/>
+        <parameters name="Send Event" value="2:set level start time in player log"/>
+      </actions>
+      <events xsi:type="FiniteStateMachine:CustomEvent" name="2:set level start time in player log">
+        <triggerTransition xsi:type="FiniteStateMachine:LocalTransition" target="/1/@states.5" sourceState="/1/@states.4"/>
+      </events>
+    </states>
+    <states name="2 Received">
+      <events xsi:type="FiniteStateMachine:CoreEvents" name="FINISHED">
+        <triggerTransition xsi:type="FiniteStateMachine:LocalTransition" target="/1/@states.6" sourceState="/1/@states.5"/>
+      </events>
+    </states>
+    <states name="3 Performed">
+      <actions xsi:type="FiniteStateMachine:CustomAction" title="/3:save level start time"/>
+      <actions xsi:type="FiniteStateMachine:SystemAction" title="Send Event" category="State Machine">
+        <parameters name="Event Target" value="Game Object FSM"/>
+        <parameters name="Send Event" value="3:save level start time"/>
+        <parameters name="Game Object" value="StudentLog"/>
+        <parameters name="FSM Name" value="StudentLog"/>
+      </actions>
+      <events xsi:type="FiniteStateMachine:CoreEvents" name="FINISHED">
+        <triggerTransition xsi:type="FiniteStateMachine:LocalTransition" target="/1/@states.7" sourceState="/1/@states.6"/>
+      </events>
+    </states>
+    <states name="107 Performed">
+      <actions xsi:type="FiniteStateMachine:CustomAction" title="/107:changeState(condition)"/>
+      <actions xsi:type="FiniteStateMachine:SystemAction" title="Send Event" category="State Machine">
+        <parameters name="Event Target" value="Self"/>
+        <parameters name="Send Event" value="107:changeState(condition)"/>
+      </actions>
+      <events xsi:type="FiniteStateMachine:CustomEvent" name="107:changeState(condition)">
+        <triggerTransition xsi:type="FiniteStateMachine:LocalTransition" target="/1/@states.8" sourceState="/1/@states.7"/>
+      </events>
+    </states>
+    <states name="107 Received">
+      <events xsi:type="FiniteStateMachine:CoreEvents" name="FINISHED">
+        <triggerTransition xsi:type="FiniteStateMachine:LocalTransition" target="/1/@states.9" sourceState="/1/@states.8"/>
+      </events>
+    </states>
+    <states name="108 alt">
+      <actions xsi:type="FiniteStateMachine:CustomAction" title="check transition constraint">
+        <parameters name="[player start walking]"/>
+      </actions>
+      <events xsi:type="FiniteStateMachine:CoreEvents" name="FINISHED">
+        <triggerTransition xsi:type="FiniteStateMachine:LocalTransition" target="/1/@states.10" sourceState="/1/@states.9"/>
+      </events>
+    </states>
+    <states name="109 Performed">
+      <actions xsi:type="FiniteStateMachine:SystemAction" title="Enable FSM" category="State Machine">
+        <parameters name="Game Object" value="Student"/>
+        <parameters name="Fsm Name" value="student_walking"/>
+        <parameters name="Enable" value="true"/>
+      </actions>
+    </states>
+  </FiniteStateMachine:StateMachine>
+  <FiniteStateMachine:StateMachine name="student_walking" ownerObject="Student">
+    <systemEvents xsi:type="FiniteStateMachine:CoreEvents">
+      <triggerTransition xsi:type="FiniteStateMachine:LocalTransition" target="/2/@states.0"/>
+    </systemEvents>
+    <states name="109 Received" isStartState="true">
+      <events xsi:type="FiniteStateMachine:CustomEvent" name="4:walk to the computer" isGlobal="true" isPlayerRequest="true">
+        <triggerTransition xsi:type="FiniteStateMachine:LocalTransition" target="/2/@states.1" sourceState="/2/@states.0"/>
+      </events>
+    </states>
+    <states name="4 Received">
+      <events xsi:type="FiniteStateMachine:CoreEvents" name="FINISHED">
+        <triggerTransition xsi:type="FiniteStateMachine:LocalTransition" target="/2/@states.2" sourceState="/2/@states.1"/>
+      </events>
+    </states>
+    <states name="5 Performed">
+      <actions xsi:type="FiniteStateMachine:CustomAction" title="/5:call Task1 of BP component"/>
+      <actions xsi:type="FiniteStateMachine:SystemAction" title="Send Event" category="State Machine">
+        <parameters name="Event Target" value="Self"/>
+        <parameters name="Send Event" value="5:call Task1 of BP component"/>
+      </actions>
+      <events xsi:type="FiniteStateMachine:CustomEvent" name="5:call Task1 of BP component">
+        <triggerTransition xsi:type="FiniteStateMachine:LocalTransition" target="/2/@states.3" sourceState="/2/@states.2"/>
+      </events>
+    </states>
+    <states name="5 Received">
+      <events xsi:type="FiniteStateMachine:CoreEvents" name="FINISHED">
+        <triggerTransition xsi:type="FiniteStateMachine:LocalTransition" target="/2/@states.4" sourceState="/2/@states.3"/>
+      </events>
+    </states>
+    <states name="6 Performed">
+      <actions xsi:type="FiniteStateMachine:CustomAction" title="/6:preparing department thesis definition form"/>
+      <actions xsi:type="FiniteStateMachine:SystemAction" title="Send Event" category="State Machine">
+        <parameters name="Event Target" value="Game Object FSM"/>
+        <parameters name="Send Event" value="6:preparing department thesis definition form"/>
+        <parameters name="Game Object" value="Student_lane"/>
+        <parameters name="FSM Name" value="Student:Lane"/>
+      </actions>
+      <events xsi:type="FiniteStateMachine:CustomEvent" name="8:return (correctOutputs)" isGlobal="true">
+        <triggerTransition xsi:type="FiniteStateMachine:LocalTransition" target="/2/@states.5" sourceState="/2/@states.4"/>
+      </events>
+    </states>
+    <states name="8 Received">
+      <events xsi:type="FiniteStateMachine:CoreEvents" name="FINISHED">
+        <triggerTransition xsi:type="FiniteStateMachine:LocalTransition" target="/2/@states.6" sourceState="/2/@states.5"/>
+      </events>
+    </states>
+    <states name="110 Performed">
+      <actions xsi:type="FiniteStateMachine:CustomAction" title="/110:changeState(condition)"/>
+      <actions xsi:type="FiniteStateMachine:SystemAction" title="Send Event" category="State Machine">
+        <parameters name="Event Target" value="Self"/>
+        <parameters name="Send Event" value="110:changeState(condition)"/>
+      </actions>
+      <events xsi:type="FiniteStateMachine:CustomEvent" name="110:changeState(condition)">
+        <triggerTransition xsi:type="FiniteStateMachine:LocalTransition" target="/2/@states.7" sourceState="/2/@states.6"/>
+      </events>
+    </states>
+    <states name="110 Received">
+      <events xsi:type="FiniteStateMachine:CoreEvents" name="FINISHED">
+        <triggerTransition xsi:type="FiniteStateMachine:LocalTransition" target="/2/@states.8" sourceState="/2/@states.7"/>
+      </events>
+    </states>
+    <states name="111 alt">
+      <actions xsi:type="FiniteStateMachine:CustomAction" title="check transition constraint">
+        <parameters name="[!not Defined]"/>
+      </actions>
+      <events xsi:type="FiniteStateMachine:CoreEvents" name="FINISHED">
+        <triggerTransition xsi:type="FiniteStateMachine:LocalTransition" target="/2/@states.9" sourceState="/2/@states.8"/>
+      </events>
+    </states>
+    <states name="112 Performed">
+      <actions xsi:type="FiniteStateMachine:SystemAction" title="Enable FSM" category="State Machine">
+        <parameters name="Game Object" value="Student"/>
+        <parameters name="Fsm Name" value="form_preparation"/>
+        <parameters name="Enable" value="true"/>
+      </actions>
+    </states>
+  </FiniteStateMachine:StateMachine>
+  <FiniteStateMachine:StateMachine name="form_preparation" ownerObject="Student">
+    <systemEvents xsi:type="FiniteStateMachine:CoreEvents">
+      <triggerTransition xsi:type="FiniteStateMachine:LocalTransition" target="/3/@states.0"/>
+    </systemEvents>
+    <states name="112 Received" isStartState="true">
+      <events xsi:type="FiniteStateMachine:CustomEvent" name="9:stand behind the computer" isGlobal="true" isPlayerRequest="true">
+        <triggerTransition xsi:type="FiniteStateMachine:LocalTransition" target="/3/@states.1" sourceState="/3/@states.0"/>
+      </events>
+    </states>
+    <states name="9 Received">
+      <events xsi:type="FiniteStateMachine:CoreEvents" name="FINISHED">
+        <triggerTransition xsi:type="FiniteStateMachine:LocalTransition" target="/3/@states.2" sourceState="/3/@states.1"/>
+      </events>
+    </states>
+    <states name="10 Performed">
+      <actions xsi:type="FiniteStateMachine:CustomAction" title="/10:run URL challenge "/>
+      <actions xsi:type="FiniteStateMachine:SystemAction" title="Send Event" category="State Machine">
+        <parameters name="Event Target" value="Self"/>
+        <parameters name="Send Event" value="10:run URL challenge "/>
+      </actions>
+      <events xsi:type="FiniteStateMachine:CustomEvent" name="10:run URL challenge ">
+        <triggerTransition xsi:type="FiniteStateMachine:LocalTransition" target="/3/@states.3" sourceState="/3/@states.2"/>
+      </events>
+    </states>
+    <states name="10 Received">
+      <events xsi:type="FiniteStateMachine:CoreEvents" name="FINISHED">
+        <triggerTransition xsi:type="FiniteStateMachine:LocalTransition" target="/3/@states.6" sourceState="/3/@states.3"/>
+      </events>
+    </states>
+    <states name="113 Performed">
+      <actions xsi:type="FiniteStateMachine:CustomAction" title="/113:changeState(condition)"/>
+      <actions xsi:type="FiniteStateMachine:SystemAction" title="Send Event" category="State Machine">
+        <parameters name="Event Target" value="Self"/>
+        <parameters name="Send Event" value="113:changeState(condition)"/>
+      </actions>
+      <events xsi:type="FiniteStateMachine:CustomEvent" name="113:changeState(condition)">
+        <triggerTransition xsi:type="FiniteStateMachine:LocalTransition" target="/3/@states.5" sourceState="/3/@states.4"/>
+      </events>
+    </states>
+    <states name="113 Received">
+      <events xsi:type="FiniteStateMachine:CoreEvents" name="FINISHED">
+        <triggerTransition xsi:type="FiniteStateMachine:LocalTransition" target="/3/@states.8" sourceState="/3/@states.5"/>
+      </events>
+    </states>
+    <states name="11 Performed">
+      <actions xsi:type="FiniteStateMachine:CustomAction" title="/11:startChallenge"/>
+      <actions xsi:type="FiniteStateMachine:SystemAction" title="Send Event" category="State Machine">
+        <parameters name="Event Target" value="Game Object FSM"/>
+        <parameters name="Send Event" value="11:startChallenge"/>
+        <parameters name="Game Object" value="Student"/>
+        <parameters name="FSM Name" value="URL_challenge"/>
+      </actions>
+      <events xsi:type="FiniteStateMachine:CoreEvents" name="FINISHED">
+        <triggerTransition xsi:type="FiniteStateMachine:LocalTransition" target="/3/@states.7" sourceState="/3/@states.6"/>
+      </events>
+    </states>
+    <states name="29 Performed">
+      <actions xsi:type="FiniteStateMachine:CustomAction" title="/29:show URL Query screen"/>
+      <actions xsi:type="FiniteStateMachine:SystemAction" title="Send Event" category="State Machine">
+        <parameters name="Event Target" value="Game Object FSM"/>
+        <parameters name="Send Event" value="29:show URL Query screen"/>
+        <parameters name="Game Object" value="Student"/>
+        <parameters name="FSM Name" value="URL_query"/>
+      </actions>
+      <events xsi:type="FiniteStateMachine:CoreEvents" name="FINISHED">
+        <triggerTransition xsi:type="FiniteStateMachine:LocalTransition" target="/3/@states.4" sourceState="/3/@states.7"/>
+      </events>
+    </states>
+    <states name="114 alt">
+      <actions xsi:type="FiniteStateMachine:CustomAction" title="check transition constraint">
+        <parameters name="[!not Defined]"/>
+      </actions>
+      <events xsi:type="FiniteStateMachine:CoreEvents" name="FINISHED">
+        <triggerTransition xsi:type="FiniteStateMachine:LocalTransition" target="/3/@states.9" sourceState="/3/@states.8"/>
+      </events>
+    </states>
+    <states name="115 Performed">
+      <actions xsi:type="FiniteStateMachine:SystemAction" title="Enable FSM" category="State Machine">
+        <parameters name="Game Object" value="Student"/>
+        <parameters name="Fsm Name" value="URL_query"/>
+        <parameters name="Enable" value="true"/>
+      </actions>
+    </states>
+  </FiniteStateMachine:StateMachine>
+  <FiniteStateMachine:StateMachine name="printer_is_on" ownerObject="printer">
+    <systemEvents xsi:type="FiniteStateMachine:CoreEvents">
+      <triggerTransition xsi:type="FiniteStateMachine:LocalTransition" target="/4/@states.0"/>
+    </systemEvents>
+    <states name="118 Received" isStartState="true">
+      <events xsi:type="FiniteStateMachine:CoreEvents" name="FINISHED">
+        <triggerTransition xsi:type="FiniteStateMachine:LocalTransition" target="/4/@states.1" sourceState="/4/@states.0"/>
+      </events>
+    </states>
+    <states name="14 Performed">
+      <actions xsi:type="FiniteStateMachine:CustomAction" title="/14:take the paper from printer"/>
+      <actions xsi:type="FiniteStateMachine:SystemAction" title="Send Event" category="State Machine">
+        <parameters name="Event Target" value="Game Object FSM"/>
+        <parameters name="Send Event" value="14:take the paper from printer"/>
+        <parameters name="Game Object" value="Student"/>
+        <parameters name="FSM Name" value="form_is_printed"/>
+      </actions>
+      <events xsi:type="FiniteStateMachine:CustomEvent" name="80:play printer voice and show paper(constraint)" isGlobal="true">
+        <triggerTransition xsi:type="FiniteStateMachine:LocalTransition" target="/4/@states.2" sourceState="/4/@states.1"/>
+      </events>
+    </states>
+    <states name="80 Received">
+      <events xsi:type="FiniteStateMachine:CoreEvents" name="FINISHED">
+        <triggerTransition xsi:type="FiniteStateMachine:LocalTransition" target="/4/@states.5" sourceState="/4/@states.2"/>
+      </events>
+    </states>
+    <states name="174 Performed">
+      <actions xsi:type="FiniteStateMachine:CustomAction" title="/174:changeState(condition)"/>
+      <actions xsi:type="FiniteStateMachine:SystemAction" title="Send Event" category="State Machine">
+        <parameters name="Event Target" value="Self"/>
+        <parameters name="Send Event" value="174:changeState(condition)"/>
+      </actions>
+      <events xsi:type="FiniteStateMachine:CustomEvent" name="174:changeState(condition)">
+        <triggerTransition xsi:type="FiniteStateMachine:LocalTransition" target="/4/@states.4" sourceState="/4/@states.3"/>
+      </events>
+    </states>
+    <states name="174 Received">
+      <events xsi:type="FiniteStateMachine:CoreEvents" name="FINISHED">
+        <triggerTransition xsi:type="FiniteStateMachine:LocalTransition" target="/4/@states.6" sourceState="/4/@states.4"/>
+      </events>
+    </states>
+    <states name="81 opt">
+      <events xsi:type="FiniteStateMachine:CoreEvents" name="FINISHED">
+        <triggerTransition xsi:type="FiniteStateMachine:LocalTransition" target="/4/@states.3" sourceState="/4/@states.5"/>
+      </events>
+    </states>
+    <states name="175 alt">
+      <actions xsi:type="FiniteStateMachine:CustomAction" title="check transition constraint">
+        <parameters name="[!not Defined]"/>
+      </actions>
+      <events xsi:type="FiniteStateMachine:CoreEvents" name="FINISHED">
+        <triggerTransition xsi:type="FiniteStateMachine:LocalTransition" target="/4/@states.7" sourceState="/4/@states.6"/>
+      </events>
+    </states>
+    <states name="176 Performed">
+      <actions xsi:type="FiniteStateMachine:SystemAction" title="Enable FSM" category="State Machine">
+        <parameters name="Game Object" value="printer"/>
+        <parameters name="Fsm Name" value="printer_is_off"/>
+        <parameters name="Enable" value="true"/>
+      </actions>
+    </states>
+  </FiniteStateMachine:StateMachine>
+  <FiniteStateMachine:StateMachine name="form_is_printed" ownerObject="Student">
+    <systemEvents xsi:type="FiniteStateMachine:CoreEvents">
+      <triggerTransition xsi:type="FiniteStateMachine:LocalTransition" target="/5/@states.0"/>
+    </systemEvents>
+    <states name="Start" isStartState="true">
+      <events xsi:type="FiniteStateMachine:CustomEvent" name="14:take the paper from printer" isGlobal="true">
+        <triggerTransition xsi:type="FiniteStateMachine:LocalTransition" target="/5/@states.1" sourceState="/5/@states.0"/>
+      </events>
+    </states>
+    <states name="14 Received">
+      <events xsi:type="FiniteStateMachine:CoreEvents" name="FINISHED">
+        <triggerTransition xsi:type="FiniteStateMachine:LocalTransition" target="/5/@states.4" sourceState="/5/@states.1"/>
+      </events>
+    </states>
+    <states name="119 Performed">
+      <actions xsi:type="FiniteStateMachine:CustomAction" title="/119:changeState(condition)"/>
+      <actions xsi:type="FiniteStateMachine:SystemAction" title="Send Event" category="State Machine">
+        <parameters name="Event Target" value="Self"/>
+        <parameters name="Send Event" value="119:changeState(condition)"/>
+      </actions>
+      <events xsi:type="FiniteStateMachine:CustomEvent" name="119:changeState(condition)">
+        <triggerTransition xsi:type="FiniteStateMachine:LocalTransition" target="/5/@states.3" sourceState="/5/@states.2"/>
+      </events>
+    </states>
+    <states name="119 Received">
+      <events xsi:type="FiniteStateMachine:CoreEvents" name="FINISHED">
+        <triggerTransition xsi:type="FiniteStateMachine:LocalTransition" target="/5/@states.5" sourceState="/5/@states.3"/>
+      </events>
+    </states>
+    <states name="15 Performed">
+      <actions xsi:type="FiniteStateMachine:CustomAction" title="/15:show form sections query screen"/>
+      <actions xsi:type="FiniteStateMachine:SystemAction" title="Send Event" category="State Machine">
+        <parameters name="Event Target" value="Game Object FSM"/>
+        <parameters name="Send Event" value="15:show form sections query screen"/>
+        <parameters name="Game Object" value="Student"/>
+        <parameters name="FSM Name" value="Form_sections_query"/>
+      </actions>
+      <events xsi:type="FiniteStateMachine:CoreEvents" name="FINISHED">
+        <triggerTransition xsi:type="FiniteStateMachine:LocalTransition" target="/5/@states.2" sourceState="/5/@states.4"/>
+      </events>
+    </states>
+    <states name="120 alt">
+      <actions xsi:type="FiniteStateMachine:CustomAction" title="check transition constraint">
+        <parameters name="[!not Defined]"/>
+      </actions>
+      <events xsi:type="FiniteStateMachine:CoreEvents" name="FINISHED">
+        <triggerTransition xsi:type="FiniteStateMachine:LocalTransition" target="/5/@states.6" sourceState="/5/@states.5"/>
+      </events>
+    </states>
+    <states name="121 Performed">
+      <actions xsi:type="FiniteStateMachine:SystemAction" title="Enable FSM" category="State Machine">
+        <parameters name="Game Object" value="Student"/>
+        <parameters name="Fsm Name" value="Form_sections_query"/>
+        <parameters name="Enable" value="true"/>
+      </actions>
+    </states>
+  </FiniteStateMachine:StateMachine>
+  <FiniteStateMachine:StateMachine name="Form_sections_query" ownerObject="Student">
+    <systemEvents xsi:type="FiniteStateMachine:CoreEvents">
+      <triggerTransition xsi:type="FiniteStateMachine:LocalTransition" target="/6/@states.0"/>
+    </systemEvents>
+    <states name="121 Received" isStartState="true">
+      <events xsi:type="FiniteStateMachine:CustomEvent" name="15:show form sections query screen" isGlobal="true">
+        <triggerTransition xsi:type="FiniteStateMachine:LocalTransition" target="/6/@states.1" sourceState="/6/@states.0"/>
+      </events>
+    </states>
+    <states name="15 Received">
+      <events xsi:type="FiniteStateMachine:CoreEvents" name="FINISHED">
+        <triggerTransition xsi:type="FiniteStateMachine:LocalTransition" target="/6/@states.6" sourceState="/6/@states.1"/>
+      </events>
+    </states>
+    <states name="17 Performed">
+      <actions xsi:type="FiniteStateMachine:CustomAction" title="/17:fill each section and save"/>
+      <actions xsi:type="FiniteStateMachine:SystemAction" title="Send Event" category="State Machine">
+        <parameters name="Event Target" value="Self"/>
+        <parameters name="Send Event" value="17:fill each section and save"/>
+      </actions>
+      <events xsi:type="FiniteStateMachine:CustomEvent" name="17:fill each section and save">
+        <triggerTransition xsi:type="FiniteStateMachine:LocalTransition" target="/6/@states.3" sourceState="/6/@states.2"/>
+      </events>
+    </states>
+    <states name="17 Received">
+      <events xsi:type="FiniteStateMachine:CoreEvents" name="FINISHED">
+        <triggerTransition xsi:type="FiniteStateMachine:LocalTransition" target="/6/@states.7" sourceState="/6/@states.3"/>
+      </events>
+    </states>
+    <states name="122 Performed">
+      <actions xsi:type="FiniteStateMachine:CustomAction" title="/122:changeState(condition)"/>
+      <actions xsi:type="FiniteStateMachine:SystemAction" title="Send Event" category="State Machine">
+        <parameters name="Event Target" value="Self"/>
+        <parameters name="Send Event" value="122:changeState(condition)"/>
+      </actions>
+      <events xsi:type="FiniteStateMachine:CustomEvent" name="122:changeState(condition)">
+        <triggerTransition xsi:type="FiniteStateMachine:LocalTransition" target="/6/@states.5" sourceState="/6/@states.4"/>
+      </events>
+    </states>
+    <states name="122 Received">
+      <events xsi:type="FiniteStateMachine:CoreEvents" name="FINISHED">
+        <triggerTransition xsi:type="FiniteStateMachine:LocalTransition" target="/6/@states.8" sourceState="/6/@states.5"/>
+      </events>
+    </states>
+    <states name="16 Performed">
+      <actions xsi:type="FiniteStateMachine:CustomAction" title="/16:show"/>
+      <actions xsi:type="FiniteStateMachine:SystemAction" title="Send Event" category="State Machine">
+        <parameters name="Event Target" value="Game Object FSM"/>
+        <parameters name="Send Event" value="16:show"/>
+        <parameters name="Game Object" value="form sections query"/>
+        <parameters name="FSM Name" value="form_sections_query"/>
+      </actions>
+      <events xsi:type="FiniteStateMachine:CoreEvents" name="FINISHED">
+        <triggerTransition xsi:type="FiniteStateMachine:LocalTransition" target="/6/@states.2" sourceState="/6/@states.6"/>
+      </events>
+    </states>
+    <states name="83 Performed">
+      <actions xsi:type="FiniteStateMachine:CustomAction" title="/83:save the form in player log(constraint)"/>
+      <actions xsi:type="FiniteStateMachine:SystemAction" title="Send Event" category="State Machine">
+        <parameters name="Event Target" value="Game Object FSM"/>
+        <parameters name="Send Event" value="83:save the form in player log(constraint)"/>
+        <parameters name="Game Object" value="form Paper"/>
+        <parameters name="FSM Name" value="form_creation"/>
+      </actions>
+      <events xsi:type="FiniteStateMachine:CoreEvents" name="FINISHED">
+        <triggerTransition xsi:type="FiniteStateMachine:LocalTransition" target="/6/@states.4" sourceState="/6/@states.7"/>
+      </events>
+    </states>
+    <states name="123 alt">
+      <actions xsi:type="FiniteStateMachine:CustomAction" title="check transition constraint">
+        <parameters name="[!not Defined]"/>
+      </actions>
+      <events xsi:type="FiniteStateMachine:CoreEvents" name="FINISHED">
+        <triggerTransition xsi:type="FiniteStateMachine:LocalTransition" target="/6/@states.9" sourceState="/6/@states.8"/>
+      </events>
+    </states>
+    <states name="124 Performed">
+      <actions xsi:type="FiniteStateMachine:SystemAction" title="Enable FSM" category="State Machine">
+        <parameters name="Game Object" value="form Paper"/>
+        <parameters name="Fsm Name" value="form_creation"/>
+        <parameters name="Enable" value="true"/>
+      </actions>
+    </states>
+  </FiniteStateMachine:StateMachine>
+  <FiniteStateMachine:StateMachine name="meeting_supervisor" ownerObject="Student">
+    <systemEvents xsi:type="FiniteStateMachine:CoreEvents">
+      <triggerTransition xsi:type="FiniteStateMachine:LocalTransition" target="/7/@states.0"/>
+    </systemEvents>
+    <states name="179 Received" isStartState="true">
+      <events xsi:type="FiniteStateMachine:CustomEvent" name="18:walk to the supervisor room" isGlobal="true" isPlayerRequest="true">
+        <triggerTransition xsi:type="FiniteStateMachine:LocalTransition" target="/7/@states.1" sourceState="/7/@states.0"/>
+      </events>
+    </states>
+    <states name="18 Received">
+      <events xsi:type="FiniteStateMachine:CustomEvent" name="19:enter to the room" isGlobal="true" isPlayerRequest="true">
+        <triggerTransition xsi:type="FiniteStateMachine:LocalTransition" target="/7/@states.2" sourceState="/7/@states.1"/>
+      </events>
+    </states>
+    <states name="19 Received">
+      <events xsi:type="FiniteStateMachine:CustomEvent" name="20:stand in front of supervisor character" isGlobal="true" isPlayerRequest="true">
+        <triggerTransition xsi:type="FiniteStateMachine:LocalTransition" target="/7/@states.3" sourceState="/7/@states.2"/>
+      </events>
+    </states>
+    <states name="20 Received">
+      <events xsi:type="FiniteStateMachine:CoreEvents" name="FINISHED">
+        <triggerTransition xsi:type="FiniteStateMachine:LocalTransition" target="/7/@states.4" sourceState="/7/@states.3"/>
+      </events>
+    </states>
+    <states name="21 Performed">
+      <actions xsi:type="FiniteStateMachine:CustomAction" title="/21:call Task2 of BP component"/>
+      <actions xsi:type="FiniteStateMachine:SystemAction" title="Send Event" category="State Machine">
+        <parameters name="Event Target" value="Self"/>
+        <parameters name="Send Event" value="21:call Task2 of BP component"/>
+      </actions>
+      <events xsi:type="FiniteStateMachine:CustomEvent" name="21:call Task2 of BP component">
+        <triggerTransition xsi:type="FiniteStateMachine:LocalTransition" target="/7/@states.5" sourceState="/7/@states.4"/>
+      </events>
+    </states>
+    <states name="21 Received">
+      <events xsi:type="FiniteStateMachine:CoreEvents" name="FINISHED">
+        <triggerTransition xsi:type="FiniteStateMachine:LocalTransition" target="/7/@states.8" sourceState="/7/@states.5"/>
+      </events>
+    </states>
+    <states name="125 Performed">
+      <actions xsi:type="FiniteStateMachine:CustomAction" title="/125:changeState(condition)"/>
+      <actions xsi:type="FiniteStateMachine:SystemAction" title="Send Event" category="State Machine">
+        <parameters name="Event Target" value="Self"/>
+        <parameters name="Send Event" value="125:changeState(condition)"/>
+      </actions>
+      <events xsi:type="FiniteStateMachine:CustomEvent" name="125:changeState(condition)">
+        <triggerTransition xsi:type="FiniteStateMachine:LocalTransition" target="/7/@states.7" sourceState="/7/@states.6"/>
+      </events>
+    </states>
+    <states name="125 Received">
+      <events xsi:type="FiniteStateMachine:CoreEvents" name="FINISHED">
+        <triggerTransition xsi:type="FiniteStateMachine:LocalTransition" target="/7/@states.9" sourceState="/7/@states.7"/>
+      </events>
+    </states>
+    <states name="22 Performed">
+      <actions xsi:type="FiniteStateMachine:CustomAction" title="/22:deliver the form to the supervisor"/>
+      <actions xsi:type="FiniteStateMachine:SystemAction" title="Send Event" category="State Machine">
+        <parameters name="Event Target" value="Game Object FSM"/>
+        <parameters name="Send Event" value="22:deliver the form to the supervisor"/>
+        <parameters name="Game Object" value="Student_lane"/>
+        <parameters name="FSM Name" value="Student:Lane"/>
+      </actions>
+      <events xsi:type="FiniteStateMachine:CoreEvents" name="FINISHED">
+        <triggerTransition xsi:type="FiniteStateMachine:LocalTransition" target="/7/@states.6" sourceState="/7/@states.8"/>
+      </events>
+    </states>
+    <states name="126 alt"/>
+  </FiniteStateMachine:StateMachine>
+  <FiniteStateMachine:StateMachine name="form_rejection" ownerObject="Supervisor">
+    <systemEvents xsi:type="FiniteStateMachine:CoreEvents">
+      <triggerTransition xsi:type="FiniteStateMachine:LocalTransition" target="/8/@states.0"/>
+    </systemEvents>
+    <states name="154 Received" isStartState="true">
+      <events xsi:type="FiniteStateMachine:CoreEvents" name="FINISHED">
+        <triggerTransition xsi:type="FiniteStateMachine:LocalTransition" target="/8/@states.1" sourceState="/8/@states.0"/>
+      </events>
+    </states>
+    <states name="24 Performed">
+      <actions xsi:type="FiniteStateMachine:CustomAction" title="/24:student look at the paper"/>
+      <actions xsi:type="FiniteStateMachine:SystemAction" title="Send Event" category="State Machine">
+        <parameters name="Event Target" value="Game Object FSM"/>
+        <parameters name="Send Event" value="24:student look at the paper"/>
+        <parameters name="Game Object" value="Student"/>
+        <parameters name="FSM Name" value="change_definition_form"/>
+      </actions>
+      <events xsi:type="FiniteStateMachine:CustomEvent" name="51:color the form to red" isGlobal="true">
+        <triggerTransition xsi:type="FiniteStateMachine:LocalTransition" target="/8/@states.2" sourceState="/8/@states.1"/>
+      </events>
+    </states>
+    <states name="51 Received">
+      <events xsi:type="FiniteStateMachine:CoreEvents" name="FINISHED">
+        <triggerTransition xsi:type="FiniteStateMachine:LocalTransition" target="/8/@states.3" sourceState="/8/@states.2"/>
+      </events>
+    </states>
+    <states name="52 Performed">
+      <actions xsi:type="FiniteStateMachine:CustomAction" title="/52:highlights wrong fields of the saved form"/>
+      <actions xsi:type="FiniteStateMachine:SystemAction" title="Send Event" category="State Machine">
+        <parameters name="Event Target" value="Self"/>
+        <parameters name="Send Event" value="52:highlights wrong fields of the saved form"/>
+      </actions>
+      <events xsi:type="FiniteStateMachine:CustomEvent" name="52:highlights wrong fields of the saved form">
+        <triggerTransition xsi:type="FiniteStateMachine:LocalTransition" target="/8/@states.4" sourceState="/8/@states.3"/>
+      </events>
+    </states>
+    <states name="52 Received">
+      <events xsi:type="FiniteStateMachine:CoreEvents" name="FINISHED">
+        <triggerTransition xsi:type="FiniteStateMachine:LocalTransition" target="/8/@states.5" sourceState="/8/@states.4"/>
+      </events>
+    </states>
+    <states name="53 Performed">
+      <actions xsi:type="FiniteStateMachine:CustomAction" title="/53:return form paper to the student"/>
+      <actions xsi:type="FiniteStateMachine:SystemAction" title="Send Event" category="State Machine">
+        <parameters name="Event Target" value="Self"/>
+        <parameters name="Send Event" value="53:return form paper to the student"/>
+      </actions>
+      <events xsi:type="FiniteStateMachine:CustomEvent" name="53:return form paper to the student">
+        <triggerTransition xsi:type="FiniteStateMachine:LocalTransition" target="/8/@states.6" sourceState="/8/@states.5"/>
+      </events>
+    </states>
+    <states name="53 Received">
+      <events xsi:type="FiniteStateMachine:CoreEvents" name="FINISHED">
+        <triggerTransition xsi:type="FiniteStateMachine:LocalTransition" target="/8/@states.7" sourceState="/8/@states.6"/>
+      </events>
+    </states>
+    <states name="54 Performed">
+      <actions xsi:type="FiniteStateMachine:CustomAction" title="/54:call Task4 of BP component"/>
+      <actions xsi:type="FiniteStateMachine:SystemAction" title="Send Event" category="State Machine">
+        <parameters name="Event Target" value="Self"/>
+        <parameters name="Send Event" value="54:call Task4 of BP component"/>
+      </actions>
+      <events xsi:type="FiniteStateMachine:CustomEvent" name="54:call Task4 of BP component">
+        <triggerTransition xsi:type="FiniteStateMachine:LocalTransition" target="/8/@states.8" sourceState="/8/@states.7"/>
+      </events>
+    </states>
+    <states name="54 Received">
+      <events xsi:type="FiniteStateMachine:CoreEvents" name="FINISHED">
+        <triggerTransition xsi:type="FiniteStateMachine:LocalTransition" target="/8/@states.11" sourceState="/8/@states.8"/>
+      </events>
+    </states>
+    <states name="155 Performed">
+      <actions xsi:type="FiniteStateMachine:CustomAction" title="/155:changeState(condition)"/>
+      <actions xsi:type="FiniteStateMachine:SystemAction" title="Send Event" category="State Machine">
+        <parameters name="Event Target" value="Self"/>
+        <parameters name="Send Event" value="155:changeState(condition)"/>
+      </actions>
+      <events xsi:type="FiniteStateMachine:CustomEvent" name="155:changeState(condition)">
+        <triggerTransition xsi:type="FiniteStateMachine:LocalTransition" target="/8/@states.10" sourceState="/8/@states.9"/>
+      </events>
+    </states>
+    <states name="155 Received">
+      <events xsi:type="FiniteStateMachine:CoreEvents" name="FINISHED">
+        <triggerTransition xsi:type="FiniteStateMachine:LocalTransition" target="/8/@states.12" sourceState="/8/@states.10"/>
+      </events>
+    </states>
+    <states name="55 Performed">
+      <actions xsi:type="FiniteStateMachine:CustomAction" title="/55:change definition form"/>
+      <actions xsi:type="FiniteStateMachine:SystemAction" title="Send Event" category="State Machine">
+        <parameters name="Event Target" value="Game Object FSM"/>
+        <parameters name="Send Event" value="55:change definition form"/>
+        <parameters name="Game Object" value="Student_lane"/>
+        <parameters name="FSM Name" value="Student:Lane"/>
+      </actions>
+      <events xsi:type="FiniteStateMachine:CoreEvents" name="FINISHED">
+        <triggerTransition xsi:type="FiniteStateMachine:LocalTransition" target="/8/@states.9" sourceState="/8/@states.11"/>
+      </events>
+    </states>
+    <states name="156 alt"/>
+  </FiniteStateMachine:StateMachine>
+  <FiniteStateMachine:StateMachine name="change_definition_form" ownerObject="Student">
+    <systemEvents xsi:type="FiniteStateMachine:CoreEvents">
+      <triggerTransition xsi:type="FiniteStateMachine:LocalTransition" target="/9/@states.0"/>
+    </systemEvents>
+    <states name="Start" isStartState="true">
+      <events xsi:type="FiniteStateMachine:CustomEvent" name="24:student look at the paper" isGlobal="true">
+        <triggerTransition xsi:type="FiniteStateMachine:LocalTransition" target="/9/@states.1" sourceState="/9/@states.0"/>
+      </events>
+    </states>
+    <states name="24 Received">
+      <events xsi:type="FiniteStateMachine:CoreEvents" name="FINISHED">
+        <triggerTransition xsi:type="FiniteStateMachine:LocalTransition" target="/9/@states.2" sourceState="/9/@states.1"/>
+      </events>
+    </states>
+    <states name="25 Performed">
+      <actions xsi:type="FiniteStateMachine:CustomAction" title="/25:leave supervisor room"/>
+      <actions xsi:type="FiniteStateMachine:SystemAction" title="Send Event" category="State Machine">
+        <parameters name="Event Target" value="Self"/>
+        <parameters name="Send Event" value="25:leave supervisor room"/>
+      </actions>
+      <events xsi:type="FiniteStateMachine:CustomEvent" name="25:leave supervisor room">
+        <triggerTransition xsi:type="FiniteStateMachine:LocalTransition" target="/9/@states.3" sourceState="/9/@states.2"/>
+      </events>
+    </states>
+    <states name="25 Received">
+      <events xsi:type="FiniteStateMachine:CoreEvents" name="FINISHED">
+        <triggerTransition xsi:type="FiniteStateMachine:LocalTransition" target="/9/@states.6" sourceState="/9/@states.3"/>
+      </events>
+    </states>
+    <states name="130 Performed">
+      <actions xsi:type="FiniteStateMachine:CustomAction" title="/130:changeState(condition)"/>
+      <actions xsi:type="FiniteStateMachine:SystemAction" title="Send Event" category="State Machine">
+        <parameters name="Event Target" value="Self"/>
+        <parameters name="Send Event" value="130:changeState(condition)"/>
+      </actions>
+      <events xsi:type="FiniteStateMachine:CustomEvent" name="130:changeState(condition)">
+        <triggerTransition xsi:type="FiniteStateMachine:LocalTransition" target="/9/@states.5" sourceState="/9/@states.4"/>
+      </events>
+    </states>
+    <states name="130 Received">
+      <events xsi:type="FiniteStateMachine:CoreEvents" name="FINISHED">
+        <triggerTransition xsi:type="FiniteStateMachine:LocalTransition" target="/9/@states.7" sourceState="/9/@states.5"/>
+      </events>
+    </states>
+    <states name="26 Performed">
+      <actions xsi:type="FiniteStateMachine:CustomAction" title="/26:show highlighted form screen"/>
+      <actions xsi:type="FiniteStateMachine:SystemAction" title="Send Event" category="State Machine">
+        <parameters name="Event Target" value="Game Object FSM"/>
+        <parameters name="Send Event" value="26:show highlighted form screen"/>
+        <parameters name="Game Object" value="Student"/>
+        <parameters name="FSM Name" value="Form_wrong_sections_query"/>
+      </actions>
+      <events xsi:type="FiniteStateMachine:CoreEvents" name="FINISHED">
+        <triggerTransition xsi:type="FiniteStateMachine:LocalTransition" target="/9/@states.4" sourceState="/9/@states.6"/>
+      </events>
+    </states>
+    <states name="131 alt">
+      <actions xsi:type="FiniteStateMachine:CustomAction" title="check transition constraint">
+        <parameters name="[!not Defined]"/>
+      </actions>
+      <events xsi:type="FiniteStateMachine:CoreEvents" name="FINISHED">
+        <triggerTransition xsi:type="FiniteStateMachine:LocalTransition" target="/9/@states.8" sourceState="/9/@states.7"/>
+      </events>
+    </states>
+    <states name="132 Performed">
+      <actions xsi:type="FiniteStateMachine:SystemAction" title="Enable FSM" category="State Machine">
+        <parameters name="Game Object" value="Student"/>
+        <parameters name="Fsm Name" value="Form_wrong_sections_query"/>
+        <parameters name="Enable" value="true"/>
+      </actions>
+    </states>
+  </FiniteStateMachine:StateMachine>
+  <FiniteStateMachine:StateMachine name="Form_wrong_sections_query" ownerObject="Student">
+    <systemEvents xsi:type="FiniteStateMachine:CoreEvents">
+      <triggerTransition xsi:type="FiniteStateMachine:LocalTransition" target="/10/@states.0"/>
+    </systemEvents>
+    <states name="132 Received" isStartState="true">
+      <events xsi:type="FiniteStateMachine:CustomEvent" name="26:show highlighted form screen" isGlobal="true">
+        <triggerTransition xsi:type="FiniteStateMachine:LocalTransition" target="/10/@states.1" sourceState="/10/@states.0"/>
+      </events>
+    </states>
+    <states name="26 Received">
+      <events xsi:type="FiniteStateMachine:CoreEvents" name="FINISHED">
+        <triggerTransition xsi:type="FiniteStateMachine:LocalTransition" target="/10/@states.6" sourceState="/10/@states.1"/>
+      </events>
+    </states>
+    <states name="28 Performed">
+      <actions xsi:type="FiniteStateMachine:CustomAction" title="/28:player edits each wrong sections"/>
+      <actions xsi:type="FiniteStateMachine:SystemAction" title="Send Event" category="State Machine">
+        <parameters name="Event Target" value="Self"/>
+        <parameters name="Send Event" value="28:player edits each wrong sections"/>
+      </actions>
+      <events xsi:type="FiniteStateMachine:CustomEvent" name="28:player edits each wrong sections">
+        <triggerTransition xsi:type="FiniteStateMachine:LocalTransition" target="/10/@states.3" sourceState="/10/@states.2"/>
+      </events>
+    </states>
+    <states name="28 Received">
+      <events xsi:type="FiniteStateMachine:CoreEvents" name="FINISHED">
+        <triggerTransition xsi:type="FiniteStateMachine:LocalTransition" target="/10/@states.7" sourceState="/10/@states.3"/>
+      </events>
+    </states>
+    <states name="133 Performed">
+      <actions xsi:type="FiniteStateMachine:CustomAction" title="/133:changeState(condition)"/>
+      <actions xsi:type="FiniteStateMachine:SystemAction" title="Send Event" category="State Machine">
+        <parameters name="Event Target" value="Self"/>
+        <parameters name="Send Event" value="133:changeState(condition)"/>
+      </actions>
+      <events xsi:type="FiniteStateMachine:CustomEvent" name="133:changeState(condition)">
+        <triggerTransition xsi:type="FiniteStateMachine:LocalTransition" target="/10/@states.5" sourceState="/10/@states.4"/>
+      </events>
+    </states>
+    <states name="133 Received">
+      <events xsi:type="FiniteStateMachine:CoreEvents" name="FINISHED">
+        <triggerTransition xsi:type="FiniteStateMachine:LocalTransition" target="/10/@states.8" sourceState="/10/@states.5"/>
+      </events>
+    </states>
+    <states name="27 Performed">
+      <actions xsi:type="FiniteStateMachine:CustomAction" title="/27:show"/>
+      <actions xsi:type="FiniteStateMachine:SystemAction" title="Send Event" category="State Machine">
+        <parameters name="Event Target" value="Game Object FSM"/>
+        <parameters name="Send Event" value="27:show"/>
+        <parameters name="Game Object" value="highlighted form"/>
+        <parameters name="FSM Name" value="highlighted_form"/>
+      </actions>
+      <events xsi:type="FiniteStateMachine:CoreEvents" name="FINISHED">
+        <triggerTransition xsi:type="FiniteStateMachine:LocalTransition" target="/10/@states.2" sourceState="/10/@states.6"/>
+      </events>
+    </states>
+    <states name="87 Performed">
+      <actions xsi:type="FiniteStateMachine:CustomAction" title="/87:save updated form in player log(constraint)"/>
+      <actions xsi:type="FiniteStateMachine:SystemAction" title="Send Event" category="State Machine">
+        <parameters name="Event Target" value="Game Object FSM"/>
+        <parameters name="Send Event" value="87:save updated form in player log(constraint)"/>
+        <parameters name="Game Object" value="form Paper"/>
+        <parameters name="FSM Name" value="form_updating"/>
+      </actions>
+      <events xsi:type="FiniteStateMachine:CoreEvents" name="FINISHED">
+        <triggerTransition xsi:type="FiniteStateMachine:LocalTransition" target="/10/@states.4" sourceState="/10/@states.7"/>
+      </events>
+    </states>
+    <states name="134 alt">
+      <actions xsi:type="FiniteStateMachine:CustomAction" title="check transition constraint">
+        <parameters name="[!not Defined]"/>
+      </actions>
+      <events xsi:type="FiniteStateMachine:CoreEvents" name="FINISHED">
+        <triggerTransition xsi:type="FiniteStateMachine:LocalTransition" target="/10/@states.9" sourceState="/10/@states.8"/>
+      </events>
+    </states>
+    <states name="135 Performed">
+      <actions xsi:type="FiniteStateMachine:SystemAction" title="Enable FSM" category="State Machine">
+        <parameters name="Game Object" value="form Paper"/>
+        <parameters name="Fsm Name" value="form_updating"/>
+        <parameters name="Enable" value="true"/>
+      </actions>
+    </states>
+  </FiniteStateMachine:StateMachine>
+  <FiniteStateMachine:StateMachine name="URL_query" ownerObject="Student">
+    <systemEvents xsi:type="FiniteStateMachine:CoreEvents">
+      <triggerTransition xsi:type="FiniteStateMachine:LocalTransition" target="/11/@states.0"/>
+    </systemEvents>
+    <states name="115 Received" isStartState="true">
+      <events xsi:type="FiniteStateMachine:CustomEvent" name="29:show URL Query screen" isGlobal="true">
+        <triggerTransition xsi:type="FiniteStateMachine:LocalTransition" target="/11/@states.1" sourceState="/11/@states.0"/>
+      </events>
+    </states>
+    <states name="29 Received">
+      <events xsi:type="FiniteStateMachine:CoreEvents" name="FINISHED">
+        <triggerTransition xsi:type="FiniteStateMachine:LocalTransition" target="/11/@states.6" sourceState="/11/@states.1"/>
+      </events>
+    </states>
+    <states name="31 Performed">
+      <actions xsi:type="FiniteStateMachine:CustomAction" title="/31:select a URL from list"/>
+      <actions xsi:type="FiniteStateMachine:SystemAction" title="Send Event" category="State Machine">
+        <parameters name="Event Target" value="Self"/>
+        <parameters name="Send Event" value="31:select a URL from list"/>
+      </actions>
+      <events xsi:type="FiniteStateMachine:CustomEvent" name="31:select a URL from list">
+        <triggerTransition xsi:type="FiniteStateMachine:LocalTransition" target="/11/@states.3" sourceState="/11/@states.2"/>
+      </events>
+    </states>
+    <states name="31 Received">
+      <events xsi:type="FiniteStateMachine:CoreEvents" name="FINISHED">
+        <triggerTransition xsi:type="FiniteStateMachine:LocalTransition" target="/11/@states.7" sourceState="/11/@states.3"/>
+      </events>
+    </states>
+    <states name="136 Performed">
+      <actions xsi:type="FiniteStateMachine:CustomAction" title="/136:changeState(condition)"/>
+      <actions xsi:type="FiniteStateMachine:SystemAction" title="Send Event" category="State Machine">
+        <parameters name="Event Target" value="Self"/>
+        <parameters name="Send Event" value="136:changeState(condition)"/>
+      </actions>
+      <events xsi:type="FiniteStateMachine:CustomEvent" name="136:changeState(condition)">
+        <triggerTransition xsi:type="FiniteStateMachine:LocalTransition" target="/11/@states.5" sourceState="/11/@states.4"/>
+      </events>
+    </states>
+    <states name="136 Received">
+      <events xsi:type="FiniteStateMachine:CoreEvents" name="FINISHED">
+        <triggerTransition xsi:type="FiniteStateMachine:LocalTransition" target="/11/@states.8" sourceState="/11/@states.5"/>
+      </events>
+    </states>
+    <states name="30 Performed">
+      <actions xsi:type="FiniteStateMachine:CustomAction" title="/30:show"/>
+      <actions xsi:type="FiniteStateMachine:SystemAction" title="Send Event" category="State Machine">
+        <parameters name="Event Target" value="Self"/>
+        <parameters name="Send Event" value="30:show"/>
+      </actions>
+      <events xsi:type="FiniteStateMachine:CoreEvents" name="FINISHED">
+        <triggerTransition xsi:type="FiniteStateMachine:LocalTransition" target="/11/@states.2" sourceState="/11/@states.6"/>
+      </events>
+    </states>
+    <states name="32 Performed">
+      <actions xsi:type="FiniteStateMachine:CustomAction" title="/32:ask task1 of BP component for correct answer"/>
+      <actions xsi:type="FiniteStateMachine:SystemAction" title="Send Event" category="State Machine">
+        <parameters name="Event Target" value="Game Object FSM"/>
+        <parameters name="Send Event" value="32:ask task1 of BP component for correct answer"/>
+        <parameters name="Game Object" value="Student"/>
+        <parameters name="FSM Name" value="check_URL_challenge_response"/>
+      </actions>
+      <events xsi:type="FiniteStateMachine:CoreEvents" name="FINISHED">
+        <triggerTransition xsi:type="FiniteStateMachine:LocalTransition" target="/11/@states.4" sourceState="/11/@states.7"/>
+      </events>
+    </states>
+    <states name="137 alt">
+      <actions xsi:type="FiniteStateMachine:CustomAction" title="check transition constraint">
+        <parameters name="[!not Defined]"/>
+      </actions>
+      <events xsi:type="FiniteStateMachine:CoreEvents" name="FINISHED">
+        <triggerTransition xsi:type="FiniteStateMachine:LocalTransition" target="/11/@states.9" sourceState="/11/@states.8"/>
+      </events>
+    </states>
+    <states name="138 Performed">
+      <actions xsi:type="FiniteStateMachine:SystemAction" title="Enable FSM" category="State Machine">
+        <parameters name="Game Object" value="Student"/>
+        <parameters name="Fsm Name" value="check_URL_challenge_response"/>
+        <parameters name="Enable" value="true"/>
+      </actions>
+    </states>
+  </FiniteStateMachine:StateMachine>
+  <FiniteStateMachine:StateMachine name="show_URL_challenge_result" ownerObject="Student">
+    <systemEvents xsi:type="FiniteStateMachine:CoreEvents">
+      <triggerTransition xsi:type="FiniteStateMachine:LocalTransition" target="/12/@states.0"/>
+    </systemEvents>
+    <states name="141 Received" isStartState="true">
+      <events xsi:type="FiniteStateMachine:CoreEvents" name="FINISHED">
+        <triggerTransition xsi:type="FiniteStateMachine:LocalTransition" target="/12/@states.1" sourceState="/12/@states.0"/>
+      </events>
+    </states>
+    <states name="34 Performed">
+      <actions xsi:type="FiniteStateMachine:CustomAction" title="/34:show URL challenge result screen "/>
+      <actions xsi:type="FiniteStateMachine:SystemAction" title="Send Event" category="State Machine">
+        <parameters name="Event Target" value="Self"/>
+        <parameters name="Send Event" value="34:show URL challenge result screen "/>
+      </actions>
+      <events xsi:type="FiniteStateMachine:CustomEvent" name="34:show URL challenge result screen ">
+        <triggerTransition xsi:type="FiniteStateMachine:LocalTransition" target="/12/@states.2" sourceState="/12/@states.1"/>
+      </events>
+    </states>
+    <states name="34 Received">
+      <events xsi:type="FiniteStateMachine:CoreEvents" name="FINISHED">
+        <triggerTransition xsi:type="FiniteStateMachine:LocalTransition" target="/12/@states.5" sourceState="/12/@states.2"/>
+      </events>
+    </states>
+    <states name="142 Performed">
+      <actions xsi:type="FiniteStateMachine:CustomAction" title="/142:changeState(condition)"/>
+      <actions xsi:type="FiniteStateMachine:SystemAction" title="Send Event" category="State Machine">
+        <parameters name="Event Target" value="Self"/>
+        <parameters name="Send Event" value="142:changeState(condition)"/>
+      </actions>
+      <events xsi:type="FiniteStateMachine:CustomEvent" name="142:changeState(condition)">
+        <triggerTransition xsi:type="FiniteStateMachine:LocalTransition" target="/12/@states.4" sourceState="/12/@states.3"/>
+      </events>
+    </states>
+    <states name="142 Received">
+      <events xsi:type="FiniteStateMachine:CoreEvents" name="FINISHED">
+        <triggerTransition xsi:type="FiniteStateMachine:LocalTransition" target="/12/@states.6" sourceState="/12/@states.4"/>
+      </events>
+    </states>
+    <states name="35 Performed">
+      <actions xsi:type="FiniteStateMachine:CustomAction" title="/35:show"/>
+      <actions xsi:type="FiniteStateMachine:SystemAction" title="Send Event" category="State Machine">
+        <parameters name="Event Target" value="Game Object FSM"/>
+        <parameters name="Send Event" value="35:show"/>
+        <parameters name="Game Object" value="URL challenge result"/>
+        <parameters name="FSM Name" value="URL_challenge_result"/>
+      </actions>
+      <events xsi:type="FiniteStateMachine:CoreEvents" name="FINISHED">
+        <triggerTransition xsi:type="FiniteStateMachine:LocalTransition" target="/12/@states.3" sourceState="/12/@states.5"/>
+      </events>
+    </states>
+    <states name="143 alt">
+      <actions xsi:type="FiniteStateMachine:CustomAction" title="check transition constraint">
+        <parameters name="[!not Defined]"/>
+      </actions>
+      <events xsi:type="FiniteStateMachine:CoreEvents" name="FINISHED">
+        <triggerTransition xsi:type="FiniteStateMachine:LocalTransition" target="/12/@states.7" sourceState="/12/@states.6"/>
+      </events>
+    </states>
+    <states name="144 Performed">
+      <actions xsi:type="FiniteStateMachine:SystemAction" title="Enable FSM" category="State Machine">
+        <parameters name="Game Object" value="Student"/>
+        <parameters name="Fsm Name" value="URL_challenge_finished"/>
+        <parameters name="Enable" value="true"/>
+      </actions>
+    </states>
+  </FiniteStateMachine:StateMachine>
+  <FiniteStateMachine:StateMachine name="form_delivery" ownerObject="Student">
+    <systemEvents xsi:type="FiniteStateMachine:CoreEvents">
+      <triggerTransition xsi:type="FiniteStateMachine:LocalTransition" target="/13/@states.0"/>
+    </systemEvents>
+    <states name="Start" isStartState="true">
+      <events xsi:type="FiniteStateMachine:CustomEvent" name="23:give the form to the supervisor character" isGlobal="true" isPlayerRequest="true">
+        <triggerTransition xsi:type="FiniteStateMachine:LocalTransition" target="/13/@states.1" sourceState="/13/@states.0"/>
+      </events>
+    </states>
+    <states name="23 Received">
+      <events xsi:type="FiniteStateMachine:CoreEvents" name="FINISHED">
+        <triggerTransition xsi:type="FiniteStateMachine:LocalTransition" target="/13/@states.4" sourceState="/13/@states.1"/>
+      </events>
+    </states>
+    <states name="127 Performed">
+      <actions xsi:type="FiniteStateMachine:CustomAction" title="/127:changeState(condition)"/>
+      <actions xsi:type="FiniteStateMachine:SystemAction" title="Send Event" category="State Machine">
+        <parameters name="Event Target" value="Self"/>
+        <parameters name="Send Event" value="127:changeState(condition)"/>
+      </actions>
+      <events xsi:type="FiniteStateMachine:CustomEvent" name="127:changeState(condition)">
+        <triggerTransition xsi:type="FiniteStateMachine:LocalTransition" target="/13/@states.3" sourceState="/13/@states.2"/>
+      </events>
+    </states>
+    <states name="127 Received">
+      <events xsi:type="FiniteStateMachine:CoreEvents" name="FINISHED">
+        <triggerTransition xsi:type="FiniteStateMachine:LocalTransition" target="/13/@states.5" sourceState="/13/@states.3"/>
+      </events>
+    </states>
+    <states name="36 Performed">
+      <actions xsi:type="FiniteStateMachine:CustomAction" title="/36:supervisor taking the paper"/>
+      <actions xsi:type="FiniteStateMachine:SystemAction" title="Send Event" category="State Machine">
+        <parameters name="Event Target" value="Game Object FSM"/>
+        <parameters name="Send Event" value="36:supervisor taking the paper"/>
+        <parameters name="Game Object" value="Supervisor"/>
+        <parameters name="FSM Name" value="form_taking"/>
+      </actions>
+      <events xsi:type="FiniteStateMachine:CoreEvents" name="FINISHED">
+        <triggerTransition xsi:type="FiniteStateMachine:LocalTransition" target="/13/@states.2" sourceState="/13/@states.4"/>
+      </events>
+    </states>
+    <states name="128 alt">
+      <actions xsi:type="FiniteStateMachine:CustomAction" title="check transition constraint">
+        <parameters name="[!not Defined]"/>
+      </actions>
+      <events xsi:type="FiniteStateMachine:CoreEvents" name="FINISHED">
+        <triggerTransition xsi:type="FiniteStateMachine:LocalTransition" target="/13/@states.6" sourceState="/13/@states.5"/>
+      </events>
+    </states>
+    <states name="129 Performed">
+      <actions xsi:type="FiniteStateMachine:SystemAction" title="Enable FSM" category="State Machine">
+        <parameters name="Game Object" value="Supervisor"/>
+        <parameters name="Fsm Name" value="form_taking"/>
+        <parameters name="Enable" value="true"/>
+      </actions>
+    </states>
+  </FiniteStateMachine:StateMachine>
+  <FiniteStateMachine:StateMachine name="form_taking" ownerObject="Supervisor">
+    <systemEvents xsi:type="FiniteStateMachine:CoreEvents">
+      <triggerTransition xsi:type="FiniteStateMachine:LocalTransition" target="/14/@states.0"/>
+    </systemEvents>
+    <states name="129 Received" isStartState="true">
+      <events xsi:type="FiniteStateMachine:CustomEvent" name="36:supervisor taking the paper" isGlobal="true">
+        <triggerTransition xsi:type="FiniteStateMachine:LocalTransition" target="/14/@states.1" sourceState="/14/@states.0"/>
+      </events>
+    </states>
+    <states name="36 Received">
+      <events xsi:type="FiniteStateMachine:CoreEvents" name="FINISHED">
+        <triggerTransition xsi:type="FiniteStateMachine:LocalTransition" target="/14/@states.2" sourceState="/14/@states.1"/>
+      </events>
+    </states>
+    <states name="37 Performed">
+      <actions xsi:type="FiniteStateMachine:CustomAction" title="/37:call Task3 of BP component"/>
+      <actions xsi:type="FiniteStateMachine:SystemAction" title="Send Event" category="State Machine">
+        <parameters name="Event Target" value="Self"/>
+        <parameters name="Send Event" value="37:call Task3 of BP component"/>
+      </actions>
+      <events xsi:type="FiniteStateMachine:CustomEvent" name="37:call Task3 of BP component">
+        <triggerTransition xsi:type="FiniteStateMachine:LocalTransition" target="/14/@states.3" sourceState="/14/@states.2"/>
+      </events>
+    </states>
+    <states name="37 Received">
+      <events xsi:type="FiniteStateMachine:CoreEvents" name="FINISHED">
+        <triggerTransition xsi:type="FiniteStateMachine:LocalTransition" target="/14/@states.4" sourceState="/14/@states.3"/>
+      </events>
+    </states>
+    <states name="38 Performed">
+      <actions xsi:type="FiniteStateMachine:CustomAction" title="/38:form completeness checking"/>
+      <actions xsi:type="FiniteStateMachine:SystemAction" title="Send Event" category="State Machine">
+        <parameters name="Event Target" value="Game Object FSM"/>
+        <parameters name="Send Event" value="38:form completeness checking"/>
+        <parameters name="Game Object" value="Supervisor_lane"/>
+        <parameters name="FSM Name" value="Supervisor:Lane"/>
+      </actions>
+      <events xsi:type="FiniteStateMachine:CustomEvent" name="40:return (correctOutputs)" isGlobal="true">
+        <triggerTransition xsi:type="FiniteStateMachine:LocalTransition" target="/14/@states.5" sourceState="/14/@states.4"/>
+      </events>
+    </states>
+    <states name="40 Received">
+      <events xsi:type="FiniteStateMachine:CoreEvents" name="FINISHED">
+        <triggerTransition xsi:type="FiniteStateMachine:LocalTransition" target="/14/@states.8" sourceState="/14/@states.5"/>
+      </events>
+    </states>
+    <states name="145 Performed">
+      <actions xsi:type="FiniteStateMachine:CustomAction" title="/145:changeState(condition)"/>
+      <actions xsi:type="FiniteStateMachine:SystemAction" title="Send Event" category="State Machine">
+        <parameters name="Event Target" value="Self"/>
+        <parameters name="Send Event" value="145:changeState(condition)"/>
+      </actions>
+      <events xsi:type="FiniteStateMachine:CustomEvent" name="145:changeState(condition)">
+        <triggerTransition xsi:type="FiniteStateMachine:LocalTransition" target="/14/@states.7" sourceState="/14/@states.6"/>
+      </events>
+    </states>
+    <states name="145 Received">
+      <events xsi:type="FiniteStateMachine:CoreEvents" name="FINISHED">
+        <triggerTransition xsi:type="FiniteStateMachine:LocalTransition" target="/14/@states.9" sourceState="/14/@states.7"/>
+      </events>
+    </states>
+    <states name="41 Performed">
+      <actions xsi:type="FiniteStateMachine:CustomAction" title="/41:look at the paper"/>
+      <actions xsi:type="FiniteStateMachine:SystemAction" title="Send Event" category="State Machine">
+        <parameters name="Event Target" value="Game Object FSM"/>
+        <parameters name="Send Event" value="41:look at the paper"/>
+        <parameters name="Game Object" value="Supervisor"/>
+        <parameters name="FSM Name" value="form_completeness_checking"/>
+      </actions>
+      <events xsi:type="FiniteStateMachine:CoreEvents" name="FINISHED">
+        <triggerTransition xsi:type="FiniteStateMachine:LocalTransition" target="/14/@states.6" sourceState="/14/@states.8"/>
+      </events>
+    </states>
+    <states name="146 alt">
+      <actions xsi:type="FiniteStateMachine:CustomAction" title="check transition constraint">
+        <parameters name="[!not Defined]"/>
+      </actions>
+      <events xsi:type="FiniteStateMachine:CoreEvents" name="FINISHED">
+        <triggerTransition xsi:type="FiniteStateMachine:LocalTransition" target="/14/@states.10" sourceState="/14/@states.9"/>
+      </events>
+    </states>
+    <states name="147 Performed">
+      <actions xsi:type="FiniteStateMachine:SystemAction" title="Enable FSM" category="State Machine">
+        <parameters name="Game Object" value="Supervisor"/>
+        <parameters name="Fsm Name" value="form_completeness_checking"/>
+        <parameters name="Enable" value="true"/>
+      </actions>
+    </states>
+  </FiniteStateMachine:StateMachine>
+  <FiniteStateMachine:StateMachine name="form_completeness_checking" ownerObject="Supervisor">
+    <systemEvents xsi:type="FiniteStateMachine:CoreEvents">
+      <triggerTransition xsi:type="FiniteStateMachine:LocalTransition" target="/15/@states.0"/>
+    </systemEvents>
+    <states name="147 Received" isStartState="true">
+      <events xsi:type="FiniteStateMachine:CustomEvent" name="41:look at the paper" isGlobal="true">
+        <triggerTransition xsi:type="FiniteStateMachine:LocalTransition" target="/15/@states.1" sourceState="/15/@states.0"/>
+      </events>
+    </states>
+    <states name="41 Received">
+      <events xsi:type="FiniteStateMachine:CoreEvents" name="FINISHED">
+        <triggerTransition xsi:type="FiniteStateMachine:LocalTransition" target="/15/@states.4" sourceState="/15/@states.1"/>
+      </events>
+    </states>
+    <states name="148 Performed">
+      <actions xsi:type="FiniteStateMachine:CustomAction" title="/148:changeState(condition)"/>
+      <actions xsi:type="FiniteStateMachine:SystemAction" title="Send Event" category="State Machine">
+        <parameters name="Event Target" value="Self"/>
+        <parameters name="Send Event" value="148:changeState(condition)"/>
+      </actions>
+      <events xsi:type="FiniteStateMachine:CustomEvent" name="148:changeState(condition)">
+        <triggerTransition xsi:type="FiniteStateMachine:LocalTransition" target="/15/@states.3" sourceState="/15/@states.2"/>
+      </events>
+    </states>
+    <states name="148 Received">
+      <events xsi:type="FiniteStateMachine:CoreEvents" name="FINISHED">
+        <triggerTransition xsi:type="FiniteStateMachine:LocalTransition" target="/15/@states.5" sourceState="/15/@states.3"/>
+      </events>
+    </states>
+    <states name="42 Performed">
+      <actions xsi:type="FiniteStateMachine:CustomAction" title="/42:call Gateway1 of BP component"/>
+      <actions xsi:type="FiniteStateMachine:SystemAction" title="Send Event" category="State Machine">
+        <parameters name="Event Target" value="Game Object FSM"/>
+        <parameters name="Send Event" value="42:call Gateway1 of BP component"/>
+        <parameters name="Game Object" value="Supervisor"/>
+        <parameters name="FSM Name" value="form_correctness_checking"/>
+      </actions>
+      <events xsi:type="FiniteStateMachine:CoreEvents" name="FINISHED">
+        <triggerTransition xsi:type="FiniteStateMachine:LocalTransition" target="/15/@states.2" sourceState="/15/@states.4"/>
+      </events>
+    </states>
+    <states name="149 alt">
+      <actions xsi:type="FiniteStateMachine:CustomAction" title="check transition constraint">
+        <parameters name="[!not Defined]"/>
+      </actions>
+      <events xsi:type="FiniteStateMachine:CoreEvents" name="FINISHED">
+        <triggerTransition xsi:type="FiniteStateMachine:LocalTransition" target="/15/@states.6" sourceState="/15/@states.5"/>
+      </events>
+    </states>
+    <states name="150 Performed">
+      <actions xsi:type="FiniteStateMachine:SystemAction" title="Enable FSM" category="State Machine">
+        <parameters name="Game Object" value="Supervisor"/>
+        <parameters name="Fsm Name" value="form_correctness_checking"/>
+        <parameters name="Enable" value="true"/>
+      </actions>
+    </states>
+  </FiniteStateMachine:StateMachine>
+  <FiniteStateMachine:StateMachine name="form_correctness_checking" ownerObject="Supervisor">
+    <systemEvents xsi:type="FiniteStateMachine:CoreEvents">
+      <triggerTransition xsi:type="FiniteStateMachine:LocalTransition" target="/16/@states.0"/>
+    </systemEvents>
+    <states name="150 Received" isStartState="true">
+      <events xsi:type="FiniteStateMachine:CustomEvent" name="42:call Gateway1 of BP component" isGlobal="true">
+        <triggerTransition xsi:type="FiniteStateMachine:LocalTransition" target="/16/@states.1" sourceState="/16/@states.0"/>
+      </events>
+    </states>
+    <states name="42 Received">
+      <events xsi:type="FiniteStateMachine:CoreEvents" name="FINISHED">
+        <triggerTransition xsi:type="FiniteStateMachine:LocalTransition" target="/16/@states.8" sourceState="/16/@states.1"/>
+      </events>
+    </states>
+    <states name="47 Performed">
+      <actions xsi:type="FiniteStateMachine:CustomAction" title="/47:save result in player log"/>
+      <actions xsi:type="FiniteStateMachine:SystemAction" title="Send Event" category="State Machine">
+        <parameters name="Event Target" value="Self"/>
+        <parameters name="Send Event" value="47:save result in player log"/>
+      </actions>
+      <events xsi:type="FiniteStateMachine:CustomEvent" name="47:save result in player log">
+        <triggerTransition xsi:type="FiniteStateMachine:LocalTransition" target="/16/@states.3" sourceState="/16/@states.2"/>
+      </events>
+    </states>
+    <states name="47 Received">
+      <events xsi:type="FiniteStateMachine:CoreEvents" name="FINISHED">
+        <triggerTransition xsi:type="FiniteStateMachine:LocalTransition" target="/16/@states.9" sourceState="/16/@states.3"/>
+      </events>
+    </states>
+    <states name="49 Performed">
+      <actions xsi:type="FiniteStateMachine:CustomAction" title="/49:run Thesis definition accuracy challenge"/>
+      <actions xsi:type="FiniteStateMachine:SystemAction" title="Send Event" category="State Machine">
+        <parameters name="Event Target" value="Self"/>
+        <parameters name="Send Event" value="49:run Thesis definition accuracy challenge"/>
+      </actions>
+      <events xsi:type="FiniteStateMachine:CustomEvent" name="49:run Thesis definition accuracy challenge">
+        <triggerTransition xsi:type="FiniteStateMachine:LocalTransition" target="/16/@states.5" sourceState="/16/@states.4"/>
+      </events>
+    </states>
+    <states name="49 Received">
+      <events xsi:type="FiniteStateMachine:CoreEvents" name="FINISHED">
+        <triggerTransition xsi:type="FiniteStateMachine:LocalTransition" target="/16/@states.10" sourceState="/16/@states.5"/>
+      </events>
+    </states>
+    <states name="151 Performed">
+      <actions xsi:type="FiniteStateMachine:CustomAction" title="/151:changeState(condition)"/>
+      <actions xsi:type="FiniteStateMachine:SystemAction" title="Send Event" category="State Machine">
+        <parameters name="Event Target" value="Self"/>
+        <parameters name="Send Event" value="151:changeState(condition)"/>
+      </actions>
+      <events xsi:type="FiniteStateMachine:CustomEvent" name="151:changeState(condition)">
+        <triggerTransition xsi:type="FiniteStateMachine:LocalTransition" target="/16/@states.7" sourceState="/16/@states.6"/>
+      </events>
+    </states>
+    <states name="151 Received">
+      <events xsi:type="FiniteStateMachine:CoreEvents" name="FINISHED">
+        <triggerTransition xsi:type="FiniteStateMachine:LocalTransition" target="/16/@states.15" sourceState="/16/@states.7"/>
+      </events>
+    </states>
+    <states name="43 Performed">
+      <actions xsi:type="FiniteStateMachine:CustomAction" title="/43:is the form complete?"/>
+      <actions xsi:type="FiniteStateMachine:SystemAction" title="Send Event" category="State Machine">
+        <parameters name="Event Target" value="Game Object FSM"/>
+        <parameters name="Send Event" value="43:is the form complete?"/>
+        <parameters name="Game Object" value="Supervisor_lane"/>
+        <parameters name="FSM Name" value="Supervisor:Lane"/>
+      </actions>
+      <events xsi:type="FiniteStateMachine:CoreEvents" name="FINISHED">
+        <triggerTransition xsi:type="FiniteStateMachine:LocalTransition" target="/16/@states.2" sourceState="/16/@states.8"/>
+      </events>
+    </states>
+    <states name="48 Performed">
+      <actions xsi:type="FiniteStateMachine:CustomAction" title="/48:!not Defined"/>
+      <actions xsi:type="FiniteStateMachine:SystemAction" title="Send Event" category="State Machine">
+        <parameters name="Event Target" value="Game Object FSM"/>
+        <parameters name="Send Event" value="48:!not Defined"/>
+        <parameters name="Game Object" value="StudentLog"/>
+        <parameters name="FSM Name" value="StudentLog"/>
+      </actions>
+      <events xsi:type="FiniteStateMachine:CoreEvents" name="FINISHED">
+        <triggerTransition xsi:type="FiniteStateMachine:LocalTransition" target="/16/@states.4" sourceState="/16/@states.9"/>
+      </events>
+    </states>
+    <states name="50 Performed">
+      <actions xsi:type="FiniteStateMachine:CustomAction" title="/50:startChallenge"/>
+      <actions xsi:type="FiniteStateMachine:SystemAction" title="Send Event" category="State Machine">
+        <parameters name="Event Target" value="Game Object FSM"/>
+        <parameters name="Send Event" value="50:startChallenge"/>
+        <parameters name="Game Object" value="Student"/>
+        <parameters name="FSM Name" value="Thesis_definition_accuracy"/>
+      </actions>
+      <events xsi:type="FiniteStateMachine:CoreEvents" name="FINISHED">
+        <triggerTransition xsi:type="FiniteStateMachine:LocalTransition" target="/16/@states.11" sourceState="/16/@states.10"/>
+      </events>
+    </states>
+    <states name="51 Performed">
+      <actions xsi:type="FiniteStateMachine:CustomAction" title="/51:color the form to red"/>
+      <actions xsi:type="FiniteStateMachine:SystemAction" title="Send Event" category="State Machine">
+        <parameters name="Event Target" value="Game Object FSM"/>
+        <parameters name="Send Event" value="51:color the form to red"/>
+        <parameters name="Game Object" value="Supervisor"/>
+        <parameters name="FSM Name" value="form_rejection"/>
+      </actions>
+      <events xsi:type="FiniteStateMachine:CoreEvents" name="FINISHED">
+        <triggerTransition xsi:type="FiniteStateMachine:LocalTransition" target="/16/@states.12" sourceState="/16/@states.11"/>
+      </events>
+    </states>
+    <states name="57 Performed">
+      <actions xsi:type="FiniteStateMachine:CustomAction" title="/57:color the form to green"/>
+      <actions xsi:type="FiniteStateMachine:SystemAction" title="Send Event" category="State Machine">
+        <parameters name="Event Target" value="Game Object FSM"/>
+        <parameters name="Send Event" value="57:color the form to green"/>
+        <parameters name="Game Object" value="Supervisor"/>
+        <parameters name="FSM Name" value="form_acceptance"/>
+      </actions>
+      <events xsi:type="FiniteStateMachine:CoreEvents" name="FINISHED">
+        <triggerTransition xsi:type="FiniteStateMachine:LocalTransition" target="/16/@states.13" sourceState="/16/@states.12"/>
+      </events>
+    </states>
+    <states name="91 Performed">
+      <actions xsi:type="FiniteStateMachine:CustomAction" title="/91:recall Task2 of BP component"/>
+      <actions xsi:type="FiniteStateMachine:SystemAction" title="Send Event" category="State Machine">
+        <parameters name="Event Target" value="Game Object FSM"/>
+        <parameters name="Send Event" value="91:recall Task2 of BP component"/>
+        <parameters name="Game Object" value="form Paper"/>
+        <parameters name="FSM Name" value="form_updating"/>
+      </actions>
+      <events xsi:type="FiniteStateMachine:CoreEvents" name="FINISHED">
+        <triggerTransition xsi:type="FiniteStateMachine:LocalTransition" target="/16/@states.14" sourceState="/16/@states.13"/>
+      </events>
+    </states>
+    <states name="100 Performed">
+      <actions xsi:type="FiniteStateMachine:CustomAction" title="/100:runScoringRule"/>
+      <actions xsi:type="FiniteStateMachine:SystemAction" title="Send Event" category="State Machine">
+        <parameters name="Event Target" value="Game Object FSM"/>
+        <parameters name="Send Event" value="100:runScoringRule"/>
+        <parameters name="Game Object" value="Student"/>
+        <parameters name="FSM Name" value="challenge_response_checking"/>
+      </actions>
+      <events xsi:type="FiniteStateMachine:CoreEvents" name="FINISHED">
+        <triggerTransition xsi:type="FiniteStateMachine:LocalTransition" target="/16/@states.6" sourceState="/16/@states.14"/>
+      </events>
+    </states>
+    <states name="152 alt">
+      <actions xsi:type="FiniteStateMachine:CustomAction" title="check transition constraint">
+        <parameters name="[!not Defined]"/>
+      </actions>
+      <actions xsi:type="FiniteStateMachine:CustomAction" title="check transition constraint">
+        <parameters name="[!not Defined]"/>
+      </actions>
+      <events xsi:type="FiniteStateMachine:CustomEvent" name="newEvent 0">
+        <triggerTransition xsi:type="FiniteStateMachine:LocalTransition" target="/16/@states.16" sourceState="/16/@states.15"/>
+      </events>
+      <events xsi:type="FiniteStateMachine:CustomEvent" name="newEvent 1">
+        <triggerTransition xsi:type="FiniteStateMachine:LocalTransition" target="/16/@states.17" sourceState="/16/@states.15"/>
+      </events>
+    </states>
+    <states name="153 Performed">
+      <actions xsi:type="FiniteStateMachine:SystemAction" title="Enable FSM" category="State Machine">
+        <parameters name="Game Object" value="Supervisor"/>
+        <parameters name="Fsm Name" value="form_acceptance"/>
+        <parameters name="Enable" value="true"/>
+      </actions>
+    </states>
+    <states name="154 Performed">
+      <actions xsi:type="FiniteStateMachine:SystemAction" title="Enable FSM" category="State Machine">
+        <parameters name="Game Object" value="Supervisor"/>
+        <parameters name="Fsm Name" value="form_rejection"/>
+        <parameters name="Enable" value="true"/>
+      </actions>
+    </states>
+  </FiniteStateMachine:StateMachine>
+  <FiniteStateMachine:StateMachine name="form_acceptance" ownerObject="Supervisor">
+    <systemEvents xsi:type="FiniteStateMachine:CoreEvents">
+      <triggerTransition xsi:type="FiniteStateMachine:LocalTransition" target="/17/@states.0"/>
+    </systemEvents>
+    <states name="153 Received" isStartState="true">
+      <events xsi:type="FiniteStateMachine:CustomEvent" name="57:color the form to green" isGlobal="true">
+        <triggerTransition xsi:type="FiniteStateMachine:LocalTransition" target="/17/@states.1" sourceState="/17/@states.0"/>
+      </events>
+    </states>
+    <states name="57 Received">
+      <events xsi:type="FiniteStateMachine:CoreEvents" name="FINISHED">
+        <triggerTransition xsi:type="FiniteStateMachine:LocalTransition" target="/17/@states.2" sourceState="/17/@states.1"/>
+      </events>
+    </states>
+    <states name="58 Performed">
+      <actions xsi:type="FiniteStateMachine:CustomAction" title="/58:call Task5 of BP component"/>
+      <actions xsi:type="FiniteStateMachine:SystemAction" title="Send Event" category="State Machine">
+        <parameters name="Event Target" value="Self"/>
+        <parameters name="Send Event" value="58:call Task5 of BP component"/>
+      </actions>
+      <events xsi:type="FiniteStateMachine:CustomEvent" name="58:call Task5 of BP component">
+        <triggerTransition xsi:type="FiniteStateMachine:LocalTransition" target="/17/@states.3" sourceState="/17/@states.2"/>
+      </events>
+    </states>
+    <states name="58 Received">
+      <events xsi:type="FiniteStateMachine:CoreEvents" name="FINISHED">
+        <triggerTransition xsi:type="FiniteStateMachine:LocalTransition" target="/17/@states.6" sourceState="/17/@states.3"/>
+      </events>
+    </states>
+    <states name="157 Performed">
+      <actions xsi:type="FiniteStateMachine:CustomAction" title="/157:changeState(condition)"/>
+      <actions xsi:type="FiniteStateMachine:SystemAction" title="Send Event" category="State Machine">
+        <parameters name="Event Target" value="Self"/>
+        <parameters name="Send Event" value="157:changeState(condition)"/>
+      </actions>
+      <events xsi:type="FiniteStateMachine:CustomEvent" name="157:changeState(condition)">
+        <triggerTransition xsi:type="FiniteStateMachine:LocalTransition" target="/17/@states.5" sourceState="/17/@states.4"/>
+      </events>
+    </states>
+    <states name="157 Received">
+      <events xsi:type="FiniteStateMachine:CoreEvents" name="FINISHED">
+        <triggerTransition xsi:type="FiniteStateMachine:LocalTransition" target="/17/@states.8" sourceState="/17/@states.5"/>
+      </events>
+    </states>
+    <states name="59 Performed">
+      <actions xsi:type="FiniteStateMachine:CustomAction" title="/59:form confirmation and signing"/>
+      <actions xsi:type="FiniteStateMachine:SystemAction" title="Send Event" category="State Machine">
+        <parameters name="Event Target" value="Game Object FSM"/>
+        <parameters name="Send Event" value="59:form confirmation and signing"/>
+        <parameters name="Game Object" value="Supervisor_lane"/>
+        <parameters name="FSM Name" value="Supervisor:Lane"/>
+      </actions>
+      <events xsi:type="FiniteStateMachine:CoreEvents" name="FINISHED">
+        <triggerTransition xsi:type="FiniteStateMachine:LocalTransition" target="/17/@states.7" sourceState="/17/@states.6"/>
+      </events>
+    </states>
+    <states name="60 Performed">
+      <actions xsi:type="FiniteStateMachine:CustomAction" title="/60:Supervisor write something on the form"/>
+      <actions xsi:type="FiniteStateMachine:SystemAction" title="Send Event" category="State Machine">
+        <parameters name="Event Target" value="Game Object FSM"/>
+        <parameters name="Send Event" value="60:Supervisor write something on the form"/>
+        <parameters name="Game Object" value="Supervisor"/>
+        <parameters name="FSM Name" value="form_confirmation_and_signing"/>
+      </actions>
+      <events xsi:type="FiniteStateMachine:CoreEvents" name="FINISHED">
+        <triggerTransition xsi:type="FiniteStateMachine:LocalTransition" target="/17/@states.4" sourceState="/17/@states.7"/>
+      </events>
+    </states>
+    <states name="158 alt">
+      <actions xsi:type="FiniteStateMachine:CustomAction" title="check transition constraint">
+        <parameters name="[!not Defined]"/>
+      </actions>
+      <events xsi:type="FiniteStateMachine:CoreEvents" name="FINISHED">
+        <triggerTransition xsi:type="FiniteStateMachine:LocalTransition" target="/17/@states.9" sourceState="/17/@states.8"/>
+      </events>
+    </states>
+    <states name="159 Performed">
+      <actions xsi:type="FiniteStateMachine:SystemAction" title="Enable FSM" category="State Machine">
+        <parameters name="Game Object" value="Supervisor"/>
+        <parameters name="Fsm Name" value="form_confirmation_and_signing"/>
+        <parameters name="Enable" value="true"/>
+      </actions>
+    </states>
+  </FiniteStateMachine:StateMachine>
+  <FiniteStateMachine:StateMachine name="form_confirmation_and_signing" ownerObject="Supervisor">
+    <systemEvents xsi:type="FiniteStateMachine:CoreEvents">
+      <triggerTransition xsi:type="FiniteStateMachine:LocalTransition" target="/18/@states.0"/>
+    </systemEvents>
+    <states name="159 Received" isStartState="true">
+      <events xsi:type="FiniteStateMachine:CustomEvent" name="60:Supervisor write something on the form" isGlobal="true">
+        <triggerTransition xsi:type="FiniteStateMachine:LocalTransition" target="/18/@states.1" sourceState="/18/@states.0"/>
+      </events>
+    </states>
+    <states name="60 Received">
+      <events xsi:type="FiniteStateMachine:CoreEvents" name="FINISHED">
+        <triggerTransition xsi:type="FiniteStateMachine:LocalTransition" target="/18/@states.2" sourceState="/18/@states.1"/>
+      </events>
+    </states>
+    <states name="61 Performed">
+      <actions xsi:type="FiniteStateMachine:CustomAction" title="/61:put the form on the table"/>
+      <actions xsi:type="FiniteStateMachine:SystemAction" title="Send Event" category="State Machine">
+        <parameters name="Event Target" value="Self"/>
+        <parameters name="Send Event" value="61:put the form on the table"/>
+      </actions>
+      <events xsi:type="FiniteStateMachine:CustomEvent" name="61:put the form on the table">
+        <triggerTransition xsi:type="FiniteStateMachine:LocalTransition" target="/18/@states.3" sourceState="/18/@states.2"/>
+      </events>
+    </states>
+    <states name="61 Received">
+      <events xsi:type="FiniteStateMachine:CoreEvents" name="FINISHED">
+        <triggerTransition xsi:type="FiniteStateMachine:LocalTransition" target="/18/@states.4" sourceState="/18/@states.3"/>
+      </events>
+    </states>
+    <states name="62 Performed">
+      <actions xsi:type="FiniteStateMachine:CustomAction" title="/62:call End Event of BP component"/>
+      <actions xsi:type="FiniteStateMachine:SystemAction" title="Send Event" category="State Machine">
+        <parameters name="Event Target" value="Self"/>
+        <parameters name="Send Event" value="62:call End Event of BP component"/>
+      </actions>
+      <events xsi:type="FiniteStateMachine:CustomEvent" name="62:call End Event of BP component">
+        <triggerTransition xsi:type="FiniteStateMachine:LocalTransition" target="/18/@states.5" sourceState="/18/@states.4"/>
+      </events>
+    </states>
+    <states name="62 Received">
+      <events xsi:type="FiniteStateMachine:CoreEvents" name="FINISHED">
+        <triggerTransition xsi:type="FiniteStateMachine:LocalTransition" target="/18/@states.8" sourceState="/18/@states.5"/>
+      </events>
+    </states>
+    <states name="160 Performed">
+      <actions xsi:type="FiniteStateMachine:CustomAction" title="/160:changeState(condition)"/>
+      <actions xsi:type="FiniteStateMachine:SystemAction" title="Send Event" category="State Machine">
+        <parameters name="Event Target" value="Self"/>
+        <parameters name="Send Event" value="160:changeState(condition)"/>
+      </actions>
+      <events xsi:type="FiniteStateMachine:CustomEvent" name="160:changeState(condition)">
+        <triggerTransition xsi:type="FiniteStateMachine:LocalTransition" target="/18/@states.7" sourceState="/18/@states.6"/>
+      </events>
+    </states>
+    <states name="160 Received">
+      <events xsi:type="FiniteStateMachine:CoreEvents" name="FINISHED">
+        <triggerTransition xsi:type="FiniteStateMachine:LocalTransition" target="/18/@states.9" sourceState="/18/@states.7"/>
+      </events>
+    </states>
+    <states name="63 Performed">
+      <actions xsi:type="FiniteStateMachine:CustomAction" title="/63:endEvent"/>
+      <actions xsi:type="FiniteStateMachine:SystemAction" title="Send Event" category="State Machine">
+        <parameters name="Event Target" value="Game Object FSM"/>
+        <parameters name="Send Event" value="63:endEvent"/>
+        <parameters name="Game Object" value="Supervisor_lane"/>
+        <parameters name="FSM Name" value="Supervisor:Lane"/>
+      </actions>
+      <events xsi:type="FiniteStateMachine:CoreEvents" name="FINISHED">
+        <triggerTransition xsi:type="FiniteStateMachine:LocalTransition" target="/18/@states.6" sourceState="/18/@states.8"/>
+      </events>
+    </states>
+    <states name="161 alt"/>
+  </FiniteStateMachine:StateMachine>
+  <FiniteStateMachine:StateMachine name="Final_State" ownerObject="Supervisor">
+    <systemEvents xsi:type="FiniteStateMachine:CoreEvents">
+      <triggerTransition xsi:type="FiniteStateMachine:LocalTransition" target="/19/@states.8"/>
+    </systemEvents>
+    <states name="64 Performed">
+      <actions xsi:type="FiniteStateMachine:CustomAction" title="/64:save level finishing time in player log"/>
+      <actions xsi:type="FiniteStateMachine:SystemAction" title="Send Event" category="State Machine">
+        <parameters name="Event Target" value="Self"/>
+        <parameters name="Send Event" value="64:save level finishing time in player log"/>
+      </actions>
+      <events xsi:type="FiniteStateMachine:CustomEvent" name="64:save level finishing time in player log">
+        <triggerTransition xsi:type="FiniteStateMachine:LocalTransition" target="/19/@states.1" sourceState="/19/@states.0"/>
+      </events>
+    </states>
+    <states name="64 Received">
+      <events xsi:type="FiniteStateMachine:CoreEvents" name="FINISHED">
+        <triggerTransition xsi:type="FiniteStateMachine:LocalTransition" target="/19/@states.9" sourceState="/19/@states.1"/>
+      </events>
+    </states>
+    <states name="66 Performed">
+      <actions xsi:type="FiniteStateMachine:CustomAction" title="/66:show end of level screen"/>
+      <actions xsi:type="FiniteStateMachine:SystemAction" title="Send Event" category="State Machine">
+        <parameters name="Event Target" value="Self"/>
+        <parameters name="Send Event" value="66:show end of level screen"/>
+      </actions>
+      <events xsi:type="FiniteStateMachine:CustomEvent" name="66:show end of level screen">
+        <triggerTransition xsi:type="FiniteStateMachine:LocalTransition" target="/19/@states.3" sourceState="/19/@states.2"/>
+      </events>
+    </states>
+    <states name="66 Received">
+      <events xsi:type="FiniteStateMachine:CoreEvents" name="FINISHED">
+        <triggerTransition xsi:type="FiniteStateMachine:LocalTransition" target="/19/@states.10" sourceState="/19/@states.3"/>
+      </events>
+    </states>
+    <states name="68 Performed">
+      <actions xsi:type="FiniteStateMachine:CustomAction" title="/68:update game result for player"/>
+      <actions xsi:type="FiniteStateMachine:SystemAction" title="Send Event" category="State Machine">
+        <parameters name="Event Target" value="Self"/>
+        <parameters name="Send Event" value="68:update game result for player"/>
+      </actions>
+      <events xsi:type="FiniteStateMachine:CustomEvent" name="68:update game result for player">
+        <triggerTransition xsi:type="FiniteStateMachine:LocalTransition" target="/19/@states.5" sourceState="/19/@states.4"/>
+      </events>
+    </states>
+    <states name="68 Received">
+      <events xsi:type="FiniteStateMachine:CoreEvents" name="FINISHED">
+        <triggerTransition xsi:type="FiniteStateMachine:LocalTransition" target="/19/@states.11" sourceState="/19/@states.5"/>
+      </events>
+    </states>
+    <states name="70 Performed">
+      <actions xsi:type="FiniteStateMachine:CustomAction" title="/70:show level result screen"/>
+      <actions xsi:type="FiniteStateMachine:SystemAction" title="Send Event" category="State Machine">
+        <parameters name="Event Target" value="Self"/>
+        <parameters name="Send Event" value="70:show level result screen"/>
+      </actions>
+      <events xsi:type="FiniteStateMachine:CustomEvent" name="70:show level result screen">
+        <triggerTransition xsi:type="FiniteStateMachine:LocalTransition" target="/19/@states.7" sourceState="/19/@states.6"/>
+      </events>
+    </states>
+    <states name="70 Received">
+      <events xsi:type="FiniteStateMachine:CoreEvents" name="FINISHED">
+        <triggerTransition xsi:type="FiniteStateMachine:LocalTransition" target="/19/@states.12" sourceState="/19/@states.7"/>
+      </events>
+    </states>
+    <states name="Start" isStartState="true">
+      <events xsi:type="FiniteStateMachine:CoreEvents" name="FINISHED">
+        <triggerTransition xsi:type="FiniteStateMachine:LocalTransition" target="/19/@states.0" sourceState="/19/@states.8"/>
+      </events>
+    </states>
+    <states name="65 Performed">
+      <actions xsi:type="FiniteStateMachine:CustomAction" title="/65:!not Defined"/>
+      <actions xsi:type="FiniteStateMachine:SystemAction" title="Send Event" category="State Machine">
+        <parameters name="Event Target" value="Game Object FSM"/>
+        <parameters name="Send Event" value="65:!not Defined"/>
+        <parameters name="Game Object" value="StudentLog"/>
+        <parameters name="FSM Name" value="StudentLog"/>
+      </actions>
+      <events xsi:type="FiniteStateMachine:CoreEvents" name="FINISHED">
+        <triggerTransition xsi:type="FiniteStateMachine:LocalTransition" target="/19/@states.2" sourceState="/19/@states.9"/>
+      </events>
+    </states>
+    <states name="67 Performed">
+      <actions xsi:type="FiniteStateMachine:CustomAction" title="/67:show"/>
+      <actions xsi:type="FiniteStateMachine:SystemAction" title="Send Event" category="State Machine">
+        <parameters name="Event Target" value="Game Object FSM"/>
+        <parameters name="Send Event" value="67:show"/>
+        <parameters name="Game Object" value="End of level"/>
+        <parameters name="FSM Name" value="End_of_level"/>
+      </actions>
+      <events xsi:type="FiniteStateMachine:CoreEvents" name="FINISHED">
+        <triggerTransition xsi:type="FiniteStateMachine:LocalTransition" target="/19/@states.4" sourceState="/19/@states.10"/>
+      </events>
+    </states>
+    <states name="69 Performed">
+      <actions xsi:type="FiniteStateMachine:CustomAction" title="/69:!not Defined"/>
+      <actions xsi:type="FiniteStateMachine:SystemAction" title="Send Event" category="State Machine">
+        <parameters name="Event Target" value="Game Object FSM"/>
+        <parameters name="Send Event" value="69:!not Defined"/>
+        <parameters name="Game Object" value="StudentLog"/>
+        <parameters name="FSM Name" value="StudentLog"/>
+      </actions>
+      <events xsi:type="FiniteStateMachine:CoreEvents" name="FINISHED">
+        <triggerTransition xsi:type="FiniteStateMachine:LocalTransition" target="/19/@states.6" sourceState="/19/@states.11"/>
+      </events>
+    </states>
+    <states name="71 Performed">
+      <actions xsi:type="FiniteStateMachine:CustomAction" title="/71:show"/>
+      <actions xsi:type="FiniteStateMachine:SystemAction" title="Send Event" category="State Machine">
+        <parameters name="Event Target" value="Game Object FSM"/>
+        <parameters name="Send Event" value="71:show"/>
+        <parameters name="Game Object" value="level result"/>
+        <parameters name="FSM Name" value="level_result"/>
+      </actions>
+    </states>
+  </FiniteStateMachine:StateMachine>
+  <FiniteStateMachine:StateMachine name="open_s" ownerObject="door_s">
+    <systemEvents xsi:type="FiniteStateMachine:CoreEvents">
+      <triggerTransition xsi:type="FiniteStateMachine:LocalTransition" target="/20/@states.0"/>
+    </systemEvents>
+    <states name="167 Received" isStartState="true">
+      <events xsi:type="FiniteStateMachine:CoreEvents" name="FINISHED">
+        <triggerTransition xsi:type="FiniteStateMachine:LocalTransition" target="/20/@states.1" sourceState="/20/@states.0"/>
+      </events>
+    </states>
+    <states name="72 Performed">
+      <actions xsi:type="FiniteStateMachine:CustomAction" title="/72:open the door_s(constraint)"/>
+      <actions xsi:type="FiniteStateMachine:SystemAction" title="Send Event" category="State Machine">
+        <parameters name="Event Target" value="Self"/>
+        <parameters name="Send Event" value="72:open the door_s(constraint)"/>
+      </actions>
+      <events xsi:type="FiniteStateMachine:CustomEvent" name="72:open the door_s(constraint)">
+        <triggerTransition xsi:type="FiniteStateMachine:LocalTransition" target="/20/@states.2" sourceState="/20/@states.1"/>
+      </events>
+    </states>
+    <states name="72 Received">
+      <events xsi:type="FiniteStateMachine:CoreEvents" name="FINISHED">
+        <triggerTransition xsi:type="FiniteStateMachine:LocalTransition" target="/20/@states.5" sourceState="/20/@states.2"/>
+      </events>
+    </states>
+    <states name="162 Performed">
+      <actions xsi:type="FiniteStateMachine:CustomAction" title="/162:changeState(condition)"/>
+      <actions xsi:type="FiniteStateMachine:SystemAction" title="Send Event" category="State Machine">
+        <parameters name="Event Target" value="Self"/>
+        <parameters name="Send Event" value="162:changeState(condition)"/>
+      </actions>
+      <events xsi:type="FiniteStateMachine:CustomEvent" name="162:changeState(condition)">
+        <triggerTransition xsi:type="FiniteStateMachine:LocalTransition" target="/20/@states.4" sourceState="/20/@states.3"/>
+      </events>
+    </states>
+    <states name="162 Received">
+      <events xsi:type="FiniteStateMachine:CoreEvents" name="FINISHED">
+        <triggerTransition xsi:type="FiniteStateMachine:LocalTransition" target="/20/@states.6" sourceState="/20/@states.4"/>
+      </events>
+    </states>
+    <states name="73 opt">
+      <events xsi:type="FiniteStateMachine:CoreEvents" name="FINISHED">
+        <triggerTransition xsi:type="FiniteStateMachine:LocalTransition" target="/20/@states.3" sourceState="/20/@states.5"/>
+      </events>
+    </states>
+    <states name="163 alt">
+      <actions xsi:type="FiniteStateMachine:CustomAction" title="check transition constraint">
+        <parameters name="[!not Defined]"/>
+      </actions>
+      <events xsi:type="FiniteStateMachine:CoreEvents" name="FINISHED">
+        <triggerTransition xsi:type="FiniteStateMachine:LocalTransition" target="/20/@states.7" sourceState="/20/@states.6"/>
+      </events>
+    </states>
+    <states name="164 Performed">
+      <actions xsi:type="FiniteStateMachine:SystemAction" title="Enable FSM" category="State Machine">
+        <parameters name="Game Object" value="door_s"/>
+        <parameters name="Fsm Name" value="close_s"/>
+        <parameters name="Enable" value="true"/>
+      </actions>
+    </states>
+  </FiniteStateMachine:StateMachine>
+  <FiniteStateMachine:StateMachine name="close_s" ownerObject="door_s">
+    <systemEvents xsi:type="FiniteStateMachine:CoreEvents">
+      <triggerTransition xsi:type="FiniteStateMachine:LocalTransition" target="/21/@states.0"/>
+    </systemEvents>
+    <states name="164 Received" isStartState="true">
+      <events xsi:type="FiniteStateMachine:CoreEvents" name="FINISHED">
+        <triggerTransition xsi:type="FiniteStateMachine:LocalTransition" target="/21/@states.1" sourceState="/21/@states.0"/>
+      </events>
+    </states>
+    <states name="74 Performed">
+      <actions xsi:type="FiniteStateMachine:CustomAction" title="/74:close the door_s(constraint)"/>
+      <actions xsi:type="FiniteStateMachine:SystemAction" title="Send Event" category="State Machine">
+        <parameters name="Event Target" value="Self"/>
+        <parameters name="Send Event" value="74:close the door_s(constraint)"/>
+      </actions>
+      <events xsi:type="FiniteStateMachine:CustomEvent" name="74:close the door_s(constraint)">
+        <triggerTransition xsi:type="FiniteStateMachine:LocalTransition" target="/21/@states.2" sourceState="/21/@states.1"/>
+      </events>
+    </states>
+    <states name="74 Received">
+      <events xsi:type="FiniteStateMachine:CoreEvents" name="FINISHED">
+        <triggerTransition xsi:type="FiniteStateMachine:LocalTransition" target="/21/@states.5" sourceState="/21/@states.2"/>
+      </events>
+    </states>
+    <states name="165 Performed">
+      <actions xsi:type="FiniteStateMachine:CustomAction" title="/165:changeState(condition)"/>
+      <actions xsi:type="FiniteStateMachine:SystemAction" title="Send Event" category="State Machine">
+        <parameters name="Event Target" value="Self"/>
+        <parameters name="Send Event" value="165:changeState(condition)"/>
+      </actions>
+      <events xsi:type="FiniteStateMachine:CustomEvent" name="165:changeState(condition)">
+        <triggerTransition xsi:type="FiniteStateMachine:LocalTransition" target="/21/@states.4" sourceState="/21/@states.3"/>
+      </events>
+    </states>
+    <states name="165 Received">
+      <events xsi:type="FiniteStateMachine:CoreEvents" name="FINISHED">
+        <triggerTransition xsi:type="FiniteStateMachine:LocalTransition" target="/21/@states.6" sourceState="/21/@states.4"/>
+      </events>
+    </states>
+    <states name="75 opt">
+      <events xsi:type="FiniteStateMachine:CoreEvents" name="FINISHED">
+        <triggerTransition xsi:type="FiniteStateMachine:LocalTransition" target="/21/@states.3" sourceState="/21/@states.5"/>
+      </events>
+    </states>
+    <states name="166 alt">
+      <actions xsi:type="FiniteStateMachine:CustomAction" title="check transition constraint">
+        <parameters name="[!not Defined]"/>
+      </actions>
+      <events xsi:type="FiniteStateMachine:CoreEvents" name="FINISHED">
+        <triggerTransition xsi:type="FiniteStateMachine:LocalTransition" target="/21/@states.7" sourceState="/21/@states.6"/>
+      </events>
+    </states>
+    <states name="167 Performed">
+      <actions xsi:type="FiniteStateMachine:SystemAction" title="Enable FSM" category="State Machine">
+        <parameters name="Game Object" value="door_s"/>
+        <parameters name="Fsm Name" value="open_s"/>
+        <parameters name="Enable" value="true"/>
+      </actions>
+    </states>
+  </FiniteStateMachine:StateMachine>
+  <FiniteStateMachine:StateMachine name="open" ownerObject="door">
+    <systemEvents xsi:type="FiniteStateMachine:CoreEvents">
+      <triggerTransition xsi:type="FiniteStateMachine:LocalTransition" target="/22/@states.0"/>
+    </systemEvents>
+    <states name="173 Received" isStartState="true">
+      <events xsi:type="FiniteStateMachine:CoreEvents" name="FINISHED">
+        <triggerTransition xsi:type="FiniteStateMachine:LocalTransition" target="/22/@states.1" sourceState="/22/@states.0"/>
+      </events>
+    </states>
+    <states name="76 Performed">
+      <actions xsi:type="FiniteStateMachine:CustomAction" title="/76:open the door(constraint,Animation)"/>
+      <actions xsi:type="FiniteStateMachine:SystemAction" title="Send Event" category="State Machine">
+        <parameters name="Event Target" value="Self"/>
+        <parameters name="Send Event" value="76:open the door(constraint,Animation)"/>
+      </actions>
+      <events xsi:type="FiniteStateMachine:CustomEvent" name="76:open the door(constraint,Animation)">
+        <triggerTransition xsi:type="FiniteStateMachine:LocalTransition" target="/22/@states.2" sourceState="/22/@states.1"/>
+      </events>
+    </states>
+    <states name="76 Received">
+      <events xsi:type="FiniteStateMachine:CoreEvents" name="FINISHED">
+        <triggerTransition xsi:type="FiniteStateMachine:LocalTransition" target="/22/@states.5" sourceState="/22/@states.2"/>
+      </events>
+    </states>
+    <states name="168 Performed">
+      <actions xsi:type="FiniteStateMachine:CustomAction" title="/168:changeState(condition)"/>
+      <actions xsi:type="FiniteStateMachine:SystemAction" title="Send Event" category="State Machine">
+        <parameters name="Event Target" value="Self"/>
+        <parameters name="Send Event" value="168:changeState(condition)"/>
+      </actions>
+      <events xsi:type="FiniteStateMachine:CustomEvent" name="168:changeState(condition)">
+        <triggerTransition xsi:type="FiniteStateMachine:LocalTransition" target="/22/@states.4" sourceState="/22/@states.3"/>
+      </events>
+    </states>
+    <states name="168 Received">
+      <events xsi:type="FiniteStateMachine:CoreEvents" name="FINISHED">
+        <triggerTransition xsi:type="FiniteStateMachine:LocalTransition" target="/22/@states.6" sourceState="/22/@states.4"/>
+      </events>
+    </states>
+    <states name="77 opt">
+      <events xsi:type="FiniteStateMachine:CoreEvents" name="FINISHED">
+        <triggerTransition xsi:type="FiniteStateMachine:LocalTransition" target="/22/@states.3" sourceState="/22/@states.5"/>
+      </events>
+    </states>
+    <states name="169 alt">
+      <actions xsi:type="FiniteStateMachine:CustomAction" title="check transition constraint">
+        <parameters name="[!not Defined]"/>
+      </actions>
+      <events xsi:type="FiniteStateMachine:CoreEvents" name="FINISHED">
+        <triggerTransition xsi:type="FiniteStateMachine:LocalTransition" target="/22/@states.7" sourceState="/22/@states.6"/>
+      </events>
+    </states>
+    <states name="170 Performed">
+      <actions xsi:type="FiniteStateMachine:SystemAction" title="Enable FSM" category="State Machine">
+        <parameters name="Game Object" value="door"/>
+        <parameters name="Fsm Name" value="close"/>
+        <parameters name="Enable" value="true"/>
+      </actions>
+    </states>
+  </FiniteStateMachine:StateMachine>
+  <FiniteStateMachine:StateMachine name="close" ownerObject="door">
+    <systemEvents xsi:type="FiniteStateMachine:CoreEvents">
+      <triggerTransition xsi:type="FiniteStateMachine:LocalTransition" target="/23/@states.0"/>
+    </systemEvents>
+    <states name="170 Received" isStartState="true">
+      <events xsi:type="FiniteStateMachine:CoreEvents" name="FINISHED">
+        <triggerTransition xsi:type="FiniteStateMachine:LocalTransition" target="/23/@states.1" sourceState="/23/@states.0"/>
+      </events>
+    </states>
+    <states name="78 Performed">
+      <actions xsi:type="FiniteStateMachine:CustomAction" title="/78:close the door(constraint,Animation)"/>
+      <actions xsi:type="FiniteStateMachine:SystemAction" title="Send Event" category="State Machine">
+        <parameters name="Event Target" value="Self"/>
+        <parameters name="Send Event" value="78:close the door(constraint,Animation)"/>
+      </actions>
+      <events xsi:type="FiniteStateMachine:CustomEvent" name="78:close the door(constraint,Animation)">
+        <triggerTransition xsi:type="FiniteStateMachine:LocalTransition" target="/23/@states.2" sourceState="/23/@states.1"/>
+      </events>
+    </states>
+    <states name="78 Received">
+      <events xsi:type="FiniteStateMachine:CoreEvents" name="FINISHED">
+        <triggerTransition xsi:type="FiniteStateMachine:LocalTransition" target="/23/@states.5" sourceState="/23/@states.2"/>
+      </events>
+    </states>
+    <states name="171 Performed">
+      <actions xsi:type="FiniteStateMachine:CustomAction" title="/171:changeState(condition)"/>
+      <actions xsi:type="FiniteStateMachine:SystemAction" title="Send Event" category="State Machine">
+        <parameters name="Event Target" value="Self"/>
+        <parameters name="Send Event" value="171:changeState(condition)"/>
+      </actions>
+      <events xsi:type="FiniteStateMachine:CustomEvent" name="171:changeState(condition)">
+        <triggerTransition xsi:type="FiniteStateMachine:LocalTransition" target="/23/@states.4" sourceState="/23/@states.3"/>
+      </events>
+    </states>
+    <states name="171 Received">
+      <events xsi:type="FiniteStateMachine:CoreEvents" name="FINISHED">
+        <triggerTransition xsi:type="FiniteStateMachine:LocalTransition" target="/23/@states.6" sourceState="/23/@states.4"/>
+      </events>
+    </states>
+    <states name="79 opt">
+      <events xsi:type="FiniteStateMachine:CoreEvents" name="FINISHED">
+        <triggerTransition xsi:type="FiniteStateMachine:LocalTransition" target="/23/@states.3" sourceState="/23/@states.5"/>
+      </events>
+    </states>
+    <states name="172 alt">
+      <actions xsi:type="FiniteStateMachine:CustomAction" title="check transition constraint">
+        <parameters name="[!not Defined]"/>
+      </actions>
+      <events xsi:type="FiniteStateMachine:CoreEvents" name="FINISHED">
+        <triggerTransition xsi:type="FiniteStateMachine:LocalTransition" target="/23/@states.7" sourceState="/23/@states.6"/>
+      </events>
+    </states>
+    <states name="173 Performed">
+      <actions xsi:type="FiniteStateMachine:SystemAction" title="Enable FSM" category="State Machine">
+        <parameters name="Game Object" value="door"/>
+        <parameters name="Fsm Name" value="open"/>
+        <parameters name="Enable" value="true"/>
+      </actions>
+    </states>
+  </FiniteStateMachine:StateMachine>
+  <FiniteStateMachine:StateMachine name="URL_challenge_finished" ownerObject="Student">
+    <systemEvents xsi:type="FiniteStateMachine:CoreEvents">
+      <triggerTransition xsi:type="FiniteStateMachine:LocalTransition" target="/24/@states.0"/>
+    </systemEvents>
+    <states name="144 Received" isStartState="true">
+      <events xsi:type="FiniteStateMachine:CustomEvent" name="12:choose download option" isGlobal="true" isPlayerRequest="true">
+        <triggerTransition xsi:type="FiniteStateMachine:LocalTransition" target="/24/@states.1" sourceState="/24/@states.0"/>
+      </events>
+    </states>
+    <states name="12 Received">
+      <events xsi:type="FiniteStateMachine:CustomEvent" name="13:choose print option" isGlobal="true" isPlayerRequest="true">
+        <triggerTransition xsi:type="FiniteStateMachine:LocalTransition" target="/24/@states.2" sourceState="/24/@states.1"/>
+      </events>
+    </states>
+    <states name="13 Received">
+      <events xsi:type="FiniteStateMachine:CoreEvents" name="FINISHED">
+        <triggerTransition xsi:type="FiniteStateMachine:LocalTransition" target="/24/@states.5" sourceState="/24/@states.2"/>
+      </events>
+    </states>
+    <states name="116 Performed">
+      <actions xsi:type="FiniteStateMachine:CustomAction" title="/116:changeState(condition)"/>
+      <actions xsi:type="FiniteStateMachine:SystemAction" title="Send Event" category="State Machine">
+        <parameters name="Event Target" value="Self"/>
+        <parameters name="Send Event" value="116:changeState(condition)"/>
+      </actions>
+      <events xsi:type="FiniteStateMachine:CustomEvent" name="116:changeState(condition)">
+        <triggerTransition xsi:type="FiniteStateMachine:LocalTransition" target="/24/@states.4" sourceState="/24/@states.3"/>
+      </events>
+    </states>
+    <states name="116 Received">
+      <events xsi:type="FiniteStateMachine:CoreEvents" name="FINISHED">
+        <triggerTransition xsi:type="FiniteStateMachine:LocalTransition" target="/24/@states.6" sourceState="/24/@states.4"/>
+      </events>
+    </states>
+    <states name="80 Performed">
+      <actions xsi:type="FiniteStateMachine:CustomAction" title="/80:play printer voice and show paper(constraint)"/>
+      <actions xsi:type="FiniteStateMachine:SystemAction" title="Send Event" category="State Machine">
+        <parameters name="Event Target" value="Game Object FSM"/>
+        <parameters name="Send Event" value="80:play printer voice and show paper(constraint)"/>
+        <parameters name="Game Object" value="printer"/>
+        <parameters name="FSM Name" value="printer_is_on"/>
+      </actions>
+      <events xsi:type="FiniteStateMachine:CoreEvents" name="FINISHED">
+        <triggerTransition xsi:type="FiniteStateMachine:LocalTransition" target="/24/@states.3" sourceState="/24/@states.5"/>
+      </events>
+    </states>
+    <states name="117 alt">
+      <actions xsi:type="FiniteStateMachine:CustomAction" title="check transition constraint">
+        <parameters name="[!not Defined]"/>
+      </actions>
+      <events xsi:type="FiniteStateMachine:CoreEvents" name="FINISHED">
+        <triggerTransition xsi:type="FiniteStateMachine:LocalTransition" target="/24/@states.7" sourceState="/24/@states.6"/>
+      </events>
+    </states>
+    <states name="118 Performed">
+      <actions xsi:type="FiniteStateMachine:SystemAction" title="Enable FSM" category="State Machine">
+        <parameters name="Game Object" value="printer"/>
+        <parameters name="Fsm Name" value="printer_is_on"/>
+        <parameters name="Enable" value="true"/>
+      </actions>
+    </states>
+  </FiniteStateMachine:StateMachine>
+  <FiniteStateMachine:StateMachine name="printer_is_off" ownerObject="printer">
+    <systemEvents xsi:type="FiniteStateMachine:CoreEvents">
+      <triggerTransition xsi:type="FiniteStateMachine:LocalTransition" target="/25/@states.0"/>
+    </systemEvents>
+    <states name="176 Received" isStartState="true">
+      <events xsi:type="FiniteStateMachine:CoreEvents" name="FINISHED">
+        <triggerTransition xsi:type="FiniteStateMachine:LocalTransition" target="/25/@states.1" sourceState="/25/@states.0"/>
+      </events>
+    </states>
+    <states name="82 Performed">
+      <actions xsi:type="FiniteStateMachine:CustomAction" title="/82:stop printer voice"/>
+      <actions xsi:type="FiniteStateMachine:SystemAction" title="Send Event" category="State Machine">
+        <parameters name="Event Target" value="Self"/>
+        <parameters name="Send Event" value="82:stop printer voice"/>
+      </actions>
+      <events xsi:type="FiniteStateMachine:CustomEvent" name="82:stop printer voice">
+        <triggerTransition xsi:type="FiniteStateMachine:LocalTransition" target="/25/@states.2" sourceState="/25/@states.1"/>
+      </events>
+    </states>
+    <states name="82 Received"/>
+  </FiniteStateMachine:StateMachine>
+  <FiniteStateMachine:StateMachine name="form_creation" ownerObject="form Paper">
+    <systemEvents xsi:type="FiniteStateMachine:CoreEvents">
+      <triggerTransition xsi:type="FiniteStateMachine:LocalTransition" target="/26/@states.0"/>
+    </systemEvents>
+    <states name="124 Received" isStartState="true">
+      <events xsi:type="FiniteStateMachine:CustomEvent" name="83:save the form in player log(constraint)" isGlobal="true">
+        <triggerTransition xsi:type="FiniteStateMachine:LocalTransition" target="/26/@states.1" sourceState="/26/@states.0"/>
+      </events>
+    </states>
+    <states name="83 Received">
+      <events xsi:type="FiniteStateMachine:CoreEvents" name="FINISHED">
+        <triggerTransition xsi:type="FiniteStateMachine:LocalTransition" target="/26/@states.6" sourceState="/26/@states.1"/>
+      </events>
+    </states>
+    <states name="86 Performed">
+      <actions xsi:type="FiniteStateMachine:CustomAction" title="/86:Player write something on the form"/>
+      <actions xsi:type="FiniteStateMachine:SystemAction" title="Send Event" category="State Machine">
+        <parameters name="Event Target" value="Self"/>
+        <parameters name="Send Event" value="86:Player write something on the form"/>
+      </actions>
+      <events xsi:type="FiniteStateMachine:CustomEvent" name="86:Player write something on the form">
+        <triggerTransition xsi:type="FiniteStateMachine:LocalTransition" target="/26/@states.3" sourceState="/26/@states.2"/>
+      </events>
+    </states>
+    <states name="86 Received">
+      <events xsi:type="FiniteStateMachine:CoreEvents" name="FINISHED">
+        <triggerTransition xsi:type="FiniteStateMachine:LocalTransition" target="/26/@states.8" sourceState="/26/@states.3"/>
+      </events>
+    </states>
+    <states name="177 Performed">
+      <actions xsi:type="FiniteStateMachine:CustomAction" title="/177:changeState(condition)"/>
+      <actions xsi:type="FiniteStateMachine:SystemAction" title="Send Event" category="State Machine">
+        <parameters name="Event Target" value="Self"/>
+        <parameters name="Send Event" value="177:changeState(condition)"/>
+      </actions>
+      <events xsi:type="FiniteStateMachine:CustomEvent" name="177:changeState(condition)">
+        <triggerTransition xsi:type="FiniteStateMachine:LocalTransition" target="/26/@states.5" sourceState="/26/@states.4"/>
+      </events>
+    </states>
+    <states name="177 Received">
+      <events xsi:type="FiniteStateMachine:CoreEvents" name="FINISHED">
+        <triggerTransition xsi:type="FiniteStateMachine:LocalTransition" target="/26/@states.9" sourceState="/26/@states.5"/>
+      </events>
+    </states>
+    <states name="84 opt">
+      <actions xsi:type="FiniteStateMachine:CustomAction" title="check transition constraint">
+        <parameters name="[&#x2018;save&#x2019; option is selected]"/>
+      </actions>
+      <events xsi:type="FiniteStateMachine:CustomEvent" name="newEvent 2">
+        <triggerTransition xsi:type="FiniteStateMachine:LocalTransition" target="/26/@states.7" sourceState="/26/@states.6"/>
+      </events>
+      <events xsi:type="FiniteStateMachine:CustomEvent" name="newEvent 3">
+        <triggerTransition xsi:type="FiniteStateMachine:LocalTransition" target="/26/@states.2" sourceState="/26/@states.6"/>
+      </events>
+    </states>
+    <states name="85 Performed">
+      <actions xsi:type="FiniteStateMachine:CustomAction" title="/85:!not Defined"/>
+      <actions xsi:type="FiniteStateMachine:SystemAction" title="Send Event" category="State Machine">
+        <parameters name="Event Target" value="Game Object FSM"/>
+        <parameters name="Send Event" value="85:!not Defined"/>
+        <parameters name="Game Object" value="StudentLog"/>
+        <parameters name="FSM Name" value="StudentLog"/>
+      </actions>
+      <events xsi:type="FiniteStateMachine:CoreEvents" name="FINISHED">
+        <triggerTransition xsi:type="FiniteStateMachine:LocalTransition" target="/26/@states.2" sourceState="/26/@states.7"/>
+      </events>
+    </states>
+    <states name="90 Performed">
+      <actions xsi:type="FiniteStateMachine:CustomAction" title="/90:Player edit something on the form"/>
+      <actions xsi:type="FiniteStateMachine:SystemAction" title="Send Event" category="State Machine">
+        <parameters name="Event Target" value="Game Object FSM"/>
+        <parameters name="Send Event" value="90:Player edit something on the form"/>
+        <parameters name="Game Object" value="form Paper"/>
+        <parameters name="FSM Name" value="form_updating"/>
+      </actions>
+      <events xsi:type="FiniteStateMachine:CoreEvents" name="FINISHED">
+        <triggerTransition xsi:type="FiniteStateMachine:LocalTransition" target="/26/@states.4" sourceState="/26/@states.8"/>
+      </events>
+    </states>
+    <states name="178 alt">
+      <actions xsi:type="FiniteStateMachine:CustomAction" title="check transition constraint">
+        <parameters name="[!not Defined]"/>
+      </actions>
+      <events xsi:type="FiniteStateMachine:CoreEvents" name="FINISHED">
+        <triggerTransition xsi:type="FiniteStateMachine:LocalTransition" target="/26/@states.10" sourceState="/26/@states.9"/>
+      </events>
+    </states>
+    <states name="179 Performed">
+      <actions xsi:type="FiniteStateMachine:SystemAction" title="Enable FSM" category="State Machine">
+        <parameters name="Game Object" value="Student"/>
+        <parameters name="Fsm Name" value="meeting_supervisor"/>
+        <parameters name="Enable" value="true"/>
+      </actions>
+    </states>
+  </FiniteStateMachine:StateMachine>
+  <FiniteStateMachine:StateMachine name="level_startup" ownerObject="level startup">
+    <systemEvents xsi:type="FiniteStateMachine:CoreEvents">
+      <triggerTransition xsi:type="FiniteStateMachine:LocalTransition" target="/27/@states.0"/>
+    </systemEvents>
+    <states name="Start" isStartState="true">
+      <events xsi:type="FiniteStateMachine:CustomEvent" name="1:show" isGlobal="true">
+        <triggerTransition xsi:type="FiniteStateMachine:LocalTransition" target="/27/@states.1" sourceState="/27/@states.0"/>
+      </events>
+    </states>
+    <states name="1 Received"/>
+  </FiniteStateMachine:StateMachine>
+  <FiniteStateMachine:StateMachine name="StudentLog" ownerObject="StudentLog">
+    <systemEvents xsi:type="FiniteStateMachine:CoreEvents">
+      <triggerTransition xsi:type="FiniteStateMachine:LocalTransition" target="/28/@states.0"/>
+    </systemEvents>
+    <states name="Start" isStartState="true">
+      <events xsi:type="FiniteStateMachine:CustomEvent" name="3:!not Defined" isGlobal="true">
+        <triggerTransition xsi:type="FiniteStateMachine:LocalTransition" target="/28/@states.1" sourceState="/28/@states.0"/>
+      </events>
+    </states>
+    <states name="3 Received">
+      <events xsi:type="FiniteStateMachine:CustomEvent" name="48:!not Defined" isGlobal="true">
+        <triggerTransition xsi:type="FiniteStateMachine:LocalTransition" target="/28/@states.2" sourceState="/28/@states.1"/>
+      </events>
+    </states>
+    <states name="48 Received">
+      <events xsi:type="FiniteStateMachine:CustomEvent" name="65:!not Defined" isGlobal="true">
+        <triggerTransition xsi:type="FiniteStateMachine:LocalTransition" target="/28/@states.3" sourceState="/28/@states.2"/>
+      </events>
+    </states>
+    <states name="65 Received">
+      <events xsi:type="FiniteStateMachine:CustomEvent" name="69:!not Defined" isGlobal="true">
+        <triggerTransition xsi:type="FiniteStateMachine:LocalTransition" target="/28/@states.4" sourceState="/28/@states.3"/>
+      </events>
+    </states>
+    <states name="69 Received">
+      <events xsi:type="FiniteStateMachine:CustomEvent" name="85:!not Defined" isGlobal="true">
+        <triggerTransition xsi:type="FiniteStateMachine:LocalTransition" target="/28/@states.5" sourceState="/28/@states.4"/>
+      </events>
+    </states>
+    <states name="85 Received">
+      <events xsi:type="FiniteStateMachine:CustomEvent" name="89:!not Defined" isGlobal="true">
+        <triggerTransition xsi:type="FiniteStateMachine:LocalTransition" target="/28/@states.6" sourceState="/28/@states.5"/>
+      </events>
+    </states>
+    <states name="89 Received">
+      <events xsi:type="FiniteStateMachine:CustomEvent" name="99:!not Defined: save challenge score" isGlobal="true">
+        <triggerTransition xsi:type="FiniteStateMachine:LocalTransition" target="/28/@states.7" sourceState="/28/@states.6"/>
+      </events>
+    </states>
+    <states name="99 Received">
+      <events xsi:type="FiniteStateMachine:CustomEvent" name="106:!not Defined: save challenge score" isGlobal="true">
+        <triggerTransition xsi:type="FiniteStateMachine:LocalTransition" target="/28/@states.8" sourceState="/28/@states.7"/>
+      </events>
+    </states>
+    <states name="106 Received"/>
+  </FiniteStateMachine:StateMachine>
+  <FiniteStateMachine:StateMachine name="Student:Lane" ownerObject="Student_lane">
+    <systemEvents xsi:type="FiniteStateMachine:CoreEvents">
+      <triggerTransition xsi:type="FiniteStateMachine:LocalTransition" target="/29/@states.0"/>
+    </systemEvents>
+    <states name="Start" isStartState="true">
+      <events xsi:type="FiniteStateMachine:CustomEvent" name="6:preparing department thesis definition form" isGlobal="true">
+        <triggerTransition xsi:type="FiniteStateMachine:LocalTransition" target="/29/@states.1" sourceState="/29/@states.0"/>
+      </events>
+    </states>
+    <states name="6 Received">
+      <events xsi:type="FiniteStateMachine:CoreEvents" name="FINISHED">
+        <triggerTransition xsi:type="FiniteStateMachine:LocalTransition" target="/29/@states.8" sourceState="/29/@states.1"/>
+      </events>
+    </states>
+    <states name="8 Performed">
+      <actions xsi:type="FiniteStateMachine:CustomAction" title="/8:return (correctOutputs)"/>
+      <actions xsi:type="FiniteStateMachine:SystemAction" title="Send Event" category="State Machine">
+        <parameters name="Event Target" value="Game Object FSM"/>
+        <parameters name="Send Event" value="8:return (correctOutputs)"/>
+        <parameters name="Game Object" value="Student"/>
+        <parameters name="FSM Name" value="student_walking"/>
+      </actions>
+      <events xsi:type="FiniteStateMachine:CustomEvent" name="22:deliver the form to the supervisor" isGlobal="true">
+        <triggerTransition xsi:type="FiniteStateMachine:LocalTransition" target="/29/@states.3" sourceState="/29/@states.2"/>
+      </events>
+    </states>
+    <states name="22 Received">
+      <events xsi:type="FiniteStateMachine:CustomEvent" name="33:preparing department thesis definition form" isGlobal="true">
+        <triggerTransition xsi:type="FiniteStateMachine:LocalTransition" target="/29/@states.4" sourceState="/29/@states.3"/>
+      </events>
+    </states>
+    <states name="33 Received">
+      <events xsi:type="FiniteStateMachine:CustomEvent" name="55:change definition form" isGlobal="true">
+        <triggerTransition xsi:type="FiniteStateMachine:LocalTransition" target="/29/@states.5" sourceState="/29/@states.4"/>
+      </events>
+    </states>
+    <states name="55 Received">
+      <events xsi:type="FiniteStateMachine:CoreEvents" name="FINISHED">
+        <triggerTransition xsi:type="FiniteStateMachine:LocalTransition" target="/29/@states.6" sourceState="/29/@states.5"/>
+      </events>
+    </states>
+    <states name="56 Performed">
+      <actions xsi:type="FiniteStateMachine:CustomAction" title="/56:read"/>
+      <actions xsi:type="FiniteStateMachine:SystemAction" title="Send Event" category="State Machine">
+        <parameters name="Event Target" value="Game Object FSM"/>
+        <parameters name="Send Event" value="56:read"/>
+        <parameters name="Game Object" value="department thesis definition form"/>
+        <parameters name="FSM Name" value="department_thesis_definition_form:Resource"/>
+      </actions>
+      <events xsi:type="FiniteStateMachine:CustomEvent" name="92:deliver the form to the supervisor" isGlobal="true">
+        <triggerTransition xsi:type="FiniteStateMachine:LocalTransition" target="/29/@states.7" sourceState="/29/@states.6"/>
+      </events>
+    </states>
+    <states name="92 Received"/>
+    <states name="7 Performed">
+      <actions xsi:type="FiniteStateMachine:CustomAction" title="/7:!not defined: create/ update/ delete?"/>
+      <actions xsi:type="FiniteStateMachine:SystemAction" title="Send Event" category="State Machine">
+        <parameters name="Event Target" value="Game Object FSM"/>
+        <parameters name="Send Event" value="7:!not defined: create/ update/ delete?"/>
+        <parameters name="Game Object" value="department thesis definition form"/>
+        <parameters name="FSM Name" value="department_thesis_definition_form:Resource"/>
+      </actions>
+      <events xsi:type="FiniteStateMachine:CoreEvents" name="FINISHED">
+        <triggerTransition xsi:type="FiniteStateMachine:LocalTransition" target="/29/@states.2" sourceState="/29/@states.8"/>
+      </events>
+    </states>
+  </FiniteStateMachine:StateMachine>
+  <FiniteStateMachine:StateMachine name="department_thesis_definition_form:Resource" ownerObject="department thesis definition form">
+    <systemEvents xsi:type="FiniteStateMachine:CoreEvents">
+      <triggerTransition xsi:type="FiniteStateMachine:LocalTransition" target="/30/@states.0"/>
+    </systemEvents>
+    <states name="Start" isStartState="true">
+      <events xsi:type="FiniteStateMachine:CustomEvent" name="7:!not defined: create/ update/ delete?" isGlobal="true">
+        <triggerTransition xsi:type="FiniteStateMachine:LocalTransition" target="/30/@states.1" sourceState="/30/@states.0"/>
+      </events>
+    </states>
+    <states name="7 Received">
+      <events xsi:type="FiniteStateMachine:CustomEvent" name="39:read" isGlobal="true">
+        <triggerTransition xsi:type="FiniteStateMachine:LocalTransition" target="/30/@states.2" sourceState="/30/@states.1"/>
+      </events>
+    </states>
+    <states name="39 Received">
+      <events xsi:type="FiniteStateMachine:CustomEvent" name="56:read" isGlobal="true">
+        <triggerTransition xsi:type="FiniteStateMachine:LocalTransition" target="/30/@states.3" sourceState="/30/@states.2"/>
+      </events>
+    </states>
+    <states name="56 Received"/>
+  </FiniteStateMachine:StateMachine>
+  <FiniteStateMachine:StateMachine name="URL_challenge" ownerObject="Student">
+    <systemEvents xsi:type="FiniteStateMachine:CoreEvents">
+      <triggerTransition xsi:type="FiniteStateMachine:LocalTransition" target="/31/@states.0"/>
+    </systemEvents>
+    <states name="Start" isStartState="true">
+      <events xsi:type="FiniteStateMachine:CustomEvent" name="11:startChallenge" isGlobal="true">
+        <triggerTransition xsi:type="FiniteStateMachine:LocalTransition" target="/31/@states.1" sourceState="/31/@states.0"/>
+      </events>
+    </states>
+    <states name="11 Received"/>
+  </FiniteStateMachine:StateMachine>
+  <FiniteStateMachine:StateMachine name="form_sections_query" ownerObject="form sections query">
+    <systemEvents xsi:type="FiniteStateMachine:CoreEvents">
+      <triggerTransition xsi:type="FiniteStateMachine:LocalTransition" target="/32/@states.0"/>
+    </systemEvents>
+    <states name="Start" isStartState="true">
+      <events xsi:type="FiniteStateMachine:CustomEvent" name="16:show" isGlobal="true">
+        <triggerTransition xsi:type="FiniteStateMachine:LocalTransition" target="/32/@states.1" sourceState="/32/@states.0"/>
+      </events>
+    </states>
+    <states name="16 Received"/>
+  </FiniteStateMachine:StateMachine>
+  <FiniteStateMachine:StateMachine name="highlighted_form" ownerObject="highlighted form">
+    <systemEvents xsi:type="FiniteStateMachine:CoreEvents">
+      <triggerTransition xsi:type="FiniteStateMachine:LocalTransition" target="/33/@states.0"/>
+    </systemEvents>
+    <states name="Start" isStartState="true">
+      <events xsi:type="FiniteStateMachine:CustomEvent" name="27:show" isGlobal="true">
+        <triggerTransition xsi:type="FiniteStateMachine:LocalTransition" target="/33/@states.1" sourceState="/33/@states.0"/>
+      </events>
+    </states>
+    <states name="27 Received"/>
+  </FiniteStateMachine:StateMachine>
+  <FiniteStateMachine:StateMachine name="URL_query" ownerObject="URL query">
+    <systemEvents xsi:type="FiniteStateMachine:CoreEvents">
+      <triggerTransition xsi:type="FiniteStateMachine:LocalTransition" target="/34/@states.0"/>
+    </systemEvents>
+    <states name="Start" isStartState="true">
+      <events xsi:type="FiniteStateMachine:CustomEvent" name="30:show">
+        <triggerTransition xsi:type="FiniteStateMachine:LocalTransition" target="/34/@states.1" sourceState="/34/@states.0"/>
+      </events>
+    </states>
+    <states name="30 Received"/>
+  </FiniteStateMachine:StateMachine>
+  <FiniteStateMachine:StateMachine name="check_URL_challenge_response" ownerObject="Student">
+    <systemEvents xsi:type="FiniteStateMachine:CoreEvents">
+      <triggerTransition xsi:type="FiniteStateMachine:LocalTransition" target="/35/@states.0"/>
+    </systemEvents>
+    <states name="138 Received" isStartState="true">
+      <events xsi:type="FiniteStateMachine:CustomEvent" name="32:ask task1 of BP component for correct answer" isGlobal="true">
+        <triggerTransition xsi:type="FiniteStateMachine:LocalTransition" target="/35/@states.1" sourceState="/35/@states.0"/>
+      </events>
+    </states>
+    <states name="32 Received">
+      <events xsi:type="FiniteStateMachine:CoreEvents" name="FINISHED">
+        <triggerTransition xsi:type="FiniteStateMachine:LocalTransition" target="/35/@states.6" sourceState="/35/@states.1"/>
+      </events>
+    </states>
+    <states name="93 Performed">
+      <actions xsi:type="FiniteStateMachine:CustomAction" title="/93:runScoringRule"/>
+      <actions xsi:type="FiniteStateMachine:SystemAction" title="Send Event" category="State Machine">
+        <parameters name="Event Target" value="Self"/>
+        <parameters name="Send Event" value="93:runScoringRule"/>
+      </actions>
+      <events xsi:type="FiniteStateMachine:CustomEvent" name="93:runScoringRule">
+        <triggerTransition xsi:type="FiniteStateMachine:LocalTransition" target="/35/@states.3" sourceState="/35/@states.2"/>
+      </events>
+    </states>
+    <states name="93 Received">
+      <events xsi:type="FiniteStateMachine:CoreEvents" name="FINISHED">
+        <triggerTransition xsi:type="FiniteStateMachine:LocalTransition" target="/35/@states.7" sourceState="/35/@states.3"/>
+      </events>
+    </states>
+    <states name="139 Performed">
+      <actions xsi:type="FiniteStateMachine:CustomAction" title="/139:changeState(condition)"/>
+      <actions xsi:type="FiniteStateMachine:SystemAction" title="Send Event" category="State Machine">
+        <parameters name="Event Target" value="Self"/>
+        <parameters name="Send Event" value="139:changeState(condition)"/>
+      </actions>
+      <events xsi:type="FiniteStateMachine:CustomEvent" name="139:changeState(condition)">
+        <triggerTransition xsi:type="FiniteStateMachine:LocalTransition" target="/35/@states.5" sourceState="/35/@states.4"/>
+      </events>
+    </states>
+    <states name="139 Received">
+      <events xsi:type="FiniteStateMachine:CoreEvents" name="FINISHED">
+        <triggerTransition xsi:type="FiniteStateMachine:LocalTransition" target="/35/@states.8" sourceState="/35/@states.5"/>
+      </events>
+    </states>
+    <states name="33 Performed">
+      <actions xsi:type="FiniteStateMachine:CustomAction" title="/33:preparing department thesis definition form"/>
+      <actions xsi:type="FiniteStateMachine:SystemAction" title="Send Event" category="State Machine">
+        <parameters name="Event Target" value="Game Object FSM"/>
+        <parameters name="Send Event" value="33:preparing department thesis definition form"/>
+        <parameters name="Game Object" value="Student_lane"/>
+        <parameters name="FSM Name" value="Student:Lane"/>
+      </actions>
+      <events xsi:type="FiniteStateMachine:CoreEvents" name="FINISHED">
+        <triggerTransition xsi:type="FiniteStateMachine:LocalTransition" target="/35/@states.2" sourceState="/35/@states.6"/>
+      </events>
+    </states>
+    <states name="94 Performed">
+      <actions xsi:type="FiniteStateMachine:CustomAction" title="/94:calculateScore"/>
+      <actions xsi:type="FiniteStateMachine:SystemAction" title="Send Event" category="State Machine">
+        <parameters name="Event Target" value="Game Object FSM"/>
+        <parameters name="Send Event" value="94:calculateScore"/>
+        <parameters name="Game Object" value="URL challenge reward"/>
+        <parameters name="FSM Name" value="URL_challenge_reward"/>
+      </actions>
+      <events xsi:type="FiniteStateMachine:CoreEvents" name="FINISHED">
+        <triggerTransition xsi:type="FiniteStateMachine:LocalTransition" target="/35/@states.4" sourceState="/35/@states.7"/>
+      </events>
+    </states>
+    <states name="140 alt">
+      <actions xsi:type="FiniteStateMachine:CustomAction" title="check transition constraint">
+        <parameters name="[!not Defined]"/>
+      </actions>
+      <events xsi:type="FiniteStateMachine:CoreEvents" name="FINISHED">
+        <triggerTransition xsi:type="FiniteStateMachine:LocalTransition" target="/35/@states.9" sourceState="/35/@states.8"/>
+      </events>
+    </states>
+    <states name="141 Performed">
+      <actions xsi:type="FiniteStateMachine:SystemAction" title="Enable FSM" category="State Machine">
+        <parameters name="Game Object" value="Student"/>
+        <parameters name="Fsm Name" value="show_URL_challenge_result"/>
+        <parameters name="Enable" value="true"/>
+      </actions>
+    </states>
+  </FiniteStateMachine:StateMachine>
+  <FiniteStateMachine:StateMachine name="URL_challenge_result" ownerObject="URL challenge result">
+    <systemEvents xsi:type="FiniteStateMachine:CoreEvents">
+      <triggerTransition xsi:type="FiniteStateMachine:LocalTransition" target="/36/@states.0"/>
+    </systemEvents>
+    <states name="Start" isStartState="true">
+      <events xsi:type="FiniteStateMachine:CustomEvent" name="35:show" isGlobal="true">
+        <triggerTransition xsi:type="FiniteStateMachine:LocalTransition" target="/36/@states.1" sourceState="/36/@states.0"/>
+      </events>
+    </states>
+    <states name="35 Received"/>
+  </FiniteStateMachine:StateMachine>
+  <FiniteStateMachine:StateMachine name="Supervisor:Lane" ownerObject="Supervisor_lane">
+    <systemEvents xsi:type="FiniteStateMachine:CoreEvents">
+      <triggerTransition xsi:type="FiniteStateMachine:LocalTransition" target="/37/@states.0"/>
+    </systemEvents>
+    <states name="Start" isStartState="true">
+      <events xsi:type="FiniteStateMachine:CustomEvent" name="38:form completeness checking" isGlobal="true">
+        <triggerTransition xsi:type="FiniteStateMachine:LocalTransition" target="/37/@states.1" sourceState="/37/@states.0"/>
+      </events>
+    </states>
+    <states name="38 Received">
+      <events xsi:type="FiniteStateMachine:CoreEvents" name="FINISHED">
+        <triggerTransition xsi:type="FiniteStateMachine:LocalTransition" target="/37/@states.11" sourceState="/37/@states.1"/>
+      </events>
+    </states>
+    <states name="40 Performed">
+      <actions xsi:type="FiniteStateMachine:CustomAction" title="/40:return (correctOutputs)"/>
+      <actions xsi:type="FiniteStateMachine:SystemAction" title="Send Event" category="State Machine">
+        <parameters name="Event Target" value="Game Object FSM"/>
+        <parameters name="Send Event" value="40:return (correctOutputs)"/>
+        <parameters name="Game Object" value="Supervisor"/>
+        <parameters name="FSM Name" value="form_taking"/>
+      </actions>
+      <events xsi:type="FiniteStateMachine:CustomEvent" name="43:is the form complete?" isGlobal="true">
+        <triggerTransition xsi:type="FiniteStateMachine:LocalTransition" target="/37/@states.3" sourceState="/37/@states.2"/>
+      </events>
+    </states>
+    <states name="43 Received">
+      <events xsi:type="FiniteStateMachine:CoreEvents" name="FINISHED">
+        <triggerTransition xsi:type="FiniteStateMachine:LocalTransition" target="/37/@states.8" sourceState="/37/@states.3"/>
+      </events>
+    </states>
+    <states name="45 Performed">
+      <actions xsi:type="FiniteStateMachine:CustomAction" title="/45:setCorrectOutputs"/>
+      <actions xsi:type="FiniteStateMachine:SystemAction" title="Send Event" category="State Machine">
+        <parameters name="Event Target" value="Self"/>
+        <parameters name="Send Event" value="45:setCorrectOutputs"/>
+      </actions>
+      <events xsi:type="FiniteStateMachine:CustomEvent" name="45:setCorrectOutputs">
+        <triggerTransition xsi:type="FiniteStateMachine:LocalTransition" target="/37/@states.5" sourceState="/37/@states.4"/>
+      </events>
+    </states>
+    <states name="45 Received">
+      <events xsi:type="FiniteStateMachine:CoreEvents" name="FINISHED">
+        <triggerTransition xsi:type="FiniteStateMachine:LocalTransition" target="/37/@states.9" sourceState="/37/@states.5"/>
+      </events>
+    </states>
+    <states name="46 Performed">
+      <actions xsi:type="FiniteStateMachine:CustomAction" title="/46:setCorrectOutputs"/>
+      <actions xsi:type="FiniteStateMachine:SystemAction" title="Send Event" category="State Machine">
+        <parameters name="Event Target" value="Self"/>
+        <parameters name="Send Event" value="46:setCorrectOutputs"/>
+      </actions>
+      <events xsi:type="FiniteStateMachine:CustomEvent" name="46:setCorrectOutputs">
+        <triggerTransition xsi:type="FiniteStateMachine:LocalTransition" target="/37/@states.7" sourceState="/37/@states.6"/>
+      </events>
+    </states>
+    <states name="46 Received">
+      <events xsi:type="FiniteStateMachine:CustomEvent" name="59:form confirmation and signing" isGlobal="true">
+        <triggerTransition xsi:type="FiniteStateMachine:LocalTransition" target="/37/@states.9" sourceState="/37/@states.7"/>
+      </events>
+    </states>
+    <states name="44 alt">
+      <actions xsi:type="FiniteStateMachine:CustomAction" title="check transition constraint">
+        <parameters name="[!not Defined]"/>
+      </actions>
+      <actions xsi:type="FiniteStateMachine:CustomAction" title="check transition constraint">
+        <parameters name="[!not Defined]"/>
+      </actions>
+      <events xsi:type="FiniteStateMachine:CustomEvent" name="newEvent 4">
+        <triggerTransition xsi:type="FiniteStateMachine:LocalTransition" target="/37/@states.9" sourceState="/37/@states.8"/>
+      </events>
+      <events xsi:type="FiniteStateMachine:CustomEvent" name="newEvent 5">
+        <triggerTransition xsi:type="FiniteStateMachine:LocalTransition" target="/37/@states.4" sourceState="/37/@states.8"/>
+      </events>
+      <events xsi:type="FiniteStateMachine:CustomEvent" name="newEvent 6">
+        <triggerTransition xsi:type="FiniteStateMachine:LocalTransition" target="/37/@states.6" sourceState="/37/@states.8"/>
+      </events>
+    </states>
+    <states name="59 Received">
+      <events xsi:type="FiniteStateMachine:CustomEvent" name="63:endEvent" isGlobal="true">
+        <triggerTransition xsi:type="FiniteStateMachine:LocalTransition" target="/37/@states.10" sourceState="/37/@states.9"/>
+      </events>
+    </states>
+    <states name="63 Received"/>
+    <states name="39 Performed">
+      <actions xsi:type="FiniteStateMachine:CustomAction" title="/39:read"/>
+      <actions xsi:type="FiniteStateMachine:SystemAction" title="Send Event" category="State Machine">
+        <parameters name="Event Target" value="Game Object FSM"/>
+        <parameters name="Send Event" value="39:read"/>
+        <parameters name="Game Object" value="department thesis definition form"/>
+        <parameters name="FSM Name" value="department_thesis_definition_form:Resource"/>
+      </actions>
+      <events xsi:type="FiniteStateMachine:CoreEvents" name="FINISHED">
+        <triggerTransition xsi:type="FiniteStateMachine:LocalTransition" target="/37/@states.2" sourceState="/37/@states.11"/>
+      </events>
+    </states>
+  </FiniteStateMachine:StateMachine>
+  <FiniteStateMachine:StateMachine name="Thesis_definition_accuracy" ownerObject="Student">
+    <systemEvents xsi:type="FiniteStateMachine:CoreEvents">
+      <triggerTransition xsi:type="FiniteStateMachine:LocalTransition" target="/38/@states.0"/>
+    </systemEvents>
+    <states name="Start" isStartState="true">
+      <events xsi:type="FiniteStateMachine:CustomEvent" name="50:startChallenge" isGlobal="true">
+        <triggerTransition xsi:type="FiniteStateMachine:LocalTransition" target="/38/@states.1" sourceState="/38/@states.0"/>
+      </events>
+    </states>
+    <states name="50 Received"/>
+  </FiniteStateMachine:StateMachine>
+  <FiniteStateMachine:StateMachine name="End_of_level" ownerObject="End of level">
+    <systemEvents xsi:type="FiniteStateMachine:CoreEvents">
+      <triggerTransition xsi:type="FiniteStateMachine:LocalTransition" target="/39/@states.0"/>
+    </systemEvents>
+    <states name="Start" isStartState="true">
+      <events xsi:type="FiniteStateMachine:CustomEvent" name="67:show" isGlobal="true">
+        <triggerTransition xsi:type="FiniteStateMachine:LocalTransition" target="/39/@states.1" sourceState="/39/@states.0"/>
+      </events>
+    </states>
+    <states name="67 Received"/>
+  </FiniteStateMachine:StateMachine>
+  <FiniteStateMachine:StateMachine name="level_result" ownerObject="level result">
+    <systemEvents xsi:type="FiniteStateMachine:CoreEvents">
+      <triggerTransition xsi:type="FiniteStateMachine:LocalTransition" target="/40/@states.0"/>
+    </systemEvents>
+    <states name="Start" isStartState="true">
+      <events xsi:type="FiniteStateMachine:CustomEvent" name="71:show" isGlobal="true">
+        <triggerTransition xsi:type="FiniteStateMachine:LocalTransition" target="/40/@states.1" sourceState="/40/@states.0"/>
+      </events>
+    </states>
+    <states name="71 Received"/>
+  </FiniteStateMachine:StateMachine>
+  <FiniteStateMachine:StateMachine name="form_updating" ownerObject="form Paper">
+    <systemEvents xsi:type="FiniteStateMachine:CoreEvents">
+      <triggerTransition xsi:type="FiniteStateMachine:LocalTransition" target="/41/@states.0"/>
+    </systemEvents>
+    <states name="135 Received" isStartState="true">
+      <events xsi:type="FiniteStateMachine:CustomEvent" name="87:save updated form in player log(constraint)" isGlobal="true">
+        <triggerTransition xsi:type="FiniteStateMachine:LocalTransition" target="/41/@states.1" sourceState="/41/@states.0"/>
+      </events>
+    </states>
+    <states name="87 Received">
+      <events xsi:type="FiniteStateMachine:CoreEvents" name="FINISHED">
+        <triggerTransition xsi:type="FiniteStateMachine:LocalTransition" target="/41/@states.2" sourceState="/41/@states.1"/>
+      </events>
+    </states>
+    <states name="88 opt">
+      <actions xsi:type="FiniteStateMachine:CustomAction" title="check transition constraint">
+        <parameters name="[&#x2018;save&#x2019; option is selected]"/>
+      </actions>
+      <events xsi:type="FiniteStateMachine:CustomEvent" name="newEvent 7">
+        <triggerTransition xsi:type="FiniteStateMachine:LocalTransition" target="/41/@states.3" sourceState="/41/@states.2"/>
+      </events>
+      <events xsi:type="FiniteStateMachine:CustomEvent" name="newEvent 8">
+        <triggerTransition xsi:type="FiniteStateMachine:LocalTransition" target="/41/@states.4" sourceState="/41/@states.2"/>
+      </events>
+    </states>
+    <states name="90 Received">
+      <events xsi:type="FiniteStateMachine:CustomEvent" name="91:recall Task2 of BP component" isGlobal="true">
+        <triggerTransition xsi:type="FiniteStateMachine:LocalTransition" target="/41/@states.5" sourceState="/41/@states.3"/>
+      </events>
+    </states>
+    <states name="89 Performed">
+      <actions xsi:type="FiniteStateMachine:CustomAction" title="/89:!not Defined"/>
+      <actions xsi:type="FiniteStateMachine:SystemAction" title="Send Event" category="State Machine">
+        <parameters name="Event Target" value="Game Object FSM"/>
+        <parameters name="Send Event" value="89:!not Defined"/>
+        <parameters name="Game Object" value="StudentLog"/>
+        <parameters name="FSM Name" value="StudentLog"/>
+      </actions>
+      <events xsi:type="FiniteStateMachine:CustomEvent" name="90:Player edit something on the form" isGlobal="true">
+        <triggerTransition xsi:type="FiniteStateMachine:LocalTransition" target="/41/@states.3" sourceState="/41/@states.4"/>
+      </events>
+    </states>
+    <states name="91 Received">
+      <events xsi:type="FiniteStateMachine:CoreEvents" name="FINISHED">
+        <triggerTransition xsi:type="FiniteStateMachine:LocalTransition" target="/41/@states.8" sourceState="/41/@states.5"/>
+      </events>
+    </states>
+    <states name="180 Performed">
+      <actions xsi:type="FiniteStateMachine:CustomAction" title="/180:changeState(condition)"/>
+      <actions xsi:type="FiniteStateMachine:SystemAction" title="Send Event" category="State Machine">
+        <parameters name="Event Target" value="Self"/>
+        <parameters name="Send Event" value="180:changeState(condition)"/>
+      </actions>
+      <events xsi:type="FiniteStateMachine:CustomEvent" name="180:changeState(condition)">
+        <triggerTransition xsi:type="FiniteStateMachine:LocalTransition" target="/41/@states.7" sourceState="/41/@states.6"/>
+      </events>
+    </states>
+    <states name="180 Received">
+      <events xsi:type="FiniteStateMachine:CoreEvents" name="FINISHED">
+        <triggerTransition xsi:type="FiniteStateMachine:LocalTransition" target="/41/@states.9" sourceState="/41/@states.7"/>
+      </events>
+    </states>
+    <states name="92 Performed">
+      <actions xsi:type="FiniteStateMachine:CustomAction" title="/92:deliver the form to the supervisor"/>
+      <actions xsi:type="FiniteStateMachine:SystemAction" title="Send Event" category="State Machine">
+        <parameters name="Event Target" value="Game Object FSM"/>
+        <parameters name="Send Event" value="92:deliver the form to the supervisor"/>
+        <parameters name="Game Object" value="Student_lane"/>
+        <parameters name="FSM Name" value="Student:Lane"/>
+      </actions>
+      <events xsi:type="FiniteStateMachine:CoreEvents" name="FINISHED">
+        <triggerTransition xsi:type="FiniteStateMachine:LocalTransition" target="/41/@states.6" sourceState="/41/@states.8"/>
+      </events>
+    </states>
+    <states name="181 alt"/>
+  </FiniteStateMachine:StateMachine>
+  <FiniteStateMachine:StateMachine name="URL_challenge_reward" ownerObject="URL challenge reward">
+    <systemEvents xsi:type="FiniteStateMachine:CoreEvents">
+      <triggerTransition xsi:type="FiniteStateMachine:LocalTransition" target="/42/@states.0"/>
+    </systemEvents>
+    <states name="Start" isStartState="true">
+      <events xsi:type="FiniteStateMachine:CustomEvent" name="94:calculateScore" isGlobal="true">
+        <triggerTransition xsi:type="FiniteStateMachine:LocalTransition" target="/42/@states.1" sourceState="/42/@states.0"/>
+      </events>
+    </states>
+    <states name="94 Received">
+      <events xsi:type="FiniteStateMachine:CoreEvents" name="FINISHED">
+        <triggerTransition xsi:type="FiniteStateMachine:LocalTransition" target="/42/@states.2" sourceState="/42/@states.1"/>
+      </events>
+    </states>
+    <states name="95 alt">
+      <actions xsi:type="FiniteStateMachine:CustomAction" title="check transition constraint">
+        <parameters name="[if (user answer=correct answer) add 5 points]"/>
+      </actions>
+      <actions xsi:type="FiniteStateMachine:CustomAction" title="check transition constraint">
+        <parameters name="[else reduce 3 points]"/>
+      </actions>
+      <events xsi:type="FiniteStateMachine:CustomEvent" name="newEvent 9">
+        <triggerTransition xsi:type="FiniteStateMachine:LocalTransition" target="/42/@states.3" sourceState="/42/@states.2"/>
+      </events>
+      <events xsi:type="FiniteStateMachine:CustomEvent" name="newEvent 10">
+        <triggerTransition xsi:type="FiniteStateMachine:LocalTransition" target="/42/@states.4" sourceState="/42/@states.2"/>
+      </events>
+      <events xsi:type="FiniteStateMachine:CustomEvent" name="newEvent 11">
+        <triggerTransition xsi:type="FiniteStateMachine:LocalTransition" target="/42/@states.5" sourceState="/42/@states.2"/>
+      </events>
+    </states>
+    <states name="96 Performed">
+      <actions xsi:type="FiniteStateMachine:SystemAction" title="Enable FSM" category="State Machine">
+        <parameters name="Game Object" value="point"/>
+        <parameters name="Fsm Name" value="5_point"/>
+        <parameters name="Enable" value="true"/>
+      </actions>
+      <events xsi:type="FiniteStateMachine:CoreEvents" name="FINISHED">
+        <triggerTransition xsi:type="FiniteStateMachine:LocalTransition" target="/42/@states.5" sourceState="/42/@states.3"/>
+      </events>
+    </states>
+    <states name="97 Performed">
+      <actions xsi:type="FiniteStateMachine:SystemAction" title="Enable FSM" category="State Machine">
+        <parameters name="Game Object" value="point"/>
+        <parameters name="Fsm Name" value="3_point"/>
+        <parameters name="Enable" value="true"/>
+      </actions>
+      <events xsi:type="FiniteStateMachine:CoreEvents" name="FINISHED">
+        <triggerTransition xsi:type="FiniteStateMachine:LocalTransition" target="/42/@states.5" sourceState="/42/@states.4"/>
+      </events>
+    </states>
+    <states name="99 Performed">
+      <actions xsi:type="FiniteStateMachine:CustomAction" title="/99:!not Defined: save challenge score"/>
+      <actions xsi:type="FiniteStateMachine:SystemAction" title="Send Event" category="State Machine">
+        <parameters name="Event Target" value="Game Object FSM"/>
+        <parameters name="Send Event" value="99:!not Defined: save challenge score"/>
+        <parameters name="Game Object" value="StudentLog"/>
+        <parameters name="FSM Name" value="StudentLog"/>
+      </actions>
+    </states>
+  </FiniteStateMachine:StateMachine>
+  <FiniteStateMachine:StateMachine name="5_point" ownerObject="point">
+    <systemEvents xsi:type="FiniteStateMachine:CoreEvents">
+      <triggerTransition xsi:type="FiniteStateMachine:LocalTransition" target="/43/@states.0"/>
+    </systemEvents>
+    <states name="96 Received" isStartState="true"/>
+  </FiniteStateMachine:StateMachine>
+  <FiniteStateMachine:StateMachine name="3_point" ownerObject="point">
+    <systemEvents xsi:type="FiniteStateMachine:CoreEvents">
+      <triggerTransition xsi:type="FiniteStateMachine:LocalTransition" target="/44/@states.0"/>
+    </systemEvents>
+    <states name="97 Received" isStartState="true"/>
+  </FiniteStateMachine:StateMachine>
+  <FiniteStateMachine:StateMachine name="challenge_response_checking" ownerObject="Student">
+    <systemEvents xsi:type="FiniteStateMachine:CoreEvents">
+      <triggerTransition xsi:type="FiniteStateMachine:LocalTransition" target="/45/@states.0"/>
+    </systemEvents>
+    <states name="Start" isStartState="true">
+      <events xsi:type="FiniteStateMachine:CustomEvent" name="100:runScoringRule" isGlobal="true">
+        <triggerTransition xsi:type="FiniteStateMachine:LocalTransition" target="/45/@states.1" sourceState="/45/@states.0"/>
+      </events>
+    </states>
+    <states name="100 Received">
+      <events xsi:type="FiniteStateMachine:CoreEvents" name="FINISHED">
+        <triggerTransition xsi:type="FiniteStateMachine:LocalTransition" target="/45/@states.2" sourceState="/45/@states.1"/>
+      </events>
+    </states>
+    <states name="101 Performed">
+      <actions xsi:type="FiniteStateMachine:CustomAction" title="/101:calculateScore"/>
+      <actions xsi:type="FiniteStateMachine:SystemAction" title="Send Event" category="State Machine">
+        <parameters name="Event Target" value="Game Object FSM"/>
+        <parameters name="Send Event" value="101:calculateScore"/>
+        <parameters name="Game Object" value="Thesis definition accuracy challenge reward"/>
+        <parameters name="FSM Name" value="Thesis_definition_accuracy_challenge_reward"/>
+      </actions>
+    </states>
+  </FiniteStateMachine:StateMachine>
+  <FiniteStateMachine:StateMachine name="Thesis_definition_accuracy_challenge_reward" ownerObject="Thesis definition accuracy challenge reward">
+    <systemEvents xsi:type="FiniteStateMachine:CoreEvents">
+      <triggerTransition xsi:type="FiniteStateMachine:LocalTransition" target="/46/@states.0"/>
+    </systemEvents>
+    <states name="Start" isStartState="true">
+      <events xsi:type="FiniteStateMachine:CustomEvent" name="101:calculateScore" isGlobal="true">
+        <triggerTransition xsi:type="FiniteStateMachine:LocalTransition" target="/46/@states.1" sourceState="/46/@states.0"/>
+      </events>
+    </states>
+    <states name="101 Received">
+      <events xsi:type="FiniteStateMachine:CoreEvents" name="FINISHED">
+        <triggerTransition xsi:type="FiniteStateMachine:LocalTransition" target="/46/@states.2" sourceState="/46/@states.1"/>
+      </events>
+    </states>
+    <states name="102 alt">
+      <actions xsi:type="FiniteStateMachine:CustomAction" title="check transition constraint">
+        <parameters name="[if (form is accurate) give the player a Badge]"/>
+      </actions>
+      <actions xsi:type="FiniteStateMachine:CustomAction" title="check transition constraint">
+        <parameters name="[else reduce 1 points from his score for each wrong answer]"/>
+      </actions>
+      <events xsi:type="FiniteStateMachine:CustomEvent" name="newEvent 12">
+        <triggerTransition xsi:type="FiniteStateMachine:LocalTransition" target="/46/@states.3" sourceState="/46/@states.2"/>
+      </events>
+      <events xsi:type="FiniteStateMachine:CustomEvent" name="newEvent 13">
+        <triggerTransition xsi:type="FiniteStateMachine:LocalTransition" target="/46/@states.4" sourceState="/46/@states.2"/>
+      </events>
+      <events xsi:type="FiniteStateMachine:CustomEvent" name="newEvent 14">
+        <triggerTransition xsi:type="FiniteStateMachine:LocalTransition" target="/46/@states.5" sourceState="/46/@states.2"/>
+      </events>
+    </states>
+    <states name="103 Performed">
+      <actions xsi:type="FiniteStateMachine:SystemAction" title="Enable FSM" category="State Machine">
+        <parameters name="Game Object" value="badge"/>
+        <parameters name="Fsm Name" value="Thesis_definition_expertise"/>
+        <parameters name="Enable" value="true"/>
+      </actions>
+      <events xsi:type="FiniteStateMachine:CoreEvents" name="FINISHED">
+        <triggerTransition xsi:type="FiniteStateMachine:LocalTransition" target="/46/@states.5" sourceState="/46/@states.3"/>
+      </events>
+    </states>
+    <states name="104 Performed">
+      <actions xsi:type="FiniteStateMachine:SystemAction" title="Enable FSM" category="State Machine">
+        <parameters name="Game Object" value="point"/>
+        <parameters name="Fsm Name" value="1_point"/>
+        <parameters name="Enable" value="true"/>
+      </actions>
+      <events xsi:type="FiniteStateMachine:CoreEvents" name="FINISHED">
+        <triggerTransition xsi:type="FiniteStateMachine:LocalTransition" target="/46/@states.5" sourceState="/46/@states.4"/>
+      </events>
+    </states>
+    <states name="106 Performed">
+      <actions xsi:type="FiniteStateMachine:CustomAction" title="/106:!not Defined: save challenge score"/>
+      <actions xsi:type="FiniteStateMachine:SystemAction" title="Send Event" category="State Machine">
+        <parameters name="Event Target" value="Game Object FSM"/>
+        <parameters name="Send Event" value="106:!not Defined: save challenge score"/>
+        <parameters name="Game Object" value="StudentLog"/>
+        <parameters name="FSM Name" value="StudentLog"/>
+      </actions>
+    </states>
+  </FiniteStateMachine:StateMachine>
+  <FiniteStateMachine:StateMachine name="Thesis_definition_expertise" ownerObject="badge">
+    <systemEvents xsi:type="FiniteStateMachine:CoreEvents">
+      <triggerTransition xsi:type="FiniteStateMachine:LocalTransition" target="/47/@states.0"/>
+    </systemEvents>
+    <states name="103 Received" isStartState="true"/>
+  </FiniteStateMachine:StateMachine>
+  <FiniteStateMachine:StateMachine name="1_point" ownerObject="point">
+    <systemEvents xsi:type="FiniteStateMachine:CoreEvents">
+      <triggerTransition xsi:type="FiniteStateMachine:LocalTransition" target="/48/@states.0"/>
+    </systemEvents>
+    <states name="104 Received" isStartState="true"/>
+  </FiniteStateMachine:StateMachine>
+</xmi:XMI>

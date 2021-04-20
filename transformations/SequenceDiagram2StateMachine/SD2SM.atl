@@ -1,0 +1,391 @@
+-- @path SD=/SeGa4Biz/metamodels/SD.ecore
+-- @path SM=/SeGa4Biz/metamodels/SM.ecore
+
+module SD2SM;
+create OUT: SM from IN: SD;
+
+helper def: startStateName : String = 'Start';
+helper def: IdleStateName : String = 'Idle';
+helper def: endStateName : String = 'End';
+helper context SD!Message def: receiveMsgStateName : String =  self.ID.toString() + ' Received'; 
+helper context SD!Message def: sendMsgStateName : String = self.ID.toString() + ' Performed';
+helper context SD!CombinedFragment def: fragmentStateName : String = self.ID.toString() + ' ' +self.type.toString();
+helper context SD!CombinedFragment def: negativeOperandDescription : String = '!' + self.operands.first().guard;
+
+--create Idle state for state machine
+unique lazy rule IdleState{
+	from
+		lifeline: SD!Lifeline
+	to
+		IdleState: SM!State (
+			name <- thisModule.IdleStateName,
+			order <- 'intermediate',
+			ownerMachine <- lifeline)
+}
+--create start state for state machine
+unique lazy rule startState{
+	from
+		lifeline: SD!Lifeline
+	to
+		startState: SM!State (
+			name <- thisModule.startStateName,
+			order <- 'initial',
+			ownerMachine <- lifeline)
+}
+--create end state for state machine
+unique lazy rule endState{
+	from
+		lifeline: SD!Lifeline
+	to
+		endState: SM!State (
+			name <- thisModule.endStateName,
+			order <- 'final',
+			ownerMachine <- lifeline)
+}
+--create a state for a message
+unique lazy rule message2State{
+	from
+		msg: SD!Message
+	to
+		state: SM!State(
+			name <- if (msg.isSendMsg)
+						then
+							msg.sendMsgStateName
+						else
+							msg.receiveMsgStateName
+					endif,
+			order <- 'intermediate',
+			ownerMachine <- msg.ownerLifeline)
+}
+--create a state for a combined fragment
+unique lazy rule combinedFragment2State{
+	from
+		cf: SD!CombinedFragment
+	to
+		state: SM!State(
+			name <- cf.fragmentStateName,
+			order <- 'intermediate',
+			ownerMachine <- cf.ownerLifeline)
+}
+--create a trigger event for a message
+unique lazy rule message2TriggerEvent{
+	from
+		msg: SD!Message
+	to
+		trigger: SM!TriggerEvent (
+			name <- msg.ID + ': ' + msg.action)
+}
+--create an action for a message
+unique lazy rule message2Action{
+	from
+		msg: SD!Message
+	to
+		action: SM!Action (
+			title <- '/ ' + msg.ID + ': ' + msg.action)
+}
+--create a guard condition for an operand
+unique lazy rule operand2guard{
+	from
+		op: SD!Operand
+	to
+		guard: SM!Constraint (
+			description <- '[ '+op.guard+' ]')
+}
+--create a negative guard condition
+unique lazy rule createNegativeConstraint{
+	from
+		op: SD!Operand
+	to
+		guard: SM!Constraint (
+			description <- '[ !'+op.guard+' ]')
+}
+-- input: lifeline
+-- output: state machine
+rule lifeline2statemachine{
+	from
+		lifeline: SD!Lifeline
+	to
+		sm: SM!StateMachine (
+			name <- lifeline.name),
+		transition: SM!LocalTransition (
+			sourceState <- thisModule.startState(lifeline),
+			target <- thisModule.IdleState(lifeline))
+}
+
+--------------------------------------------------------------------------------------------
+--input: a Receive Message that is the first element of lifeline and there are other elements after that
+--output: a transition trigger from Idle State to a new state with its correspoinding trigger event
+rule firstReceiveMsg2Trigger {
+	from
+		msg: SD!Message (
+			msg.isReceiveMsg and 
+			msg.previous.size()=0 and
+			msg.next.size()<>0)
+	to
+		transition: SM!LocalTransition(
+			sourceState <-  thisModule.IdleState(msg.ownerLifeline),
+			target <- thisModule.message2State(msg),
+			triggerEvent <- thisModule.message2TriggerEvent(msg))
+}
+--input: intermediate Receive Messages of lifeline
+--output: transitions from all previous elements of message to message with their corresponding trigger events
+rule intermediateReceiveMsg2Trigger{
+	from
+		msg: SD!Message (
+			msg.isReceiveMsg and 
+			msg.previous.size() <> 0 and 
+			msg.next.size() <> 0)
+	to
+		transitions: distinct SM!LocalTransition foreach (element in msg.previous)
+			(sourceState <- 
+				if (element.oclIsKindOf(SD!Message)) then
+					thisModule.message2State(element)
+				else
+					thisModule.combinedFragment2State(element)
+				endif,
+			 target <- thisModule.message2State(msg),
+			 guardCondition <- 
+			 	if (element.oclIsKindOf(SD!CombinedFragment)) then
+					if (msg.relatedOperand->notEmpty()) then
+						thisModule.operand2guard
+							(msg.relatedOperand->select(o | o.ownerFragment = element)->first())
+					else
+						OclUndefined
+					endif
+				else
+					OclUndefined
+				endif,
+			 triggerEvent <- thisModule.message2TriggerEvent(msg))
+}
+--input: end Receive Message of lifeline
+--output: transitions from all previous elements of message to message with their corresponding trigger events, and another transition from message to end state
+rule endReceiveMsg2Trigger{
+	from
+		msg: SD!Message (
+			msg.isReceiveMsg and 
+			msg.previous.size() <> 0 and 
+			msg.next.size() = 0)
+	to
+		transitions: distinct SM!LocalTransition foreach (element in msg.previous)
+			(sourceState <- 
+				if (element.oclIsKindOf(SD!Message)) then
+					thisModule.message2State(element)
+				else
+					thisModule.combinedFragment2State(element)
+				endif,
+			 target <- thisModule.message2State(msg),
+			 guardCondition <- 
+			 	if (element.oclIsKindOf(SD!CombinedFragment)) then
+					if (not msg.relatedOperand.oclIsUndefined()) then
+						thisModule.operand2guard
+							(msg.relatedOperand->select(o | o.ownerFragment = element)->first())
+					else
+						OclUndefined
+					endif
+				else
+					OclUndefined
+				endif,
+			 triggerEvent <- thisModule.message2TriggerEvent(msg)),
+		transition2: SM!LocalTransition (
+			sourceState <- thisModule.message2State(msg) ,
+			target <- thisModule.endState(msg.ownerLifeline))
+}
+--input: The Receive Message of a lifeline which is the only element of lifeline (there is no previous or next element)
+--output: a transition trigger from Idle state to Messate State and another transition from message to end state
+rule singleReceiveMsg2Trigger {
+	from
+		msg: SD!Message (
+			msg.isReceiveMsg and 
+			msg.previous.size() = 0 and 
+			msg.next.size() = 0 )
+	to
+		transition1: SM!LocalTransition (
+			sourceState <-  thisModule.IdleState(msg.ownerLifeline),
+			target <-  thisModule.message2State(msg),
+			triggerEvent <- thisModule.message2TriggerEvent(msg)),
+		transition2: SM!LocalTransition (
+			sourceState <- thisModule.message2State(msg),
+			target <- thisModule.endState(msg.ownerLifeline))
+}
+--------------------------------------------------------------------------------------------
+--input: a Send Message that is the first element of lifeline and there are other elements after that
+--output: a transition from Idle State to a new state with its corresponding action
+rule firstSendMsg2Action {
+	from
+		msg: SD!Message (
+			msg.isSendMsg and 
+			msg.previous.size()=0 and
+			msg.next.size()<>0)
+	to
+		transition: SM!LocalTransition(
+			sourceState <-  thisModule.IdleState(msg.ownerLifeline),
+			target <- thisModule.message2State(msg),
+			actions <- thisModule.message2Action(msg))
+}
+--input: intermediate Send Messages of lifeline
+--output: transitions from all previous elements of message to message with their corresponding actions
+rule intermediateSendMsg2Action{
+	from
+		msg: SD!Message (
+			msg.isSendMsg and 
+			msg.previous.size() <> 0 and 
+			msg.next.size() <> 0)
+	to
+		transitions: distinct SM!LocalTransition foreach (element in msg.previous)
+			(sourceState <- 
+				if (element.oclIsKindOf(SD!Message)) then
+					thisModule.message2State(element)
+				else
+					thisModule.combinedFragment2State(element)
+				endif,
+			 target <- thisModule.message2State(msg),
+			 guardCondition <- 
+			 	if (element.oclIsKindOf(SD!CombinedFragment)) then
+					if (msg.relatedOperand->notEmpty()) then
+						thisModule.operand2guard
+							(msg.relatedOperand->select(o | o.ownerFragment = element)->first())
+					else
+						OclUndefined
+					endif
+				else
+					OclUndefined
+				endif,
+			 actions <- thisModule.message2Action(msg))
+}
+--input: end Send Message of lifeline
+--output: transitions from all previous elements of message to message with their corresponding actions and another transition from this message to end state
+rule endSendMsg2Action{
+	from
+		msg: SD!Message (
+			msg.isSendMsg and 
+			msg.previous.size() <> 0 and 
+			msg.next.size() = 0)
+	to
+		transitions: distinct SM!LocalTransition foreach (element in msg.previous)
+			(sourceState <- 
+				if (element.oclIsKindOf(SD!Message)) then
+					thisModule.message2State(element)
+				else
+					thisModule.combinedFragment2State(element)
+				endif,
+			 target <- thisModule.message2State(msg),
+			 guardCondition <- 
+			 	if (element.oclIsKindOf(SD!CombinedFragment)) then
+					if (msg.relatedOperand -> notEmpty()) then
+						thisModule.operand2guard
+							(msg.relatedOperand->first())
+					else
+						OclUndefined
+					endif
+				else
+					OclUndefined
+				endif,
+			 actions <- thisModule.message2Action(msg)),
+		transition2: SM!LocalTransition (
+			sourceState <- thisModule.message2State(msg) ,
+			target <- thisModule.endState(msg.ownerLifeline))
+}
+--input: The Send Message of a lifeline which is the only element of lifeline (there is no previous or next element)
+--output: a transition Action from Idle state to Messate State and another transition from message to end state
+rule singleSendMsg2Action {
+	from
+		msg: SD!Message (
+			msg.isSendMsg and 
+			msg.previous.size() = 0 and 
+			msg.next.size() = 0 )
+	to
+		transition1: SM!LocalTransition (
+			sourceState <-  thisModule.IdleState(msg.ownerLifeline),
+			target <-  thisModule.message2State(msg),
+			actions <- thisModule.message2Action(msg)),
+		transition2: SM!LocalTransition (
+			sourceState <- thisModule.message2State(msg),
+			target <- thisModule.endState(msg.ownerLifeline))
+}
+---------------------------------------------------------------------------------
+--input: combined fragment that is the first element of lifeline and there are other elements after that
+--output: a state for fragment, a transition from Idle state to fragment state
+rule FirstCombinedFragment2state{
+	from
+		cf: SD!CombinedFragment (
+			cf.previous.size() = 0 and 
+			cf.next.size() <> 0 )
+	to
+		transition: SM!LocalTransition (
+			sourceState <-  thisModule.IdleState(cf.ownerLifeline),
+			target <- thisModule.combinedFragment2State(cf))
+}
+--input: combined fragment that is an intermediate element of lifeline
+--output: a state for fragment, transitions from all previous elements of fragment to the fragment
+rule IntermediateCombinedFragment2state{
+	from
+		cf: SD!CombinedFragment (
+			cf.previous.size() <> 0 and 
+			cf.next.size() <> 0)
+	to
+		transitions: distinct SM!LocalTransition foreach (element in cf.previous)
+			(sourceState <- 
+				if (element.oclIsKindOf(SD!Message)) then
+					thisModule.message2State(element)
+				else
+					thisModule.combinedFragment2State(element)
+				endif,
+			 target <- thisModule.combinedFragment2State(cf),
+			 guardCondition <-
+			 	if (element.oclIsKindOf(SD!CombinedFragment)) then
+					if (not cf.relatedOperand.oclIsUndefined()) then
+						thisModule.operand2guard
+							(cf.relatedOperand->select(o | o.ownerFragment = element)->first())
+					else
+						OclUndefined
+					endif
+				else
+					OclUndefined
+				endif)
+}
+--input: combined fragment that is end element of lifeline
+--output: transitions from all previous elements of fragment to the fragment and another transition from fragment to end state
+rule endCombinedFragment2transition_whenPreviousElementIsMsg{
+	from
+		cf: SD!CombinedFragment (
+			cf.previous.size() <> 0 and 
+			cf.next.size() = 0)
+	to
+		transitions: distinct SM!LocalTransition foreach (element in cf.previous)
+			(sourceState <- 
+				if (element.oclIsKindOf(SD!Message)) then
+					thisModule.message2State(element)
+				else
+					thisModule.combinedFragment2State(element)
+				endif,
+			 target <- thisModule.combinedFragment2State(cf),
+			 guardCondition <-
+			 	if (element.oclIsKindOf(SD!CombinedFragment)) then
+					if (not cf.relatedOperand.oclIsUndefined()) then
+						thisModule.operand2guard
+							(cf.relatedOperand->select(o | o.ownerFragment = element)->first())
+					else
+						OclUndefined
+					endif
+				else
+					OclUndefined
+				endif),
+		transition2: SM!LocalTransition (
+			sourceState <- thisModule.combinedFragment2State(cf),
+			target <- thisModule.endState(cf.ownerLifeline))
+}
+--input: The Fragment of lifeline which is the only element of lifeline (there is no previous or next element)
+--output: a transition from Idle state to fragment state and another transition from fragment state to end state
+rule singleFragment2State {
+	from
+		cf: SD!CombinedFragment (
+			cf.previous.size() = 0 and 
+			cf.next.size() = 0)
+	to
+		transition1: SM!LocalTransition (
+			sourceState <- thisModule.IdleState(cf.ownerLifeline),
+			target <-  thisModule.combinedFragment2State(cf)),
+		transition2: SM!LocalTransition (
+			sourceState <- thisModule.combinedFragment2State(cf),
+			target <- thisModule.endState(cf.ownerLifeline))
+}

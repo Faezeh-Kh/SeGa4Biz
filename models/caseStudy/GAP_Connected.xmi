@@ -1,0 +1,608 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xmi:XMI xmi:version="2.0"
+    xmlns:xmi="http://www.omg.org/XMI"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xmlns:BPMN="www.BPMN.com"
+    xmlns:GUI="www.GUI.com"
+    xmlns:GameLogic="www.GameLogic.com"
+    xmlns:ScoringModel="www.ScoringModel.com"
+    xsi:schemaLocation="www.BPMN.com /SeGa4Biz/metamodels/GAP.ecore#//BPMN www.GUI.com /SeGa4Biz/metamodels/GAP.ecore#//GUI www.GameLogic.com /SeGa4Biz/metamodels/GAP.ecore#//GameLogic www.ScoringModel.com /SeGa4Biz/metamodels/GAP.ecore#//GameLogic/ScoringModel">
+  <BPMN:BusinessProcess
+      name="Vacation Request_connected">
+    <participants
+        name="Avan Company">
+      <lanes
+          name="Employee">
+        <elements
+            xsi:type="BPMN:StartEvent"
+            relatedState="/0/@participants.0/@lanes.0/@relatedObjects.0/@states.0">
+          <flows
+              description=""
+              target="/0/@participants.0/@lanes.0/@elements.1"
+              relatedState="/0/@participants.0/@lanes.0/@relatedObjects.0/@states.1"/>
+        </elements>
+        <elements
+            xsi:type="BPMN:Task"
+            title="request for vacation"
+            relatedState="/0/@participants.0/@lanes.0/@relatedObjects.0/@states.2">
+          <flows
+              target="/0/@participants.0/@lanes.0/@elements.2"
+              relatedState="/0/@participants.0/@lanes.0/@relatedObjects.0/@states.3"/>
+        </elements>
+        <elements
+            xsi:type="BPMN:Task"
+            title="Send request Email"
+            type="sendEmailTask"
+            relatedState="/0/@participants.0/@lanes.0/@relatedObjects.0/@states.4">
+          <flows
+              target="/0/@participants.0/@lanes.0/@elements.3"/>
+        </elements>
+        <elements
+            xsi:type="BPMN:Task"
+            title="check work load">
+          <flows
+              target="/0/@participants.0/@lanes.0/@elements.4"/>
+        </elements>
+        <elements
+            xsi:type="BPMN:Exclusive"
+            triggerCondition="degree of work load">
+          <flows
+              description="high"
+              target="/0/@participants.0/@lanes.0/@elements.5"/>
+          <flows
+              description="low"
+              target="/0/@participants.0/@lanes.0/@elements.6"/>
+        </elements>
+        <elements
+            xsi:type="BPMN:Task"
+            title="Wait for manager confirmation"
+            type="manualTask">
+          <flows
+              target="/0/@participants.0/@lanes.1/@elements.0"/>
+        </elements>
+        <elements
+            xsi:type="BPMN:Task"
+            title="vacation confirmation">
+          <flows
+              target="/0/@participants.0/@lanes.0/@elements.7"/>
+        </elements>
+        <elements
+            xsi:type="BPMN:EndEvent"/>
+        <relatedObjects
+            xsi:type="GUI:PlayerCharacter"
+            name="Employee"
+            ownerScene="/0/@relatedLevel.0/@relatedScene"
+            components="/1">
+          <states
+              name="Start Level"
+              isStartState="true">
+            <actions
+                title="show level1startup screen"
+                relatedElementType="screen"
+                relatedScreen="/2"/>
+            <actions
+                title="choose start button"
+                isPlayerRequest="true"
+                relatedScreen="/2/@innerObjects.0"/>
+            <actions
+                title="set level start time in player log"
+                relatedElementType="log"
+                relatedLog="/0/@participants.0/@lanes.0/@relatedObjects.0/@playerLog">
+              <triggers
+                  source="/0/@participants.0/@lanes.0/@relatedObjects.0/@states.0/@actions.1"/>
+            </actions>
+            <changeRules
+                xsi:type="GameLogic:Deterministic"
+                targetState="/0/@participants.0/@lanes.0/@relatedObjects.0/@states.1"/>
+          </states>
+          <states
+              name="initialize request">
+            <actions
+                title="call Task1 of BP component"
+                relatedElementType="bpElement"
+                relatedBPelement="/0/@participants.0/@lanes.0/@elements.1"/>
+            <changeRules
+                xsi:type="GameLogic:Deterministic"
+                targetState="/0/@participants.0/@lanes.0/@relatedObjects.0/@states.2"/>
+          </states>
+          <states
+              name="show request page">
+            <actions
+                title="show request vacation screen"
+                relatedElementType="screen"
+                relatedScreen="/3"/>
+            <actions
+                title="choose send email button"
+                isPlayerRequest="true"
+                relatedScreen="/3/@innerObjects.0"/>
+            <changeRules
+                xsi:type="GameLogic:Deterministic"
+                targetState="/0/@participants.0/@lanes.0/@relatedObjects.0/@states.3"/>
+          </states>
+          <states
+              name="initialize email">
+            <actions
+                title="call task2 of BP component"
+                relatedElementType="bpElement"
+                relatedBPelement="/0/@participants.0/@lanes.0/@elements.2"/>
+            <changeRules
+                xsi:type="GameLogic:Deterministic"
+                targetState="/0/@participants.0/@lanes.0/@relatedObjects.0/@states.4"/>
+          </states>
+          <states
+              name="make new email">
+            <actions
+                title="show sending email screen"
+                relatedElementType="screen"
+                relatedScreen="/4"/>
+            <actions
+                title="insert email title"
+                isPlayerRequest="true"
+                relatedScreen="/4/@innerObjects.0"/>
+            <actions
+                title="run email title format challenge"
+                relatedElementType="challenge"
+                relatedChallenge="/0/@participants.0/@lanes.0/@relatedObjects.0/@challenges.0">
+              <triggers
+                  source="/0/@participants.0/@lanes.0/@relatedObjects.0/@states.4/@actions.1"/>
+            </actions>
+            <actions
+                title="choose email address"
+                isPlayerRequest="true"
+                relatedScreen="/4/@innerObjects.1"/>
+            <actions
+                title="run email address challenge"
+                relatedElementType="challenge"
+                relatedChallenge="/0/@participants.0/@lanes.0/@relatedObjects.0/@challenges.1">
+              <triggers
+                  source="/0/@participants.0/@lanes.0/@relatedObjects.0/@states.4/@actions.3"/>
+            </actions>
+            <actions
+                title="choose rules checking button"
+                isPlayerRequest="true"
+                relatedScreen="/4/@innerObjects.2"/>
+            <actions
+                title="show vacation rules screen"
+                relatedElementType="screen"
+                relatedScreen="/5">
+              <triggers
+                  source="/0/@participants.0/@lanes.0/@relatedObjects.0/@states.4/@actions.5"/>
+            </actions>
+            <actions
+                title="enter empty fields"
+                isPlayerRequest="true"
+                relatedScreen="/5/@innerObjects.0"/>
+            <actions
+                title="choose validation button"
+                isPlayerRequest="true"
+                relatedScreen="/5/@innerObjects.2"/>
+            <actions
+                title="run request validation challenge"
+                relatedElementType="challenge"
+                relatedChallenge="/0/@participants.0/@lanes.0/@relatedObjects.0/@challenges.2">
+              <triggers
+                  source="/0/@participants.0/@lanes.0/@relatedObjects.0/@states.4/@actions.8"/>
+            </actions>
+            <actions
+                title="call Task3 of BP component"
+                relatedElementType="bpElement"
+                relatedBPelement="/0/@participants.0/@lanes.0/@elements.3">
+              <triggers
+                  source="/0/@participants.0/@lanes.0/@relatedObjects.0/@challenges.2/@states.0/@actions.0"/>
+            </actions>
+            <changeRules
+                xsi:type="GameLogic:Deterministic"
+                targetState="/0/@participants.0/@lanes.0/@relatedObjects.0/@states.5"/>
+          </states>
+          <states
+              name="work load checking">
+            <actions
+                title="show “work load” screen"
+                relatedElementType="screen"
+                relatedScreen="/6"/>
+            <actions
+                title="call gateway1 of BP component"
+                relatedElementType="bpElement"
+                relatedBPelement="/0/@participants.0/@lanes.0/@elements.4">
+              <triggers
+                  source="/0/@participants.0/@lanes.0/@relatedObjects.0/@states.5/@actions.0"/>
+            </actions>
+            <changeRules
+                xsi:type="GameLogic:Deterministic"
+                targetState="/0/@participants.0/@lanes.0/@relatedObjects.0/@states.6"/>
+          </states>
+          <states
+              name="determining work load degree">
+            <actions
+                title="choose high button"
+                isPlayerRequest="true"
+                relatedScreen="/6/@innerObjects.0"/>
+            <actions
+                title="call Task4 of BP component"
+                relatedElementType="bpElement"
+                relatedBPelement="/0/@participants.0/@lanes.0/@elements.5">
+              <triggers
+                  source="/0/@participants.0/@lanes.0/@relatedObjects.0/@states.6/@actions.0"/>
+            </actions>
+            <actions
+                title="choose low button"
+                isPlayerRequest="true"
+                relatedScreen="/6/@innerObjects.1"/>
+            <actions
+                title="call Task5 of BP component"
+                relatedElementType="bpElement"
+                relatedBPelement="/0/@participants.0/@lanes.0/@elements.6">
+              <triggers
+                  source="/0/@participants.0/@lanes.0/@relatedObjects.0/@states.6/@actions.2"/>
+            </actions>
+            <changeRules
+                xsi:type="GameLogic:NonDeterministic"
+                targetState="/0/@participants.0/@lanes.0/@relatedObjects.0/@states.7 /0/@participants.0/@lanes.0/@relatedObjects.0/@states.8"/>
+          </states>
+          <states
+              name="wait for manager confirmation">
+            <actions
+                title="show result1"
+                relatedElementType="screen"
+                relatedScreen="/6/@innerObjects.2"/>
+            <actions
+                title="call Task6 of BP component"
+                relatedElementType="bpElement"
+                relatedBPelement="/0/@participants.0/@lanes.1/@elements.0">
+              <triggers
+                  source="/0/@participants.0/@lanes.0/@relatedObjects.0/@states.7/@actions.0"/>
+            </actions>
+            <changeRules
+                xsi:type="GameLogic:Deterministic"
+                targetState="/0/@participants.0/@lanes.1/@relatedObjects.0/@states.0"/>
+          </states>
+          <states
+              name="go to vacation">
+            <actions
+                title="show result2"
+                relatedElementType="screen"
+                relatedScreen="/6/@innerObjects.3"/>
+            <actions
+                title="call end event of BP component"
+                relatedElementType="bpElement"
+                relatedBPelement="/0/@participants.0/@lanes.0/@elements.7">
+              <triggers
+                  source="/0/@participants.0/@lanes.0/@relatedObjects.0/@states.8/@actions.0"/>
+            </actions>
+            <changeRules
+                xsi:type="GameLogic:Deterministic"
+                targetState="/0/@participants.0/@lanes.0/@relatedObjects.0/@states.9"/>
+          </states>
+          <states
+              name="end state">
+            <actions
+                title="save level finishing time in player log"
+                relatedElementType="log"
+                relatedLog="/0/@participants.0/@lanes.0/@relatedObjects.0/@playerLog"/>
+            <actions
+                title="update player game result">
+              <triggers
+                  source="/0/@participants.0/@lanes.0/@relatedObjects.0/@states.9/@actions.0"/>
+            </actions>
+            <actions
+                title="show the screen of score menu"
+                relatedElementType="screen"
+                relatedScreen="/7">
+              <triggers
+                  source="/0/@participants.0/@lanes.0/@relatedObjects.0/@states.9/@actions.1"/>
+            </actions>
+            <actions
+                title="show player score on screen"
+                relatedElementType="screen"
+                relatedScreen="/7/@innerObjects.0">
+              <triggers
+                  source="/0/@participants.0/@lanes.0/@relatedObjects.0/@states.9/@actions.2"/>
+            </actions>
+            <actions
+                title="show run time duration"
+                relatedElementType="screen"
+                relatedScreen="/7/@innerObjects.1">
+              <triggers
+                  source="/0/@participants.0/@lanes.0/@relatedObjects.0/@states.9/@actions.3"/>
+            </actions>
+          </states>
+          <challenges
+              xsi:type="GameLogic:KnowledgeChallenge"
+              title="email title format challange"
+              description="check the accuracy of email title format">
+            <scoringRule
+                title="email title format reward">
+              <rewardConditions
+                  title="if (title format is correct) add 5 points ">
+                <rewards
+                    xsi:type="ScoringModel:Point"
+                    value="5"/>
+              </rewardConditions>
+              <rewardConditions
+                  title="if (title format is incorrect) subscribe 3 points ">
+                <rewards
+                    xsi:type="ScoringModel:Point"
+                    value="-3"/>
+              </rewardConditions>
+            </scoringRule>
+            <states
+                name="email title accuracy checking"
+                isStartState="true">
+              <actions
+                  title="runScoringRule">
+                <triggers
+                    source="/0/@participants.0/@lanes.0/@relatedObjects.0/@states.4/@actions.2"/>
+              </actions>
+            </states>
+          </challenges>
+          <challenges
+              xsi:type="GameLogic:KnowledgeChallenge"
+              title="email address challenge"
+              description="check the accuracy of selected email address">
+            <scoringRule
+                title="email address reward">
+              <rewardConditions
+                  title="if (manager address is selected) add 5 points ">
+                <rewards
+                    xsi:type="ScoringModel:Point"
+                    value="5"/>
+              </rewardConditions>
+              <rewardConditions
+                  title="if (manager address is not selected) subscribe 3 points ">
+                <rewards
+                    xsi:type="ScoringModel:Point"
+                    value="-3"/>
+              </rewardConditions>
+            </scoringRule>
+            <states
+                name="email address accuracy checking"
+                isStartState="true">
+              <actions
+                  title="runScoringRule">
+                <triggers
+                    source="/0/@participants.0/@lanes.0/@relatedObjects.0/@states.4/@actions.4"/>
+              </actions>
+            </states>
+          </challenges>
+          <challenges
+              xsi:type="GameLogic:KnowledgeChallenge"
+              title="request validation challenge"
+              description="check the accuracy of request based on rules">
+            <scoringRule
+                title="valid request reward">
+              <rewardConditions
+                  title="if (request date &lt; vacation date) add 3 points ">
+                <rewards
+                    xsi:type="ScoringModel:Point"
+                    value="3"/>
+              </rewardConditions>
+              <rewardConditions
+                  title="if (request date = vacation date and request time &lt; work time) add 3 points">
+                <rewards
+                    xsi:type="ScoringModel:Point"
+                    value="3"/>
+              </rewardConditions>
+              <rewardConditions
+                  title="if (request date = vacation date and request time >= work time) subscribe 2 points ">
+                <rewards
+                    xsi:type="ScoringModel:Point"
+                    value="-2"/>
+              </rewardConditions>
+            </scoringRule>
+            <states
+                name="request validation"
+                isStartState="true">
+              <actions
+                  title="runScoringRule">
+                <triggers
+                    source="/0/@participants.0/@lanes.0/@relatedObjects.0/@states.4/@actions.9"/>
+              </actions>
+            </states>
+          </challenges>
+          <playerLog
+              name="employeeLog"/>
+        </relatedObjects>
+      </lanes>
+      <lanes
+          name="Manager">
+        <elements
+            xsi:type="BPMN:Task"
+            title="vacation request checking"
+            type="manualTask">
+          <flows
+              target="/0/@participants.0/@lanes.1/@elements.1"/>
+        </elements>
+        <elements
+            xsi:type="BPMN:Exclusive"
+            triggerCondition="work load necessity degree">
+          <flows
+              description="high"
+              target="/0/@participants.0/@lanes.1/@elements.2"/>
+          <flows
+              description="low"
+              target="/0/@participants.0/@lanes.1/@elements.3"/>
+        </elements>
+        <elements
+            xsi:type="BPMN:Task"
+            title="reject vacation"
+            type="manualTask">
+          <flows
+              target="/0/@participants.0/@lanes.0/@elements.7"/>
+        </elements>
+        <elements
+            xsi:type="BPMN:Task"
+            title="confirm vacation"
+            type="manualTask">
+          <flows
+              target="/0/@participants.0/@lanes.0/@elements.7"/>
+        </elements>
+        <relatedObjects
+            name="Manager"
+            ownerScene="/0/@relatedLevel.0/@relatedScene"
+            components="/1">
+          <states
+              name="manager request checking">
+            <actions
+                title="call gateway2 of BP component"
+                relatedElementType="bpElement"
+                relatedBPelement="/0/@participants.0/@lanes.1/@elements.1"/>
+            <changeRules
+                xsi:type="GameLogic:Deterministic"
+                targetState="/0/@participants.0/@lanes.1/@relatedObjects.0/@states.1"/>
+          </states>
+          <states
+              name="define work load necessity">
+            <actions
+                title="choose one way randomly"/>
+            <changeRules
+                xsi:type="GameLogic:NonDeterministic"
+                targetState="/0/@participants.0/@lanes.1/@relatedObjects.0/@states.2 /0/@participants.0/@lanes.1/@relatedObjects.0/@states.3"/>
+          </states>
+          <states
+              name="high work load">
+            <actions
+                title="call Task7 of BP component"
+                relatedElementType="bpElement"
+                relatedBPelement="/0/@participants.0/@lanes.1/@elements.2"/>
+            <changeRules
+                xsi:type="GameLogic:Deterministic"
+                targetState="/0/@participants.0/@lanes.1/@relatedObjects.0/@states.4"/>
+          </states>
+          <states
+              name="low work load">
+            <actions
+                title="call Task8 of BP component"
+                relatedElementType="bpElement"
+                relatedBPelement="/0/@participants.0/@lanes.1/@elements.3"/>
+            <changeRules
+                xsi:type="GameLogic:Deterministic"
+                targetState="/0/@participants.0/@lanes.1/@relatedObjects.0/@states.5"/>
+          </states>
+          <states
+              name="reject vacation">
+            <actions
+                title="show rejection message"
+                relatedElementType="screen"
+                relatedScreen="/6/@innerObjects.4"/>
+            <actions
+                title="call end event of BP component"
+                relatedElementType="bpElement"
+                relatedBPelement="/0/@participants.0/@lanes.0/@elements.7">
+              <triggers
+                  source="/0/@participants.0/@lanes.1/@relatedObjects.0/@states.4/@actions.0"/>
+            </actions>
+            <changeRules
+                xsi:type="GameLogic:Deterministic"
+                targetState="/0/@participants.0/@lanes.0/@relatedObjects.0/@states.9"/>
+          </states>
+          <states
+              name="confirm vacation">
+            <actions
+                title="show confirmation message"
+                relatedElementType="screen"
+                relatedScreen="/6/@innerObjects.5"/>
+            <actions
+                title="call end event of BP component"
+                relatedElementType="bpElement"
+                relatedBPelement="/0/@participants.0/@lanes.0/@elements.7">
+              <triggers
+                  source="/0/@participants.0/@lanes.1/@relatedObjects.0/@states.5/@actions.0"/>
+            </actions>
+            <changeRules
+                xsi:type="GameLogic:Deterministic"
+                targetState="/0/@participants.0/@lanes.0/@relatedObjects.0/@states.9"/>
+          </states>
+        </relatedObjects>
+      </lanes>
+    </participants>
+    <resources
+        xsi:type="BPMN:DataObject"
+        title="Email Addresses">
+      <flows
+          sourceOrTarget="/0/@participants.0/@lanes.0/@elements.2"/>
+    </resources>
+    <resources
+        xsi:type="BPMN:DataObject"
+        title="vacation request rules">
+      <flows
+          sourceOrTarget="/0/@participants.0/@lanes.0/@elements.2"/>
+    </resources>
+    <relatedLevel
+        levelTitle="Vacation Request_connected"
+        levelNumber="1">
+      <relatedScene
+          levelName="Vacation Request_connected"
+          objects="/2 /3 /4 /5 /6 /7 /0/@participants.0/@lanes.0/@relatedObjects.0 /0/@participants.0/@lanes.1/@relatedObjects.0"/>
+    </relatedLevel>
+  </BPMN:BusinessProcess>
+  <GUI:Transform/>
+  <GUI:UI name="level1startup"
+      ownerScene="/0/@relatedLevel.0/@relatedScene">
+    <innerObjects
+        xsi:type="GUI:Button"
+        name="start button"/>
+  </GUI:UI>
+  <GUI:UI name="request vacation"
+      ownerScene="/0/@relatedLevel.0/@relatedScene">
+    <innerObjects
+        xsi:type="GUI:Button"
+        name="send Email Button"/>
+  </GUI:UI>
+  <GUI:UI name="sending email"
+      ownerScene="/0/@relatedLevel.0/@relatedScene">
+    <innerObjects
+        xsi:type="GUI:InputField"
+        name="title input"/>
+    <innerObjects
+        xsi:type="GUI:Panel"
+        name="email Addresses"/>
+    <innerObjects
+        xsi:type="GUI:Button"
+        name="rules Checking Button"/>
+  </GUI:UI>
+  <GUI:UI name="vacation rules"
+      ownerScene="/0/@relatedLevel.0/@relatedScene">
+    <innerObjects
+        xsi:type="GUI:InputField"
+        name="vacation Date Input"/>
+    <innerObjects
+        xsi:type="GUI:InputField"
+        name="vacationTime Input"/>
+    <innerObjects
+        xsi:type="GUI:Button"
+        name="validation button"/>
+  </GUI:UI>
+  <GUI:UI name="workload"
+      ownerScene="/0/@relatedLevel.0/@relatedScene">
+    <innerObjects
+        xsi:type="GUI:Button"
+        name="highButton"/>
+    <innerObjects
+        xsi:type="GUI:Button"
+        name="lowButton"/>
+    <innerObjects
+        xsi:type="GUI:Text"
+        name="result1"/>
+    <innerObjects
+        xsi:type="GUI:Text"
+        name="result2"/>
+    <innerObjects
+        xsi:type="GUI:Text"
+        name="rejection msg"/>
+    <innerObjects
+        xsi:type="GUI:Text"
+        name="confirmation msg"/>
+    <innerObjects
+        xsi:type="GUI:Button"
+        name="endButton"/>
+  </GUI:UI>
+  <GUI:UI name="score menu"
+      ownerScene="/0/@relatedLevel.0/@relatedScene">
+    <innerObjects
+        xsi:type="GUI:Text"
+        name="score"/>
+    <innerObjects
+        xsi:type="GUI:Text"
+        name="duration"/>
+  </GUI:UI>
+</xmi:XMI>

@@ -1,0 +1,216 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ecore:EPackage xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xmlns:ecore="http://www.eclipse.org/emf/2002/Ecore" name="FiniteStateMachine" nsURI="www.FiniteStateMachine.com" nsPrefix="FiniteStateMachine">
+  <eClassifiers xsi:type="ecore:EClass" name="StateMachine">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="name" lowerBound="1" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="systemEvents" lowerBound="1"
+        upperBound="-1" eType="#//SystemEvent" containment="true" eOpposite="#//SystemEvent/ownerMachine"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="states" lowerBound="1"
+        upperBound="-1" eType="#//State" containment="true" eOpposite="#//State/ownerMachine"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="ownerObject" lowerBound="1"
+        eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="State">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="name" lowerBound="1" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="isStartState" lowerBound="1"
+        eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBoolean"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="actions" upperBound="-1"
+        eType="#//Action" containment="true" eOpposite="#//Action/ownerState"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="events" upperBound="-1"
+        eType="#//TransitionEvent" containment="true" eOpposite="#//TransitionEvent/ownerState"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="ownerMachine" lowerBound="1"
+        eType="#//StateMachine" eOpposite="#//StateMachine/states"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="TransitionEvent">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="triggerTransition" eType="#//Transition"
+        containment="true" eOpposite="#//Transition/triggerEvent"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="ownerState" lowerBound="1"
+        eType="#//State" eOpposite="#//State/events"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="SystemEvent" eSuperTypes="#//TransitionEvent">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="ownerMachine" lowerBound="1"
+        eType="#//StateMachine" eOpposite="#//StateMachine/systemEvents"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="CustomEvent" eSuperTypes="#//TransitionEvent">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="name" lowerBound="1" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="isGlobal" lowerBound="1"
+        eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBoolean"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="isPlayerRequest" lowerBound="1"
+        eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBoolean"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="CoreEvents" eSuperTypes="#//SystemEvent">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="name" lowerBound="1" eType="#//CoreEventsNames"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EEnum" name="CoreEventsNames">
+    <eLiterals name="START"/>
+    <eLiterals name="FINISHED" value="1"/>
+    <eLiterals name="LEVEL LOADED" value="2"/>
+    <eLiterals name="BECAME VISIBLE" value="3"/>
+    <eLiterals name="BECAME INVISIBLE" value="4"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="PhysicsEvents" eSuperTypes="#//SystemEvent">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="name" lowerBound="1" eType="#//PhysicsEventsNames"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EEnum" name="PhysicsEventsNames">
+    <eLiterals name="COLLISION ENTER"/>
+    <eLiterals name="COLLISION EXIT" value="1"/>
+    <eLiterals name="COLLISION STAY" value="2"/>
+    <eLiterals name="COLLISION ENTER 2D" value="3"/>
+    <eLiterals name="COLLISION EXIT 2D" value="4"/>
+    <eLiterals name="COLLISION STAY 2D" value="5"/>
+    <eLiterals name="CONTROLLER COLLIDER HIT" value="6"/>
+    <eLiterals name="TRIGGER ENTER" value="7"/>
+    <eLiterals name="TRIGGER EXIT" value="8"/>
+    <eLiterals name="TRIGGER STAY" value="9"/>
+    <eLiterals name="TRIGGER ENTER 2D" value="10"/>
+    <eLiterals name="TRIGGER EXIT 2D" value="11"/>
+    <eLiterals name="TRIGGER STAY 2D" value="12"/>
+    <eLiterals name="PARTICLE COLLISION" value="13"/>
+    <eLiterals name="JOINT BREAK" value="14"/>
+    <eLiterals name="JOINT BREAK 2D" value="15"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="MouseEvents" eSuperTypes="#//SystemEvent">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="name" lowerBound="1" eType="#//MouseEventsNames"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EEnum" name="MouseEventsNames">
+    <eLiterals name="MOUSE DOWN"/>
+    <eLiterals name="MOUSE DRAG" value="1"/>
+    <eLiterals name="MOUSE ENTER" value="2"/>
+    <eLiterals name="MOUSE EXIT" value="3"/>
+    <eLiterals name="MOUSE OVER" value="4"/>
+    <eLiterals name="MOUSE UP" value="5"/>
+    <eLiterals name="MOUSE UP AS BUTTON" value="6"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="ApplicationEvents" eSuperTypes="#//SystemEvent">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="name" lowerBound="1" eType="#//ApplicationEventsNames"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EEnum" name="ApplicationEventsNames">
+    <eLiterals name="APPLICATION FOCUS"/>
+    <eLiterals name="APPLICATION PAUSE" value="1"/>
+    <eLiterals name="APPLICATION QUIT" value="2"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="UIEvents" eSuperTypes="#//SystemEvent">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="name" lowerBound="1" eType="#//UIEventsNames"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EEnum" name="UIEventsNames">
+    <eLiterals name="UI CLICK"/>
+    <eLiterals name="UI BEGIN DRAG" value="1"/>
+    <eLiterals name="UI DRAG" value="2"/>
+    <eLiterals name="UI END DRAG" value="3"/>
+    <eLiterals name="UI DROP" value="4"/>
+    <eLiterals name="UI POINTER UP" value="5"/>
+    <eLiterals name="UI POINTER CLICK" value="6"/>
+    <eLiterals name="UI POINTER DOWN" value="7"/>
+    <eLiterals name="UI POINTER ENTER" value="8"/>
+    <eLiterals name="UI POINTER EXIT" value="9"/>
+    <eLiterals name="UI BOOL VALUE CHANGED" value="10"/>
+    <eLiterals name="UI FLOAT VALUE CHANGED" value="11"/>
+    <eLiterals name="UI INT VALUE CHANGED" value="12"/>
+    <eLiterals name="UI VECTOR2 VALUE CHANGED" value="13"/>
+    <eLiterals name="UI END EDIT" value="14"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="Transition">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="target" lowerBound="1"
+        eType="#//State"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="triggerEvent" lowerBound="1"
+        eType="#//TransitionEvent" eOpposite="#//TransitionEvent/triggerTransition"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="LocalTransition" eSuperTypes="#//Transition">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="sourceState" lowerBound="1"
+        eType="#//State"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="GlobalTransition" eSuperTypes="#//Transition"/>
+  <eClassifiers xsi:type="ecore:EClass" name="Action">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="title" lowerBound="1" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="parameters" upperBound="-1"
+        eType="#//Parameter" containment="true" eOpposite="#//Parameter/ownerAction"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="ownerState" lowerBound="1"
+        eType="#//State" eOpposite="#//State/actions"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="SystemAction" eSuperTypes="#//Action">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="category" lowerBound="1"
+        eType="#//SystemActionCategory"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EEnum" name="SystemActionCategory">
+    <eLiterals name="Animate Variables"/>
+    <eLiterals name="Animation" value="1"/>
+    <eLiterals name="Animator" value="2"/>
+    <eLiterals name="Application" value="3"/>
+    <eLiterals name="Array" value="4"/>
+    <eLiterals name="Audio" value="5"/>
+    <eLiterals name="Camera" value="6"/>
+    <eLiterals name="Character" value="7"/>
+    <eLiterals name="Color" value="8"/>
+    <eLiterals name="Convert" value="9"/>
+    <eLiterals name="Debug" value="10"/>
+    <eLiterals name="Device" value="11"/>
+    <eLiterals name="Effects" value="12"/>
+    <eLiterals name="Enum" value="13"/>
+    <eLiterals name="Game Object" value="14"/>
+    <eLiterals name="GUI" value="15"/>
+    <eLiterals name="GUI Layout" value="16"/>
+    <eLiterals name="Input" value="17"/>
+    <eLiterals name="Level" value="18"/>
+    <eLiterals name="Lights" value="19"/>
+    <eLiterals name="Logic" value="20"/>
+    <eLiterals name="Material" value="21"/>
+    <eLiterals name="Math" value="22"/>
+    <eLiterals name="Mesh" value="23"/>
+    <eLiterals name="Movie" value="24"/>
+    <eLiterals name="Network" value="25"/>
+    <eLiterals name="Physics" value="26"/>
+    <eLiterals name="Physics 2d" value="27"/>
+    <eLiterals name="Player Prefs" value="28"/>
+    <eLiterals name="Quaternion" value="29"/>
+    <eLiterals name="Rect" value="30"/>
+    <eLiterals name="Rect Transform" value="31"/>
+    <eLiterals name="Render Settings" value="32"/>
+    <eLiterals name="Scene" value="33"/>
+    <eLiterals name="Script Control" value="34"/>
+    <eLiterals name="State Machine" value="35"/>
+    <eLiterals name="String" value="36"/>
+    <eLiterals name="Time" value="37"/>
+    <eLiterals name="Transform" value="38"/>
+    <eLiterals name="Trigonometry" value="39"/>
+    <eLiterals name="UI" value="40"/>
+    <eLiterals name="Unity Object" value="41"/>
+    <eLiterals name="Vector 2" value="42"/>
+    <eLiterals name="Vector 3" value="43"/>
+    <eLiterals name="WWW" value="44"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="CustomAction" eSuperTypes="#//Action"/>
+  <eClassifiers xsi:type="ecore:EClass" name="Parameter">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="name" lowerBound="1" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="value" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="ownerAction" lowerBound="1"
+        eType="#//Action" eOpposite="#//Action/parameters"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="neededVariables" upperBound="-1"
+        eType="#//Variable"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="Variable">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="name" lowerBound="1" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="type" lowerBound="1" eType="#//VaribaleTypes"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EEnum" name="VaribaleTypes">
+    <eLiterals name="float"/>
+    <eLiterals name="Int" value="1"/>
+    <eLiterals name="bool" value="2"/>
+    <eLiterals name="gameObject" value="3"/>
+    <eLiterals name="color" value="4"/>
+    <eLiterals name="string" value="5"/>
+    <eLiterals name="vector2" value="6"/>
+    <eLiterals name="vector3" value="7"/>
+    <eLiterals name="rect" value="8"/>
+    <eLiterals name="material" value="9"/>
+    <eLiterals name="texture" value="10"/>
+    <eLiterals name="sprite" value="11"/>
+    <eLiterals name="quaternion" value="12"/>
+    <eLiterals name="object" value="13"/>
+    <eLiterals name="array" value="14"/>
+    <eLiterals name="enum" value="15"/>
+  </eClassifiers>
+  <eSubpackages name="PrimitiveTypes" nsURI="www.PrimitiveTypes.com" nsPrefix="PrimitiveTypes">
+    <eClassifiers xsi:type="ecore:EDataType" name="String" instanceTypeName="string"/>
+    <eClassifiers xsi:type="ecore:EDataType" name="Boolean" instanceClassName="boolean"/>
+  </eSubpackages>
+</ecore:EPackage>

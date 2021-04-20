@@ -1,0 +1,106 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<BPMN:BusinessProcess
+    xmi:version="2.0"
+    xmlns:xmi="http://www.omg.org/XMI"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xmlns:BPMN="www.bpmn.com"
+    xsi:schemaLocation="www.bpmn.com /SeGa4Biz/metamodels/BPMN.ecore"
+    name="vacation Request- connected">
+  <participants
+      name="Aavan Company">
+    <lanes name="Employee">
+      <elements
+          xsi:type="BPMN:StartEvent">
+        <flows
+            target="//@participants.0/@lanes.0/@elements.1"/>
+      </elements>
+      <elements
+          xsi:type="BPMN:Task"
+          title="Request for vacation">
+        <flows
+            target="//@participants.0/@lanes.0/@elements.2"/>
+      </elements>
+      <elements
+          xsi:type="BPMN:Task"
+          title="Send request Email"
+          type="sendEmailTask">
+        <flows
+            target="//@participants.0/@lanes.0/@elements.3"/>
+      </elements>
+      <elements
+          xsi:type="BPMN:Task"
+          title="check work load">
+        <flows
+            target="degree of work load"/>
+      </elements>
+      <elements
+          xsi:type="BPMN:Exclusive"
+          triggerCondition="degree of work load">
+        <flows
+            description="high"
+            target="//@participants.0/@lanes.0/@elements.5"/>
+        <flows
+            description="low"
+            target="//@participants.0/@lanes.0/@elements.6"/>
+      </elements>
+      <elements
+          xsi:type="BPMN:Task"
+          title="Wait for manager confirmation"
+          type="manualTask">
+        <flows
+            target="//@participants.0/@lanes.1/@elements.0"/>
+      </elements>
+      <elements
+          xsi:type="BPMN:Task"
+          title="vacation confirmation">
+        <flows
+            target="//@participants.0/@lanes.0/@elements.7"/>
+      </elements>
+      <elements
+          xsi:type="BPMN:EndEvent"/>
+    </lanes>
+    <lanes name="Manager">
+      <elements
+          xsi:type="BPMN:Task"
+          title="vacation request checking"
+          type="manualTask">
+        <flows
+            target="work load necessity degree"/>
+      </elements>
+      <elements
+          xsi:type="BPMN:Exclusive"
+          triggerCondition="work load necessity degree">
+        <flows
+            description="high"
+            target="//@participants.0/@lanes.1/@elements.2"/>
+        <flows
+            description="low"
+            target="//@participants.0/@lanes.1/@elements.3"/>
+      </elements>
+      <elements
+          xsi:type="BPMN:Task"
+          title="reject vacation"
+          type="manualTask">
+        <flows
+            target="//@participants.0/@lanes.0/@elements.7"/>
+      </elements>
+      <elements
+          xsi:type="BPMN:Task"
+          title="confirm vacation"
+          type="manualTask">
+        <flows
+            target="//@participants.0/@lanes.0/@elements.7"/>
+      </elements>
+    </lanes>
+  </participants>
+  <resources
+      xsi:type="BPMN:DataObject"
+      title="Email Addresses">
+    <flows sourceOrTarget="//@participants.0/@lanes.0/@elements.2"/>
+  </resources>
+  <resources
+      xsi:type="BPMN:DataObject"
+      title="vacation request rules">
+    <flows sourceOrTarget="//@participants.0/@lanes.0/@elements.2"/>
+  </resources>
+</BPMN:BusinessProcess>

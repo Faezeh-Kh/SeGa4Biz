@@ -1,0 +1,6438 @@
+<?xml version="1.0" encoding="ISO-8859-1"?>
+<xmi:XMI xmi:version="2.0"
+    xmlns:xmi="http://www.omg.org/XMI"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xmlns:StateMachine="www.stateMachine.com">
+  <StateMachine:StateMachine
+      name="Student :AnnotatedBPMN!PlayerCharacter"
+      ownerObject="Student">
+    <states
+        name="Start"
+        isStartState="true">
+      <events
+          xsi:type="StateMachine:CustomEvent"
+          name="newEvent 0">
+        <triggerTransition
+            xsi:type="StateMachine:LocalTransition"
+            target="/0/@states.9"
+            sourceState="/0/@states.0"/>
+      </events>
+    </states>
+    <states
+        name="4 Performed">
+      <events
+          xsi:type="StateMachine:CustomEvent"
+          name="newEvent 1">
+        <triggerTransition
+            xsi:type="StateMachine:LocalTransition"
+            target="/0/@states.10"
+            sourceState="/0/@states.1"/>
+      </events>
+    </states>
+    <states
+        name="9 Performed">
+      <events
+          xsi:type="StateMachine:CustomEvent"
+          name="newEvent 2">
+        <triggerTransition
+            xsi:type="StateMachine:LocalTransition"
+            target="/0/@states.11"
+            sourceState="/0/@states.2"/>
+      </events>
+    </states>
+    <states
+        name="12 Performed">
+      <events
+          xsi:type="StateMachine:CustomEvent"
+          name="newEvent 3">
+        <triggerTransition
+            xsi:type="StateMachine:LocalTransition"
+            target="/0/@states.12"
+            sourceState="/0/@states.3"/>
+      </events>
+    </states>
+    <states
+        name="13 Performed">
+      <events
+          xsi:type="StateMachine:CustomEvent"
+          name="newEvent 4">
+        <triggerTransition
+            xsi:type="StateMachine:LocalTransition"
+            target="/0/@states.13"
+            sourceState="/0/@states.4"/>
+      </events>
+    </states>
+    <states
+        name="18 Performed">
+      <events
+          xsi:type="StateMachine:CustomEvent"
+          name="newEvent 5">
+        <triggerTransition
+            xsi:type="StateMachine:LocalTransition"
+            target="/0/@states.14"
+            sourceState="/0/@states.5"/>
+      </events>
+    </states>
+    <states
+        name="19 Performed">
+      <events
+          xsi:type="StateMachine:CustomEvent"
+          name="newEvent 6">
+        <triggerTransition
+            xsi:type="StateMachine:LocalTransition"
+            target="/0/@states.15"
+            sourceState="/0/@states.6"/>
+      </events>
+    </states>
+    <states
+        name="20 Performed">
+      <events
+          xsi:type="StateMachine:CustomEvent"
+          name="newEvent 7">
+        <triggerTransition
+            xsi:type="StateMachine:LocalTransition"
+            target="/0/@states.16"
+            sourceState="/0/@states.7"/>
+      </events>
+    </states>
+    <states
+        name="23 Performed"/>
+    <states
+        name="middleState Start_4">
+      <events
+          xsi:type="StateMachine:CoreEvents"
+          name="FINISHED">
+        <triggerTransition
+            xsi:type="StateMachine:LocalTransition"
+            target="/0/@states.1"
+            sourceState="/0/@states.9"/>
+      </events>
+      <actions
+          xsi:type="StateMachine:CustomAction"
+          title="/ 4: walk to the computer"/>
+    </states>
+    <states
+        name="middleState 4_9">
+      <events
+          xsi:type="StateMachine:CoreEvents"
+          name="FINISHED">
+        <triggerTransition
+            xsi:type="StateMachine:LocalTransition"
+            target="/0/@states.2"
+            sourceState="/0/@states.10"/>
+      </events>
+      <actions
+          xsi:type="StateMachine:CustomAction"
+          title="/ 9: stand behind the computer"/>
+    </states>
+    <states
+        name="middleState 9_12">
+      <events
+          xsi:type="StateMachine:CoreEvents"
+          name="FINISHED">
+        <triggerTransition
+            xsi:type="StateMachine:LocalTransition"
+            target="/0/@states.3"
+            sourceState="/0/@states.11"/>
+      </events>
+      <actions
+          xsi:type="StateMachine:CustomAction"
+          title="/ 12: choose download option"/>
+    </states>
+    <states
+        name="middleState 12_13">
+      <events
+          xsi:type="StateMachine:CoreEvents"
+          name="FINISHED">
+        <triggerTransition
+            xsi:type="StateMachine:LocalTransition"
+            target="/0/@states.4"
+            sourceState="/0/@states.12"/>
+      </events>
+      <actions
+          xsi:type="StateMachine:CustomAction"
+          title="/ 13: choose print option"/>
+    </states>
+    <states
+        name="middleState 13_18">
+      <events
+          xsi:type="StateMachine:CoreEvents"
+          name="FINISHED">
+        <triggerTransition
+            xsi:type="StateMachine:LocalTransition"
+            target="/0/@states.5"
+            sourceState="/0/@states.13"/>
+      </events>
+      <actions
+          xsi:type="StateMachine:CustomAction"
+          title="/ 18: walk to the supervisor room"/>
+    </states>
+    <states
+        name="middleState 18_19">
+      <events
+          xsi:type="StateMachine:CoreEvents"
+          name="FINISHED">
+        <triggerTransition
+            xsi:type="StateMachine:LocalTransition"
+            target="/0/@states.6"
+            sourceState="/0/@states.14"/>
+      </events>
+      <actions
+          xsi:type="StateMachine:CustomAction"
+          title="/ 19: enter to the room"/>
+    </states>
+    <states
+        name="middleState 19_20">
+      <events
+          xsi:type="StateMachine:CoreEvents"
+          name="FINISHED">
+        <triggerTransition
+            xsi:type="StateMachine:LocalTransition"
+            target="/0/@states.7"
+            sourceState="/0/@states.15"/>
+      </events>
+      <actions
+          xsi:type="StateMachine:CustomAction"
+          title="/ 20: stand in front of supervisor character"/>
+    </states>
+    <states
+        name="middleState 20_23">
+      <events
+          xsi:type="StateMachine:CoreEvents"
+          name="FINISHED">
+        <triggerTransition
+            xsi:type="StateMachine:LocalTransition"
+            target="/0/@states.8"
+            sourceState="/0/@states.16"/>
+      </events>
+      <actions
+          xsi:type="StateMachine:CustomAction"
+          title="/ 23: give the form to the supervisor character"/>
+    </states>
+    <systemEvents
+        xsi:type="StateMachine:CoreEvents">
+      <triggerTransition
+          xsi:type="StateMachine:LocalTransition"
+          target="/0/@states.0"/>
+    </systemEvents>
+  </StateMachine:StateMachine>
+  <StateMachine:StateMachine
+      name="Start Level :AnnotatedBPMN!State"
+      ownerObject="Student">
+    <states
+        name="Start"
+        isStartState="true">
+      <events
+          xsi:type="StateMachine:CustomEvent"
+          name="0: show level startup screen ">
+        <triggerTransition
+            xsi:type="StateMachine:LocalTransition"
+            target="/1/@states.1"
+            sourceState="/1/@states.0"/>
+      </events>
+    </states>
+    <states
+        name="0 Received">
+      <events
+          xsi:type="StateMachine:CustomEvent"
+          name="newEvent 8">
+        <triggerTransition
+            xsi:type="StateMachine:LocalTransition"
+            target="/1/@states.2"
+            sourceState="/1/@states.1"/>
+      </events>
+    </states>
+    <states
+        name="middleState 0_1">
+      <events
+          xsi:type="StateMachine:CoreEvents"
+          name="FINISHED">
+        <triggerTransition
+            xsi:type="StateMachine:LocalTransition"
+            target="/1/@states.3"
+            sourceState="/1/@states.2"/>
+      </events>
+      <actions
+          xsi:type="StateMachine:CustomAction"
+          title="/ 1: show"/>
+    </states>
+    <states
+        name="1 Performed">
+      <events
+          xsi:type="StateMachine:CustomEvent"
+          name="newEvent 10">
+        <triggerTransition
+            xsi:type="StateMachine:LocalTransition"
+            target="/1/@states.4"
+            sourceState="/1/@states.3"/>
+      </events>
+    </states>
+    <states
+        name="middleState 1_2">
+      <events
+          xsi:type="StateMachine:CoreEvents"
+          name="FINISHED">
+        <triggerTransition
+            xsi:type="StateMachine:LocalTransition"
+            target="/1/@states.5"
+            sourceState="/1/@states.4"/>
+      </events>
+      <actions
+          xsi:type="StateMachine:CustomAction"
+          title="/ 2: set level start time in player log"/>
+    </states>
+    <states
+        name="2 Performed">
+      <events
+          xsi:type="StateMachine:CustomEvent"
+          name="2: set level start time in player log">
+        <triggerTransition
+            xsi:type="StateMachine:LocalTransition"
+            target="/1/@states.6"
+            sourceState="/1/@states.5"/>
+      </events>
+    </states>
+    <states
+        name="2 Received">
+      <events
+          xsi:type="StateMachine:CustomEvent"
+          name="newEvent 9">
+        <triggerTransition
+            xsi:type="StateMachine:LocalTransition"
+            target="/1/@states.7"
+            sourceState="/1/@states.6"/>
+      </events>
+    </states>
+    <states
+        name="middleState 2_3">
+      <events
+          xsi:type="StateMachine:CoreEvents"
+          name="FINISHED">
+        <triggerTransition
+            xsi:type="StateMachine:LocalTransition"
+            target="/1/@states.8"
+            sourceState="/1/@states.7"/>
+      </events>
+      <actions
+          xsi:type="StateMachine:CustomAction"
+          title="/ 3: !not Defined"/>
+    </states>
+    <states
+        name="3 Performed">
+      <events
+          xsi:type="StateMachine:CustomEvent"
+          name="newEvent 11">
+        <triggerTransition
+            xsi:type="StateMachine:LocalTransition"
+            target="/1/@states.9"
+            sourceState="/1/@states.8"/>
+      </events>
+    </states>
+    <states
+        name="middleState 3_106">
+      <events
+          xsi:type="StateMachine:CoreEvents"
+          name="FINISHED">
+        <triggerTransition
+            xsi:type="StateMachine:LocalTransition"
+            target="/1/@states.10"
+            sourceState="/1/@states.9"/>
+      </events>
+      <actions
+          xsi:type="StateMachine:CustomAction"
+          title="/ 106: changeState(condition)"/>
+    </states>
+    <states
+        name="106 Performed">
+      <events
+          xsi:type="StateMachine:CustomEvent"
+          name="106: changeState(condition)">
+        <triggerTransition
+            xsi:type="StateMachine:LocalTransition"
+            target="/1/@states.11"
+            sourceState="/1/@states.10"/>
+      </events>
+    </states>
+    <states
+        name="106 Received">
+      <events
+          xsi:type="StateMachine:CoreEvents"
+          name="FINISHED">
+        <triggerTransition
+            xsi:type="StateMachine:LocalTransition"
+            target="/1/@states.12"
+            sourceState="/1/@states.11"/>
+      </events>
+    </states>
+    <states
+        name="107 alt">
+      <events
+          xsi:type="StateMachine:CustomEvent"
+          name="newEvent 12">
+        <triggerTransition
+            xsi:type="StateMachine:LocalTransition"
+            target="/1/@states.13"
+            sourceState="/1/@states.12"/>
+      </events>
+      <actions
+          xsi:type="StateMachine:CustomAction"
+          title="check transition constraint">
+        <parameters
+            name="[ !not Defined ]"/>
+      </actions>
+    </states>
+    <states
+        name="middleState 107_108">
+      <events
+          xsi:type="StateMachine:CoreEvents"
+          name="FINISHED">
+        <triggerTransition
+            xsi:type="StateMachine:LocalTransition"
+            target="/1/@states.14"
+            sourceState="/1/@states.13"/>
+      </events>
+      <actions
+          xsi:type="StateMachine:CustomAction"
+          title="/ 108: create()"/>
+    </states>
+    <states
+        name="108 Performed"/>
+    <systemEvents
+        xsi:type="StateMachine:CoreEvents">
+      <triggerTransition
+          xsi:type="StateMachine:LocalTransition"
+          target="/1/@states.0"/>
+    </systemEvents>
+  </StateMachine:StateMachine>
+  <StateMachine:StateMachine
+      name="student walking :AnnotatedBPMN!State"
+      ownerObject="Student">
+    <states
+        name="Start"
+        isStartState="true">
+      <events
+          xsi:type="StateMachine:CustomEvent"
+          name="108: create()">
+        <triggerTransition
+            xsi:type="StateMachine:LocalTransition"
+            target="/2/@states.1"
+            sourceState="/2/@states.0"/>
+      </events>
+    </states>
+    <states
+        name="108 Received">
+      <events
+          xsi:type="StateMachine:CustomEvent"
+          name="4: walk to the computer">
+        <triggerTransition
+            xsi:type="StateMachine:LocalTransition"
+            target="/2/@states.2"
+            sourceState="/2/@states.1"/>
+      </events>
+    </states>
+    <states
+        name="4 Received">
+      <events
+          xsi:type="StateMachine:CustomEvent"
+          name="newEvent 13">
+        <triggerTransition
+            xsi:type="StateMachine:LocalTransition"
+            target="/2/@states.11"
+            sourceState="/2/@states.2"/>
+      </events>
+    </states>
+    <states
+        name="5 Performed">
+      <events
+          xsi:type="StateMachine:CustomEvent"
+          name="5: call Task1 of BP component">
+        <triggerTransition
+            xsi:type="StateMachine:LocalTransition"
+            target="/2/@states.4"
+            sourceState="/2/@states.3"/>
+      </events>
+    </states>
+    <states
+        name="5 Received">
+      <events
+          xsi:type="StateMachine:CustomEvent"
+          name="newEvent 14">
+        <triggerTransition
+            xsi:type="StateMachine:LocalTransition"
+            target="/2/@states.12"
+            sourceState="/2/@states.4"/>
+      </events>
+    </states>
+    <states
+        name="6 Performed">
+      <events
+          xsi:type="StateMachine:CustomEvent"
+          name="8: return (correctOutputs)">
+        <triggerTransition
+            xsi:type="StateMachine:LocalTransition"
+            target="/2/@states.6"
+            sourceState="/2/@states.5"/>
+      </events>
+    </states>
+    <states
+        name="8 Received">
+      <events
+          xsi:type="StateMachine:CustomEvent"
+          name="newEvent 15">
+        <triggerTransition
+            xsi:type="StateMachine:LocalTransition"
+            target="/2/@states.13"
+            sourceState="/2/@states.6"/>
+      </events>
+    </states>
+    <states
+        name="109 Performed">
+      <events
+          xsi:type="StateMachine:CustomEvent"
+          name="109: changeState(condition)">
+        <triggerTransition
+            xsi:type="StateMachine:LocalTransition"
+            target="/2/@states.8"
+            sourceState="/2/@states.7"/>
+      </events>
+    </states>
+    <states
+        name="109 Received">
+      <events
+          xsi:type="StateMachine:CoreEvents"
+          name="FINISHED">
+        <triggerTransition
+            xsi:type="StateMachine:LocalTransition"
+            target="/2/@states.9"
+            sourceState="/2/@states.8"/>
+      </events>
+    </states>
+    <states
+        name="110 alt">
+      <events
+          xsi:type="StateMachine:CustomEvent"
+          name="newEvent 16">
+        <triggerTransition
+            xsi:type="StateMachine:LocalTransition"
+            target="/2/@states.14"
+            sourceState="/2/@states.9"/>
+      </events>
+      <actions
+          xsi:type="StateMachine:CustomAction"
+          title="check transition constraint">
+        <parameters
+            name="[ !not Defined ]"/>
+      </actions>
+    </states>
+    <states
+        name="111 Performed"/>
+    <states
+        name="middleState 4_5">
+      <events
+          xsi:type="StateMachine:CoreEvents"
+          name="FINISHED">
+        <triggerTransition
+            xsi:type="StateMachine:LocalTransition"
+            target="/2/@states.3"
+            sourceState="/2/@states.11"/>
+      </events>
+      <actions
+          xsi:type="StateMachine:CustomAction"
+          title="/ 5: call Task1 of BP component"/>
+    </states>
+    <states
+        name="middleState 5_6">
+      <events
+          xsi:type="StateMachine:CoreEvents"
+          name="FINISHED">
+        <triggerTransition
+            xsi:type="StateMachine:LocalTransition"
+            target="/2/@states.5"
+            sourceState="/2/@states.12"/>
+      </events>
+      <actions
+          xsi:type="StateMachine:CustomAction"
+          title="/ 6: preparing department thesis definition form"/>
+    </states>
+    <states
+        name="middleState 8_109">
+      <events
+          xsi:type="StateMachine:CoreEvents"
+          name="FINISHED">
+        <triggerTransition
+            xsi:type="StateMachine:LocalTransition"
+            target="/2/@states.7"
+            sourceState="/2/@states.13"/>
+      </events>
+      <actions
+          xsi:type="StateMachine:CustomAction"
+          title="/ 109: changeState(condition)"/>
+    </states>
+    <states
+        name="middleState 110_111">
+      <events
+          xsi:type="StateMachine:CoreEvents"
+          name="FINISHED">
+        <triggerTransition
+            xsi:type="StateMachine:LocalTransition"
+            target="/2/@states.10"
+            sourceState="/2/@states.14"/>
+      </events>
+      <actions
+          xsi:type="StateMachine:CustomAction"
+          title="/ 111: create()"/>
+    </states>
+    <systemEvents
+        xsi:type="StateMachine:CoreEvents">
+      <triggerTransition
+          xsi:type="StateMachine:LocalTransition"
+          target="/2/@states.0"/>
+    </systemEvents>
+  </StateMachine:StateMachine>
+  <StateMachine:StateMachine
+      name="form preparation :AnnotatedBPMN!State"
+      ownerObject="Student">
+    <states
+        name="Start"
+        isStartState="true">
+      <events
+          xsi:type="StateMachine:CustomEvent"
+          name="111: create()">
+        <triggerTransition
+            xsi:type="StateMachine:LocalTransition"
+            target="/3/@states.1"
+            sourceState="/3/@states.0"/>
+      </events>
+    </states>
+    <states
+        name="111 Received">
+      <events
+          xsi:type="StateMachine:CustomEvent"
+          name="9: stand behind the computer">
+        <triggerTransition
+            xsi:type="StateMachine:LocalTransition"
+            target="/3/@states.2"
+            sourceState="/3/@states.1"/>
+      </events>
+    </states>
+    <states
+        name="9 Received">
+      <events
+          xsi:type="StateMachine:CustomEvent"
+          name="newEvent 17">
+        <triggerTransition
+            xsi:type="StateMachine:LocalTransition"
+            target="/3/@states.11"
+            sourceState="/3/@states.2"/>
+      </events>
+    </states>
+    <states
+        name="10 Performed">
+      <events
+          xsi:type="StateMachine:CustomEvent"
+          name="10: run URL challenge ">
+        <triggerTransition
+            xsi:type="StateMachine:LocalTransition"
+            target="/3/@states.4"
+            sourceState="/3/@states.3"/>
+      </events>
+    </states>
+    <states
+        name="10 Received">
+      <events
+          xsi:type="StateMachine:CustomEvent"
+          name="newEvent 18">
+        <triggerTransition
+            xsi:type="StateMachine:LocalTransition"
+            target="/3/@states.12"
+            sourceState="/3/@states.4"/>
+      </events>
+    </states>
+    <states
+        name="112 Performed">
+      <events
+          xsi:type="StateMachine:CustomEvent"
+          name="112: changeState(condition)">
+        <triggerTransition
+            xsi:type="StateMachine:LocalTransition"
+            target="/3/@states.6"
+            sourceState="/3/@states.5"/>
+      </events>
+    </states>
+    <states
+        name="112 Received">
+      <events
+          xsi:type="StateMachine:CoreEvents"
+          name="FINISHED">
+        <triggerTransition
+            xsi:type="StateMachine:LocalTransition"
+            target="/3/@states.9"
+            sourceState="/3/@states.6"/>
+      </events>
+    </states>
+    <states
+        name="11 Performed">
+      <events
+          xsi:type="StateMachine:CustomEvent"
+          name="newEvent 19">
+        <triggerTransition
+            xsi:type="StateMachine:LocalTransition"
+            target="/3/@states.13"
+            sourceState="/3/@states.7"/>
+      </events>
+    </states>
+    <states
+        name="29 Performed">
+      <events
+          xsi:type="StateMachine:CustomEvent"
+          name="newEvent 20">
+        <triggerTransition
+            xsi:type="StateMachine:LocalTransition"
+            target="/3/@states.14"
+            sourceState="/3/@states.8"/>
+      </events>
+    </states>
+    <states
+        name="113 alt">
+      <events
+          xsi:type="StateMachine:CustomEvent"
+          name="newEvent 21">
+        <triggerTransition
+            xsi:type="StateMachine:LocalTransition"
+            target="/3/@states.15"
+            sourceState="/3/@states.9"/>
+      </events>
+      <actions
+          xsi:type="StateMachine:CustomAction"
+          title="check transition constraint">
+        <parameters
+            name="[ !not Defined ]"/>
+      </actions>
+    </states>
+    <states
+        name="114 Performed"/>
+    <states
+        name="middleState 9_10">
+      <events
+          xsi:type="StateMachine:CoreEvents"
+          name="FINISHED">
+        <triggerTransition
+            xsi:type="StateMachine:LocalTransition"
+            target="/3/@states.3"
+            sourceState="/3/@states.11"/>
+      </events>
+      <actions
+          xsi:type="StateMachine:CustomAction"
+          title="/ 10: run URL challenge "/>
+    </states>
+    <states
+        name="middleState 10_11">
+      <events
+          xsi:type="StateMachine:CoreEvents"
+          name="FINISHED">
+        <triggerTransition
+            xsi:type="StateMachine:LocalTransition"
+            target="/3/@states.7"
+            sourceState="/3/@states.12"/>
+      </events>
+      <actions
+          xsi:type="StateMachine:CustomAction"
+          title="/ 11: startChallenge"/>
+    </states>
+    <states
+        name="middleState 11_29">
+      <events
+          xsi:type="StateMachine:CoreEvents"
+          name="FINISHED">
+        <triggerTransition
+            xsi:type="StateMachine:LocalTransition"
+            target="/3/@states.8"
+            sourceState="/3/@states.13"/>
+      </events>
+      <actions
+          xsi:type="StateMachine:CustomAction"
+          title="/ 29: show URL Query screen"/>
+    </states>
+    <states
+        name="middleState 29_112">
+      <events
+          xsi:type="StateMachine:CoreEvents"
+          name="FINISHED">
+        <triggerTransition
+            xsi:type="StateMachine:LocalTransition"
+            target="/3/@states.5"
+            sourceState="/3/@states.14"/>
+      </events>
+      <actions
+          xsi:type="StateMachine:CustomAction"
+          title="/ 112: changeState(condition)"/>
+    </states>
+    <states
+        name="middleState 113_114">
+      <events
+          xsi:type="StateMachine:CoreEvents"
+          name="FINISHED">
+        <triggerTransition
+            xsi:type="StateMachine:LocalTransition"
+            target="/3/@states.10"
+            sourceState="/3/@states.15"/>
+      </events>
+      <actions
+          xsi:type="StateMachine:CustomAction"
+          title="/ 114: create()"/>
+    </states>
+    <systemEvents
+        xsi:type="StateMachine:CoreEvents">
+      <triggerTransition
+          xsi:type="StateMachine:LocalTransition"
+          target="/3/@states.0"/>
+    </systemEvents>
+  </StateMachine:StateMachine>
+  <StateMachine:StateMachine
+      name="printer is on :AnnotatedBPMN!State"
+      ownerObject="printer">
+    <states
+        name="Start"
+        isStartState="true">
+      <events
+          xsi:type="StateMachine:CustomEvent"
+          name="117: create()">
+        <triggerTransition
+            xsi:type="StateMachine:LocalTransition"
+            target="/4/@states.1"
+            sourceState="/4/@states.0"/>
+      </events>
+    </states>
+    <states
+        name="117 Received">
+      <events
+          xsi:type="StateMachine:CustomEvent"
+          name="newEvent 22">
+        <triggerTransition
+            xsi:type="StateMachine:LocalTransition"
+            target="/4/@states.9"
+            sourceState="/4/@states.1"/>
+      </events>
+    </states>
+    <states
+        name="14 Performed">
+      <events
+          xsi:type="StateMachine:CustomEvent"
+          name="81: play printer voice and show paper(constraint)">
+        <triggerTransition
+            xsi:type="StateMachine:LocalTransition"
+            target="/4/@states.3"
+            sourceState="/4/@states.2"/>
+      </events>
+    </states>
+    <states
+        name="81 Received">
+      <events
+          xsi:type="StateMachine:CoreEvents"
+          name="FINISHED">
+        <triggerTransition
+            xsi:type="StateMachine:LocalTransition"
+            target="/4/@states.6"
+            sourceState="/4/@states.3"/>
+      </events>
+    </states>
+    <states
+        name="173 Performed">
+      <events
+          xsi:type="StateMachine:CustomEvent"
+          name="173: changeState(condition)">
+        <triggerTransition
+            xsi:type="StateMachine:LocalTransition"
+            target="/4/@states.5"
+            sourceState="/4/@states.4"/>
+      </events>
+    </states>
+    <states
+        name="173 Received">
+      <events
+          xsi:type="StateMachine:CoreEvents"
+          name="FINISHED">
+        <triggerTransition
+            xsi:type="StateMachine:LocalTransition"
+            target="/4/@states.7"
+            sourceState="/4/@states.5"/>
+      </events>
+    </states>
+    <states
+        name="82 opt">
+      <events
+          xsi:type="StateMachine:CustomEvent"
+          name="newEvent 23">
+        <triggerTransition
+            xsi:type="StateMachine:LocalTransition"
+            target="/4/@states.10"
+            sourceState="/4/@states.6"/>
+      </events>
+    </states>
+    <states
+        name="174 alt">
+      <events
+          xsi:type="StateMachine:CustomEvent"
+          name="newEvent 24">
+        <triggerTransition
+            xsi:type="StateMachine:LocalTransition"
+            target="/4/@states.11"
+            sourceState="/4/@states.7"/>
+      </events>
+      <actions
+          xsi:type="StateMachine:CustomAction"
+          title="check transition constraint">
+        <parameters
+            name="[ !not Defined ]"/>
+      </actions>
+    </states>
+    <states
+        name="175 Performed"/>
+    <states
+        name="middleState 117_14">
+      <events
+          xsi:type="StateMachine:CoreEvents"
+          name="FINISHED">
+        <triggerTransition
+            xsi:type="StateMachine:LocalTransition"
+            target="/4/@states.2"
+            sourceState="/4/@states.9"/>
+      </events>
+      <actions
+          xsi:type="StateMachine:CustomAction"
+          title="/ 14: take the paper from printer"/>
+    </states>
+    <states
+        name="middleState 82_173">
+      <events
+          xsi:type="StateMachine:CoreEvents"
+          name="FINISHED">
+        <triggerTransition
+            xsi:type="StateMachine:LocalTransition"
+            target="/4/@states.4"
+            sourceState="/4/@states.10"/>
+      </events>
+      <actions
+          xsi:type="StateMachine:CustomAction"
+          title="/ 173: changeState(condition)"/>
+    </states>
+    <states
+        name="middleState 174_175">
+      <events
+          xsi:type="StateMachine:CoreEvents"
+          name="FINISHED">
+        <triggerTransition
+            xsi:type="StateMachine:LocalTransition"
+            target="/4/@states.8"
+            sourceState="/4/@states.11"/>
+      </events>
+      <actions
+          xsi:type="StateMachine:CustomAction"
+          title="/ 175: create()"/>
+    </states>
+    <systemEvents
+        xsi:type="StateMachine:CoreEvents">
+      <triggerTransition
+          xsi:type="StateMachine:LocalTransition"
+          target="/4/@states.0"/>
+    </systemEvents>
+  </StateMachine:StateMachine>
+  <StateMachine:StateMachine
+      name="form is printed :AnnotatedBPMN!State"
+      ownerObject="Student">
+    <states
+        name="Start"
+        isStartState="true">
+      <events
+          xsi:type="StateMachine:CustomEvent"
+          name="14: take the paper from printer">
+        <triggerTransition
+            xsi:type="StateMachine:LocalTransition"
+            target="/5/@states.1"
+            sourceState="/5/@states.0"/>
+      </events>
+    </states>
+    <states
+        name="14 Received">
+      <events
+          xsi:type="StateMachine:CustomEvent"
+          name="newEvent 25">
+        <triggerTransition
+            xsi:type="StateMachine:LocalTransition"
+            target="/5/@states.7"
+            sourceState="/5/@states.1"/>
+      </events>
+    </states>
+    <states
+        name="118 Performed">
+      <events
+          xsi:type="StateMachine:CustomEvent"
+          name="118: changeState(condition)">
+        <triggerTransition
+            xsi:type="StateMachine:LocalTransition"
+            target="/5/@states.3"
+            sourceState="/5/@states.2"/>
+      </events>
+    </states>
+    <states
+        name="118 Received">
+      <events
+          xsi:type="StateMachine:CoreEvents"
+          name="FINISHED">
+        <triggerTransition
+            xsi:type="StateMachine:LocalTransition"
+            target="/5/@states.5"
+            sourceState="/5/@states.3"/>
+      </events>
+    </states>
+    <states
+        name="15 Performed">
+      <events
+          xsi:type="StateMachine:CustomEvent"
+          name="newEvent 26">
+        <triggerTransition
+            xsi:type="StateMachine:LocalTransition"
+            target="/5/@states.8"
+            sourceState="/5/@states.4"/>
+      </events>
+    </states>
+    <states
+        name="119 alt">
+      <events
+          xsi:type="StateMachine:CustomEvent"
+          name="newEvent 27">
+        <triggerTransition
+            xsi:type="StateMachine:LocalTransition"
+            target="/5/@states.9"
+            sourceState="/5/@states.5"/>
+      </events>
+      <actions
+          xsi:type="StateMachine:CustomAction"
+          title="check transition constraint">
+        <parameters
+            name="[ !not Defined ]"/>
+      </actions>
+    </states>
+    <states
+        name="120 Performed"/>
+    <states
+        name="middleState 14_15">
+      <events
+          xsi:type="StateMachine:CoreEvents"
+          name="FINISHED">
+        <triggerTransition
+            xsi:type="StateMachine:LocalTransition"
+            target="/5/@states.4"
+            sourceState="/5/@states.7"/>
+      </events>
+      <actions
+          xsi:type="StateMachine:CustomAction"
+          title="/ 15: show form sections query screen"/>
+    </states>
+    <states
+        name="middleState 15_118">
+      <events
+          xsi:type="StateMachine:CoreEvents"
+          name="FINISHED">
+        <triggerTransition
+            xsi:type="StateMachine:LocalTransition"
+            target="/5/@states.2"
+            sourceState="/5/@states.8"/>
+      </events>
+      <actions
+          xsi:type="StateMachine:CustomAction"
+          title="/ 118: changeState(condition)"/>
+    </states>
+    <states
+        name="middleState 119_120">
+      <events
+          xsi:type="StateMachine:CoreEvents"
+          name="FINISHED">
+        <triggerTransition
+            xsi:type="StateMachine:LocalTransition"
+            target="/5/@states.6"
+            sourceState="/5/@states.9"/>
+      </events>
+      <actions
+          xsi:type="StateMachine:CustomAction"
+          title="/ 120: create()"/>
+    </states>
+    <systemEvents
+        xsi:type="StateMachine:CoreEvents">
+      <triggerTransition
+          xsi:type="StateMachine:LocalTransition"
+          target="/5/@states.0"/>
+    </systemEvents>
+  </StateMachine:StateMachine>
+  <StateMachine:StateMachine
+      name="Form sections query :AnnotatedBPMN!State"
+      ownerObject="Student">
+    <states
+        name="Start"
+        isStartState="true">
+      <events
+          xsi:type="StateMachine:CustomEvent"
+          name="120: create()">
+        <triggerTransition
+            xsi:type="StateMachine:LocalTransition"
+            target="/6/@states.1"
+            sourceState="/6/@states.0"/>
+      </events>
+    </states>
+    <states
+        name="120 Received">
+      <events
+          xsi:type="StateMachine:CustomEvent"
+          name="15: show form sections query screen">
+        <triggerTransition
+            xsi:type="StateMachine:LocalTransition"
+            target="/6/@states.2"
+            sourceState="/6/@states.1"/>
+      </events>
+    </states>
+    <states
+        name="15 Received">
+      <events
+          xsi:type="StateMachine:CustomEvent"
+          name="newEvent 28">
+        <triggerTransition
+            xsi:type="StateMachine:LocalTransition"
+            target="/6/@states.11"
+            sourceState="/6/@states.2"/>
+      </events>
+    </states>
+    <states
+        name="17 Performed">
+      <events
+          xsi:type="StateMachine:CustomEvent"
+          name="17: fill each section and save">
+        <triggerTransition
+            xsi:type="StateMachine:LocalTransition"
+            target="/6/@states.4"
+            sourceState="/6/@states.3"/>
+      </events>
+    </states>
+    <states
+        name="17 Received">
+      <events
+          xsi:type="StateMachine:CustomEvent"
+          name="newEvent 29">
+        <triggerTransition
+            xsi:type="StateMachine:LocalTransition"
+            target="/6/@states.12"
+            sourceState="/6/@states.4"/>
+      </events>
+    </states>
+    <states
+        name="121 Performed">
+      <events
+          xsi:type="StateMachine:CustomEvent"
+          name="121: changeState(condition)">
+        <triggerTransition
+            xsi:type="StateMachine:LocalTransition"
+            target="/6/@states.6"
+            sourceState="/6/@states.5"/>
+      </events>
+    </states>
+    <states
+        name="121 Received">
+      <events
+          xsi:type="StateMachine:CoreEvents"
+          name="FINISHED">
+        <triggerTransition
+            xsi:type="StateMachine:LocalTransition"
+            target="/6/@states.9"
+            sourceState="/6/@states.6"/>
+      </events>
+    </states>
+    <states
+        name="16 Performed">
+      <events
+          xsi:type="StateMachine:CustomEvent"
+          name="newEvent 30">
+        <triggerTransition
+            xsi:type="StateMachine:LocalTransition"
+            target="/6/@states.13"
+            sourceState="/6/@states.7"/>
+      </events>
+    </states>
+    <states
+        name="84 Performed">
+      <events
+          xsi:type="StateMachine:CustomEvent"
+          name="newEvent 31">
+        <triggerTransition
+            xsi:type="StateMachine:LocalTransition"
+            target="/6/@states.14"
+            sourceState="/6/@states.8"/>
+      </events>
+    </states>
+    <states
+        name="122 alt">
+      <events
+          xsi:type="StateMachine:CustomEvent"
+          name="newEvent 32">
+        <triggerTransition
+            xsi:type="StateMachine:LocalTransition"
+            target="/6/@states.15"
+            sourceState="/6/@states.9"/>
+      </events>
+      <actions
+          xsi:type="StateMachine:CustomAction"
+          title="check transition constraint">
+        <parameters
+            name="[ !not Defined ]"/>
+      </actions>
+    </states>
+    <states
+        name="123 Performed"/>
+    <states
+        name="middleState 15_16">
+      <events
+          xsi:type="StateMachine:CoreEvents"
+          name="FINISHED">
+        <triggerTransition
+            xsi:type="StateMachine:LocalTransition"
+            target="/6/@states.7"
+            sourceState="/6/@states.11"/>
+      </events>
+      <actions
+          xsi:type="StateMachine:CustomAction"
+          title="/ 16: show"/>
+    </states>
+    <states
+        name="middleState 17_84">
+      <events
+          xsi:type="StateMachine:CoreEvents"
+          name="FINISHED">
+        <triggerTransition
+            xsi:type="StateMachine:LocalTransition"
+            target="/6/@states.8"
+            sourceState="/6/@states.12"/>
+      </events>
+      <actions
+          xsi:type="StateMachine:CustomAction"
+          title="/ 84: save the form in player log(constraint)"/>
+    </states>
+    <states
+        name="middleState 16_17">
+      <events
+          xsi:type="StateMachine:CoreEvents"
+          name="FINISHED">
+        <triggerTransition
+            xsi:type="StateMachine:LocalTransition"
+            target="/6/@states.3"
+            sourceState="/6/@states.13"/>
+      </events>
+      <actions
+          xsi:type="StateMachine:CustomAction"
+          title="/ 17: fill each section and save"/>
+    </states>
+    <states
+        name="middleState 84_121">
+      <events
+          xsi:type="StateMachine:CoreEvents"
+          name="FINISHED">
+        <triggerTransition
+            xsi:type="StateMachine:LocalTransition"
+            target="/6/@states.5"
+            sourceState="/6/@states.14"/>
+      </events>
+      <actions
+          xsi:type="StateMachine:CustomAction"
+          title="/ 121: changeState(condition)"/>
+    </states>
+    <states
+        name="middleState 122_123">
+      <events
+          xsi:type="StateMachine:CoreEvents"
+          name="FINISHED">
+        <triggerTransition
+            xsi:type="StateMachine:LocalTransition"
+            target="/6/@states.10"
+            sourceState="/6/@states.15"/>
+      </events>
+      <actions
+          xsi:type="StateMachine:CustomAction"
+          title="/ 123: create()"/>
+    </states>
+    <systemEvents
+        xsi:type="StateMachine:CoreEvents">
+      <triggerTransition
+          xsi:type="StateMachine:LocalTransition"
+          target="/6/@states.0"/>
+    </systemEvents>
+  </StateMachine:StateMachine>
+  <StateMachine:StateMachine
+      name="meeting supervisor :AnnotatedBPMN!State"
+      ownerObject="Student">
+    <states
+        name="Start"
+        isStartState="true">
+      <events
+          xsi:type="StateMachine:CustomEvent"
+          name="178: create()">
+        <triggerTransition
+            xsi:type="StateMachine:LocalTransition"
+            target="/7/@states.1"
+            sourceState="/7/@states.0"/>
+      </events>
+    </states>
+    <states
+        name="178 Received">
+      <events
+          xsi:type="StateMachine:CustomEvent"
+          name="18: walk to the supervisor room">
+        <triggerTransition
+            xsi:type="StateMachine:LocalTransition"
+            target="/7/@states.2"
+            sourceState="/7/@states.1"/>
+      </events>
+    </states>
+    <states
+        name="18 Received">
+      <events
+          xsi:type="StateMachine:CustomEvent"
+          name="19: enter to the room">
+        <triggerTransition
+            xsi:type="StateMachine:LocalTransition"
+            target="/7/@states.3"
+            sourceState="/7/@states.2"/>
+      </events>
+    </states>
+    <states
+        name="19 Received">
+      <events
+          xsi:type="StateMachine:CustomEvent"
+          name="20: stand in front of supervisor character">
+        <triggerTransition
+            xsi:type="StateMachine:LocalTransition"
+            target="/7/@states.4"
+            sourceState="/7/@states.3"/>
+      </events>
+    </states>
+    <states
+        name="20 Received">
+      <events
+          xsi:type="StateMachine:CustomEvent"
+          name="newEvent 33">
+        <triggerTransition
+            xsi:type="StateMachine:LocalTransition"
+            target="/7/@states.11"
+            sourceState="/7/@states.4"/>
+      </events>
+    </states>
+    <states
+        name="21 Performed">
+      <events
+          xsi:type="StateMachine:CustomEvent"
+          name="21: call Task2 of BP component">
+        <triggerTransition
+            xsi:type="StateMachine:LocalTransition"
+            target="/7/@states.6"
+            sourceState="/7/@states.5"/>
+      </events>
+    </states>
+    <states
+        name="21 Received">
+      <events
+          xsi:type="StateMachine:CustomEvent"
+          name="newEvent 34">
+        <triggerTransition
+            xsi:type="StateMachine:LocalTransition"
+            target="/7/@states.12"
+            sourceState="/7/@states.6"/>
+      </events>
+    </states>
+    <states
+        name="124 Performed">
+      <events
+          xsi:type="StateMachine:CustomEvent"
+          name="124: changeState(condition)">
+        <triggerTransition
+            xsi:type="StateMachine:LocalTransition"
+            target="/7/@states.8"
+            sourceState="/7/@states.7"/>
+      </events>
+    </states>
+    <states
+        name="124 Received">
+      <events
+          xsi:type="StateMachine:CoreEvents"
+          name="FINISHED">
+        <triggerTransition
+            xsi:type="StateMachine:LocalTransition"
+            target="/7/@states.10"
+            sourceState="/7/@states.8"/>
+      </events>
+    </states>
+    <states
+        name="22 Performed">
+      <events
+          xsi:type="StateMachine:CustomEvent"
+          name="newEvent 35">
+        <triggerTransition
+            xsi:type="StateMachine:LocalTransition"
+            target="/7/@states.13"
+            sourceState="/7/@states.9"/>
+      </events>
+    </states>
+    <states
+        name="125 alt"/>
+    <states
+        name="middleState 20_21">
+      <events
+          xsi:type="StateMachine:CoreEvents"
+          name="FINISHED">
+        <triggerTransition
+            xsi:type="StateMachine:LocalTransition"
+            target="/7/@states.5"
+            sourceState="/7/@states.11"/>
+      </events>
+      <actions
+          xsi:type="StateMachine:CustomAction"
+          title="/ 21: call Task2 of BP component"/>
+    </states>
+    <states
+        name="middleState 21_22">
+      <events
+          xsi:type="StateMachine:CoreEvents"
+          name="FINISHED">
+        <triggerTransition
+            xsi:type="StateMachine:LocalTransition"
+            target="/7/@states.9"
+            sourceState="/7/@states.12"/>
+      </events>
+      <actions
+          xsi:type="StateMachine:CustomAction"
+          title="/ 22: deliver the form to the supervisor"/>
+    </states>
+    <states
+        name="middleState 22_124">
+      <events
+          xsi:type="StateMachine:CoreEvents"
+          name="FINISHED">
+        <triggerTransition
+            xsi:type="StateMachine:LocalTransition"
+            target="/7/@states.7"
+            sourceState="/7/@states.13"/>
+      </events>
+      <actions
+          xsi:type="StateMachine:CustomAction"
+          title="/ 124: changeState(condition)"/>
+    </states>
+    <systemEvents
+        xsi:type="StateMachine:CoreEvents">
+      <triggerTransition
+          xsi:type="StateMachine:LocalTransition"
+          target="/7/@states.0"/>
+    </systemEvents>
+  </StateMachine:StateMachine>
+  <StateMachine:StateMachine
+      name="form rejection :AnnotatedBPMN!State"
+      ownerObject="Supervisor">
+    <states
+        name="Start"
+        isStartState="true">
+      <events
+          xsi:type="StateMachine:CustomEvent"
+          name="153: create()">
+        <triggerTransition
+            xsi:type="StateMachine:LocalTransition"
+            target="/8/@states.1"
+            sourceState="/8/@states.0"/>
+      </events>
+    </states>
+    <states
+        name="153 Received">
+      <events
+          xsi:type="StateMachine:CustomEvent"
+          name="newEvent 36">
+        <triggerTransition
+            xsi:type="StateMachine:LocalTransition"
+            target="/8/@states.14"
+            sourceState="/8/@states.1"/>
+      </events>
+    </states>
+    <states
+        name="24 Performed">
+      <events
+          xsi:type="StateMachine:CustomEvent"
+          name="52: color the form to red">
+        <triggerTransition
+            xsi:type="StateMachine:LocalTransition"
+            target="/8/@states.3"
+            sourceState="/8/@states.2"/>
+      </events>
+    </states>
+    <states
+        name="52 Received">
+      <events
+          xsi:type="StateMachine:CustomEvent"
+          name="newEvent 37">
+        <triggerTransition
+            xsi:type="StateMachine:LocalTransition"
+            target="/8/@states.15"
+            sourceState="/8/@states.3"/>
+      </events>
+    </states>
+    <states
+        name="53 Performed">
+      <events
+          xsi:type="StateMachine:CustomEvent"
+          name="53: highlights wrong fields of the saved form">
+        <triggerTransition
+            xsi:type="StateMachine:LocalTransition"
+            target="/8/@states.5"
+            sourceState="/8/@states.4"/>
+      </events>
+    </states>
+    <states
+        name="53 Received">
+      <events
+          xsi:type="StateMachine:CustomEvent"
+          name="newEvent 38">
+        <triggerTransition
+            xsi:type="StateMachine:LocalTransition"
+            target="/8/@states.16"
+            sourceState="/8/@states.5"/>
+      </events>
+    </states>
+    <states
+        name="54 Performed">
+      <events
+          xsi:type="StateMachine:CustomEvent"
+          name="54: return form paper to the student">
+        <triggerTransition
+            xsi:type="StateMachine:LocalTransition"
+            target="/8/@states.7"
+            sourceState="/8/@states.6"/>
+      </events>
+    </states>
+    <states
+        name="54 Received">
+      <events
+          xsi:type="StateMachine:CustomEvent"
+          name="newEvent 39">
+        <triggerTransition
+            xsi:type="StateMachine:LocalTransition"
+            target="/8/@states.17"
+            sourceState="/8/@states.7"/>
+      </events>
+    </states>
+    <states
+        name="55 Performed">
+      <events
+          xsi:type="StateMachine:CustomEvent"
+          name="55: call Task4 of BP component">
+        <triggerTransition
+            xsi:type="StateMachine:LocalTransition"
+            target="/8/@states.9"
+            sourceState="/8/@states.8"/>
+      </events>
+    </states>
+    <states
+        name="55 Received">
+      <events
+          xsi:type="StateMachine:CustomEvent"
+          name="newEvent 40">
+        <triggerTransition
+            xsi:type="StateMachine:LocalTransition"
+            target="/8/@states.18"
+            sourceState="/8/@states.9"/>
+      </events>
+    </states>
+    <states
+        name="154 Performed">
+      <events
+          xsi:type="StateMachine:CustomEvent"
+          name="154: changeState(condition)">
+        <triggerTransition
+            xsi:type="StateMachine:LocalTransition"
+            target="/8/@states.11"
+            sourceState="/8/@states.10"/>
+      </events>
+    </states>
+    <states
+        name="154 Received">
+      <events
+          xsi:type="StateMachine:CoreEvents"
+          name="FINISHED">
+        <triggerTransition
+            xsi:type="StateMachine:LocalTransition"
+            target="/8/@states.13"
+            sourceState="/8/@states.11"/>
+      </events>
+    </states>
+    <states
+        name="56 Performed">
+      <events
+          xsi:type="StateMachine:CustomEvent"
+          name="newEvent 41">
+        <triggerTransition
+            xsi:type="StateMachine:LocalTransition"
+            target="/8/@states.19"
+            sourceState="/8/@states.12"/>
+      </events>
+    </states>
+    <states
+        name="155 alt"/>
+    <states
+        name="middleState 153_24">
+      <events
+          xsi:type="StateMachine:CoreEvents"
+          name="FINISHED">
+        <triggerTransition
+            xsi:type="StateMachine:LocalTransition"
+            target="/8/@states.2"
+            sourceState="/8/@states.14"/>
+      </events>
+      <actions
+          xsi:type="StateMachine:CustomAction"
+          title="/ 24: student look at the paper"/>
+    </states>
+    <states
+        name="middleState 52_53">
+      <events
+          xsi:type="StateMachine:CoreEvents"
+          name="FINISHED">
+        <triggerTransition
+            xsi:type="StateMachine:LocalTransition"
+            target="/8/@states.4"
+            sourceState="/8/@states.15"/>
+      </events>
+      <actions
+          xsi:type="StateMachine:CustomAction"
+          title="/ 53: highlights wrong fields of the saved form"/>
+    </states>
+    <states
+        name="middleState 53_54">
+      <events
+          xsi:type="StateMachine:CoreEvents"
+          name="FINISHED">
+        <triggerTransition
+            xsi:type="StateMachine:LocalTransition"
+            target="/8/@states.6"
+            sourceState="/8/@states.16"/>
+      </events>
+      <actions
+          xsi:type="StateMachine:CustomAction"
+          title="/ 54: return form paper to the student"/>
+    </states>
+    <states
+        name="middleState 54_55">
+      <events
+          xsi:type="StateMachine:CoreEvents"
+          name="FINISHED">
+        <triggerTransition
+            xsi:type="StateMachine:LocalTransition"
+            target="/8/@states.8"
+            sourceState="/8/@states.17"/>
+      </events>
+      <actions
+          xsi:type="StateMachine:CustomAction"
+          title="/ 55: call Task4 of BP component"/>
+    </states>
+    <states
+        name="middleState 55_56">
+      <events
+          xsi:type="StateMachine:CoreEvents"
+          name="FINISHED">
+        <triggerTransition
+            xsi:type="StateMachine:LocalTransition"
+            target="/8/@states.12"
+            sourceState="/8/@states.18"/>
+      </events>
+      <actions
+          xsi:type="StateMachine:CustomAction"
+          title="/ 56: change definition form"/>
+    </states>
+    <states
+        name="middleState 56_154">
+      <events
+          xsi:type="StateMachine:CoreEvents"
+          name="FINISHED">
+        <triggerTransition
+            xsi:type="StateMachine:LocalTransition"
+            target="/8/@states.10"
+            sourceState="/8/@states.19"/>
+      </events>
+      <actions
+          xsi:type="StateMachine:CustomAction"
+          title="/ 154: changeState(condition)"/>
+    </states>
+    <systemEvents
+        xsi:type="StateMachine:CoreEvents">
+      <triggerTransition
+          xsi:type="StateMachine:LocalTransition"
+          target="/8/@states.0"/>
+    </systemEvents>
+  </StateMachine:StateMachine>
+  <StateMachine:StateMachine
+      name="change definition form :AnnotatedBPMN!State"
+      ownerObject="Student">
+    <states
+        name="Start"
+        isStartState="true">
+      <events
+          xsi:type="StateMachine:CustomEvent"
+          name="24: student look at the paper">
+        <triggerTransition
+            xsi:type="StateMachine:LocalTransition"
+            target="/9/@states.1"
+            sourceState="/9/@states.0"/>
+      </events>
+    </states>
+    <states
+        name="24 Received">
+      <events
+          xsi:type="StateMachine:CustomEvent"
+          name="newEvent 42">
+        <triggerTransition
+            xsi:type="StateMachine:LocalTransition"
+            target="/9/@states.9"
+            sourceState="/9/@states.1"/>
+      </events>
+    </states>
+    <states
+        name="25 Performed">
+      <events
+          xsi:type="StateMachine:CustomEvent"
+          name="25: leave supervisor room">
+        <triggerTransition
+            xsi:type="StateMachine:LocalTransition"
+            target="/9/@states.3"
+            sourceState="/9/@states.2"/>
+      </events>
+    </states>
+    <states
+        name="25 Received">
+      <events
+          xsi:type="StateMachine:CustomEvent"
+          name="newEvent 43">
+        <triggerTransition
+            xsi:type="StateMachine:LocalTransition"
+            target="/9/@states.10"
+            sourceState="/9/@states.3"/>
+      </events>
+    </states>
+    <states
+        name="129 Performed">
+      <events
+          xsi:type="StateMachine:CustomEvent"
+          name="129: changeState(condition)">
+        <triggerTransition
+            xsi:type="StateMachine:LocalTransition"
+            target="/9/@states.5"
+            sourceState="/9/@states.4"/>
+      </events>
+    </states>
+    <states
+        name="129 Received">
+      <events
+          xsi:type="StateMachine:CoreEvents"
+          name="FINISHED">
+        <triggerTransition
+            xsi:type="StateMachine:LocalTransition"
+            target="/9/@states.7"
+            sourceState="/9/@states.5"/>
+      </events>
+    </states>
+    <states
+        name="26 Performed">
+      <events
+          xsi:type="StateMachine:CustomEvent"
+          name="newEvent 44">
+        <triggerTransition
+            xsi:type="StateMachine:LocalTransition"
+            target="/9/@states.11"
+            sourceState="/9/@states.6"/>
+      </events>
+    </states>
+    <states
+        name="130 alt">
+      <events
+          xsi:type="StateMachine:CustomEvent"
+          name="newEvent 45">
+        <triggerTransition
+            xsi:type="StateMachine:LocalTransition"
+            target="/9/@states.12"
+            sourceState="/9/@states.7"/>
+      </events>
+      <actions
+          xsi:type="StateMachine:CustomAction"
+          title="check transition constraint">
+        <parameters
+            name="[ !not Defined ]"/>
+      </actions>
+    </states>
+    <states
+        name="131 Performed"/>
+    <states
+        name="middleState 24_25">
+      <events
+          xsi:type="StateMachine:CoreEvents"
+          name="FINISHED">
+        <triggerTransition
+            xsi:type="StateMachine:LocalTransition"
+            target="/9/@states.2"
+            sourceState="/9/@states.9"/>
+      </events>
+      <actions
+          xsi:type="StateMachine:CustomAction"
+          title="/ 25: leave supervisor room"/>
+    </states>
+    <states
+        name="middleState 25_26">
+      <events
+          xsi:type="StateMachine:CoreEvents"
+          name="FINISHED">
+        <triggerTransition
+            xsi:type="StateMachine:LocalTransition"
+            target="/9/@states.6"
+            sourceState="/9/@states.10"/>
+      </events>
+      <actions
+          xsi:type="StateMachine:CustomAction"
+          title="/ 26: show highlighted form screen"/>
+    </states>
+    <states
+        name="middleState 26_129">
+      <events
+          xsi:type="StateMachine:CoreEvents"
+          name="FINISHED">
+        <triggerTransition
+            xsi:type="StateMachine:LocalTransition"
+            target="/9/@states.4"
+            sourceState="/9/@states.11"/>
+      </events>
+      <actions
+          xsi:type="StateMachine:CustomAction"
+          title="/ 129: changeState(condition)"/>
+    </states>
+    <states
+        name="middleState 130_131">
+      <events
+          xsi:type="StateMachine:CoreEvents"
+          name="FINISHED">
+        <triggerTransition
+            xsi:type="StateMachine:LocalTransition"
+            target="/9/@states.8"
+            sourceState="/9/@states.12"/>
+      </events>
+      <actions
+          xsi:type="StateMachine:CustomAction"
+          title="/ 131: create()"/>
+    </states>
+    <systemEvents
+        xsi:type="StateMachine:CoreEvents">
+      <triggerTransition
+          xsi:type="StateMachine:LocalTransition"
+          target="/9/@states.0"/>
+    </systemEvents>
+  </StateMachine:StateMachine>
+  <StateMachine:StateMachine
+      name="Form wrong sections query :AnnotatedBPMN!State"
+      ownerObject="Student">
+    <states
+        name="Start"
+        isStartState="true">
+      <events
+          xsi:type="StateMachine:CustomEvent"
+          name="131: create()">
+        <triggerTransition
+            xsi:type="StateMachine:LocalTransition"
+            target="/10/@states.1"
+            sourceState="/10/@states.0"/>
+      </events>
+    </states>
+    <states
+        name="131 Received">
+      <events
+          xsi:type="StateMachine:CustomEvent"
+          name="26: show highlighted form screen">
+        <triggerTransition
+            xsi:type="StateMachine:LocalTransition"
+            target="/10/@states.2"
+            sourceState="/10/@states.1"/>
+      </events>
+    </states>
+    <states
+        name="26 Received">
+      <events
+          xsi:type="StateMachine:CustomEvent"
+          name="newEvent 46">
+        <triggerTransition
+            xsi:type="StateMachine:LocalTransition"
+            target="/10/@states.11"
+            sourceState="/10/@states.2"/>
+      </events>
+    </states>
+    <states
+        name="28 Performed">
+      <events
+          xsi:type="StateMachine:CustomEvent"
+          name="28: player edits each wrong sections">
+        <triggerTransition
+            xsi:type="StateMachine:LocalTransition"
+            target="/10/@states.4"
+            sourceState="/10/@states.3"/>
+      </events>
+    </states>
+    <states
+        name="28 Received">
+      <events
+          xsi:type="StateMachine:CustomEvent"
+          name="newEvent 47">
+        <triggerTransition
+            xsi:type="StateMachine:LocalTransition"
+            target="/10/@states.12"
+            sourceState="/10/@states.4"/>
+      </events>
+    </states>
+    <states
+        name="132 Performed">
+      <events
+          xsi:type="StateMachine:CustomEvent"
+          name="132: changeState(condition)">
+        <triggerTransition
+            xsi:type="StateMachine:LocalTransition"
+            target="/10/@states.6"
+            sourceState="/10/@states.5"/>
+      </events>
+    </states>
+    <states
+        name="132 Received">
+      <events
+          xsi:type="StateMachine:CoreEvents"
+          name="FINISHED">
+        <triggerTransition
+            xsi:type="StateMachine:LocalTransition"
+            target="/10/@states.9"
+            sourceState="/10/@states.6"/>
+      </events>
+    </states>
+    <states
+        name="27 Performed">
+      <events
+          xsi:type="StateMachine:CustomEvent"
+          name="newEvent 48">
+        <triggerTransition
+            xsi:type="StateMachine:LocalTransition"
+            target="/10/@states.13"
+            sourceState="/10/@states.7"/>
+      </events>
+    </states>
+    <states
+        name="88 Performed">
+      <events
+          xsi:type="StateMachine:CustomEvent"
+          name="newEvent 49">
+        <triggerTransition
+            xsi:type="StateMachine:LocalTransition"
+            target="/10/@states.14"
+            sourceState="/10/@states.8"/>
+      </events>
+    </states>
+    <states
+        name="133 alt">
+      <events
+          xsi:type="StateMachine:CustomEvent"
+          name="newEvent 50">
+        <triggerTransition
+            xsi:type="StateMachine:LocalTransition"
+            target="/10/@states.15"
+            sourceState="/10/@states.9"/>
+      </events>
+      <actions
+          xsi:type="StateMachine:CustomAction"
+          title="check transition constraint">
+        <parameters
+            name="[ !not Defined ]"/>
+      </actions>
+    </states>
+    <states
+        name="134 Performed"/>
+    <states
+        name="middleState 26_27">
+      <events
+          xsi:type="StateMachine:CoreEvents"
+          name="FINISHED">
+        <triggerTransition
+            xsi:type="StateMachine:LocalTransition"
+            target="/10/@states.7"
+            sourceState="/10/@states.11"/>
+      </events>
+      <actions
+          xsi:type="StateMachine:CustomAction"
+          title="/ 27: show"/>
+    </states>
+    <states
+        name="middleState 28_88">
+      <events
+          xsi:type="StateMachine:CoreEvents"
+          name="FINISHED">
+        <triggerTransition
+            xsi:type="StateMachine:LocalTransition"
+            target="/10/@states.8"
+            sourceState="/10/@states.12"/>
+      </events>
+      <actions
+          xsi:type="StateMachine:CustomAction"
+          title="/ 88: save updated form in player log(constraint)"/>
+    </states>
+    <states
+        name="middleState 27_28">
+      <events
+          xsi:type="StateMachine:CoreEvents"
+          name="FINISHED">
+        <triggerTransition
+            xsi:type="StateMachine:LocalTransition"
+            target="/10/@states.3"
+            sourceState="/10/@states.13"/>
+      </events>
+      <actions
+          xsi:type="StateMachine:CustomAction"
+          title="/ 28: player edits each wrong sections"/>
+    </states>
+    <states
+        name="middleState 88_132">
+      <events
+          xsi:type="StateMachine:CoreEvents"
+          name="FINISHED">
+        <triggerTransition
+            xsi:type="StateMachine:LocalTransition"
+            target="/10/@states.5"
+            sourceState="/10/@states.14"/>
+      </events>
+      <actions
+          xsi:type="StateMachine:CustomAction"
+          title="/ 132: changeState(condition)"/>
+    </states>
+    <states
+        name="middleState 133_134">
+      <events
+          xsi:type="StateMachine:CoreEvents"
+          name="FINISHED">
+        <triggerTransition
+            xsi:type="StateMachine:LocalTransition"
+            target="/10/@states.10"
+            sourceState="/10/@states.15"/>
+      </events>
+      <actions
+          xsi:type="StateMachine:CustomAction"
+          title="/ 134: create()"/>
+    </states>
+    <systemEvents
+        xsi:type="StateMachine:CoreEvents">
+      <triggerTransition
+          xsi:type="StateMachine:LocalTransition"
+          target="/10/@states.0"/>
+    </systemEvents>
+  </StateMachine:StateMachine>
+  <StateMachine:StateMachine
+      name="URL query :AnnotatedBPMN!State"
+      ownerObject="Student">
+    <states
+        name="Start"
+        isStartState="true">
+      <events
+          xsi:type="StateMachine:CustomEvent"
+          name="114: create()">
+        <triggerTransition
+            xsi:type="StateMachine:LocalTransition"
+            target="/11/@states.1"
+            sourceState="/11/@states.0"/>
+      </events>
+    </states>
+    <states
+        name="114 Received">
+      <events
+          xsi:type="StateMachine:CustomEvent"
+          name="29: show URL Query screen">
+        <triggerTransition
+            xsi:type="StateMachine:LocalTransition"
+            target="/11/@states.2"
+            sourceState="/11/@states.1"/>
+      </events>
+    </states>
+    <states
+        name="29 Received">
+      <events
+          xsi:type="StateMachine:CustomEvent"
+          name="newEvent 51">
+        <triggerTransition
+            xsi:type="StateMachine:LocalTransition"
+            target="/11/@states.11"
+            sourceState="/11/@states.2"/>
+      </events>
+    </states>
+    <states
+        name="31 Performed">
+      <events
+          xsi:type="StateMachine:CustomEvent"
+          name="31: select a URL from list">
+        <triggerTransition
+            xsi:type="StateMachine:LocalTransition"
+            target="/11/@states.4"
+            sourceState="/11/@states.3"/>
+      </events>
+    </states>
+    <states
+        name="31 Received">
+      <events
+          xsi:type="StateMachine:CustomEvent"
+          name="newEvent 52">
+        <triggerTransition
+            xsi:type="StateMachine:LocalTransition"
+            target="/11/@states.12"
+            sourceState="/11/@states.4"/>
+      </events>
+    </states>
+    <states
+        name="135 Performed">
+      <events
+          xsi:type="StateMachine:CustomEvent"
+          name="135: changeState(condition)">
+        <triggerTransition
+            xsi:type="StateMachine:LocalTransition"
+            target="/11/@states.6"
+            sourceState="/11/@states.5"/>
+      </events>
+    </states>
+    <states
+        name="135 Received">
+      <events
+          xsi:type="StateMachine:CoreEvents"
+          name="FINISHED">
+        <triggerTransition
+            xsi:type="StateMachine:LocalTransition"
+            target="/11/@states.9"
+            sourceState="/11/@states.6"/>
+      </events>
+    </states>
+    <states
+        name="30 Performed">
+      <events
+          xsi:type="StateMachine:CustomEvent"
+          name="newEvent 53">
+        <triggerTransition
+            xsi:type="StateMachine:LocalTransition"
+            target="/11/@states.13"
+            sourceState="/11/@states.7"/>
+      </events>
+    </states>
+    <states
+        name="32 Performed">
+      <events
+          xsi:type="StateMachine:CustomEvent"
+          name="newEvent 54">
+        <triggerTransition
+            xsi:type="StateMachine:LocalTransition"
+            target="/11/@states.14"
+            sourceState="/11/@states.8"/>
+      </events>
+    </states>
+    <states
+        name="136 alt">
+      <events
+          xsi:type="StateMachine:CustomEvent"
+          name="newEvent 55">
+        <triggerTransition
+            xsi:type="StateMachine:LocalTransition"
+            target="/11/@states.15"
+            sourceState="/11/@states.9"/>
+      </events>
+      <actions
+          xsi:type="StateMachine:CustomAction"
+          title="check transition constraint">
+        <parameters
+            name="[ !not Defined ]"/>
+      </actions>
+    </states>
+    <states
+        name="137 Performed"/>
+    <states
+        name="middleState 29_30">
+      <events
+          xsi:type="StateMachine:CoreEvents"
+          name="FINISHED">
+        <triggerTransition
+            xsi:type="StateMachine:LocalTransition"
+            target="/11/@states.7"
+            sourceState="/11/@states.11"/>
+      </events>
+      <actions
+          xsi:type="StateMachine:CustomAction"
+          title="/ 30: show"/>
+    </states>
+    <states
+        name="middleState 31_32">
+      <events
+          xsi:type="StateMachine:CoreEvents"
+          name="FINISHED">
+        <triggerTransition
+            xsi:type="StateMachine:LocalTransition"
+            target="/11/@states.8"
+            sourceState="/11/@states.12"/>
+      </events>
+      <actions
+          xsi:type="StateMachine:CustomAction"
+          title="/ 32: ask task1 of BP component for correct answer"/>
+    </states>
+    <states
+        name="middleState 30_31">
+      <events
+          xsi:type="StateMachine:CoreEvents"
+          name="FINISHED">
+        <triggerTransition
+            xsi:type="StateMachine:LocalTransition"
+            target="/11/@states.3"
+            sourceState="/11/@states.13"/>
+      </events>
+      <actions
+          xsi:type="StateMachine:CustomAction"
+          title="/ 31: select a URL from list"/>
+    </states>
+    <states
+        name="middleState 32_135">
+      <events
+          xsi:type="StateMachine:CoreEvents"
+          name="FINISHED">
+        <triggerTransition
+            xsi:type="StateMachine:LocalTransition"
+            target="/11/@states.5"
+            sourceState="/11/@states.14"/>
+      </events>
+      <actions
+          xsi:type="StateMachine:CustomAction"
+          title="/ 135: changeState(condition)"/>
+    </states>
+    <states
+        name="middleState 136_137">
+      <events
+          xsi:type="StateMachine:CoreEvents"
+          name="FINISHED">
+        <triggerTransition
+            xsi:type="StateMachine:LocalTransition"
+            target="/11/@states.10"
+            sourceState="/11/@states.15"/>
+      </events>
+      <actions
+          xsi:type="StateMachine:CustomAction"
+          title="/ 137: create()"/>
+    </states>
+    <systemEvents
+        xsi:type="StateMachine:CoreEvents">
+      <triggerTransition
+          xsi:type="StateMachine:LocalTransition"
+          target="/11/@states.0"/>
+    </systemEvents>
+  </StateMachine:StateMachine>
+  <StateMachine:StateMachine
+      name="check URL challenge response :AnnotatedBPMN!State"
+      ownerObject="Student">
+    <states
+        name="Start"
+        isStartState="true">
+      <events
+          xsi:type="StateMachine:CustomEvent"
+          name="137: create()">
+        <triggerTransition
+            xsi:type="StateMachine:LocalTransition"
+            target="/12/@states.1"
+            sourceState="/12/@states.0"/>
+      </events>
+    </states>
+    <states
+        name="137 Received">
+      <events
+          xsi:type="StateMachine:CustomEvent"
+          name="32: ask task1 of BP component for correct answer">
+        <triggerTransition
+            xsi:type="StateMachine:LocalTransition"
+            target="/12/@states.2"
+            sourceState="/12/@states.1"/>
+      </events>
+    </states>
+    <states
+        name="32 Received">
+      <events
+          xsi:type="StateMachine:CustomEvent"
+          name="newEvent 56">
+        <triggerTransition
+            xsi:type="StateMachine:LocalTransition"
+            target="/12/@states.14"
+            sourceState="/12/@states.2"/>
+      </events>
+    </states>
+    <states
+        name="34 Performed">
+      <events
+          xsi:type="StateMachine:CustomEvent"
+          name="34: validate user answer due to correct answer">
+        <triggerTransition
+            xsi:type="StateMachine:LocalTransition"
+            target="/12/@states.4"
+            sourceState="/12/@states.3"/>
+      </events>
+    </states>
+    <states
+        name="34 Received">
+      <events
+          xsi:type="StateMachine:CustomEvent"
+          name="newEvent 57">
+        <triggerTransition
+            xsi:type="StateMachine:LocalTransition"
+            target="/12/@states.15"
+            sourceState="/12/@states.4"/>
+      </events>
+    </states>
+    <states
+        name="94 Performed">
+      <events
+          xsi:type="StateMachine:CustomEvent"
+          name="94: runScoringRule">
+        <triggerTransition
+            xsi:type="StateMachine:LocalTransition"
+            target="/12/@states.6"
+            sourceState="/12/@states.5"/>
+      </events>
+    </states>
+    <states
+        name="94 Received">
+      <events
+          xsi:type="StateMachine:CustomEvent"
+          name="newEvent 58">
+        <triggerTransition
+            xsi:type="StateMachine:LocalTransition"
+            target="/12/@states.16"
+            sourceState="/12/@states.6"/>
+      </events>
+    </states>
+    <states
+        name="138 Performed">
+      <events
+          xsi:type="StateMachine:CustomEvent"
+          name="138: changeState(condition)">
+        <triggerTransition
+            xsi:type="StateMachine:LocalTransition"
+            target="/12/@states.8"
+            sourceState="/12/@states.7"/>
+      </events>
+    </states>
+    <states
+        name="138 Received">
+      <events
+          xsi:type="StateMachine:CoreEvents"
+          name="FINISHED">
+        <triggerTransition
+            xsi:type="StateMachine:LocalTransition"
+            target="/12/@states.12"
+            sourceState="/12/@states.8"/>
+      </events>
+    </states>
+    <states
+        name="33 Performed">
+      <events
+          xsi:type="StateMachine:CustomEvent"
+          name="newEvent 59">
+        <triggerTransition
+            xsi:type="StateMachine:LocalTransition"
+            target="/12/@states.17"
+            sourceState="/12/@states.9"/>
+      </events>
+    </states>
+    <states
+        name="35 Performed">
+      <events
+          xsi:type="StateMachine:CustomEvent"
+          name="newEvent 60">
+        <triggerTransition
+            xsi:type="StateMachine:LocalTransition"
+            target="/12/@states.18"
+            sourceState="/12/@states.10"/>
+      </events>
+    </states>
+    <states
+        name="95 Performed">
+      <events
+          xsi:type="StateMachine:CustomEvent"
+          name="newEvent 61">
+        <triggerTransition
+            xsi:type="StateMachine:LocalTransition"
+            target="/12/@states.19"
+            sourceState="/12/@states.11"/>
+      </events>
+    </states>
+    <states
+        name="139 alt">
+      <events
+          xsi:type="StateMachine:CustomEvent"
+          name="newEvent 62">
+        <triggerTransition
+            xsi:type="StateMachine:LocalTransition"
+            target="/12/@states.20"
+            sourceState="/12/@states.12"/>
+      </events>
+      <actions
+          xsi:type="StateMachine:CustomAction"
+          title="check transition constraint">
+        <parameters
+            name="[ !not Defined ]"/>
+      </actions>
+    </states>
+    <states
+        name="140 Performed"/>
+    <states
+        name="middleState 32_33">
+      <events
+          xsi:type="StateMachine:CoreEvents"
+          name="FINISHED">
+        <triggerTransition
+            xsi:type="StateMachine:LocalTransition"
+            target="/12/@states.9"
+            sourceState="/12/@states.14"/>
+      </events>
+      <actions
+          xsi:type="StateMachine:CustomAction"
+          title="/ 33: preparing department thesis definition form"/>
+    </states>
+    <states
+        name="middleState 34_35">
+      <events
+          xsi:type="StateMachine:CoreEvents"
+          name="FINISHED">
+        <triggerTransition
+            xsi:type="StateMachine:LocalTransition"
+            target="/12/@states.10"
+            sourceState="/12/@states.15"/>
+      </events>
+      <actions
+          xsi:type="StateMachine:CustomAction"
+          title="/ 35: show URL challenge result screen "/>
+    </states>
+    <states
+        name="middleState 94_95">
+      <events
+          xsi:type="StateMachine:CoreEvents"
+          name="FINISHED">
+        <triggerTransition
+            xsi:type="StateMachine:LocalTransition"
+            target="/12/@states.11"
+            sourceState="/12/@states.16"/>
+      </events>
+      <actions
+          xsi:type="StateMachine:CustomAction"
+          title="/ 95: calculateScore"/>
+    </states>
+    <states
+        name="middleState 33_34">
+      <events
+          xsi:type="StateMachine:CoreEvents"
+          name="FINISHED">
+        <triggerTransition
+            xsi:type="StateMachine:LocalTransition"
+            target="/12/@states.3"
+            sourceState="/12/@states.17"/>
+      </events>
+      <actions
+          xsi:type="StateMachine:CustomAction"
+          title="/ 34: validate user answer due to correct answer"/>
+    </states>
+    <states
+        name="middleState 35_94">
+      <events
+          xsi:type="StateMachine:CoreEvents"
+          name="FINISHED">
+        <triggerTransition
+            xsi:type="StateMachine:LocalTransition"
+            target="/12/@states.5"
+            sourceState="/12/@states.18"/>
+      </events>
+      <actions
+          xsi:type="StateMachine:CustomAction"
+          title="/ 94: runScoringRule"/>
+    </states>
+    <states
+        name="middleState 95_138">
+      <events
+          xsi:type="StateMachine:CoreEvents"
+          name="FINISHED">
+        <triggerTransition
+            xsi:type="StateMachine:LocalTransition"
+            target="/12/@states.7"
+            sourceState="/12/@states.19"/>
+      </events>
+      <actions
+          xsi:type="StateMachine:CustomAction"
+          title="/ 138: changeState(condition)"/>
+    </states>
+    <states
+        name="middleState 139_140">
+      <events
+          xsi:type="StateMachine:CoreEvents"
+          name="FINISHED">
+        <triggerTransition
+            xsi:type="StateMachine:LocalTransition"
+            target="/12/@states.13"
+            sourceState="/12/@states.20"/>
+      </events>
+      <actions
+          xsi:type="StateMachine:CustomAction"
+          title="/ 140: create()"/>
+    </states>
+    <systemEvents
+        xsi:type="StateMachine:CoreEvents">
+      <triggerTransition
+          xsi:type="StateMachine:LocalTransition"
+          target="/12/@states.0"/>
+    </systemEvents>
+  </StateMachine:StateMachine>
+  <StateMachine:StateMachine
+      name="form delivery :AnnotatedBPMN!State"
+      ownerObject="Student">
+    <states
+        name="Start"
+        isStartState="true">
+      <events
+          xsi:type="StateMachine:CustomEvent"
+          name="23: give the form to the supervisor character">
+        <triggerTransition
+            xsi:type="StateMachine:LocalTransition"
+            target="/13/@states.1"
+            sourceState="/13/@states.0"/>
+      </events>
+    </states>
+    <states
+        name="23 Received">
+      <events
+          xsi:type="StateMachine:CustomEvent"
+          name="newEvent 63">
+        <triggerTransition
+            xsi:type="StateMachine:LocalTransition"
+            target="/13/@states.7"
+            sourceState="/13/@states.1"/>
+      </events>
+    </states>
+    <states
+        name="126 Performed">
+      <events
+          xsi:type="StateMachine:CustomEvent"
+          name="126: changeState(condition)">
+        <triggerTransition
+            xsi:type="StateMachine:LocalTransition"
+            target="/13/@states.3"
+            sourceState="/13/@states.2"/>
+      </events>
+    </states>
+    <states
+        name="126 Received">
+      <events
+          xsi:type="StateMachine:CoreEvents"
+          name="FINISHED">
+        <triggerTransition
+            xsi:type="StateMachine:LocalTransition"
+            target="/13/@states.5"
+            sourceState="/13/@states.3"/>
+      </events>
+    </states>
+    <states
+        name="37 Performed">
+      <events
+          xsi:type="StateMachine:CustomEvent"
+          name="newEvent 64">
+        <triggerTransition
+            xsi:type="StateMachine:LocalTransition"
+            target="/13/@states.8"
+            sourceState="/13/@states.4"/>
+      </events>
+    </states>
+    <states
+        name="127 alt">
+      <events
+          xsi:type="StateMachine:CustomEvent"
+          name="newEvent 65">
+        <triggerTransition
+            xsi:type="StateMachine:LocalTransition"
+            target="/13/@states.9"
+            sourceState="/13/@states.5"/>
+      </events>
+      <actions
+          xsi:type="StateMachine:CustomAction"
+          title="check transition constraint">
+        <parameters
+            name="[ !not Defined ]"/>
+      </actions>
+    </states>
+    <states
+        name="128 Performed"/>
+    <states
+        name="middleState 23_37">
+      <events
+          xsi:type="StateMachine:CoreEvents"
+          name="FINISHED">
+        <triggerTransition
+            xsi:type="StateMachine:LocalTransition"
+            target="/13/@states.4"
+            sourceState="/13/@states.7"/>
+      </events>
+      <actions
+          xsi:type="StateMachine:CustomAction"
+          title="/ 37: supervisor taking the paper"/>
+    </states>
+    <states
+        name="middleState 37_126">
+      <events
+          xsi:type="StateMachine:CoreEvents"
+          name="FINISHED">
+        <triggerTransition
+            xsi:type="StateMachine:LocalTransition"
+            target="/13/@states.2"
+            sourceState="/13/@states.8"/>
+      </events>
+      <actions
+          xsi:type="StateMachine:CustomAction"
+          title="/ 126: changeState(condition)"/>
+    </states>
+    <states
+        name="middleState 127_128">
+      <events
+          xsi:type="StateMachine:CoreEvents"
+          name="FINISHED">
+        <triggerTransition
+            xsi:type="StateMachine:LocalTransition"
+            target="/13/@states.6"
+            sourceState="/13/@states.9"/>
+      </events>
+      <actions
+          xsi:type="StateMachine:CustomAction"
+          title="/ 128: create()"/>
+    </states>
+    <systemEvents
+        xsi:type="StateMachine:CoreEvents">
+      <triggerTransition
+          xsi:type="StateMachine:LocalTransition"
+          target="/13/@states.0"/>
+    </systemEvents>
+  </StateMachine:StateMachine>
+  <StateMachine:StateMachine
+      name="form taking :AnnotatedBPMN!State"
+      ownerObject="Supervisor">
+    <states
+        name="Start"
+        isStartState="true">
+      <events
+          xsi:type="StateMachine:CustomEvent"
+          name="128: create()">
+        <triggerTransition
+            xsi:type="StateMachine:LocalTransition"
+            target="/14/@states.1"
+            sourceState="/14/@states.0"/>
+      </events>
+    </states>
+    <states
+        name="128 Received">
+      <events
+          xsi:type="StateMachine:CustomEvent"
+          name="37: supervisor taking the paper">
+        <triggerTransition
+            xsi:type="StateMachine:LocalTransition"
+            target="/14/@states.2"
+            sourceState="/14/@states.1"/>
+      </events>
+    </states>
+    <states
+        name="37 Received">
+      <events
+          xsi:type="StateMachine:CustomEvent"
+          name="newEvent 66">
+        <triggerTransition
+            xsi:type="StateMachine:LocalTransition"
+            target="/14/@states.12"
+            sourceState="/14/@states.2"/>
+      </events>
+    </states>
+    <states
+        name="38 Performed">
+      <events
+          xsi:type="StateMachine:CustomEvent"
+          name="38: call Task3 of BP component">
+        <triggerTransition
+            xsi:type="StateMachine:LocalTransition"
+            target="/14/@states.4"
+            sourceState="/14/@states.3"/>
+      </events>
+    </states>
+    <states
+        name="38 Received">
+      <events
+          xsi:type="StateMachine:CustomEvent"
+          name="newEvent 67">
+        <triggerTransition
+            xsi:type="StateMachine:LocalTransition"
+            target="/14/@states.13"
+            sourceState="/14/@states.4"/>
+      </events>
+    </states>
+    <states
+        name="39 Performed">
+      <events
+          xsi:type="StateMachine:CustomEvent"
+          name="41: return (correctOutputs)">
+        <triggerTransition
+            xsi:type="StateMachine:LocalTransition"
+            target="/14/@states.6"
+            sourceState="/14/@states.5"/>
+      </events>
+    </states>
+    <states
+        name="41 Received">
+      <events
+          xsi:type="StateMachine:CustomEvent"
+          name="newEvent 68">
+        <triggerTransition
+            xsi:type="StateMachine:LocalTransition"
+            target="/14/@states.14"
+            sourceState="/14/@states.6"/>
+      </events>
+    </states>
+    <states
+        name="144 Performed">
+      <events
+          xsi:type="StateMachine:CustomEvent"
+          name="144: changeState(condition)">
+        <triggerTransition
+            xsi:type="StateMachine:LocalTransition"
+            target="/14/@states.8"
+            sourceState="/14/@states.7"/>
+      </events>
+    </states>
+    <states
+        name="144 Received">
+      <events
+          xsi:type="StateMachine:CoreEvents"
+          name="FINISHED">
+        <triggerTransition
+            xsi:type="StateMachine:LocalTransition"
+            target="/14/@states.10"
+            sourceState="/14/@states.8"/>
+      </events>
+    </states>
+    <states
+        name="42 Performed">
+      <events
+          xsi:type="StateMachine:CustomEvent"
+          name="newEvent 69">
+        <triggerTransition
+            xsi:type="StateMachine:LocalTransition"
+            target="/14/@states.15"
+            sourceState="/14/@states.9"/>
+      </events>
+    </states>
+    <states
+        name="145 alt">
+      <events
+          xsi:type="StateMachine:CustomEvent"
+          name="newEvent 70">
+        <triggerTransition
+            xsi:type="StateMachine:LocalTransition"
+            target="/14/@states.16"
+            sourceState="/14/@states.10"/>
+      </events>
+      <actions
+          xsi:type="StateMachine:CustomAction"
+          title="check transition constraint">
+        <parameters
+            name="[ !not Defined ]"/>
+      </actions>
+    </states>
+    <states
+        name="146 Performed"/>
+    <states
+        name="middleState 37_38">
+      <events
+          xsi:type="StateMachine:CoreEvents"
+          name="FINISHED">
+        <triggerTransition
+            xsi:type="StateMachine:LocalTransition"
+            target="/14/@states.3"
+            sourceState="/14/@states.12"/>
+      </events>
+      <actions
+          xsi:type="StateMachine:CustomAction"
+          title="/ 38: call Task3 of BP component"/>
+    </states>
+    <states
+        name="middleState 38_39">
+      <events
+          xsi:type="StateMachine:CoreEvents"
+          name="FINISHED">
+        <triggerTransition
+            xsi:type="StateMachine:LocalTransition"
+            target="/14/@states.5"
+            sourceState="/14/@states.13"/>
+      </events>
+      <actions
+          xsi:type="StateMachine:CustomAction"
+          title="/ 39: form completeness checking"/>
+    </states>
+    <states
+        name="middleState 41_42">
+      <events
+          xsi:type="StateMachine:CoreEvents"
+          name="FINISHED">
+        <triggerTransition
+            xsi:type="StateMachine:LocalTransition"
+            target="/14/@states.9"
+            sourceState="/14/@states.14"/>
+      </events>
+      <actions
+          xsi:type="StateMachine:CustomAction"
+          title="/ 42: look at the paper"/>
+    </states>
+    <states
+        name="middleState 42_144">
+      <events
+          xsi:type="StateMachine:CoreEvents"
+          name="FINISHED">
+        <triggerTransition
+            xsi:type="StateMachine:LocalTransition"
+            target="/14/@states.7"
+            sourceState="/14/@states.15"/>
+      </events>
+      <actions
+          xsi:type="StateMachine:CustomAction"
+          title="/ 144: changeState(condition)"/>
+    </states>
+    <states
+        name="middleState 145_146">
+      <events
+          xsi:type="StateMachine:CoreEvents"
+          name="FINISHED">
+        <triggerTransition
+            xsi:type="StateMachine:LocalTransition"
+            target="/14/@states.11"
+            sourceState="/14/@states.16"/>
+      </events>
+      <actions
+          xsi:type="StateMachine:CustomAction"
+          title="/ 146: create()"/>
+    </states>
+    <systemEvents
+        xsi:type="StateMachine:CoreEvents">
+      <triggerTransition
+          xsi:type="StateMachine:LocalTransition"
+          target="/14/@states.0"/>
+    </systemEvents>
+  </StateMachine:StateMachine>
+  <StateMachine:StateMachine
+      name="form completeness checking :AnnotatedBPMN!State"
+      ownerObject="Supervisor">
+    <states
+        name="Start"
+        isStartState="true">
+      <events
+          xsi:type="StateMachine:CustomEvent"
+          name="146: create()">
+        <triggerTransition
+            xsi:type="StateMachine:LocalTransition"
+            target="/15/@states.1"
+            sourceState="/15/@states.0"/>
+      </events>
+    </states>
+    <states
+        name="146 Received">
+      <events
+          xsi:type="StateMachine:CustomEvent"
+          name="42: look at the paper">
+        <triggerTransition
+            xsi:type="StateMachine:LocalTransition"
+            target="/15/@states.2"
+            sourceState="/15/@states.1"/>
+      </events>
+    </states>
+    <states
+        name="42 Received">
+      <events
+          xsi:type="StateMachine:CustomEvent"
+          name="newEvent 71">
+        <triggerTransition
+            xsi:type="StateMachine:LocalTransition"
+            target="/15/@states.8"
+            sourceState="/15/@states.2"/>
+      </events>
+    </states>
+    <states
+        name="147 Performed">
+      <events
+          xsi:type="StateMachine:CustomEvent"
+          name="147: changeState(condition)">
+        <triggerTransition
+            xsi:type="StateMachine:LocalTransition"
+            target="/15/@states.4"
+            sourceState="/15/@states.3"/>
+      </events>
+    </states>
+    <states
+        name="147 Received">
+      <events
+          xsi:type="StateMachine:CoreEvents"
+          name="FINISHED">
+        <triggerTransition
+            xsi:type="StateMachine:LocalTransition"
+            target="/15/@states.6"
+            sourceState="/15/@states.4"/>
+      </events>
+    </states>
+    <states
+        name="43 Performed">
+      <events
+          xsi:type="StateMachine:CustomEvent"
+          name="newEvent 72">
+        <triggerTransition
+            xsi:type="StateMachine:LocalTransition"
+            target="/15/@states.9"
+            sourceState="/15/@states.5"/>
+      </events>
+    </states>
+    <states
+        name="148 alt">
+      <events
+          xsi:type="StateMachine:CustomEvent"
+          name="newEvent 73">
+        <triggerTransition
+            xsi:type="StateMachine:LocalTransition"
+            target="/15/@states.10"
+            sourceState="/15/@states.6"/>
+      </events>
+      <actions
+          xsi:type="StateMachine:CustomAction"
+          title="check transition constraint">
+        <parameters
+            name="[ !not Defined ]"/>
+      </actions>
+    </states>
+    <states
+        name="149 Performed"/>
+    <states
+        name="middleState 42_43">
+      <events
+          xsi:type="StateMachine:CoreEvents"
+          name="FINISHED">
+        <triggerTransition
+            xsi:type="StateMachine:LocalTransition"
+            target="/15/@states.5"
+            sourceState="/15/@states.8"/>
+      </events>
+      <actions
+          xsi:type="StateMachine:CustomAction"
+          title="/ 43: call Gateway1 of BP component"/>
+    </states>
+    <states
+        name="middleState 43_147">
+      <events
+          xsi:type="StateMachine:CoreEvents"
+          name="FINISHED">
+        <triggerTransition
+            xsi:type="StateMachine:LocalTransition"
+            target="/15/@states.3"
+            sourceState="/15/@states.9"/>
+      </events>
+      <actions
+          xsi:type="StateMachine:CustomAction"
+          title="/ 147: changeState(condition)"/>
+    </states>
+    <states
+        name="middleState 148_149">
+      <events
+          xsi:type="StateMachine:CoreEvents"
+          name="FINISHED">
+        <triggerTransition
+            xsi:type="StateMachine:LocalTransition"
+            target="/15/@states.7"
+            sourceState="/15/@states.10"/>
+      </events>
+      <actions
+          xsi:type="StateMachine:CustomAction"
+          title="/ 149: create()"/>
+    </states>
+    <systemEvents
+        xsi:type="StateMachine:CoreEvents">
+      <triggerTransition
+          xsi:type="StateMachine:LocalTransition"
+          target="/15/@states.0"/>
+    </systemEvents>
+  </StateMachine:StateMachine>
+  <StateMachine:StateMachine
+      name="form correctness checking :AnnotatedBPMN!State"
+      ownerObject="Supervisor">
+    <states
+        name="Start"
+        isStartState="true">
+      <events
+          xsi:type="StateMachine:CustomEvent"
+          name="149: create()">
+        <triggerTransition
+            xsi:type="StateMachine:LocalTransition"
+            target="/16/@states.1"
+            sourceState="/16/@states.0"/>
+      </events>
+    </states>
+    <states
+        name="149 Received">
+      <events
+          xsi:type="StateMachine:CustomEvent"
+          name="43: call Gateway1 of BP component">
+        <triggerTransition
+            xsi:type="StateMachine:LocalTransition"
+            target="/16/@states.2"
+            sourceState="/16/@states.1"/>
+      </events>
+    </states>
+    <states
+        name="43 Received">
+      <events
+          xsi:type="StateMachine:CustomEvent"
+          name="newEvent 74">
+        <triggerTransition
+            xsi:type="StateMachine:LocalTransition"
+            target="/16/@states.19"
+            sourceState="/16/@states.2"/>
+      </events>
+    </states>
+    <states
+        name="48 Performed">
+      <events
+          xsi:type="StateMachine:CustomEvent"
+          name="48: save result in player log">
+        <triggerTransition
+            xsi:type="StateMachine:LocalTransition"
+            target="/16/@states.4"
+            sourceState="/16/@states.3"/>
+      </events>
+    </states>
+    <states
+        name="48 Received">
+      <events
+          xsi:type="StateMachine:CustomEvent"
+          name="newEvent 75">
+        <triggerTransition
+            xsi:type="StateMachine:LocalTransition"
+            target="/16/@states.20"
+            sourceState="/16/@states.4"/>
+      </events>
+    </states>
+    <states
+        name="50 Performed">
+      <events
+          xsi:type="StateMachine:CustomEvent"
+          name="50: run Thesis definition accuracy challenge">
+        <triggerTransition
+            xsi:type="StateMachine:LocalTransition"
+            target="/16/@states.6"
+            sourceState="/16/@states.5"/>
+      </events>
+    </states>
+    <states
+        name="50 Received">
+      <events
+          xsi:type="StateMachine:CustomEvent"
+          name="newEvent 76">
+        <triggerTransition
+            xsi:type="StateMachine:LocalTransition"
+            target="/16/@states.21"
+            sourceState="/16/@states.6"/>
+      </events>
+    </states>
+    <states
+        name="150 Performed">
+      <events
+          xsi:type="StateMachine:CustomEvent"
+          name="150: changeState(condition)">
+        <triggerTransition
+            xsi:type="StateMachine:LocalTransition"
+            target="/16/@states.8"
+            sourceState="/16/@states.7"/>
+      </events>
+    </states>
+    <states
+        name="150 Received">
+      <events
+          xsi:type="StateMachine:CoreEvents"
+          name="FINISHED">
+        <triggerTransition
+            xsi:type="StateMachine:LocalTransition"
+            target="/16/@states.16"
+            sourceState="/16/@states.8"/>
+      </events>
+    </states>
+    <states
+        name="44 Performed">
+      <events
+          xsi:type="StateMachine:CustomEvent"
+          name="newEvent 77">
+        <triggerTransition
+            xsi:type="StateMachine:LocalTransition"
+            target="/16/@states.22"
+            sourceState="/16/@states.9"/>
+      </events>
+    </states>
+    <states
+        name="49 Performed">
+      <events
+          xsi:type="StateMachine:CustomEvent"
+          name="newEvent 78">
+        <triggerTransition
+            xsi:type="StateMachine:LocalTransition"
+            target="/16/@states.23"
+            sourceState="/16/@states.10"/>
+      </events>
+    </states>
+    <states
+        name="51 Performed">
+      <events
+          xsi:type="StateMachine:CustomEvent"
+          name="newEvent 79">
+        <triggerTransition
+            xsi:type="StateMachine:LocalTransition"
+            target="/16/@states.24"
+            sourceState="/16/@states.11"/>
+      </events>
+    </states>
+    <states
+        name="52 Performed">
+      <events
+          xsi:type="StateMachine:CustomEvent"
+          name="newEvent 80">
+        <triggerTransition
+            xsi:type="StateMachine:LocalTransition"
+            target="/16/@states.25"
+            sourceState="/16/@states.12"/>
+      </events>
+    </states>
+    <states
+        name="58 Performed">
+      <events
+          xsi:type="StateMachine:CustomEvent"
+          name="newEvent 81">
+        <triggerTransition
+            xsi:type="StateMachine:LocalTransition"
+            target="/16/@states.26"
+            sourceState="/16/@states.13"/>
+      </events>
+    </states>
+    <states
+        name="92 Performed">
+      <events
+          xsi:type="StateMachine:CustomEvent"
+          name="newEvent 82">
+        <triggerTransition
+            xsi:type="StateMachine:LocalTransition"
+            target="/16/@states.27"
+            sourceState="/16/@states.14"/>
+      </events>
+    </states>
+    <states
+        name="100 Performed">
+      <events
+          xsi:type="StateMachine:CustomEvent"
+          name="newEvent 83">
+        <triggerTransition
+            xsi:type="StateMachine:LocalTransition"
+            target="/16/@states.28"
+            sourceState="/16/@states.15"/>
+      </events>
+    </states>
+    <states
+        name="151 alt">
+      <events
+          xsi:type="StateMachine:CustomEvent"
+          name="newEvent 84">
+        <triggerTransition
+            xsi:type="StateMachine:LocalTransition"
+            target="/16/@states.30"
+            sourceState="/16/@states.16"/>
+      </events>
+      <actions
+          xsi:type="StateMachine:CustomAction"
+          title="check transition constraint">
+        <parameters
+            name="[ !not Defined ]"/>
+      </actions>
+      <actions
+          xsi:type="StateMachine:CustomAction"
+          title="check transition constraint">
+        <parameters
+            name="[ !not Defined ]"/>
+      </actions>
+    </states>
+    <states
+        name="152 Performed"/>
+    <states
+        name="153 Performed"/>
+    <states
+        name="middleState 43_44">
+      <events
+          xsi:type="StateMachine:CoreEvents"
+          name="FINISHED">
+        <triggerTransition
+            xsi:type="StateMachine:LocalTransition"
+            target="/16/@states.9"
+            sourceState="/16/@states.19"/>
+      </events>
+      <actions
+          xsi:type="StateMachine:CustomAction"
+          title="/ 44: is the form complete?"/>
+    </states>
+    <states
+        name="middleState 48_49">
+      <events
+          xsi:type="StateMachine:CoreEvents"
+          name="FINISHED">
+        <triggerTransition
+            xsi:type="StateMachine:LocalTransition"
+            target="/16/@states.10"
+            sourceState="/16/@states.20"/>
+      </events>
+      <actions
+          xsi:type="StateMachine:CustomAction"
+          title="/ 49: !not Defined"/>
+    </states>
+    <states
+        name="middleState 50_51">
+      <events
+          xsi:type="StateMachine:CoreEvents"
+          name="FINISHED">
+        <triggerTransition
+            xsi:type="StateMachine:LocalTransition"
+            target="/16/@states.11"
+            sourceState="/16/@states.21"/>
+      </events>
+      <actions
+          xsi:type="StateMachine:CustomAction"
+          title="/ 51: startChallenge"/>
+    </states>
+    <states
+        name="middleState 44_48">
+      <events
+          xsi:type="StateMachine:CoreEvents"
+          name="FINISHED">
+        <triggerTransition
+            xsi:type="StateMachine:LocalTransition"
+            target="/16/@states.3"
+            sourceState="/16/@states.22"/>
+      </events>
+      <actions
+          xsi:type="StateMachine:CustomAction"
+          title="/ 48: save result in player log"/>
+    </states>
+    <states
+        name="middleState 49_50">
+      <events
+          xsi:type="StateMachine:CoreEvents"
+          name="FINISHED">
+        <triggerTransition
+            xsi:type="StateMachine:LocalTransition"
+            target="/16/@states.5"
+            sourceState="/16/@states.23"/>
+      </events>
+      <actions
+          xsi:type="StateMachine:CustomAction"
+          title="/ 50: run Thesis definition accuracy challenge"/>
+    </states>
+    <states
+        name="middleState 51_52">
+      <events
+          xsi:type="StateMachine:CoreEvents"
+          name="FINISHED">
+        <triggerTransition
+            xsi:type="StateMachine:LocalTransition"
+            target="/16/@states.12"
+            sourceState="/16/@states.24"/>
+      </events>
+      <actions
+          xsi:type="StateMachine:CustomAction"
+          title="/ 52: color the form to red"/>
+    </states>
+    <states
+        name="middleState 52_58">
+      <events
+          xsi:type="StateMachine:CoreEvents"
+          name="FINISHED">
+        <triggerTransition
+            xsi:type="StateMachine:LocalTransition"
+            target="/16/@states.13"
+            sourceState="/16/@states.25"/>
+      </events>
+      <actions
+          xsi:type="StateMachine:CustomAction"
+          title="/ 58: color the form to green"/>
+    </states>
+    <states
+        name="middleState 58_92">
+      <events
+          xsi:type="StateMachine:CoreEvents"
+          name="FINISHED">
+        <triggerTransition
+            xsi:type="StateMachine:LocalTransition"
+            target="/16/@states.14"
+            sourceState="/16/@states.26"/>
+      </events>
+      <actions
+          xsi:type="StateMachine:CustomAction"
+          title="/ 92: recall Task2 of BP component"/>
+    </states>
+    <states
+        name="middleState 92_100">
+      <events
+          xsi:type="StateMachine:CoreEvents"
+          name="FINISHED">
+        <triggerTransition
+            xsi:type="StateMachine:LocalTransition"
+            target="/16/@states.15"
+            sourceState="/16/@states.27"/>
+      </events>
+      <actions
+          xsi:type="StateMachine:CustomAction"
+          title="/ 100: runScoringRule"/>
+    </states>
+    <states
+        name="middleState 100_150">
+      <events
+          xsi:type="StateMachine:CoreEvents"
+          name="FINISHED">
+        <triggerTransition
+            xsi:type="StateMachine:LocalTransition"
+            target="/16/@states.7"
+            sourceState="/16/@states.28"/>
+      </events>
+      <actions
+          xsi:type="StateMachine:CustomAction"
+          title="/ 150: changeState(condition)"/>
+    </states>
+    <states
+        name="middleState 151_152">
+      <events
+          xsi:type="StateMachine:CoreEvents"
+          name="FINISHED">
+        <triggerTransition
+            xsi:type="StateMachine:LocalTransition"
+            target="/16/@states.17"
+            sourceState="/16/@states.29"/>
+      </events>
+      <actions
+          xsi:type="StateMachine:CustomAction"
+          title="/ 152: create()"/>
+    </states>
+    <states
+        name="middleState 151_153">
+      <events
+          xsi:type="StateMachine:CoreEvents"
+          name="FINISHED">
+        <triggerTransition
+            xsi:type="StateMachine:LocalTransition"
+            target="/16/@states.18"
+            sourceState="/16/@states.30"/>
+      </events>
+      <actions
+          xsi:type="StateMachine:CustomAction"
+          title="/ 153: create()"/>
+    </states>
+    <systemEvents
+        xsi:type="StateMachine:CoreEvents">
+      <triggerTransition
+          xsi:type="StateMachine:LocalTransition"
+          target="/16/@states.0"/>
+    </systemEvents>
+  </StateMachine:StateMachine>
+  <StateMachine:StateMachine
+      name="form acceptance :AnnotatedBPMN!State"
+      ownerObject="Supervisor">
+    <states
+        name="Start"
+        isStartState="true">
+      <events
+          xsi:type="StateMachine:CustomEvent"
+          name="152: create()">
+        <triggerTransition
+            xsi:type="StateMachine:LocalTransition"
+            target="/17/@states.1"
+            sourceState="/17/@states.0"/>
+      </events>
+    </states>
+    <states
+        name="152 Received">
+      <events
+          xsi:type="StateMachine:CustomEvent"
+          name="58: color the form to green">
+        <triggerTransition
+            xsi:type="StateMachine:LocalTransition"
+            target="/17/@states.2"
+            sourceState="/17/@states.1"/>
+      </events>
+    </states>
+    <states
+        name="58 Received">
+      <events
+          xsi:type="StateMachine:CustomEvent"
+          name="newEvent 85">
+        <triggerTransition
+            xsi:type="StateMachine:LocalTransition"
+            target="/17/@states.11"
+            sourceState="/17/@states.2"/>
+      </events>
+    </states>
+    <states
+        name="59 Performed">
+      <events
+          xsi:type="StateMachine:CustomEvent"
+          name="59: call Task5 of BP component">
+        <triggerTransition
+            xsi:type="StateMachine:LocalTransition"
+            target="/17/@states.4"
+            sourceState="/17/@states.3"/>
+      </events>
+    </states>
+    <states
+        name="59 Received">
+      <events
+          xsi:type="StateMachine:CustomEvent"
+          name="newEvent 86">
+        <triggerTransition
+            xsi:type="StateMachine:LocalTransition"
+            target="/17/@states.12"
+            sourceState="/17/@states.4"/>
+      </events>
+    </states>
+    <states
+        name="156 Performed">
+      <events
+          xsi:type="StateMachine:CustomEvent"
+          name="156: changeState(condition)">
+        <triggerTransition
+            xsi:type="StateMachine:LocalTransition"
+            target="/17/@states.6"
+            sourceState="/17/@states.5"/>
+      </events>
+    </states>
+    <states
+        name="156 Received">
+      <events
+          xsi:type="StateMachine:CoreEvents"
+          name="FINISHED">
+        <triggerTransition
+            xsi:type="StateMachine:LocalTransition"
+            target="/17/@states.9"
+            sourceState="/17/@states.6"/>
+      </events>
+    </states>
+    <states
+        name="60 Performed">
+      <events
+          xsi:type="StateMachine:CustomEvent"
+          name="newEvent 87">
+        <triggerTransition
+            xsi:type="StateMachine:LocalTransition"
+            target="/17/@states.13"
+            sourceState="/17/@states.7"/>
+      </events>
+    </states>
+    <states
+        name="61 Performed">
+      <events
+          xsi:type="StateMachine:CustomEvent"
+          name="newEvent 88">
+        <triggerTransition
+            xsi:type="StateMachine:LocalTransition"
+            target="/17/@states.14"
+            sourceState="/17/@states.8"/>
+      </events>
+    </states>
+    <states
+        name="157 alt">
+      <events
+          xsi:type="StateMachine:CustomEvent"
+          name="newEvent 89">
+        <triggerTransition
+            xsi:type="StateMachine:LocalTransition"
+            target="/17/@states.15"
+            sourceState="/17/@states.9"/>
+      </events>
+      <actions
+          xsi:type="StateMachine:CustomAction"
+          title="check transition constraint">
+        <parameters
+            name="[ !not Defined ]"/>
+      </actions>
+    </states>
+    <states
+        name="158 Performed"/>
+    <states
+        name="middleState 58_59">
+      <events
+          xsi:type="StateMachine:CoreEvents"
+          name="FINISHED">
+        <triggerTransition
+            xsi:type="StateMachine:LocalTransition"
+            target="/17/@states.3"
+            sourceState="/17/@states.11"/>
+      </events>
+      <actions
+          xsi:type="StateMachine:CustomAction"
+          title="/ 59: call Task5 of BP component"/>
+    </states>
+    <states
+        name="middleState 59_60">
+      <events
+          xsi:type="StateMachine:CoreEvents"
+          name="FINISHED">
+        <triggerTransition
+            xsi:type="StateMachine:LocalTransition"
+            target="/17/@states.7"
+            sourceState="/17/@states.12"/>
+      </events>
+      <actions
+          xsi:type="StateMachine:CustomAction"
+          title="/ 60: form confirmation and signing"/>
+    </states>
+    <states
+        name="middleState 60_61">
+      <events
+          xsi:type="StateMachine:CoreEvents"
+          name="FINISHED">
+        <triggerTransition
+            xsi:type="StateMachine:LocalTransition"
+            target="/17/@states.8"
+            sourceState="/17/@states.13"/>
+      </events>
+      <actions
+          xsi:type="StateMachine:CustomAction"
+          title="/ 61: Supervisor write something on the form"/>
+    </states>
+    <states
+        name="middleState 61_156">
+      <events
+          xsi:type="StateMachine:CoreEvents"
+          name="FINISHED">
+        <triggerTransition
+            xsi:type="StateMachine:LocalTransition"
+            target="/17/@states.5"
+            sourceState="/17/@states.14"/>
+      </events>
+      <actions
+          xsi:type="StateMachine:CustomAction"
+          title="/ 156: changeState(condition)"/>
+    </states>
+    <states
+        name="middleState 157_158">
+      <events
+          xsi:type="StateMachine:CoreEvents"
+          name="FINISHED">
+        <triggerTransition
+            xsi:type="StateMachine:LocalTransition"
+            target="/17/@states.10"
+            sourceState="/17/@states.15"/>
+      </events>
+      <actions
+          xsi:type="StateMachine:CustomAction"
+          title="/ 158: create()"/>
+    </states>
+    <systemEvents
+        xsi:type="StateMachine:CoreEvents">
+      <triggerTransition
+          xsi:type="StateMachine:LocalTransition"
+          target="/17/@states.0"/>
+    </systemEvents>
+  </StateMachine:StateMachine>
+  <StateMachine:StateMachine
+      name="form confirmation and signing :AnnotatedBPMN!State"
+      ownerObject="Supervisor">
+    <states
+        name="Start"
+        isStartState="true">
+      <events
+          xsi:type="StateMachine:CustomEvent"
+          name="158: create()">
+        <triggerTransition
+            xsi:type="StateMachine:LocalTransition"
+            target="/18/@states.1"
+            sourceState="/18/@states.0"/>
+      </events>
+    </states>
+    <states
+        name="158 Received">
+      <events
+          xsi:type="StateMachine:CustomEvent"
+          name="61: Supervisor write something on the form">
+        <triggerTransition
+            xsi:type="StateMachine:LocalTransition"
+            target="/18/@states.2"
+            sourceState="/18/@states.1"/>
+      </events>
+    </states>
+    <states
+        name="61 Received">
+      <events
+          xsi:type="StateMachine:CustomEvent"
+          name="newEvent 90">
+        <triggerTransition
+            xsi:type="StateMachine:LocalTransition"
+            target="/18/@states.11"
+            sourceState="/18/@states.2"/>
+      </events>
+    </states>
+    <states
+        name="62 Performed">
+      <events
+          xsi:type="StateMachine:CustomEvent"
+          name="62: put the form on the table">
+        <triggerTransition
+            xsi:type="StateMachine:LocalTransition"
+            target="/18/@states.4"
+            sourceState="/18/@states.3"/>
+      </events>
+    </states>
+    <states
+        name="62 Received">
+      <events
+          xsi:type="StateMachine:CustomEvent"
+          name="newEvent 91">
+        <triggerTransition
+            xsi:type="StateMachine:LocalTransition"
+            target="/18/@states.12"
+            sourceState="/18/@states.4"/>
+      </events>
+    </states>
+    <states
+        name="63 Performed">
+      <events
+          xsi:type="StateMachine:CustomEvent"
+          name="63: call End Event of BP component">
+        <triggerTransition
+            xsi:type="StateMachine:LocalTransition"
+            target="/18/@states.6"
+            sourceState="/18/@states.5"/>
+      </events>
+    </states>
+    <states
+        name="63 Received">
+      <events
+          xsi:type="StateMachine:CustomEvent"
+          name="newEvent 92">
+        <triggerTransition
+            xsi:type="StateMachine:LocalTransition"
+            target="/18/@states.13"
+            sourceState="/18/@states.6"/>
+      </events>
+    </states>
+    <states
+        name="159 Performed">
+      <events
+          xsi:type="StateMachine:CustomEvent"
+          name="159: changeState(condition)">
+        <triggerTransition
+            xsi:type="StateMachine:LocalTransition"
+            target="/18/@states.8"
+            sourceState="/18/@states.7"/>
+      </events>
+    </states>
+    <states
+        name="159 Received">
+      <events
+          xsi:type="StateMachine:CoreEvents"
+          name="FINISHED">
+        <triggerTransition
+            xsi:type="StateMachine:LocalTransition"
+            target="/18/@states.10"
+            sourceState="/18/@states.8"/>
+      </events>
+    </states>
+    <states
+        name="64 Performed">
+      <events
+          xsi:type="StateMachine:CustomEvent"
+          name="newEvent 93">
+        <triggerTransition
+            xsi:type="StateMachine:LocalTransition"
+            target="/18/@states.14"
+            sourceState="/18/@states.9"/>
+      </events>
+    </states>
+    <states
+        name="160 alt"/>
+    <states
+        name="middleState 61_62">
+      <events
+          xsi:type="StateMachine:CoreEvents"
+          name="FINISHED">
+        <triggerTransition
+            xsi:type="StateMachine:LocalTransition"
+            target="/18/@states.3"
+            sourceState="/18/@states.11"/>
+      </events>
+      <actions
+          xsi:type="StateMachine:CustomAction"
+          title="/ 62: put the form on the table"/>
+    </states>
+    <states
+        name="middleState 62_63">
+      <events
+          xsi:type="StateMachine:CoreEvents"
+          name="FINISHED">
+        <triggerTransition
+            xsi:type="StateMachine:LocalTransition"
+            target="/18/@states.5"
+            sourceState="/18/@states.12"/>
+      </events>
+      <actions
+          xsi:type="StateMachine:CustomAction"
+          title="/ 63: call End Event of BP component"/>
+    </states>
+    <states
+        name="middleState 63_64">
+      <events
+          xsi:type="StateMachine:CoreEvents"
+          name="FINISHED">
+        <triggerTransition
+            xsi:type="StateMachine:LocalTransition"
+            target="/18/@states.9"
+            sourceState="/18/@states.13"/>
+      </events>
+      <actions
+          xsi:type="StateMachine:CustomAction"
+          title="/ 64: endEvent"/>
+    </states>
+    <states
+        name="middleState 64_159">
+      <events
+          xsi:type="StateMachine:CoreEvents"
+          name="FINISHED">
+        <triggerTransition
+            xsi:type="StateMachine:LocalTransition"
+            target="/18/@states.7"
+            sourceState="/18/@states.14"/>
+      </events>
+      <actions
+          xsi:type="StateMachine:CustomAction"
+          title="/ 159: changeState(condition)"/>
+    </states>
+    <systemEvents
+        xsi:type="StateMachine:CoreEvents">
+      <triggerTransition
+          xsi:type="StateMachine:LocalTransition"
+          target="/18/@states.0"/>
+    </systemEvents>
+  </StateMachine:StateMachine>
+  <StateMachine:StateMachine
+      name="Final State :AnnotatedBPMN!State"
+      ownerObject="Supervisor">
+    <states
+        name="Start"
+        isStartState="true">
+      <events
+          xsi:type="StateMachine:CustomEvent"
+          name="newEvent 98">
+        <triggerTransition
+            xsi:type="StateMachine:LocalTransition"
+            target="/19/@states.17"
+            sourceState="/19/@states.0"/>
+      </events>
+    </states>
+    <states
+        name="65 Performed">
+      <events
+          xsi:type="StateMachine:CustomEvent"
+          name="65: save level finishing time in player log">
+        <triggerTransition
+            xsi:type="StateMachine:LocalTransition"
+            target="/19/@states.2"
+            sourceState="/19/@states.1"/>
+      </events>
+    </states>
+    <states
+        name="65 Received">
+      <events
+          xsi:type="StateMachine:CustomEvent"
+          name="newEvent 94">
+        <triggerTransition
+            xsi:type="StateMachine:LocalTransition"
+            target="/19/@states.13"
+            sourceState="/19/@states.2"/>
+      </events>
+    </states>
+    <states
+        name="67 Performed">
+      <events
+          xsi:type="StateMachine:CustomEvent"
+          name="67: show end of level screen">
+        <triggerTransition
+            xsi:type="StateMachine:LocalTransition"
+            target="/19/@states.4"
+            sourceState="/19/@states.3"/>
+      </events>
+    </states>
+    <states
+        name="67 Received">
+      <events
+          xsi:type="StateMachine:CustomEvent"
+          name="newEvent 95">
+        <triggerTransition
+            xsi:type="StateMachine:LocalTransition"
+            target="/19/@states.14"
+            sourceState="/19/@states.4"/>
+      </events>
+    </states>
+    <states
+        name="69 Performed">
+      <events
+          xsi:type="StateMachine:CustomEvent"
+          name="69: update game result for player">
+        <triggerTransition
+            xsi:type="StateMachine:LocalTransition"
+            target="/19/@states.6"
+            sourceState="/19/@states.5"/>
+      </events>
+    </states>
+    <states
+        name="69 Received">
+      <events
+          xsi:type="StateMachine:CustomEvent"
+          name="newEvent 96">
+        <triggerTransition
+            xsi:type="StateMachine:LocalTransition"
+            target="/19/@states.15"
+            sourceState="/19/@states.6"/>
+      </events>
+    </states>
+    <states
+        name="71 Performed">
+      <events
+          xsi:type="StateMachine:CustomEvent"
+          name="71: show level result screen">
+        <triggerTransition
+            xsi:type="StateMachine:LocalTransition"
+            target="/19/@states.8"
+            sourceState="/19/@states.7"/>
+      </events>
+    </states>
+    <states
+        name="71 Received">
+      <events
+          xsi:type="StateMachine:CustomEvent"
+          name="newEvent 97">
+        <triggerTransition
+            xsi:type="StateMachine:LocalTransition"
+            target="/19/@states.16"
+            sourceState="/19/@states.8"/>
+      </events>
+    </states>
+    <states
+        name="66 Performed">
+      <events
+          xsi:type="StateMachine:CustomEvent"
+          name="newEvent 99">
+        <triggerTransition
+            xsi:type="StateMachine:LocalTransition"
+            target="/19/@states.18"
+            sourceState="/19/@states.9"/>
+      </events>
+    </states>
+    <states
+        name="68 Performed">
+      <events
+          xsi:type="StateMachine:CustomEvent"
+          name="newEvent 100">
+        <triggerTransition
+            xsi:type="StateMachine:LocalTransition"
+            target="/19/@states.19"
+            sourceState="/19/@states.10"/>
+      </events>
+    </states>
+    <states
+        name="70 Performed">
+      <events
+          xsi:type="StateMachine:CustomEvent"
+          name="newEvent 101">
+        <triggerTransition
+            xsi:type="StateMachine:LocalTransition"
+            target="/19/@states.20"
+            sourceState="/19/@states.11"/>
+      </events>
+    </states>
+    <states
+        name="72 Performed"/>
+    <states
+        name="middleState 65_66">
+      <events
+          xsi:type="StateMachine:CoreEvents"
+          name="FINISHED">
+        <triggerTransition
+            xsi:type="StateMachine:LocalTransition"
+            target="/19/@states.9"
+            sourceState="/19/@states.13"/>
+      </events>
+      <actions
+          xsi:type="StateMachine:CustomAction"
+          title="/ 66: !not Defined"/>
+    </states>
+    <states
+        name="middleState 67_68">
+      <events
+          xsi:type="StateMachine:CoreEvents"
+          name="FINISHED">
+        <triggerTransition
+            xsi:type="StateMachine:LocalTransition"
+            target="/19/@states.10"
+            sourceState="/19/@states.14"/>
+      </events>
+      <actions
+          xsi:type="StateMachine:CustomAction"
+          title="/ 68: show"/>
+    </states>
+    <states
+        name="middleState 69_70">
+      <events
+          xsi:type="StateMachine:CoreEvents"
+          name="FINISHED">
+        <triggerTransition
+            xsi:type="StateMachine:LocalTransition"
+            target="/19/@states.11"
+            sourceState="/19/@states.15"/>
+      </events>
+      <actions
+          xsi:type="StateMachine:CustomAction"
+          title="/ 70: !not Defined"/>
+    </states>
+    <states
+        name="middleState 71_72">
+      <events
+          xsi:type="StateMachine:CoreEvents"
+          name="FINISHED">
+        <triggerTransition
+            xsi:type="StateMachine:LocalTransition"
+            target="/19/@states.12"
+            sourceState="/19/@states.16"/>
+      </events>
+      <actions
+          xsi:type="StateMachine:CustomAction"
+          title="/ 72: show"/>
+    </states>
+    <states
+        name="middleState Start_65">
+      <events
+          xsi:type="StateMachine:CoreEvents"
+          name="FINISHED">
+        <triggerTransition
+            xsi:type="StateMachine:LocalTransition"
+            target="/19/@states.1"
+            sourceState="/19/@states.17"/>
+      </events>
+      <actions
+          xsi:type="StateMachine:CustomAction"
+          title="/ 65: save level finishing time in player log"/>
+    </states>
+    <states
+        name="middleState 66_67">
+      <events
+          xsi:type="StateMachine:CoreEvents"
+          name="FINISHED">
+        <triggerTransition
+            xsi:type="StateMachine:LocalTransition"
+            target="/19/@states.3"
+            sourceState="/19/@states.18"/>
+      </events>
+      <actions
+          xsi:type="StateMachine:CustomAction"
+          title="/ 67: show end of level screen"/>
+    </states>
+    <states
+        name="middleState 68_69">
+      <events
+          xsi:type="StateMachine:CoreEvents"
+          name="FINISHED">
+        <triggerTransition
+            xsi:type="StateMachine:LocalTransition"
+            target="/19/@states.5"
+            sourceState="/19/@states.19"/>
+      </events>
+      <actions
+          xsi:type="StateMachine:CustomAction"
+          title="/ 69: update game result for player"/>
+    </states>
+    <states
+        name="middleState 70_71">
+      <events
+          xsi:type="StateMachine:CoreEvents"
+          name="FINISHED">
+        <triggerTransition
+            xsi:type="StateMachine:LocalTransition"
+            target="/19/@states.7"
+            sourceState="/19/@states.20"/>
+      </events>
+      <actions
+          xsi:type="StateMachine:CustomAction"
+          title="/ 71: show level result screen"/>
+    </states>
+    <systemEvents
+        xsi:type="StateMachine:CoreEvents">
+      <triggerTransition
+          xsi:type="StateMachine:LocalTransition"
+          target="/19/@states.0"/>
+    </systemEvents>
+  </StateMachine:StateMachine>
+  <StateMachine:StateMachine
+      name="open_s :AnnotatedBPMN!State"
+      ownerObject="door_s">
+    <states
+        name="Start"
+        isStartState="true">
+      <events
+          xsi:type="StateMachine:CustomEvent"
+          name="166: create()">
+        <triggerTransition
+            xsi:type="StateMachine:LocalTransition"
+            target="/20/@states.1"
+            sourceState="/20/@states.0"/>
+      </events>
+    </states>
+    <states
+        name="166 Received">
+      <events
+          xsi:type="StateMachine:CustomEvent"
+          name="newEvent 102">
+        <triggerTransition
+            xsi:type="StateMachine:LocalTransition"
+            target="/20/@states.9"
+            sourceState="/20/@states.1"/>
+      </events>
+    </states>
+    <states
+        name="73 Performed">
+      <events
+          xsi:type="StateMachine:CustomEvent"
+          name="73: open the door_s(constraint)">
+        <triggerTransition
+            xsi:type="StateMachine:LocalTransition"
+            target="/20/@states.3"
+            sourceState="/20/@states.2"/>
+      </events>
+    </states>
+    <states
+        name="73 Received">
+      <events
+          xsi:type="StateMachine:CoreEvents"
+          name="FINISHED">
+        <triggerTransition
+            xsi:type="StateMachine:LocalTransition"
+            target="/20/@states.6"
+            sourceState="/20/@states.3"/>
+      </events>
+    </states>
+    <states
+        name="161 Performed">
+      <events
+          xsi:type="StateMachine:CustomEvent"
+          name="161: changeState(condition)">
+        <triggerTransition
+            xsi:type="StateMachine:LocalTransition"
+            target="/20/@states.5"
+            sourceState="/20/@states.4"/>
+      </events>
+    </states>
+    <states
+        name="161 Received">
+      <events
+          xsi:type="StateMachine:CoreEvents"
+          name="FINISHED">
+        <triggerTransition
+            xsi:type="StateMachine:LocalTransition"
+            target="/20/@states.7"
+            sourceState="/20/@states.5"/>
+      </events>
+    </states>
+    <states
+        name="74 opt">
+      <events
+          xsi:type="StateMachine:CustomEvent"
+          name="newEvent 103">
+        <triggerTransition
+            xsi:type="StateMachine:LocalTransition"
+            target="/20/@states.10"
+            sourceState="/20/@states.6"/>
+      </events>
+    </states>
+    <states
+        name="162 alt">
+      <events
+          xsi:type="StateMachine:CustomEvent"
+          name="newEvent 104">
+        <triggerTransition
+            xsi:type="StateMachine:LocalTransition"
+            target="/20/@states.11"
+            sourceState="/20/@states.7"/>
+      </events>
+      <actions
+          xsi:type="StateMachine:CustomAction"
+          title="check transition constraint">
+        <parameters
+            name="[ !not Defined ]"/>
+      </actions>
+    </states>
+    <states
+        name="163 Performed"/>
+    <states
+        name="middleState 166_73">
+      <events
+          xsi:type="StateMachine:CoreEvents"
+          name="FINISHED">
+        <triggerTransition
+            xsi:type="StateMachine:LocalTransition"
+            target="/20/@states.2"
+            sourceState="/20/@states.9"/>
+      </events>
+      <actions
+          xsi:type="StateMachine:CustomAction"
+          title="/ 73: open the door_s(constraint)"/>
+    </states>
+    <states
+        name="middleState 74_161">
+      <events
+          xsi:type="StateMachine:CoreEvents"
+          name="FINISHED">
+        <triggerTransition
+            xsi:type="StateMachine:LocalTransition"
+            target="/20/@states.4"
+            sourceState="/20/@states.10"/>
+      </events>
+      <actions
+          xsi:type="StateMachine:CustomAction"
+          title="/ 161: changeState(condition)"/>
+    </states>
+    <states
+        name="middleState 162_163">
+      <events
+          xsi:type="StateMachine:CoreEvents"
+          name="FINISHED">
+        <triggerTransition
+            xsi:type="StateMachine:LocalTransition"
+            target="/20/@states.8"
+            sourceState="/20/@states.11"/>
+      </events>
+      <actions
+          xsi:type="StateMachine:CustomAction"
+          title="/ 163: create()"/>
+    </states>
+    <systemEvents
+        xsi:type="StateMachine:CoreEvents">
+      <triggerTransition
+          xsi:type="StateMachine:LocalTransition"
+          target="/20/@states.0"/>
+    </systemEvents>
+  </StateMachine:StateMachine>
+  <StateMachine:StateMachine
+      name="close_s :AnnotatedBPMN!State"
+      ownerObject="door_s">
+    <states
+        name="Start"
+        isStartState="true">
+      <events
+          xsi:type="StateMachine:CustomEvent"
+          name="163: create()">
+        <triggerTransition
+            xsi:type="StateMachine:LocalTransition"
+            target="/21/@states.1"
+            sourceState="/21/@states.0"/>
+      </events>
+    </states>
+    <states
+        name="163 Received">
+      <events
+          xsi:type="StateMachine:CustomEvent"
+          name="newEvent 105">
+        <triggerTransition
+            xsi:type="StateMachine:LocalTransition"
+            target="/21/@states.9"
+            sourceState="/21/@states.1"/>
+      </events>
+    </states>
+    <states
+        name="75 Performed">
+      <events
+          xsi:type="StateMachine:CustomEvent"
+          name="75: close the door_s(constraint)">
+        <triggerTransition
+            xsi:type="StateMachine:LocalTransition"
+            target="/21/@states.3"
+            sourceState="/21/@states.2"/>
+      </events>
+    </states>
+    <states
+        name="75 Received">
+      <events
+          xsi:type="StateMachine:CoreEvents"
+          name="FINISHED">
+        <triggerTransition
+            xsi:type="StateMachine:LocalTransition"
+            target="/21/@states.6"
+            sourceState="/21/@states.3"/>
+      </events>
+    </states>
+    <states
+        name="164 Performed">
+      <events
+          xsi:type="StateMachine:CustomEvent"
+          name="164: changeState(condition)">
+        <triggerTransition
+            xsi:type="StateMachine:LocalTransition"
+            target="/21/@states.5"
+            sourceState="/21/@states.4"/>
+      </events>
+    </states>
+    <states
+        name="164 Received">
+      <events
+          xsi:type="StateMachine:CoreEvents"
+          name="FINISHED">
+        <triggerTransition
+            xsi:type="StateMachine:LocalTransition"
+            target="/21/@states.7"
+            sourceState="/21/@states.5"/>
+      </events>
+    </states>
+    <states
+        name="76 opt">
+      <events
+          xsi:type="StateMachine:CustomEvent"
+          name="newEvent 106">
+        <triggerTransition
+            xsi:type="StateMachine:LocalTransition"
+            target="/21/@states.10"
+            sourceState="/21/@states.6"/>
+      </events>
+    </states>
+    <states
+        name="165 alt">
+      <events
+          xsi:type="StateMachine:CustomEvent"
+          name="newEvent 107">
+        <triggerTransition
+            xsi:type="StateMachine:LocalTransition"
+            target="/21/@states.11"
+            sourceState="/21/@states.7"/>
+      </events>
+      <actions
+          xsi:type="StateMachine:CustomAction"
+          title="check transition constraint">
+        <parameters
+            name="[ !not Defined ]"/>
+      </actions>
+    </states>
+    <states
+        name="166 Performed"/>
+    <states
+        name="middleState 163_75">
+      <events
+          xsi:type="StateMachine:CoreEvents"
+          name="FINISHED">
+        <triggerTransition
+            xsi:type="StateMachine:LocalTransition"
+            target="/21/@states.2"
+            sourceState="/21/@states.9"/>
+      </events>
+      <actions
+          xsi:type="StateMachine:CustomAction"
+          title="/ 75: close the door_s(constraint)"/>
+    </states>
+    <states
+        name="middleState 76_164">
+      <events
+          xsi:type="StateMachine:CoreEvents"
+          name="FINISHED">
+        <triggerTransition
+            xsi:type="StateMachine:LocalTransition"
+            target="/21/@states.4"
+            sourceState="/21/@states.10"/>
+      </events>
+      <actions
+          xsi:type="StateMachine:CustomAction"
+          title="/ 164: changeState(condition)"/>
+    </states>
+    <states
+        name="middleState 165_166">
+      <events
+          xsi:type="StateMachine:CoreEvents"
+          name="FINISHED">
+        <triggerTransition
+            xsi:type="StateMachine:LocalTransition"
+            target="/21/@states.8"
+            sourceState="/21/@states.11"/>
+      </events>
+      <actions
+          xsi:type="StateMachine:CustomAction"
+          title="/ 166: create()"/>
+    </states>
+    <systemEvents
+        xsi:type="StateMachine:CoreEvents">
+      <triggerTransition
+          xsi:type="StateMachine:LocalTransition"
+          target="/21/@states.0"/>
+    </systemEvents>
+  </StateMachine:StateMachine>
+  <StateMachine:StateMachine
+      name="open :AnnotatedBPMN!State"
+      ownerObject="door">
+    <states
+        name="Start"
+        isStartState="true">
+      <events
+          xsi:type="StateMachine:CustomEvent"
+          name="172: create()">
+        <triggerTransition
+            xsi:type="StateMachine:LocalTransition"
+            target="/22/@states.1"
+            sourceState="/22/@states.0"/>
+      </events>
+    </states>
+    <states
+        name="172 Received">
+      <events
+          xsi:type="StateMachine:CustomEvent"
+          name="newEvent 108">
+        <triggerTransition
+            xsi:type="StateMachine:LocalTransition"
+            target="/22/@states.9"
+            sourceState="/22/@states.1"/>
+      </events>
+    </states>
+    <states
+        name="77 Performed">
+      <events
+          xsi:type="StateMachine:CustomEvent"
+          name="77: open the door(constraint,Animation)">
+        <triggerTransition
+            xsi:type="StateMachine:LocalTransition"
+            target="/22/@states.3"
+            sourceState="/22/@states.2"/>
+      </events>
+    </states>
+    <states
+        name="77 Received">
+      <events
+          xsi:type="StateMachine:CoreEvents"
+          name="FINISHED">
+        <triggerTransition
+            xsi:type="StateMachine:LocalTransition"
+            target="/22/@states.6"
+            sourceState="/22/@states.3"/>
+      </events>
+    </states>
+    <states
+        name="167 Performed">
+      <events
+          xsi:type="StateMachine:CustomEvent"
+          name="167: changeState(condition)">
+        <triggerTransition
+            xsi:type="StateMachine:LocalTransition"
+            target="/22/@states.5"
+            sourceState="/22/@states.4"/>
+      </events>
+    </states>
+    <states
+        name="167 Received">
+      <events
+          xsi:type="StateMachine:CoreEvents"
+          name="FINISHED">
+        <triggerTransition
+            xsi:type="StateMachine:LocalTransition"
+            target="/22/@states.7"
+            sourceState="/22/@states.5"/>
+      </events>
+    </states>
+    <states
+        name="78 opt">
+      <events
+          xsi:type="StateMachine:CustomEvent"
+          name="newEvent 109">
+        <triggerTransition
+            xsi:type="StateMachine:LocalTransition"
+            target="/22/@states.10"
+            sourceState="/22/@states.6"/>
+      </events>
+    </states>
+    <states
+        name="168 alt">
+      <events
+          xsi:type="StateMachine:CustomEvent"
+          name="newEvent 110">
+        <triggerTransition
+            xsi:type="StateMachine:LocalTransition"
+            target="/22/@states.11"
+            sourceState="/22/@states.7"/>
+      </events>
+      <actions
+          xsi:type="StateMachine:CustomAction"
+          title="check transition constraint">
+        <parameters
+            name="[ !not Defined ]"/>
+      </actions>
+    </states>
+    <states
+        name="169 Performed"/>
+    <states
+        name="middleState 172_77">
+      <events
+          xsi:type="StateMachine:CoreEvents"
+          name="FINISHED">
+        <triggerTransition
+            xsi:type="StateMachine:LocalTransition"
+            target="/22/@states.2"
+            sourceState="/22/@states.9"/>
+      </events>
+      <actions
+          xsi:type="StateMachine:CustomAction"
+          title="/ 77: open the door(constraint,Animation)"/>
+    </states>
+    <states
+        name="middleState 78_167">
+      <events
+          xsi:type="StateMachine:CoreEvents"
+          name="FINISHED">
+        <triggerTransition
+            xsi:type="StateMachine:LocalTransition"
+            target="/22/@states.4"
+            sourceState="/22/@states.10"/>
+      </events>
+      <actions
+          xsi:type="StateMachine:CustomAction"
+          title="/ 167: changeState(condition)"/>
+    </states>
+    <states
+        name="middleState 168_169">
+      <events
+          xsi:type="StateMachine:CoreEvents"
+          name="FINISHED">
+        <triggerTransition
+            xsi:type="StateMachine:LocalTransition"
+            target="/22/@states.8"
+            sourceState="/22/@states.11"/>
+      </events>
+      <actions
+          xsi:type="StateMachine:CustomAction"
+          title="/ 169: create()"/>
+    </states>
+    <systemEvents
+        xsi:type="StateMachine:CoreEvents">
+      <triggerTransition
+          xsi:type="StateMachine:LocalTransition"
+          target="/22/@states.0"/>
+    </systemEvents>
+  </StateMachine:StateMachine>
+  <StateMachine:StateMachine
+      name="close :AnnotatedBPMN!State"
+      ownerObject="door">
+    <states
+        name="Start"
+        isStartState="true">
+      <events
+          xsi:type="StateMachine:CustomEvent"
+          name="169: create()">
+        <triggerTransition
+            xsi:type="StateMachine:LocalTransition"
+            target="/23/@states.1"
+            sourceState="/23/@states.0"/>
+      </events>
+    </states>
+    <states
+        name="169 Received">
+      <events
+          xsi:type="StateMachine:CustomEvent"
+          name="newEvent 111">
+        <triggerTransition
+            xsi:type="StateMachine:LocalTransition"
+            target="/23/@states.9"
+            sourceState="/23/@states.1"/>
+      </events>
+    </states>
+    <states
+        name="79 Performed">
+      <events
+          xsi:type="StateMachine:CustomEvent"
+          name="79: close the door(constraint,Animation)">
+        <triggerTransition
+            xsi:type="StateMachine:LocalTransition"
+            target="/23/@states.3"
+            sourceState="/23/@states.2"/>
+      </events>
+    </states>
+    <states
+        name="79 Received">
+      <events
+          xsi:type="StateMachine:CoreEvents"
+          name="FINISHED">
+        <triggerTransition
+            xsi:type="StateMachine:LocalTransition"
+            target="/23/@states.6"
+            sourceState="/23/@states.3"/>
+      </events>
+    </states>
+    <states
+        name="170 Performed">
+      <events
+          xsi:type="StateMachine:CustomEvent"
+          name="170: changeState(condition)">
+        <triggerTransition
+            xsi:type="StateMachine:LocalTransition"
+            target="/23/@states.5"
+            sourceState="/23/@states.4"/>
+      </events>
+    </states>
+    <states
+        name="170 Received">
+      <events
+          xsi:type="StateMachine:CoreEvents"
+          name="FINISHED">
+        <triggerTransition
+            xsi:type="StateMachine:LocalTransition"
+            target="/23/@states.7"
+            sourceState="/23/@states.5"/>
+      </events>
+    </states>
+    <states
+        name="80 opt">
+      <events
+          xsi:type="StateMachine:CustomEvent"
+          name="newEvent 112">
+        <triggerTransition
+            xsi:type="StateMachine:LocalTransition"
+            target="/23/@states.10"
+            sourceState="/23/@states.6"/>
+      </events>
+    </states>
+    <states
+        name="171 alt">
+      <events
+          xsi:type="StateMachine:CustomEvent"
+          name="newEvent 113">
+        <triggerTransition
+            xsi:type="StateMachine:LocalTransition"
+            target="/23/@states.11"
+            sourceState="/23/@states.7"/>
+      </events>
+      <actions
+          xsi:type="StateMachine:CustomAction"
+          title="check transition constraint">
+        <parameters
+            name="[ !not Defined ]"/>
+      </actions>
+    </states>
+    <states
+        name="172 Performed"/>
+    <states
+        name="middleState 169_79">
+      <events
+          xsi:type="StateMachine:CoreEvents"
+          name="FINISHED">
+        <triggerTransition
+            xsi:type="StateMachine:LocalTransition"
+            target="/23/@states.2"
+            sourceState="/23/@states.9"/>
+      </events>
+      <actions
+          xsi:type="StateMachine:CustomAction"
+          title="/ 79: close the door(constraint,Animation)"/>
+    </states>
+    <states
+        name="middleState 80_170">
+      <events
+          xsi:type="StateMachine:CoreEvents"
+          name="FINISHED">
+        <triggerTransition
+            xsi:type="StateMachine:LocalTransition"
+            target="/23/@states.4"
+            sourceState="/23/@states.10"/>
+      </events>
+      <actions
+          xsi:type="StateMachine:CustomAction"
+          title="/ 170: changeState(condition)"/>
+    </states>
+    <states
+        name="middleState 171_172">
+      <events
+          xsi:type="StateMachine:CoreEvents"
+          name="FINISHED">
+        <triggerTransition
+            xsi:type="StateMachine:LocalTransition"
+            target="/23/@states.8"
+            sourceState="/23/@states.11"/>
+      </events>
+      <actions
+          xsi:type="StateMachine:CustomAction"
+          title="/ 172: create()"/>
+    </states>
+    <systemEvents
+        xsi:type="StateMachine:CoreEvents">
+      <triggerTransition
+          xsi:type="StateMachine:LocalTransition"
+          target="/23/@states.0"/>
+    </systemEvents>
+  </StateMachine:StateMachine>
+  <StateMachine:StateMachine
+      name="URL challenge finished :AnnotatedBPMN!State"
+      ownerObject="Student">
+    <states
+        name="Start"
+        isStartState="true">
+      <events
+          xsi:type="StateMachine:CustomEvent"
+          name="143: create()">
+        <triggerTransition
+            xsi:type="StateMachine:LocalTransition"
+            target="/24/@states.1"
+            sourceState="/24/@states.0"/>
+      </events>
+    </states>
+    <states
+        name="143 Received">
+      <events
+          xsi:type="StateMachine:CustomEvent"
+          name="12: choose download option">
+        <triggerTransition
+            xsi:type="StateMachine:LocalTransition"
+            target="/24/@states.2"
+            sourceState="/24/@states.1"/>
+      </events>
+    </states>
+    <states
+        name="12 Received">
+      <events
+          xsi:type="StateMachine:CustomEvent"
+          name="13: choose print option">
+        <triggerTransition
+            xsi:type="StateMachine:LocalTransition"
+            target="/24/@states.3"
+            sourceState="/24/@states.2"/>
+      </events>
+    </states>
+    <states
+        name="13 Received">
+      <events
+          xsi:type="StateMachine:CustomEvent"
+          name="newEvent 114">
+        <triggerTransition
+            xsi:type="StateMachine:LocalTransition"
+            target="/24/@states.9"
+            sourceState="/24/@states.3"/>
+      </events>
+    </states>
+    <states
+        name="115 Performed">
+      <events
+          xsi:type="StateMachine:CustomEvent"
+          name="115: changeState(condition)">
+        <triggerTransition
+            xsi:type="StateMachine:LocalTransition"
+            target="/24/@states.5"
+            sourceState="/24/@states.4"/>
+      </events>
+    </states>
+    <states
+        name="115 Received">
+      <events
+          xsi:type="StateMachine:CoreEvents"
+          name="FINISHED">
+        <triggerTransition
+            xsi:type="StateMachine:LocalTransition"
+            target="/24/@states.7"
+            sourceState="/24/@states.5"/>
+      </events>
+    </states>
+    <states
+        name="81 Performed">
+      <events
+          xsi:type="StateMachine:CustomEvent"
+          name="newEvent 115">
+        <triggerTransition
+            xsi:type="StateMachine:LocalTransition"
+            target="/24/@states.10"
+            sourceState="/24/@states.6"/>
+      </events>
+    </states>
+    <states
+        name="116 alt">
+      <events
+          xsi:type="StateMachine:CustomEvent"
+          name="newEvent 116">
+        <triggerTransition
+            xsi:type="StateMachine:LocalTransition"
+            target="/24/@states.11"
+            sourceState="/24/@states.7"/>
+      </events>
+      <actions
+          xsi:type="StateMachine:CustomAction"
+          title="check transition constraint">
+        <parameters
+            name="[ !not Defined ]"/>
+      </actions>
+    </states>
+    <states
+        name="117 Performed"/>
+    <states
+        name="middleState 13_81">
+      <events
+          xsi:type="StateMachine:CoreEvents"
+          name="FINISHED">
+        <triggerTransition
+            xsi:type="StateMachine:LocalTransition"
+            target="/24/@states.6"
+            sourceState="/24/@states.9"/>
+      </events>
+      <actions
+          xsi:type="StateMachine:CustomAction"
+          title="/ 81: play printer voice and show paper(constraint)"/>
+    </states>
+    <states
+        name="middleState 81_115">
+      <events
+          xsi:type="StateMachine:CoreEvents"
+          name="FINISHED">
+        <triggerTransition
+            xsi:type="StateMachine:LocalTransition"
+            target="/24/@states.4"
+            sourceState="/24/@states.10"/>
+      </events>
+      <actions
+          xsi:type="StateMachine:CustomAction"
+          title="/ 115: changeState(condition)"/>
+    </states>
+    <states
+        name="middleState 116_117">
+      <events
+          xsi:type="StateMachine:CoreEvents"
+          name="FINISHED">
+        <triggerTransition
+            xsi:type="StateMachine:LocalTransition"
+            target="/24/@states.8"
+            sourceState="/24/@states.11"/>
+      </events>
+      <actions
+          xsi:type="StateMachine:CustomAction"
+          title="/ 117: create()"/>
+    </states>
+    <systemEvents
+        xsi:type="StateMachine:CoreEvents">
+      <triggerTransition
+          xsi:type="StateMachine:LocalTransition"
+          target="/24/@states.0"/>
+    </systemEvents>
+  </StateMachine:StateMachine>
+  <StateMachine:StateMachine
+      name="printer is off :AnnotatedBPMN!State"
+      ownerObject="printer">
+    <states
+        name="Start"
+        isStartState="true">
+      <events
+          xsi:type="StateMachine:CustomEvent"
+          name="175: create()">
+        <triggerTransition
+            xsi:type="StateMachine:LocalTransition"
+            target="/25/@states.1"
+            sourceState="/25/@states.0"/>
+      </events>
+    </states>
+    <states
+        name="175 Received">
+      <events
+          xsi:type="StateMachine:CustomEvent"
+          name="newEvent 117">
+        <triggerTransition
+            xsi:type="StateMachine:LocalTransition"
+            target="/25/@states.4"
+            sourceState="/25/@states.1"/>
+      </events>
+    </states>
+    <states
+        name="83 Performed">
+      <events
+          xsi:type="StateMachine:CustomEvent"
+          name="83: stop printer voice">
+        <triggerTransition
+            xsi:type="StateMachine:LocalTransition"
+            target="/25/@states.3"
+            sourceState="/25/@states.2"/>
+      </events>
+    </states>
+    <states
+        name="83 Received"/>
+    <states
+        name="middleState 175_83">
+      <events
+          xsi:type="StateMachine:CoreEvents"
+          name="FINISHED">
+        <triggerTransition
+            xsi:type="StateMachine:LocalTransition"
+            target="/25/@states.2"
+            sourceState="/25/@states.4"/>
+      </events>
+      <actions
+          xsi:type="StateMachine:CustomAction"
+          title="/ 83: stop printer voice"/>
+    </states>
+    <systemEvents
+        xsi:type="StateMachine:CoreEvents">
+      <triggerTransition
+          xsi:type="StateMachine:LocalTransition"
+          target="/25/@states.0"/>
+    </systemEvents>
+  </StateMachine:StateMachine>
+  <StateMachine:StateMachine
+      name="form creation :AnnotatedBPMN!State"
+      ownerObject="form Paper">
+    <states
+        name="Start"
+        isStartState="true">
+      <events
+          xsi:type="StateMachine:CustomEvent"
+          name="123: create()">
+        <triggerTransition
+            xsi:type="StateMachine:LocalTransition"
+            target="/26/@states.1"
+            sourceState="/26/@states.0"/>
+      </events>
+    </states>
+    <states
+        name="123 Received">
+      <events
+          xsi:type="StateMachine:CustomEvent"
+          name="84: save the form in player log(constraint)">
+        <triggerTransition
+            xsi:type="StateMachine:LocalTransition"
+            target="/26/@states.2"
+            sourceState="/26/@states.1"/>
+      </events>
+    </states>
+    <states
+        name="84 Received">
+      <events
+          xsi:type="StateMachine:CoreEvents"
+          name="FINISHED">
+        <triggerTransition
+            xsi:type="StateMachine:LocalTransition"
+            target="/26/@states.7"
+            sourceState="/26/@states.2"/>
+      </events>
+    </states>
+    <states
+        name="87 Performed">
+      <events
+          xsi:type="StateMachine:CustomEvent"
+          name="87: Player write something on the form">
+        <triggerTransition
+            xsi:type="StateMachine:LocalTransition"
+            target="/26/@states.4"
+            sourceState="/26/@states.3"/>
+      </events>
+    </states>
+    <states
+        name="87 Received">
+      <events
+          xsi:type="StateMachine:CustomEvent"
+          name="newEvent 118">
+        <triggerTransition
+            xsi:type="StateMachine:LocalTransition"
+            target="/26/@states.12"
+            sourceState="/26/@states.4"/>
+      </events>
+    </states>
+    <states
+        name="176 Performed">
+      <events
+          xsi:type="StateMachine:CustomEvent"
+          name="176: changeState(condition)">
+        <triggerTransition
+            xsi:type="StateMachine:LocalTransition"
+            target="/26/@states.6"
+            sourceState="/26/@states.5"/>
+      </events>
+    </states>
+    <states
+        name="176 Received">
+      <events
+          xsi:type="StateMachine:CoreEvents"
+          name="FINISHED">
+        <triggerTransition
+            xsi:type="StateMachine:LocalTransition"
+            target="/26/@states.10"
+            sourceState="/26/@states.6"/>
+      </events>
+    </states>
+    <states
+        name="85 opt">
+      <events
+          xsi:type="StateMachine:CustomEvent"
+          name="newEvent 119">
+        <triggerTransition
+            xsi:type="StateMachine:LocalTransition"
+            target="/26/@states.3"
+            sourceState="/26/@states.7"/>
+      </events>
+      <actions
+          xsi:type="StateMachine:CustomAction"
+          title="check transition constraint">
+        <parameters
+            name="[ &#x2018;save&#x2019; option is selected ]"/>
+      </actions>
+    </states>
+    <states
+        name="86 Performed">
+      <events
+          xsi:type="StateMachine:CustomEvent"
+          name="newEvent 120">
+        <triggerTransition
+            xsi:type="StateMachine:LocalTransition"
+            target="/26/@states.14"
+            sourceState="/26/@states.8"/>
+      </events>
+    </states>
+    <states
+        name="91 Performed">
+      <events
+          xsi:type="StateMachine:CustomEvent"
+          name="newEvent 121">
+        <triggerTransition
+            xsi:type="StateMachine:LocalTransition"
+            target="/26/@states.15"
+            sourceState="/26/@states.9"/>
+      </events>
+    </states>
+    <states
+        name="177 alt">
+      <events
+          xsi:type="StateMachine:CustomEvent"
+          name="newEvent 122">
+        <triggerTransition
+            xsi:type="StateMachine:LocalTransition"
+            target="/26/@states.16"
+            sourceState="/26/@states.10"/>
+      </events>
+      <actions
+          xsi:type="StateMachine:CustomAction"
+          title="check transition constraint">
+        <parameters
+            name="[ !not Defined ]"/>
+      </actions>
+    </states>
+    <states
+        name="178 Performed"/>
+    <states
+        name="middleState 87_91">
+      <events
+          xsi:type="StateMachine:CoreEvents"
+          name="FINISHED">
+        <triggerTransition
+            xsi:type="StateMachine:LocalTransition"
+            target="/26/@states.9"
+            sourceState="/26/@states.12"/>
+      </events>
+      <actions
+          xsi:type="StateMachine:CustomAction"
+          title="/ 91: Player edit something on the form"/>
+    </states>
+    <states
+        name="middleState 85_86">
+      <events
+          xsi:type="StateMachine:CoreEvents"
+          name="FINISHED">
+        <triggerTransition
+            xsi:type="StateMachine:LocalTransition"
+            target="/26/@states.8"
+            sourceState="/26/@states.13"/>
+      </events>
+      <actions
+          xsi:type="StateMachine:CustomAction"
+          title="/ 86: !not Defined"/>
+    </states>
+    <states
+        name="middleState 86_87">
+      <events
+          xsi:type="StateMachine:CoreEvents"
+          name="FINISHED">
+        <triggerTransition
+            xsi:type="StateMachine:LocalTransition"
+            target="/26/@states.3"
+            sourceState="/26/@states.14"/>
+      </events>
+      <actions
+          xsi:type="StateMachine:CustomAction"
+          title="/ 87: Player write something on the form"/>
+    </states>
+    <states
+        name="middleState 91_176">
+      <events
+          xsi:type="StateMachine:CoreEvents"
+          name="FINISHED">
+        <triggerTransition
+            xsi:type="StateMachine:LocalTransition"
+            target="/26/@states.5"
+            sourceState="/26/@states.15"/>
+      </events>
+      <actions
+          xsi:type="StateMachine:CustomAction"
+          title="/ 176: changeState(condition)"/>
+    </states>
+    <states
+        name="middleState 177_178">
+      <events
+          xsi:type="StateMachine:CoreEvents"
+          name="FINISHED">
+        <triggerTransition
+            xsi:type="StateMachine:LocalTransition"
+            target="/26/@states.11"
+            sourceState="/26/@states.16"/>
+      </events>
+      <actions
+          xsi:type="StateMachine:CustomAction"
+          title="/ 178: create()"/>
+    </states>
+    <systemEvents
+        xsi:type="StateMachine:CoreEvents">
+      <triggerTransition
+          xsi:type="StateMachine:LocalTransition"
+          target="/26/@states.0"/>
+    </systemEvents>
+  </StateMachine:StateMachine>
+  <StateMachine:StateMachine
+      name="level startup :AnnotatedBPMN!UI"
+      ownerObject="level startup">
+    <states
+        name="Start"
+        isStartState="true">
+      <events
+          xsi:type="StateMachine:CustomEvent"
+          name="1: show">
+        <triggerTransition
+            xsi:type="StateMachine:LocalTransition"
+            target="/27/@states.1"
+            sourceState="/27/@states.0"/>
+      </events>
+    </states>
+    <states
+        name="1 Received"/>
+    <systemEvents
+        xsi:type="StateMachine:CoreEvents">
+      <triggerTransition
+          xsi:type="StateMachine:LocalTransition"
+          target="/27/@states.0"/>
+    </systemEvents>
+  </StateMachine:StateMachine>
+  <StateMachine:StateMachine
+      name="StudentLog :AnnotatedBPMN!PlayerLog"
+      ownerObject="StudentLog">
+    <states
+        name="Start"
+        isStartState="true">
+      <events
+          xsi:type="StateMachine:CustomEvent"
+          name="3: !not Defined">
+        <triggerTransition
+            xsi:type="StateMachine:LocalTransition"
+            target="/28/@states.1"
+            sourceState="/28/@states.0"/>
+      </events>
+    </states>
+    <states
+        name="3 Received">
+      <events
+          xsi:type="StateMachine:CustomEvent"
+          name="49: !not Defined">
+        <triggerTransition
+            xsi:type="StateMachine:LocalTransition"
+            target="/28/@states.2"
+            sourceState="/28/@states.1"/>
+      </events>
+    </states>
+    <states
+        name="49 Received">
+      <events
+          xsi:type="StateMachine:CustomEvent"
+          name="66: !not Defined">
+        <triggerTransition
+            xsi:type="StateMachine:LocalTransition"
+            target="/28/@states.3"
+            sourceState="/28/@states.2"/>
+      </events>
+    </states>
+    <states
+        name="66 Received">
+      <events
+          xsi:type="StateMachine:CustomEvent"
+          name="70: !not Defined">
+        <triggerTransition
+            xsi:type="StateMachine:LocalTransition"
+            target="/28/@states.4"
+            sourceState="/28/@states.3"/>
+      </events>
+    </states>
+    <states
+        name="70 Received">
+      <events
+          xsi:type="StateMachine:CustomEvent"
+          name="86: !not Defined">
+        <triggerTransition
+            xsi:type="StateMachine:LocalTransition"
+            target="/28/@states.5"
+            sourceState="/28/@states.4"/>
+      </events>
+    </states>
+    <states
+        name="86 Received">
+      <events
+          xsi:type="StateMachine:CustomEvent"
+          name="90: !not Defined">
+        <triggerTransition
+            xsi:type="StateMachine:LocalTransition"
+            target="/28/@states.6"
+            sourceState="/28/@states.5"/>
+      </events>
+    </states>
+    <states
+        name="90 Received">
+      <events
+          xsi:type="StateMachine:CustomEvent"
+          name="100: !not Defined: save challenge score">
+        <triggerTransition
+            xsi:type="StateMachine:LocalTransition"
+            target="/28/@states.7"
+            sourceState="/28/@states.6"/>
+      </events>
+    </states>
+    <states
+        name="100 Received">
+      <events
+          xsi:type="StateMachine:CustomEvent"
+          name="106: !not Defined: save challenge score">
+        <triggerTransition
+            xsi:type="StateMachine:LocalTransition"
+            target="/28/@states.8"
+            sourceState="/28/@states.7"/>
+      </events>
+    </states>
+    <states
+        name="106 Received"/>
+    <systemEvents
+        xsi:type="StateMachine:CoreEvents">
+      <triggerTransition
+          xsi:type="StateMachine:LocalTransition"
+          target="/28/@states.0"/>
+    </systemEvents>
+  </StateMachine:StateMachine>
+  <StateMachine:StateMachine
+      name="Student_lane:AnnotatedBPMN!Lane"
+      ownerObject="Student_lane">
+    <states
+        name="Start"
+        isStartState="true">
+      <events
+          xsi:type="StateMachine:CustomEvent"
+          name="6: preparing department thesis definition form">
+        <triggerTransition
+            xsi:type="StateMachine:LocalTransition"
+            target="/29/@states.1"
+            sourceState="/29/@states.0"/>
+      </events>
+    </states>
+    <states
+        name="6 Received">
+      <events
+          xsi:type="StateMachine:CustomEvent"
+          name="newEvent 123">
+        <triggerTransition
+            xsi:type="StateMachine:LocalTransition"
+            target="/29/@states.9"
+            sourceState="/29/@states.1"/>
+      </events>
+    </states>
+    <states
+        name="8 Performed">
+      <events
+          xsi:type="StateMachine:CustomEvent"
+          name="22: deliver the form to the supervisor">
+        <triggerTransition
+            xsi:type="StateMachine:LocalTransition"
+            target="/29/@states.3"
+            sourceState="/29/@states.2"/>
+      </events>
+    </states>
+    <states
+        name="22 Received">
+      <events
+          xsi:type="StateMachine:CustomEvent"
+          name="33: preparing department thesis definition form">
+        <triggerTransition
+            xsi:type="StateMachine:LocalTransition"
+            target="/29/@states.4"
+            sourceState="/29/@states.3"/>
+      </events>
+    </states>
+    <states
+        name="33 Received">
+      <events
+          xsi:type="StateMachine:CustomEvent"
+          name="56: change definition form">
+        <triggerTransition
+            xsi:type="StateMachine:LocalTransition"
+            target="/29/@states.5"
+            sourceState="/29/@states.4"/>
+      </events>
+    </states>
+    <states
+        name="56 Received">
+      <events
+          xsi:type="StateMachine:CustomEvent"
+          name="newEvent 124">
+        <triggerTransition
+            xsi:type="StateMachine:LocalTransition"
+            target="/29/@states.10"
+            sourceState="/29/@states.5"/>
+      </events>
+    </states>
+    <states
+        name="57 Performed">
+      <events
+          xsi:type="StateMachine:CustomEvent"
+          name="93: deliver the form to the supervisor">
+        <triggerTransition
+            xsi:type="StateMachine:LocalTransition"
+            target="/29/@states.7"
+            sourceState="/29/@states.6"/>
+      </events>
+    </states>
+    <states
+        name="93 Received"/>
+    <states
+        name="7 Performed">
+      <events
+          xsi:type="StateMachine:CustomEvent"
+          name="newEvent 125">
+        <triggerTransition
+            xsi:type="StateMachine:LocalTransition"
+            target="/29/@states.11"
+            sourceState="/29/@states.8"/>
+      </events>
+    </states>
+    <states
+        name="middleState 6_7">
+      <events
+          xsi:type="StateMachine:CoreEvents"
+          name="FINISHED">
+        <triggerTransition
+            xsi:type="StateMachine:LocalTransition"
+            target="/29/@states.8"
+            sourceState="/29/@states.9"/>
+      </events>
+      <actions
+          xsi:type="StateMachine:CustomAction"
+          title="/ 7: !not defined: create/ update/ delete?"/>
+    </states>
+    <states
+        name="middleState 56_57">
+      <events
+          xsi:type="StateMachine:CoreEvents"
+          name="FINISHED">
+        <triggerTransition
+            xsi:type="StateMachine:LocalTransition"
+            target="/29/@states.6"
+            sourceState="/29/@states.10"/>
+      </events>
+      <actions
+          xsi:type="StateMachine:CustomAction"
+          title="/ 57: read"/>
+    </states>
+    <states
+        name="middleState 7_8">
+      <events
+          xsi:type="StateMachine:CoreEvents"
+          name="FINISHED">
+        <triggerTransition
+            xsi:type="StateMachine:LocalTransition"
+            target="/29/@states.2"
+            sourceState="/29/@states.11"/>
+      </events>
+      <actions
+          xsi:type="StateMachine:CustomAction"
+          title="/ 8: return (correctOutputs)"/>
+    </states>
+    <systemEvents
+        xsi:type="StateMachine:CoreEvents">
+      <triggerTransition
+          xsi:type="StateMachine:LocalTransition"
+          target="/29/@states.0"/>
+    </systemEvents>
+  </StateMachine:StateMachine>
+  <StateMachine:StateMachine
+      name="department thesis definition form :AnnotatedBPMN!DataObject"
+      ownerObject="department thesis definition form">
+    <states
+        name="Start"
+        isStartState="true">
+      <events
+          xsi:type="StateMachine:CustomEvent"
+          name="7: !not defined: create/ update/ delete?">
+        <triggerTransition
+            xsi:type="StateMachine:LocalTransition"
+            target="/30/@states.1"
+            sourceState="/30/@states.0"/>
+      </events>
+    </states>
+    <states
+        name="7 Received">
+      <events
+          xsi:type="StateMachine:CustomEvent"
+          name="40: read">
+        <triggerTransition
+            xsi:type="StateMachine:LocalTransition"
+            target="/30/@states.2"
+            sourceState="/30/@states.1"/>
+      </events>
+    </states>
+    <states
+        name="40 Received">
+      <events
+          xsi:type="StateMachine:CustomEvent"
+          name="57: read">
+        <triggerTransition
+            xsi:type="StateMachine:LocalTransition"
+            target="/30/@states.3"
+            sourceState="/30/@states.2"/>
+      </events>
+    </states>
+    <states
+        name="57 Received"/>
+    <systemEvents
+        xsi:type="StateMachine:CoreEvents">
+      <triggerTransition
+          xsi:type="StateMachine:LocalTransition"
+          target="/30/@states.0"/>
+    </systemEvents>
+  </StateMachine:StateMachine>
+  <StateMachine:StateMachine
+      name="URL challenge :AnnotatedBPMN!KnowledgeChallenge"
+      ownerObject="Student">
+    <states
+        name="Start"
+        isStartState="true">
+      <events
+          xsi:type="StateMachine:CustomEvent"
+          name="11: startChallenge">
+        <triggerTransition
+            xsi:type="StateMachine:LocalTransition"
+            target="/31/@states.1"
+            sourceState="/31/@states.0"/>
+      </events>
+    </states>
+    <states
+        name="11 Received"/>
+    <systemEvents
+        xsi:type="StateMachine:CoreEvents">
+      <triggerTransition
+          xsi:type="StateMachine:LocalTransition"
+          target="/31/@states.0"/>
+    </systemEvents>
+  </StateMachine:StateMachine>
+  <StateMachine:StateMachine
+      name="form sections query :AnnotatedBPMN!UI"
+      ownerObject="form sections query">
+    <states
+        name="Start"
+        isStartState="true">
+      <events
+          xsi:type="StateMachine:CustomEvent"
+          name="16: show">
+        <triggerTransition
+            xsi:type="StateMachine:LocalTransition"
+            target="/32/@states.1"
+            sourceState="/32/@states.0"/>
+      </events>
+    </states>
+    <states
+        name="16 Received"/>
+    <systemEvents
+        xsi:type="StateMachine:CoreEvents">
+      <triggerTransition
+          xsi:type="StateMachine:LocalTransition"
+          target="/32/@states.0"/>
+    </systemEvents>
+  </StateMachine:StateMachine>
+  <StateMachine:StateMachine
+      name="highlighted form :AnnotatedBPMN!UI"
+      ownerObject="highlighted form">
+    <states
+        name="Start"
+        isStartState="true">
+      <events
+          xsi:type="StateMachine:CustomEvent"
+          name="27: show">
+        <triggerTransition
+            xsi:type="StateMachine:LocalTransition"
+            target="/33/@states.1"
+            sourceState="/33/@states.0"/>
+      </events>
+    </states>
+    <states
+        name="27 Received"/>
+    <systemEvents
+        xsi:type="StateMachine:CoreEvents">
+      <triggerTransition
+          xsi:type="StateMachine:LocalTransition"
+          target="/33/@states.0"/>
+    </systemEvents>
+  </StateMachine:StateMachine>
+  <StateMachine:StateMachine
+      name="URL query :AnnotatedBPMN!UI"
+      ownerObject="URL query">
+    <states
+        name="Start"
+        isStartState="true">
+      <events
+          xsi:type="StateMachine:CustomEvent"
+          name="30: show">
+        <triggerTransition
+            xsi:type="StateMachine:LocalTransition"
+            target="/34/@states.1"
+            sourceState="/34/@states.0"/>
+      </events>
+    </states>
+    <states
+        name="30 Received"/>
+    <systemEvents
+        xsi:type="StateMachine:CoreEvents">
+      <triggerTransition
+          xsi:type="StateMachine:LocalTransition"
+          target="/34/@states.0"/>
+    </systemEvents>
+  </StateMachine:StateMachine>
+  <StateMachine:StateMachine
+      name="show URL challenge result :AnnotatedBPMN!State"
+      ownerObject="Student">
+    <states
+        name="Start"
+        isStartState="true">
+      <events
+          xsi:type="StateMachine:CustomEvent"
+          name="140: create()">
+        <triggerTransition
+            xsi:type="StateMachine:LocalTransition"
+            target="/35/@states.1"
+            sourceState="/35/@states.0"/>
+      </events>
+    </states>
+    <states
+        name="140 Received">
+      <events
+          xsi:type="StateMachine:CustomEvent"
+          name="35: show URL challenge result screen ">
+        <triggerTransition
+            xsi:type="StateMachine:LocalTransition"
+            target="/35/@states.2"
+            sourceState="/35/@states.1"/>
+      </events>
+    </states>
+    <states
+        name="35 Received">
+      <events
+          xsi:type="StateMachine:CustomEvent"
+          name="newEvent 126">
+        <triggerTransition
+            xsi:type="StateMachine:LocalTransition"
+            target="/35/@states.8"
+            sourceState="/35/@states.2"/>
+      </events>
+    </states>
+    <states
+        name="141 Performed">
+      <events
+          xsi:type="StateMachine:CustomEvent"
+          name="141: changeState(condition)">
+        <triggerTransition
+            xsi:type="StateMachine:LocalTransition"
+            target="/35/@states.4"
+            sourceState="/35/@states.3"/>
+      </events>
+    </states>
+    <states
+        name="141 Received">
+      <events
+          xsi:type="StateMachine:CoreEvents"
+          name="FINISHED">
+        <triggerTransition
+            xsi:type="StateMachine:LocalTransition"
+            target="/35/@states.6"
+            sourceState="/35/@states.4"/>
+      </events>
+    </states>
+    <states
+        name="36 Performed">
+      <events
+          xsi:type="StateMachine:CustomEvent"
+          name="newEvent 127">
+        <triggerTransition
+            xsi:type="StateMachine:LocalTransition"
+            target="/35/@states.9"
+            sourceState="/35/@states.5"/>
+      </events>
+    </states>
+    <states
+        name="142 alt">
+      <events
+          xsi:type="StateMachine:CustomEvent"
+          name="newEvent 128">
+        <triggerTransition
+            xsi:type="StateMachine:LocalTransition"
+            target="/35/@states.10"
+            sourceState="/35/@states.6"/>
+      </events>
+      <actions
+          xsi:type="StateMachine:CustomAction"
+          title="check transition constraint">
+        <parameters
+            name="[ !not Defined ]"/>
+      </actions>
+    </states>
+    <states
+        name="143 Performed"/>
+    <states
+        name="middleState 35_36">
+      <events
+          xsi:type="StateMachine:CoreEvents"
+          name="FINISHED">
+        <triggerTransition
+            xsi:type="StateMachine:LocalTransition"
+            target="/35/@states.5"
+            sourceState="/35/@states.8"/>
+      </events>
+      <actions
+          xsi:type="StateMachine:CustomAction"
+          title="/ 36: show"/>
+    </states>
+    <states
+        name="middleState 36_141">
+      <events
+          xsi:type="StateMachine:CoreEvents"
+          name="FINISHED">
+        <triggerTransition
+            xsi:type="StateMachine:LocalTransition"
+            target="/35/@states.3"
+            sourceState="/35/@states.9"/>
+      </events>
+      <actions
+          xsi:type="StateMachine:CustomAction"
+          title="/ 141: changeState(condition)"/>
+    </states>
+    <states
+        name="middleState 142_143">
+      <events
+          xsi:type="StateMachine:CoreEvents"
+          name="FINISHED">
+        <triggerTransition
+            xsi:type="StateMachine:LocalTransition"
+            target="/35/@states.7"
+            sourceState="/35/@states.10"/>
+      </events>
+      <actions
+          xsi:type="StateMachine:CustomAction"
+          title="/ 143: create()"/>
+    </states>
+    <systemEvents
+        xsi:type="StateMachine:CoreEvents">
+      <triggerTransition
+          xsi:type="StateMachine:LocalTransition"
+          target="/35/@states.0"/>
+    </systemEvents>
+  </StateMachine:StateMachine>
+  <StateMachine:StateMachine
+      name="URL challenge result :AnnotatedBPMN!UI"
+      ownerObject="URL challenge result">
+    <states
+        name="Start"
+        isStartState="true">
+      <events
+          xsi:type="StateMachine:CustomEvent"
+          name="36: show">
+        <triggerTransition
+            xsi:type="StateMachine:LocalTransition"
+            target="/36/@states.1"
+            sourceState="/36/@states.0"/>
+      </events>
+    </states>
+    <states
+        name="36 Received"/>
+    <systemEvents
+        xsi:type="StateMachine:CoreEvents">
+      <triggerTransition
+          xsi:type="StateMachine:LocalTransition"
+          target="/36/@states.0"/>
+    </systemEvents>
+  </StateMachine:StateMachine>
+  <StateMachine:StateMachine
+      name="Supervisor_lane:AnnotatedBPMN!Lane"
+      ownerObject="Supervisor_lane">
+    <states
+        name="Start"
+        isStartState="true">
+      <events
+          xsi:type="StateMachine:CustomEvent"
+          name="39: form completeness checking">
+        <triggerTransition
+            xsi:type="StateMachine:LocalTransition"
+            target="/37/@states.1"
+            sourceState="/37/@states.0"/>
+      </events>
+    </states>
+    <states
+        name="39 Received">
+      <events
+          xsi:type="StateMachine:CustomEvent"
+          name="newEvent 129">
+        <triggerTransition
+            xsi:type="StateMachine:LocalTransition"
+            target="/37/@states.12"
+            sourceState="/37/@states.1"/>
+      </events>
+    </states>
+    <states
+        name="41 Performed">
+      <events
+          xsi:type="StateMachine:CustomEvent"
+          name="44: is the form complete?">
+        <triggerTransition
+            xsi:type="StateMachine:LocalTransition"
+            target="/37/@states.3"
+            sourceState="/37/@states.2"/>
+      </events>
+    </states>
+    <states
+        name="44 Received">
+      <events
+          xsi:type="StateMachine:CoreEvents"
+          name="FINISHED">
+        <triggerTransition
+            xsi:type="StateMachine:LocalTransition"
+            target="/37/@states.8"
+            sourceState="/37/@states.3"/>
+      </events>
+    </states>
+    <states
+        name="46 Performed">
+      <events
+          xsi:type="StateMachine:CustomEvent"
+          name="46: setCorrectOutputs">
+        <triggerTransition
+            xsi:type="StateMachine:LocalTransition"
+            target="/37/@states.5"
+            sourceState="/37/@states.4"/>
+      </events>
+    </states>
+    <states
+        name="46 Received">
+      <events
+          xsi:type="StateMachine:CoreEvents"
+          name="FINISHED">
+        <triggerTransition
+            xsi:type="StateMachine:LocalTransition"
+            target="/37/@states.9"
+            sourceState="/37/@states.5"/>
+      </events>
+    </states>
+    <states
+        name="47 Performed">
+      <events
+          xsi:type="StateMachine:CustomEvent"
+          name="47: setCorrectOutputs">
+        <triggerTransition
+            xsi:type="StateMachine:LocalTransition"
+            target="/37/@states.7"
+            sourceState="/37/@states.6"/>
+      </events>
+    </states>
+    <states
+        name="47 Received">
+      <events
+          xsi:type="StateMachine:CustomEvent"
+          name="60: form confirmation and signing">
+        <triggerTransition
+            xsi:type="StateMachine:LocalTransition"
+            target="/37/@states.9"
+            sourceState="/37/@states.7"/>
+      </events>
+    </states>
+    <states
+        name="45 alt">
+      <events
+          xsi:type="StateMachine:CustomEvent"
+          name="newEvent 130">
+        <triggerTransition
+            xsi:type="StateMachine:LocalTransition"
+            target="/37/@states.9"
+            sourceState="/37/@states.8"/>
+      </events>
+      <actions
+          xsi:type="StateMachine:CustomAction"
+          title="check transition constraint">
+        <parameters
+            name="[ !not Defined ]"/>
+      </actions>
+      <actions
+          xsi:type="StateMachine:CustomAction"
+          title="check transition constraint">
+        <parameters
+            name="[ !not Defined ]"/>
+      </actions>
+    </states>
+    <states
+        name="60 Received">
+      <events
+          xsi:type="StateMachine:CustomEvent"
+          name="64: endEvent">
+        <triggerTransition
+            xsi:type="StateMachine:LocalTransition"
+            target="/37/@states.10"
+            sourceState="/37/@states.9"/>
+      </events>
+    </states>
+    <states
+        name="64 Received"/>
+    <states
+        name="40 Performed">
+      <events
+          xsi:type="StateMachine:CustomEvent"
+          name="newEvent 131">
+        <triggerTransition
+            xsi:type="StateMachine:LocalTransition"
+            target="/37/@states.15"
+            sourceState="/37/@states.11"/>
+      </events>
+    </states>
+    <states
+        name="middleState 39_40">
+      <events
+          xsi:type="StateMachine:CoreEvents"
+          name="FINISHED">
+        <triggerTransition
+            xsi:type="StateMachine:LocalTransition"
+            target="/37/@states.11"
+            sourceState="/37/@states.12"/>
+      </events>
+      <actions
+          xsi:type="StateMachine:CustomAction"
+          title="/ 40: read"/>
+    </states>
+    <states
+        name="middleState 45_46">
+      <events
+          xsi:type="StateMachine:CoreEvents"
+          name="FINISHED">
+        <triggerTransition
+            xsi:type="StateMachine:LocalTransition"
+            target="/37/@states.4"
+            sourceState="/37/@states.13"/>
+      </events>
+      <actions
+          xsi:type="StateMachine:CustomAction"
+          title="/ 46: setCorrectOutputs"/>
+    </states>
+    <states
+        name="middleState 45_47">
+      <events
+          xsi:type="StateMachine:CoreEvents"
+          name="FINISHED">
+        <triggerTransition
+            xsi:type="StateMachine:LocalTransition"
+            target="/37/@states.6"
+            sourceState="/37/@states.14"/>
+      </events>
+      <actions
+          xsi:type="StateMachine:CustomAction"
+          title="/ 47: setCorrectOutputs"/>
+    </states>
+    <states
+        name="middleState 40_41">
+      <events
+          xsi:type="StateMachine:CoreEvents"
+          name="FINISHED">
+        <triggerTransition
+            xsi:type="StateMachine:LocalTransition"
+            target="/37/@states.2"
+            sourceState="/37/@states.15"/>
+      </events>
+      <actions
+          xsi:type="StateMachine:CustomAction"
+          title="/ 41: return (correctOutputs)"/>
+    </states>
+    <systemEvents
+        xsi:type="StateMachine:CoreEvents">
+      <triggerTransition
+          xsi:type="StateMachine:LocalTransition"
+          target="/37/@states.0"/>
+    </systemEvents>
+  </StateMachine:StateMachine>
+  <StateMachine:StateMachine
+      name="Thesis definition accuracy :AnnotatedBPMN!KnowledgeChallenge"
+      ownerObject="Student">
+    <states
+        name="Start"
+        isStartState="true">
+      <events
+          xsi:type="StateMachine:CustomEvent"
+          name="51: startChallenge">
+        <triggerTransition
+            xsi:type="StateMachine:LocalTransition"
+            target="/38/@states.1"
+            sourceState="/38/@states.0"/>
+      </events>
+    </states>
+    <states
+        name="51 Received"/>
+    <systemEvents
+        xsi:type="StateMachine:CoreEvents">
+      <triggerTransition
+          xsi:type="StateMachine:LocalTransition"
+          target="/38/@states.0"/>
+    </systemEvents>
+  </StateMachine:StateMachine>
+  <StateMachine:StateMachine
+      name="End of level :AnnotatedBPMN!UI"
+      ownerObject="End of level">
+    <states
+        name="Start"
+        isStartState="true">
+      <events
+          xsi:type="StateMachine:CustomEvent"
+          name="68: show">
+        <triggerTransition
+            xsi:type="StateMachine:LocalTransition"
+            target="/39/@states.1"
+            sourceState="/39/@states.0"/>
+      </events>
+    </states>
+    <states
+        name="68 Received"/>
+    <systemEvents
+        xsi:type="StateMachine:CoreEvents">
+      <triggerTransition
+          xsi:type="StateMachine:LocalTransition"
+          target="/39/@states.0"/>
+    </systemEvents>
+  </StateMachine:StateMachine>
+  <StateMachine:StateMachine
+      name="level result :AnnotatedBPMN!UI"
+      ownerObject="level result">
+    <states
+        name="Start"
+        isStartState="true">
+      <events
+          xsi:type="StateMachine:CustomEvent"
+          name="72: show">
+        <triggerTransition
+            xsi:type="StateMachine:LocalTransition"
+            target="/40/@states.1"
+            sourceState="/40/@states.0"/>
+      </events>
+    </states>
+    <states
+        name="72 Received"/>
+    <systemEvents
+        xsi:type="StateMachine:CoreEvents">
+      <triggerTransition
+          xsi:type="StateMachine:LocalTransition"
+          target="/40/@states.0"/>
+    </systemEvents>
+  </StateMachine:StateMachine>
+  <StateMachine:StateMachine
+      name="form updating :AnnotatedBPMN!State"
+      ownerObject="form Paper">
+    <states
+        name="Start"
+        isStartState="true">
+      <events
+          xsi:type="StateMachine:CustomEvent"
+          name="134: create()">
+        <triggerTransition
+            xsi:type="StateMachine:LocalTransition"
+            target="/41/@states.1"
+            sourceState="/41/@states.0"/>
+      </events>
+    </states>
+    <states
+        name="134 Received">
+      <events
+          xsi:type="StateMachine:CustomEvent"
+          name="88: save updated form in player log(constraint)">
+        <triggerTransition
+            xsi:type="StateMachine:LocalTransition"
+            target="/41/@states.2"
+            sourceState="/41/@states.1"/>
+      </events>
+    </states>
+    <states
+        name="88 Received">
+      <events
+          xsi:type="StateMachine:CoreEvents"
+          name="FINISHED">
+        <triggerTransition
+            xsi:type="StateMachine:LocalTransition"
+            target="/41/@states.3"
+            sourceState="/41/@states.2"/>
+      </events>
+    </states>
+    <states
+        name="89 opt">
+      <events
+          xsi:type="StateMachine:CustomEvent"
+          name="newEvent 132">
+        <triggerTransition
+            xsi:type="StateMachine:LocalTransition"
+            target="/41/@states.4"
+            sourceState="/41/@states.3"/>
+      </events>
+      <actions
+          xsi:type="StateMachine:CustomAction"
+          title="check transition constraint">
+        <parameters
+            name="[ &#x2018;save&#x2019; option is selected ]"/>
+      </actions>
+    </states>
+    <states
+        name="91 Received">
+      <events
+          xsi:type="StateMachine:CustomEvent"
+          name="92: recall Task2 of BP component">
+        <triggerTransition
+            xsi:type="StateMachine:LocalTransition"
+            target="/41/@states.6"
+            sourceState="/41/@states.4"/>
+      </events>
+    </states>
+    <states
+        name="90 Performed">
+      <events
+          xsi:type="StateMachine:CustomEvent"
+          name="91: Player edit something on the form">
+        <triggerTransition
+            xsi:type="StateMachine:LocalTransition"
+            target="/41/@states.4"
+            sourceState="/41/@states.5"/>
+      </events>
+    </states>
+    <states
+        name="92 Received">
+      <events
+          xsi:type="StateMachine:CustomEvent"
+          name="newEvent 133">
+        <triggerTransition
+            xsi:type="StateMachine:LocalTransition"
+            target="/41/@states.12"
+            sourceState="/41/@states.6"/>
+      </events>
+    </states>
+    <states
+        name="179 Performed">
+      <events
+          xsi:type="StateMachine:CustomEvent"
+          name="179: changeState(condition)">
+        <triggerTransition
+            xsi:type="StateMachine:LocalTransition"
+            target="/41/@states.8"
+            sourceState="/41/@states.7"/>
+      </events>
+    </states>
+    <states
+        name="179 Received">
+      <events
+          xsi:type="StateMachine:CoreEvents"
+          name="FINISHED">
+        <triggerTransition
+            xsi:type="StateMachine:LocalTransition"
+            target="/41/@states.10"
+            sourceState="/41/@states.8"/>
+      </events>
+    </states>
+    <states
+        name="93 Performed">
+      <events
+          xsi:type="StateMachine:CustomEvent"
+          name="newEvent 134">
+        <triggerTransition
+            xsi:type="StateMachine:LocalTransition"
+            target="/41/@states.13"
+            sourceState="/41/@states.9"/>
+      </events>
+    </states>
+    <states
+        name="180 alt"/>
+    <states
+        name="middleState 89_90">
+      <events
+          xsi:type="StateMachine:CoreEvents"
+          name="FINISHED">
+        <triggerTransition
+            xsi:type="StateMachine:LocalTransition"
+            target="/41/@states.5"
+            sourceState="/41/@states.11"/>
+      </events>
+      <actions
+          xsi:type="StateMachine:CustomAction"
+          title="/ 90: !not Defined"/>
+    </states>
+    <states
+        name="middleState 92_93">
+      <events
+          xsi:type="StateMachine:CoreEvents"
+          name="FINISHED">
+        <triggerTransition
+            xsi:type="StateMachine:LocalTransition"
+            target="/41/@states.9"
+            sourceState="/41/@states.12"/>
+      </events>
+      <actions
+          xsi:type="StateMachine:CustomAction"
+          title="/ 93: deliver the form to the supervisor"/>
+    </states>
+    <states
+        name="middleState 93_179">
+      <events
+          xsi:type="StateMachine:CoreEvents"
+          name="FINISHED">
+        <triggerTransition
+            xsi:type="StateMachine:LocalTransition"
+            target="/41/@states.7"
+            sourceState="/41/@states.13"/>
+      </events>
+      <actions
+          xsi:type="StateMachine:CustomAction"
+          title="/ 179: changeState(condition)"/>
+    </states>
+    <systemEvents
+        xsi:type="StateMachine:CoreEvents">
+      <triggerTransition
+          xsi:type="StateMachine:LocalTransition"
+          target="/41/@states.0"/>
+    </systemEvents>
+  </StateMachine:StateMachine>
+  <StateMachine:StateMachine
+      name="URL challenge reward :AnnotatedBPMN!ScoringRule"
+      ownerObject="URL challenge reward">
+    <states
+        name="Start"
+        isStartState="true">
+      <events
+          xsi:type="StateMachine:CustomEvent"
+          name="95: calculateScore">
+        <triggerTransition
+            xsi:type="StateMachine:LocalTransition"
+            target="/42/@states.1"
+            sourceState="/42/@states.0"/>
+      </events>
+    </states>
+    <states
+        name="95 Received">
+      <events
+          xsi:type="StateMachine:CoreEvents"
+          name="FINISHED">
+        <triggerTransition
+            xsi:type="StateMachine:LocalTransition"
+            target="/42/@states.2"
+            sourceState="/42/@states.1"/>
+      </events>
+    </states>
+    <states
+        name="96 alt">
+      <events
+          xsi:type="StateMachine:CustomEvent"
+          name="newEvent 135">
+        <triggerTransition
+            xsi:type="StateMachine:LocalTransition"
+            target="/42/@states.5"
+            sourceState="/42/@states.2"/>
+      </events>
+      <actions
+          xsi:type="StateMachine:CustomAction"
+          title="check transition constraint">
+        <parameters
+            name="[ if (user answer=correct answer) add 5 points ]"/>
+      </actions>
+      <actions
+          xsi:type="StateMachine:CustomAction"
+          title="check transition constraint">
+        <parameters
+            name="[ else reduce 3 points ]"/>
+      </actions>
+    </states>
+    <states
+        name="97 Performed">
+      <events
+          xsi:type="StateMachine:CoreEvents"
+          name="FINISHED">
+        <triggerTransition
+            xsi:type="StateMachine:LocalTransition"
+            target="/42/@states.5"
+            sourceState="/42/@states.3"/>
+      </events>
+    </states>
+    <states
+        name="98 Performed">
+      <events
+          xsi:type="StateMachine:CustomEvent"
+          name="newEvent 136">
+        <triggerTransition
+            xsi:type="StateMachine:LocalTransition"
+            target="/42/@states.8"
+            sourceState="/42/@states.4"/>
+      </events>
+    </states>
+    <states
+        name="100 Performed"/>
+    <states
+        name="middleState 96_97">
+      <events
+          xsi:type="StateMachine:CoreEvents"
+          name="FINISHED">
+        <triggerTransition
+            xsi:type="StateMachine:LocalTransition"
+            target="/42/@states.3"
+            sourceState="/42/@states.6"/>
+      </events>
+      <actions
+          xsi:type="StateMachine:CustomAction"
+          title="/ 97: create"/>
+    </states>
+    <states
+        name="middleState 96_98">
+      <events
+          xsi:type="StateMachine:CoreEvents"
+          name="FINISHED">
+        <triggerTransition
+            xsi:type="StateMachine:LocalTransition"
+            target="/42/@states.4"
+            sourceState="/42/@states.7"/>
+      </events>
+      <actions
+          xsi:type="StateMachine:CustomAction"
+          title="/ 98: create"/>
+    </states>
+    <states
+        name="middleState 98_100">
+      <events
+          xsi:type="StateMachine:CoreEvents"
+          name="FINISHED">
+        <triggerTransition
+            xsi:type="StateMachine:LocalTransition"
+            target="/42/@states.5"
+            sourceState="/42/@states.8"/>
+      </events>
+      <actions
+          xsi:type="StateMachine:CustomAction"
+          title="/ 100: !not Defined: save challenge score"/>
+    </states>
+    <systemEvents
+        xsi:type="StateMachine:CoreEvents">
+      <triggerTransition
+          xsi:type="StateMachine:LocalTransition"
+          target="/42/@states.0"/>
+    </systemEvents>
+  </StateMachine:StateMachine>
+  <StateMachine:StateMachine
+      name="5 point :AnnotatedBPMN!Point"
+      ownerObject="point">
+    <states
+        name="Start"
+        isStartState="true">
+      <events
+          xsi:type="StateMachine:CustomEvent"
+          name="97: create">
+        <triggerTransition
+            xsi:type="StateMachine:LocalTransition"
+            target="/43/@states.1"
+            sourceState="/43/@states.0"/>
+      </events>
+    </states>
+    <states
+        name="97 Received"/>
+    <systemEvents
+        xsi:type="StateMachine:CoreEvents">
+      <triggerTransition
+          xsi:type="StateMachine:LocalTransition"
+          target="/43/@states.0"/>
+    </systemEvents>
+  </StateMachine:StateMachine>
+  <StateMachine:StateMachine
+      name="3 point :AnnotatedBPMN!Point"
+      ownerObject="point">
+    <states
+        name="Start"
+        isStartState="true">
+      <events
+          xsi:type="StateMachine:CustomEvent"
+          name="98: create">
+        <triggerTransition
+            xsi:type="StateMachine:LocalTransition"
+            target="/44/@states.1"
+            sourceState="/44/@states.0"/>
+      </events>
+    </states>
+    <states
+        name="98 Received"/>
+    <systemEvents
+        xsi:type="StateMachine:CoreEvents">
+      <triggerTransition
+          xsi:type="StateMachine:LocalTransition"
+          target="/44/@states.0"/>
+    </systemEvents>
+  </StateMachine:StateMachine>
+  <StateMachine:StateMachine
+      name="challenge response checking :AnnotatedBPMN!State"
+      ownerObject="Student">
+    <states
+        name="Start"
+        isStartState="true">
+      <events
+          xsi:type="StateMachine:CustomEvent"
+          name="100: runScoringRule">
+        <triggerTransition
+            xsi:type="StateMachine:LocalTransition"
+            target="/45/@states.1"
+            sourceState="/45/@states.0"/>
+      </events>
+    </states>
+    <states
+        name="100 Received">
+      <events
+          xsi:type="StateMachine:CustomEvent"
+          name="newEvent 137">
+        <triggerTransition
+            xsi:type="StateMachine:LocalTransition"
+            target="/45/@states.3"
+            sourceState="/45/@states.1"/>
+      </events>
+    </states>
+    <states
+        name="101 Performed"/>
+    <states
+        name="middleState 100_101">
+      <events
+          xsi:type="StateMachine:CoreEvents"
+          name="FINISHED">
+        <triggerTransition
+            xsi:type="StateMachine:LocalTransition"
+            target="/45/@states.2"
+            sourceState="/45/@states.3"/>
+      </events>
+      <actions
+          xsi:type="StateMachine:CustomAction"
+          title="/ 101: calculateScore"/>
+    </states>
+    <systemEvents
+        xsi:type="StateMachine:CoreEvents">
+      <triggerTransition
+          xsi:type="StateMachine:LocalTransition"
+          target="/45/@states.0"/>
+    </systemEvents>
+  </StateMachine:StateMachine>
+  <StateMachine:StateMachine
+      name="Thesis definition accuracy challenge reward :AnnotatedBPMN!ScoringRule"
+      ownerObject="Thesis definition accuracy challenge reward">
+    <states
+        name="Start"
+        isStartState="true">
+      <events
+          xsi:type="StateMachine:CustomEvent"
+          name="101: calculateScore">
+        <triggerTransition
+            xsi:type="StateMachine:LocalTransition"
+            target="/46/@states.1"
+            sourceState="/46/@states.0"/>
+      </events>
+    </states>
+    <states
+        name="101 Received">
+      <events
+          xsi:type="StateMachine:CoreEvents"
+          name="FINISHED">
+        <triggerTransition
+            xsi:type="StateMachine:LocalTransition"
+            target="/46/@states.2"
+            sourceState="/46/@states.1"/>
+      </events>
+    </states>
+    <states
+        name="102 alt">
+      <events
+          xsi:type="StateMachine:CustomEvent"
+          name="newEvent 138">
+        <triggerTransition
+            xsi:type="StateMachine:LocalTransition"
+            target="/46/@states.5"
+            sourceState="/46/@states.2"/>
+      </events>
+      <actions
+          xsi:type="StateMachine:CustomAction"
+          title="check transition constraint">
+        <parameters
+            name="[ if (form is accurate) give the player a Badge ]"/>
+      </actions>
+      <actions
+          xsi:type="StateMachine:CustomAction"
+          title="check transition constraint">
+        <parameters
+            name="[ else reduce 1 points from his score for each wrong answer ]"/>
+      </actions>
+    </states>
+    <states
+        name="103 Performed">
+      <events
+          xsi:type="StateMachine:CoreEvents"
+          name="FINISHED">
+        <triggerTransition
+            xsi:type="StateMachine:LocalTransition"
+            target="/46/@states.5"
+            sourceState="/46/@states.3"/>
+      </events>
+    </states>
+    <states
+        name="104 Performed">
+      <events
+          xsi:type="StateMachine:CustomEvent"
+          name="newEvent 139">
+        <triggerTransition
+            xsi:type="StateMachine:LocalTransition"
+            target="/46/@states.8"
+            sourceState="/46/@states.4"/>
+      </events>
+    </states>
+    <states
+        name="106 Performed"/>
+    <states
+        name="middleState 102_103">
+      <events
+          xsi:type="StateMachine:CoreEvents"
+          name="FINISHED">
+        <triggerTransition
+            xsi:type="StateMachine:LocalTransition"
+            target="/46/@states.3"
+            sourceState="/46/@states.6"/>
+      </events>
+      <actions
+          xsi:type="StateMachine:CustomAction"
+          title="/ 103: create"/>
+    </states>
+    <states
+        name="middleState 102_104">
+      <events
+          xsi:type="StateMachine:CoreEvents"
+          name="FINISHED">
+        <triggerTransition
+            xsi:type="StateMachine:LocalTransition"
+            target="/46/@states.4"
+            sourceState="/46/@states.7"/>
+      </events>
+      <actions
+          xsi:type="StateMachine:CustomAction"
+          title="/ 104: create"/>
+    </states>
+    <states
+        name="middleState 104_106">
+      <events
+          xsi:type="StateMachine:CoreEvents"
+          name="FINISHED">
+        <triggerTransition
+            xsi:type="StateMachine:LocalTransition"
+            target="/46/@states.5"
+            sourceState="/46/@states.8"/>
+      </events>
+      <actions
+          xsi:type="StateMachine:CustomAction"
+          title="/ 106: !not Defined: save challenge score"/>
+    </states>
+    <systemEvents
+        xsi:type="StateMachine:CoreEvents">
+      <triggerTransition
+          xsi:type="StateMachine:LocalTransition"
+          target="/46/@states.0"/>
+    </systemEvents>
+  </StateMachine:StateMachine>
+  <StateMachine:StateMachine
+      name="Thesis definition expertise :AnnotatedBPMN!Badge"
+      ownerObject="badge">
+    <states
+        name="Start"
+        isStartState="true">
+      <events
+          xsi:type="StateMachine:CustomEvent"
+          name="103: create">
+        <triggerTransition
+            xsi:type="StateMachine:LocalTransition"
+            target="/47/@states.1"
+            sourceState="/47/@states.0"/>
+      </events>
+    </states>
+    <states
+        name="103 Received"/>
+    <systemEvents
+        xsi:type="StateMachine:CoreEvents">
+      <triggerTransition
+          xsi:type="StateMachine:LocalTransition"
+          target="/47/@states.0"/>
+    </systemEvents>
+  </StateMachine:StateMachine>
+  <StateMachine:StateMachine
+      name="1 point :AnnotatedBPMN!Point"
+      ownerObject="point">
+    <states
+        name="Start"
+        isStartState="true">
+      <events
+          xsi:type="StateMachine:CustomEvent"
+          name="104: create">
+        <triggerTransition
+            xsi:type="StateMachine:LocalTransition"
+            target="/48/@states.1"
+            sourceState="/48/@states.0"/>
+      </events>
+    </states>
+    <states
+        name="104 Received"/>
+    <systemEvents
+        xsi:type="StateMachine:CoreEvents">
+      <triggerTransition
+          xsi:type="StateMachine:LocalTransition"
+          target="/48/@states.0"/>
+    </systemEvents>
+  </StateMachine:StateMachine>
+  <StateMachine:LocalTransition
+      target="/16/@states.29"
+      sourceState="/16/@states.16"/>
+  <StateMachine:LocalTransition
+      target="/26/@states.13"
+      sourceState="/26/@states.7"/>
+  <StateMachine:LocalTransition
+      target="/37/@states.13"
+      sourceState="/37/@states.8"/>
+  <StateMachine:LocalTransition
+      target="/37/@states.14"
+      sourceState="/37/@states.8"/>
+  <StateMachine:LocalTransition
+      target="/41/@states.11"
+      sourceState="/41/@states.3"/>
+  <StateMachine:LocalTransition
+      target="/42/@states.6"
+      sourceState="/42/@states.2"/>
+  <StateMachine:LocalTransition
+      target="/42/@states.7"
+      sourceState="/42/@states.2"/>
+  <StateMachine:LocalTransition
+      target="/46/@states.6"
+      sourceState="/46/@states.2"/>
+  <StateMachine:LocalTransition
+      target="/46/@states.7"
+      sourceState="/46/@states.2"/>
+</xmi:XMI>

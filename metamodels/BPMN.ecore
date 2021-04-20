@@ -1,0 +1,148 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ecore:EPackage xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xmlns:ecore="http://www.eclipse.org/emf/2002/Ecore" name="BPMN" nsURI="www.bpmn.com" nsPrefix="BPMN">
+  <eClassifiers xsi:type="ecore:EClass" name="BusinessProcess">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="name" lowerBound="1" eType="ecore:EDataType /SeGa4Biz/metamodels/BPMN.ecore#//PrimitiveType/String"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="participants" lowerBound="1"
+        upperBound="-1" eType="ecore:EClass /SeGa4Biz/metamodels/BPMN.ecore#//Pool"
+        containment="true" eOpposite="/SeGa4Biz/metamodels/BPMN.ecore#//Pool/ownerBP"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="resources" upperBound="-1"
+        eType="ecore:EClass /SeGa4Biz/metamodels/BPMN.ecore#//Resource" containment="true"
+        eOpposite="/SeGa4Biz/metamodels/BPMN.ecore#//Resource/ownerBP"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="Pool">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="name" lowerBound="1" eType="ecore:EDataType /SeGa4Biz/metamodels/BPMN.ecore#//PrimitiveType/String"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="lanes" lowerBound="1" upperBound="-1"
+        eType="ecore:EClass /SeGa4Biz/metamodels/BPMN.ecore#//Lane" containment="true"
+        eOpposite="/SeGa4Biz/metamodels/BPMN.ecore#//Lane/ownerPool"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="ownerBP" lowerBound="1"
+        eType="ecore:EClass /SeGa4Biz/metamodels/BPMN.ecore#//BusinessProcess"
+        eOpposite="/SeGa4Biz/metamodels/BPMN.ecore#//BusinessProcess/participants"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="msgFlows" upperBound="-1"
+        eType="ecore:EClass /SeGa4Biz/metamodels/BPMN.ecore#//MessageFlow"
+        containment="true" eOpposite="/SeGa4Biz/metamodels/BPMN.ecore#//MessageFlow/ownerPool"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="Lane">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="name" lowerBound="1" eType="ecore:EDataType /SeGa4Biz/metamodels/BPMN.ecore#//PrimitiveType/String"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="ownerPool" lowerBound="1"
+        eType="ecore:EClass /SeGa4Biz/metamodels/BPMN.ecore#//Pool" eOpposite="/SeGa4Biz/metamodels/BPMN.ecore#//Pool/lanes"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="elements" lowerBound="1"
+        upperBound="-1" eType="ecore:EClass /SeGa4Biz/metamodels/BPMN.ecore#//BP_Element"
+        containment="true" eOpposite="/SeGa4Biz/metamodels/BPMN.ecore#//BP_Element/performerLane"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="BP_Element">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="performerLane" lowerBound="1"
+        eType="ecore:EClass /SeGa4Biz/metamodels/BPMN.ecore#//Lane" eOpposite="/SeGa4Biz/metamodels/BPMN.ecore#//Lane/elements"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="flows" upperBound="-1"
+        eType="ecore:EClass /SeGa4Biz/metamodels/BPMN.ecore#//SequenceFlow"
+        containment="true" eOpposite="/SeGa4Biz/metamodels/BPMN.ecore#//SequenceFlow/ownerElement"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="Activity" eSuperTypes="/SeGa4Biz/metamodels/BPMN.ecore#//BP_Element">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="title" lowerBound="1" eType="ecore:EDataType /SeGa4Biz/metamodels/BPMN.ecore#//PrimitiveType/String"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="SubProcess" eSuperTypes="/SeGa4Biz/metamodels/BPMN.ecore#//Activity /SeGa4Biz/metamodels/BPMN.ecore#//BusinessProcess"/>
+  <eClassifiers xsi:type="ecore:EClass" name="EventSubProcess" eSuperTypes="/SeGa4Biz/metamodels/BPMN.ecore#//SubProcess">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="isInterrupting" eType="ecore:EDataType /SeGa4Biz/metamodels/BPMN.ecore#//PrimitiveType/Boolean"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="isNonInterrupting" eType="ecore:EDataType /SeGa4Biz/metamodels/BPMN.ecore#//PrimitiveType/Boolean"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="AdHoc" eSuperTypes="/SeGa4Biz/metamodels/BPMN.ecore#//SubProcess"/>
+  <eClassifiers xsi:type="ecore:EClass" name="Transaction" eSuperTypes="/SeGa4Biz/metamodels/BPMN.ecore#//SubProcess"/>
+  <eClassifiers xsi:type="ecore:EClass" name="Task" eSuperTypes="/SeGa4Biz/metamodels/BPMN.ecore#//Activity">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="type" lowerBound="1" eType="ecore:EEnum /SeGa4Biz/metamodels/BPMN.ecore#//TaskType"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EEnum" name="TaskType">
+    <eLiterals name="userTask"/>
+    <eLiterals name="manualTask" value="1"/>
+    <eLiterals name="serviceTask" value="2"/>
+    <eLiterals name="sendEmailTask" value="3"/>
+    <eLiterals name="receiveEmailTask" value="4"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="SequenceFlow">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="description" eType="ecore:EDataType /SeGa4Biz/metamodels/BPMN.ecore#//PrimitiveType/String"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="ownerElement" lowerBound="1"
+        eType="ecore:EClass /SeGa4Biz/metamodels/BPMN.ecore#//BP_Element"
+        eOpposite="/SeGa4Biz/metamodels/BPMN.ecore#//BP_Element/flows"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="target" lowerBound="1"
+        eType="ecore:EClass /SeGa4Biz/metamodels/BPMN.ecore#//BP_Element"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="MessageFlow">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="ownerPool" lowerBound="1"
+        eType="ecore:EClass /SeGa4Biz/metamodels/BPMN.ecore#//Pool" eOpposite="/SeGa4Biz/metamodels/BPMN.ecore#//Pool/msgFlows"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="target" lowerBound="1"
+        eType="ecore:EClass /SeGa4Biz/metamodels/BPMN.ecore#//Pool"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="DataAssociationFlow">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="type" lowerBound="1" eType="ecore:EEnum /SeGa4Biz/metamodels/BPMN.ecore#//DataAssociationFlowType"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="ownerResource" lowerBound="1"
+        eType="ecore:EClass /SeGa4Biz/metamodels/BPMN.ecore#//Resource" eOpposite="/SeGa4Biz/metamodels/BPMN.ecore#//Resource/flows"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="sourceOrTarget" lowerBound="1"
+        eType="ecore:EClass /SeGa4Biz/metamodels/BPMN.ecore#//Task"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EEnum" name="DataAssociationFlowType">
+    <eLiterals name="inputFlow"/>
+    <eLiterals name="outputFlow" value="1"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="Event" eSuperTypes="/SeGa4Biz/metamodels/BPMN.ecore#//BP_Element">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="triggerType" lowerBound="1"
+        eType="ecore:EEnum /SeGa4Biz/metamodels/BPMN.ecore#//EventTriggerType"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="StartEvent" eSuperTypes="/SeGa4Biz/metamodels/BPMN.ecore#//Event">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="isInterrupting" lowerBound="1"
+        eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBoolean"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="IntermediateEvent" eSuperTypes="/SeGa4Biz/metamodels/BPMN.ecore#//Event">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="isInterrupting" lowerBound="1"
+        eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBoolean"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="EndEvent" eSuperTypes="/SeGa4Biz/metamodels/BPMN.ecore#//Event"/>
+  <eClassifiers xsi:type="ecore:EEnum" name="EventTriggerType">
+    <eLiterals name="none"/>
+    <eLiterals name="MessageCatching" value="1"/>
+    <eLiterals name="MessageThrowing" value="2"/>
+    <eLiterals name="Timer" value="3"/>
+    <eLiterals name="ErrorCatching" value="4"/>
+    <eLiterals name="ErrorThrowing" value="5"/>
+    <eLiterals name="CancelCatching" value="6"/>
+    <eLiterals name="CancelThrowing" value="7"/>
+    <eLiterals name="Conditional" value="8"/>
+    <eLiterals name="LinkCatching" value="9"/>
+    <eLiterals name="LinkThrowing" value="10"/>
+    <eLiterals name="signalCatching" value="11"/>
+    <eLiterals name="SignalThrowing" value="12"/>
+    <eLiterals name="terminate" value="13"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="Resource">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="title" lowerBound="1" eType="ecore:EDataType /SeGa4Biz/metamodels/BPMN.ecore#//PrimitiveType/String"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="flows" lowerBound="1" upperBound="-1"
+        eType="ecore:EClass /SeGa4Biz/metamodels/BPMN.ecore#//DataAssociationFlow"
+        containment="true" eOpposite="/SeGa4Biz/metamodels/BPMN.ecore#//DataAssociationFlow/ownerResource"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="ownerBP" lowerBound="1"
+        eType="ecore:EClass /SeGa4Biz/metamodels/BPMN.ecore#//BusinessProcess"
+        eOpposite="/SeGa4Biz/metamodels/BPMN.ecore#//BusinessProcess/resources"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="DataObject" eSuperTypes="/SeGa4Biz/metamodels/BPMN.ecore#//Resource"/>
+  <eClassifiers xsi:type="ecore:EClass" name="DataStore" eSuperTypes="/SeGa4Biz/metamodels/BPMN.ecore#//Resource"/>
+  <eClassifiers xsi:type="ecore:EClass" name="Gateway" eSuperTypes="/SeGa4Biz/metamodels/BPMN.ecore#//BP_Element"/>
+  <eClassifiers xsi:type="ecore:EClass" name="Exclusive" eSuperTypes="/SeGa4Biz/metamodels/BPMN.ecore#//Gateway">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="triggerCondition" lowerBound="1"
+        eType="ecore:EDataType /SeGa4Biz/metamodels/BPMN.ecore#//PrimitiveType/String"
+        iD="true"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="Inclusive" eSuperTypes="/SeGa4Biz/metamodels/BPMN.ecore#//Gateway">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="triggerCondition" lowerBound="1"
+        eType="ecore:EDataType /SeGa4Biz/metamodels/BPMN.ecore#//PrimitiveType/String"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="Parallel" eSuperTypes="/SeGa4Biz/metamodels/BPMN.ecore#//Gateway"/>
+  <eClassifiers xsi:type="ecore:EClass" name="EventBased" eSuperTypes="/SeGa4Biz/metamodels/BPMN.ecore#//Gateway">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="triggerEvent" lowerBound="1"
+        eType="ecore:EDataType /SeGa4Biz/metamodels/BPMN.ecore#//PrimitiveType/String"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="Complex" eSuperTypes="/SeGa4Biz/metamodels/BPMN.ecore#//Gateway">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="description" lowerBound="1"
+        eType="ecore:EDataType /SeGa4Biz/metamodels/BPMN.ecore#//PrimitiveType/String"/>
+  </eClassifiers>
+  <eSubpackages name="PrimitiveType" nsURI="www.PrimitiveType.com" nsPrefix="PrimitiveType">
+    <eClassifiers xsi:type="ecore:EDataType" name="String"/>
+    <eClassifiers xsi:type="ecore:EDataType" name="Boolean"/>
+  </eSubpackages>
+</ecore:EPackage>

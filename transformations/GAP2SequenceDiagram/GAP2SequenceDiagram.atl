@@ -1,0 +1,1024 @@
+-- @path SD=/SeGa4Biz/metamodels/SD.ecore
+-- @path GAP=/SeGa4Biz/metamodels/GAP.ecore
+
+module GAP2SequenceDiagram;
+create OUT: SD from IN: GAP;
+
+helper def: sequenceDiagram : SD!SequenceDiagram = OclUndefined;
+helper def: playerLifeline: SD!Lifeline = OclUndefined;
+helper def: msgID : Integer = 0;
+
+helper def: player :  GAP!PlayerCharacter = 
+	 GAP!PlayerCharacter->allInstances()->first();
+
+entrypoint rule sequenceDiagram (){
+	to
+		sd: SD!SequenceDiagram(
+			title <- GAP!GameLevel.allInstances().first().levelTitle)
+	do{
+		thisModule.sequenceDiagram <- sd;
+		thisModule.playerCharacterLifeline(thisModule.player);
+	}
+}
+unique lazy rule playerCharacterLifeline{
+	from
+		player: GAP!PlayerCharacter
+	to
+		lifeline: SD!Lifeline(
+			name <-  'Player:' + player.name,
+			ownerDiagram <- thisModule.sequenceDiagram,
+			ownerObject <- player.name)
+	do{
+		thisModule.playerLifeline <- lifeline;
+	}
+}
+--create lifelines
+unique lazy rule gameLevel2lifeline{
+	from
+		gameLevel: GAP!GameLevel
+	to
+		lifeline: SD!Lifeline(
+			name <- gameLevel.levelTitle.regexReplaceAll(' ', '_'),
+			ownerDiagram <- thisModule.sequenceDiagram,
+			ownerObject <- gameLevel.levelTitle)
+}
+unique lazy rule nonUIgameObject2lifeline{
+	from
+		gameObject: GAP!GameObject (
+			not gameObject.oclIsKindOf(GAP!UI)
+			and not gameObject.oclIsKindOf(GAP!PlayerCharacter))
+	to
+		lifeline: SD!Lifeline(
+			name <- gameObject.name.regexReplaceAll(' ', '_'),
+			ownerDiagram <- thisModule.sequenceDiagram,
+			ownerObject <- gameObject.name)
+}
+unique lazy rule UIgameObject2lifeline{
+	from
+		gameObject: GAP!GameObject (
+			gameObject.oclIsTypeOf(GAP!UI))
+	to
+		lifeline: SD!Lifeline(
+			name <- gameObject.name.regexReplaceAll(' ', '_'),
+			ownerDiagram <- thisModule.sequenceDiagram,
+			ownerObject <- gameObject.name)
+}
+unique lazy rule playerLog2lifeline{
+	from
+		playerLog: GAP!PlayerLog
+	to
+		lifeline: SD!Lifeline(
+			name <- playerLog.name.regexReplaceAll(' ', '_'),
+			ownerDiagram <- thisModule.sequenceDiagram,
+			ownerObject <- playerLog.name)
+}
+unique lazy rule state2lifeline{
+	from
+		state: GAP!State
+	to
+		lifeline: SD!Lifeline(
+			name <- state.name.regexReplaceAll(' ', '_'),
+			ownerDiagram <- thisModule.sequenceDiagram,
+			ownerObject <- 
+				if (not state.ownerObject.oclIsUndefined()) then
+					state.ownerObject.name
+				else
+					state.ownerChallenge.ownerPlayer.name
+				endif)
+}
+unique lazy rule capability2lifeline{
+	from
+		capability: GAP!Capability
+	to
+		lifeline: SD!Lifeline(
+			name <- capability.title.regexReplaceAll(' ', '_'),
+			ownerDiagram <- thisModule.sequenceDiagram,
+			ownerObject <- capability.ownerPlayer.name)
+}
+unique lazy rule challenge2lifeline{
+	from
+		challenge: GAP!Challenge
+	to
+		lifeline: SD!Lifeline(
+			name <- challenge.title.regexReplaceAll(' ', '_'),
+			ownerDiagram <- thisModule.sequenceDiagram,
+			ownerObject <- challenge.ownerPlayer.name)
+}
+
+unique lazy rule scoringRule2lifeline{
+	from
+		scoringRule: GAP!ScoringRule
+	to
+		lifeline: SD!Lifeline(
+			name <- scoringRule.title.regexReplaceAll(' ', '_'),
+			ownerDiagram <- thisModule.sequenceDiagram,
+			ownerObject <- scoringRule.title)
+}
+unique lazy rule point2lifeline{
+	from
+		point: GAP!Point
+	to
+		lifeline: SD!Lifeline(
+			name <-  point.value.toString() + '_point',
+			ownerDiagram <- thisModule.sequenceDiagram,
+			ownerObject <- 'point')
+}
+unique lazy rule badge2lifeline{
+	from
+		badge: GAP!Badge
+	to
+		lifeline: SD!Lifeline(
+			name <- badge.title.regexReplaceAll(' ', '_'),
+			ownerDiagram <- thisModule.sequenceDiagram,
+			ownerObject <- 'badge')
+}
+unique lazy rule certificate2lifeline{
+	from
+		certificate: GAP!Certificate
+	to
+		lifeline: SD!Lifeline(
+			name <- certificate.title.regexReplaceAll(' ', '_'),
+			ownerDiagram <- thisModule.sequenceDiagram,
+			ownerObject <- 'certificate')
+}
+unique lazy rule newLevelLifeline{
+	from
+		newLevel: GAP!NewLevel
+	to
+		lifeline: SD!Lifeline(
+			name <- 'newLevel Instance',
+			ownerDiagram <- thisModule.sequenceDiagram,
+			ownerObject <- 'newLevel')
+}
+unique lazy rule leaderboardLifeline{
+	from
+		leaderboard: GAP!LeaderBoard
+	to
+		lifeline: SD!Lifeline(
+			name <- 'leaderboard Instance',
+			ownerDiagram <- thisModule.sequenceDiagram,
+			ownerObject <- 'leaderBoard')
+}
+
+unique lazy rule lane2Lifeline{
+	from
+		lane: GAP!Lane
+	to
+		lifeline: SD!Lifeline(
+			name <- lane.name.regexReplaceAll(' ', '_') +':Lane',
+			ownerDiagram <- thisModule.sequenceDiagram,
+			ownerObject <- lane.name + '_lane')
+}
+unique lazy rule resource2Lifeline{
+	from
+		resource: GAP!Resource
+	to
+		lifeline: SD!Lifeline(
+			name <- resource.title.regexReplaceAll(' ', '_')+':Resource',
+			ownerDiagram <- thisModule.sequenceDiagram,
+			ownerObject <- resource.title)
+}
+rule Game_DB_WorkerLifeline(){
+	to
+		lifeline: SD!Lifeline(
+			name <- 'Game_DB_Worker Instance',
+			ownerDiagram <- thisModule.sequenceDiagram,
+			ownerObject <- 'Game_DB_Worker' )
+}
+rule BP_DB_WorkerLifeline(){
+	to
+		lifeline: SD!Lifeline(
+			name <- 'BP_DB_Worker Instance',
+			ownerDiagram <- thisModule.sequenceDiagram,
+			ownerObject <- 'BP_DB_Worker')
+}
+rule action2message{
+	from
+		action: GAP!Action(
+			action.title <> 'runScoringRule')
+	using{
+		lifeline: SD!Lifeline = 
+			if (not action.triggers.oclIsUndefined() and action.triggers.size()>0) then
+				thisModule.state2lifeline(action.triggers->first().source.ownerState)
+			else
+				if (action.isPlayerRequest) then
+					thisModule.playerLifeline
+				else
+					thisModule.state2lifeline(action.ownerState)
+				endif
+			endif;
+		constraintParameter : String = 
+			if (action.constraints.size()>0) then
+				'constraint'
+			else
+				OclUndefined
+			endif;
+		artParameter : String =  
+			if (action.relatedElementType.toString() = 'art' and not action.relatedArt.oclIsUndefined()) then
+				action.relatedArt.oclType().toString().substring(15, action.relatedArt.oclType().toString().size())
+			else
+				OclUndefined
+			endif;
+		title: String = action.title + 
+			(if (not constraintParameter.oclIsUndefined() and not artParameter.oclIsUndefined()) then
+				'(' +constraintParameter + ',' + artParameter + ')'
+			else
+				if (constraintParameter.oclIsUndefined() and not artParameter.oclIsUndefined()) then
+					'(' +artParameter + ')'
+				else
+					if (artParameter.oclIsUndefined() and not constraintParameter.oclIsUndefined())then
+						'(' +constraintParameter + ')'
+					else
+						''
+					endif
+				endif
+			endif);
+		}
+	to
+		sendActionMsg: SD!Message(
+			ID <- thisModule.msgID.toString(),
+			action <- title,
+			isSendMsg <- true,
+			ownerLifeline <- lifeline,
+			sourceLifeline <- lifeline,
+			targetLifeline <- thisModule.state2lifeline(action.ownerState)),
+		receiveActionMsg: SD!Message(
+			ID <- thisModule.msgID.toString(),
+			action <- title,
+			isReceiveMsg <- true,
+			ownerLifeline <- thisModule.state2lifeline(action.ownerState),
+			sourceLifeline <- lifeline,
+			targetLifeline <- thisModule.state2lifeline(action.ownerState))
+	do{
+		thisModule.msgID <- thisModule.msgID + 1;
+		if (action.constraints.size()>0) thisModule.action2fragment(action);
+		action.callModules();
+	}
+}
+helper context  GAP!Action def: callModules() : OclAny = 
+	if (self.relatedElementType.toString() = 'bpElement'
+			and not self.relatedBPelement.oclIsUndefined()) then
+			thisModule.actionRelatedToBPelement(self)
+		else
+			if (self.relatedElementType.toString() = 'challenge'
+				and not self.relatedChallenge.oclIsUndefined()) then
+				thisModule.actionRelatedToChallenge(self)
+			else
+				if (self.relatedElementType.toString() = 'log'
+					and not self.relatedLog.oclIsUndefined()) then
+					thisModule.actionRelatedToLog(self)
+				else
+					if (self.relatedElementType.toString() = 'screen'
+						and not self.relatedScreen.oclIsUndefined()) then
+						thisModule.actionRelatedToScreen(self)
+					else
+						OclUndefined
+					endif
+				endif
+			endif
+		endif;
+
+
+unique lazy rule action2fragment{
+	from
+		action: GAP!Action (action.constraints.size()> 0)
+	to
+		optFragment: SD!CombinedFragment(
+			ID <- thisModule.msgID.toString(),
+			type <- 'opt',
+			ownerLifeline <- thisModule.state2lifeline(action.ownerState)),
+		operand: SD!Operand(
+			guard <- action.constraints-> collect(a | a.description),
+			ownerFragment <- optFragment)
+	do{
+		thisModule.msgID <- thisModule.msgID + 1; 
+	}
+}
+helper context GAP!Event def: eventOperationName : String = 
+	if self.oclIsKindOf(GAP!StartEvent) then 
+			'startEvent'
+	else
+		if self.oclIsKindOf(GAP!EndEvent) then
+			'endEvent'
+		else
+			'intermediateEvent'
+		endif
+	endif;
+
+unique lazy rule actionRelatedToBPelement{
+	from
+		action: GAP!Action
+	using{
+		activity: GAP!Activity = action.relatedBPelement;
+		event: GAP!Event = action.relatedBPelement;
+		gateway: GAP!Gateway = action.relatedBPelement;
+		exclusiveGateway: GAP!Exclusive = gateway;
+		inclusiveGateway: GAP!Inclusive = gateway;
+		parallelGateway: GAP!Parallel = gateway;
+		eventBasedGateway: GAP!EventBased = gateway;
+		complexGateway: GAP!Complex = gateway;
+		actionTitle: String =
+			if (action.relatedBPelement.oclIsKindOf(GAP!Activity)) then
+				activity.title
+			else
+				if (action.relatedBPelement.oclIsKindOf(GAP!Event)) then
+					if event.triggerType.toString()<>'none' then 
+						event.eventOperationName + '_' + event.triggerType.toString()
+					else
+						event.eventOperationName
+					endif
+				else
+					if (action.relatedBPelement.oclIsKindOf(GAP!Gateway)) then
+						if (gateway.oclIsKindOf(GAP!Exclusive)) then
+							exclusiveGateway.triggerCondition
+						else
+							if (gateway.oclIsKindOf(GAP!Inclusive)) then
+								inclusiveGateway.triggerCondition
+							else
+								if (gateway.oclIsKindOf(GAP!Parallel)) then
+									'parallelGateway'
+								else
+									if (gateway.oclIsKindOf(GAP!EventBased)) then
+										eventBasedGateway.triggerEvent
+									else
+										if (gateway.oclIsKindOf(GAP!Complex)) then
+											complexGateway.description
+										else
+											OclUndefined
+										endif
+									endif
+								endif
+							endif
+						endif
+					else
+						OclUndefined
+				endif
+			endif
+		endif;
+		fragment: SD!CombinedFragment=  
+			if (action.constraints.size()> 0) then
+				thisModule.action2fragment(action)
+			else
+				OclUndefined
+			endif;
+		operand: SD!Operand = 
+			if (not fragment.oclIsUndefined()) then
+				fragment.operands.first()
+			else
+				OclUndefined
+			endif;
+	}
+	to
+		sendMsgToBP: SD!Message (
+			ID <- thisModule.msgID.toString(),
+			action <- actionTitle,
+			isSendMsg <- true,
+			relatedOperand <- operand,
+			ownerLifeline <- thisModule.state2lifeline(action.ownerState),
+			sourceLifeline <- thisModule.state2lifeline(action.ownerState),
+			targetLifeline <- thisModule.lane2Lifeline(action.relatedBPelement.performerLane),
+			previous <- 
+				if (operand.oclIsUndefined()) then
+					thisModule.resolveTemp(action, 'receiveActionMsg')
+				else
+					operand.ownerFragment
+				endif),
+		bpReceivedMsg: SD!Message (
+			ID <- thisModule.msgID.toString(),
+			action <- actionTitle,
+			isReceiveMsg <- true,
+			relatedOperand <- operand,
+			ownerLifeline <- thisModule.lane2Lifeline(action.relatedBPelement.performerLane),
+			sourceLifeline <- thisModule.state2lifeline(action.ownerState),
+			targetLifeline <- thisModule.lane2Lifeline(action.relatedBPelement.performerLane))
+	do{
+		thisModule.msgID <- thisModule.msgID +1;
+		action.relatedBPelement.dataFlowsRelatedToTask;
+		action.relatedBPelement.createGatewayFragment;
+		thisModule.returnMsg(action.relatedBPelement.performerLane,action.ownerState);
+	}
+}
+
+helper context GAP!BP_Element def: dataFlowsRelatedToTask : OclAny = 
+	let task: GAP!Task = 
+		if (self.oclIsKindOf(GAP!Activity)) then
+			self
+		else
+			OclUndefined
+		endif
+	in
+	let taskDataAssociations: Sequence (GAP!DataAssociationFlow) = 
+		GAP!DataAssociationFlow->allInstances()->select(d | d.sourceOrTarget=task) in
+		taskDataAssociations -> collect(t | t.dataAssociationMsgs);
+
+helper context GAP!DataAssociationFlow def: dataAssociationMsgs: OclAny = 
+	if (self.type.toString()='inputFlow')then
+		thisModule.inputDataAssociation2message(self)
+	else
+		thisModule.outputDataAssociation2message(self)
+	endif;
+
+helper context GAP!BP_Element def: createGatewayFragment : OclAny = 
+	let gateway: GAP!Gateway = 
+		if (self.oclIsKindOf(GAP!Gateway)) then
+			self
+		else
+			OclUndefined
+		endif
+	in
+	if (not gateway.oclIsUndefined()) then
+		thisModule.gateway2Fragment(gateway)
+	else
+		OclUndefined
+	endif;
+
+unique lazy rule inputDataAssociation2message{
+	from
+		dataAssociation: GAP!DataAssociationFlow(
+			dataAssociation.type.toString() = 'inputFlow')
+	to
+		sendMsg: SD!Message (
+			ID <- thisModule.msgID.toString(),
+			action <- '!not defined: create/ update/ delete?',
+			isSendMsg <- true,
+			ownerLifeline <- thisModule.lane2Lifeline(dataAssociation.sourceOrTarget.performerLane),
+			sourceLifeline <- thisModule.lane2Lifeline(dataAssociation.sourceOrTarget.performerLane),
+			targetLifeline <- thisModule.resource2Lifeline(dataAssociation.ownerResource)),
+		receiveMsg: SD!Message (
+			ID <- thisModule.msgID.toString(),
+			action <- '!not defined: create/ update/ delete?',
+			isReceiveMsg <- true,
+			ownerLifeline <- thisModule.resource2Lifeline(dataAssociation.ownerResource),
+			sourceLifeline <- thisModule.lane2Lifeline(dataAssociation.sourceOrTarget.performerLane),
+			targetLifeline <- thisModule.resource2Lifeline(dataAssociation.ownerResource))
+	do{
+		thisModule.msgID <- thisModule.msgID + 1; 
+	}
+}
+unique lazy rule outputDataAssociation2message{
+	from
+		dataAssociation: GAP!DataAssociationFlow(
+			dataAssociation.type.toString() = 'outputFlow')
+	to
+		sendMsg: SD!Message (
+			ID <- thisModule.msgID.toString(),
+			action <- 'read',
+			isSendMsg <- true,
+			ownerLifeline <- thisModule.lane2Lifeline(dataAssociation.sourceOrTarget.performerLane),
+			sourceLifeline <- thisModule.lane2Lifeline(dataAssociation.sourceOrTarget.performerLane),
+			targetLifeline <- thisModule.resource2Lifeline(dataAssociation.ownerResource)),
+		receiveMsg: SD!Message (
+			ID <- thisModule.msgID.toString(),
+			action <- 'read',
+			isReceiveMsg <- true,
+			ownerLifeline <- thisModule.resource2Lifeline(dataAssociation.ownerResource),
+			sourceLifeline <- thisModule.lane2Lifeline(dataAssociation.sourceOrTarget.performerLane),
+			targetLifeline <- thisModule.resource2Lifeline(dataAssociation.ownerResource))
+	do{
+		thisModule.msgID <- thisModule.msgID + 1; 
+	}
+}
+unique lazy rule gateway2Fragment{
+	from
+		gateway: GAP!Gateway
+	using{
+		fragmentType: String = 
+			if (gateway.oclIsKindOf(GAP!Exclusive) or
+				gateway.oclIsKindOf(GAP!EventBased) or
+				gateway.oclIsKindOf(GAP!Complex)) then
+				'alt'
+			else
+				if (gateway.oclIsKindOf(GAP!Inclusive) or
+					gateway.oclIsKindOf(GAP!Parallel))then
+					'par'
+				else
+					OclUndefined
+				endif
+			endif;
+		
+		callerAction:GAP!Action = 
+			GAP!Action->allInstances()->select(a | a.relatedBPelement = gateway)->first();
+		}
+	to
+		fragment: SD!CombinedFragment(
+			ID <- thisModule.msgID.toString(),
+			type <- fragmentType,
+			ownerLifeline <- thisModule.lane2Lifeline(gateway.performerLane),
+			previous <- thisModule.resolveTemp(callerAction, 'bpReceivedMsg'))
+	do{
+		thisModule.msgID <- thisModule.msgID + 1;
+		fragment.operands <- gateway.flows -> collect(f | thisModule.gatewayOperandPart(f,fragment));
+	}
+}
+unique lazy rule gatewayOperandPart{
+	from
+		flow: GAP!SequenceFlow,
+		fragment: SD!CombinedFragment
+	to
+		operand: SD!Operand(
+			guard <- '!not Defined',
+			ownerFragment <- fragment), 
+		sendSetOutput: SD!Message (
+			ID <- thisModule.msgID.toString(),
+			action <- 'setCorrectOutputs',
+			isSendMsg <- true,
+			relatedOperand <- operand,
+			ownerLifeline <- fragment.ownerLifeline,
+			sourceLifeline <- fragment.ownerLifeline,
+			targetLifeline <- fragment.ownerLifeline,
+			previous <- fragment,
+			next <- receiveSetOutput),
+		receiveSetOutput: SD!Message (
+			ID <- thisModule.msgID.toString(),
+			action <- 'setCorrectOutputs',
+			isReceiveMsg <- true,
+			relatedOperand <- operand,
+			ownerLifeline <- fragment.ownerLifeline,
+			sourceLifeline <- fragment.ownerLifeline,
+			targetLifeline <- fragment.ownerLifeline,
+			previous <- sendSetOutput)
+	do{
+		thisModule.msgID <- thisModule.msgID + 1;
+	}
+}
+unique lazy rule returnMsg{
+	from
+		lane:  GAP!Lane,
+		state: GAP!State
+	to
+		sendReturnMessage: SD!Message (
+			ID <- thisModule.msgID.toString(),
+			action <- 'return (correctOutputs)',
+			isSendMsg <- true,
+			ownerLifeline <- thisModule.lane2Lifeline(lane),
+			sourceLifeline <- thisModule.lane2Lifeline(lane),
+			targetLifeline <- thisModule.state2lifeline(state)),
+		receiveReturnMessage: SD!Message (
+			ID <- thisModule.msgID.toString(),
+			action <- 'return (correctOutputs)',
+			isReceiveMsg <- true,
+			ownerLifeline <- thisModule.state2lifeline(state),
+			sourceLifeline <- thisModule.lane2Lifeline(lane),
+			targetLifeline <- thisModule.state2lifeline(state))
+	do{
+		thisModule.msgID <- thisModule.msgID + 1;
+	}
+}
+unique lazy rule actionRelatedToLog{
+	from
+		action: GAP!Action
+	using{
+		fragment: SD!CombinedFragment=  
+			if (action.constraints.size()> 0) then
+				thisModule.action2fragment(action)
+			else
+				OclUndefined
+			endif;
+		operand: SD!Operand = 
+			if (not fragment.oclIsUndefined()) then
+				fragment.operands.first()
+			else
+				OclUndefined
+			endif;
+		}
+	to
+		sendMsgToLog: SD!Message (
+			ID <- thisModule.msgID.toString(),
+			action <- '!not Defined',
+			isSendMsg <- true,
+			relatedOperand <- operand,
+			ownerLifeline <- thisModule.state2lifeline(action.ownerState),
+			sourceLifeline <-thisModule.state2lifeline(action.ownerState),
+			targetLifeline <- thisModule.playerLog2lifeline(action.relatedLog),
+			previous <- 
+				if (operand.oclIsUndefined()) then
+					thisModule.resolveTemp(action, 'receiveActionMsg')
+				else
+					operand.ownerFragment
+				endif),
+		logReceivedMsg: SD!Message (
+			ID <- thisModule.msgID.toString(),
+			action <- '!not Defined',
+			isReceiveMsg <- true,
+			relatedOperand <- operand,
+			ownerLifeline <- thisModule.playerLog2lifeline(action.relatedLog),
+			sourceLifeline <- thisModule.state2lifeline(action.ownerState),
+			targetLifeline <- thisModule.playerLog2lifeline(action.relatedLog))
+	do{
+		thisModule.msgID <- thisModule.msgID + 1; 	
+	}
+}
+unique lazy rule actionRelatedToChallenge{
+	from
+		action: GAP!Action
+	using{
+		fragment: SD!CombinedFragment=  
+			if (action.constraints.size()> 0) then
+				thisModule.action2fragment(action)
+			else
+				OclUndefined
+			endif;
+		operand: SD!Operand = 
+			if (not fragment.oclIsUndefined()) then
+				fragment.operands.first()
+			else
+				OclUndefined
+			endif;
+		}
+	to
+		sendStartToChallenge: SD!Message (
+			ID <- thisModule.msgID.toString(),
+			action <- 'startChallenge',
+			isSendMsg <- true,
+			relatedOperand <- operand,
+			ownerLifeline <- thisModule.state2lifeline(action.ownerState),
+			sourceLifeline <-thisModule.state2lifeline(action.ownerState),
+			targetLifeline <- thisModule.challenge2lifeline(action.relatedChallenge),
+			previous <- 
+				if (operand.oclIsUndefined()) then
+					thisModule.resolveTemp(action, 'receiveActionMsg')
+				else
+					operand.ownerFragment
+				endif),
+		challengeReceivedMsg: SD!Message (
+			ID <- thisModule.msgID.toString(),
+			action <- 'startChallenge',
+			isReceiveMsg <- true,
+			relatedOperand <- operand,
+			ownerLifeline <- thisModule.challenge2lifeline(action.relatedChallenge),
+			sourceLifeline <- thisModule.state2lifeline(action.ownerState),
+			targetLifeline <- thisModule.challenge2lifeline(action.relatedChallenge))
+	do{
+		thisModule.msgID <- thisModule.msgID + 1;
+		for (object in action.relatedChallenge.newObjects){
+			thisModule.initializeChallengeObjects(object, action);
+		}
+	}
+}
+
+unique lazy rule initializeChallengeObjects{
+	from
+		object: GAP!GameObject,
+		action: GAP!Action
+	using{
+		fragment: SD!CombinedFragment=  
+			if (action.constraints.size()> 0) then
+				thisModule.action2fragment(action)
+			else
+				OclUndefined
+			endif;
+		operand: SD!Operand = 
+			if (not fragment.oclIsUndefined()) then
+				fragment.operands.first()
+			else
+				OclUndefined
+			endif;
+	}
+	to
+		sendShowMsg: SD!Message (
+			ID <- thisModule.msgID.toString(),
+			action <- 'show',
+			isSendMsg <- true,
+			relatedOperand <- operand,
+			ownerLifeline <- thisModule.challenge2lifeline(action.relatedChallenge),
+			sourceLifeline <- thisModule.challenge2lifeline(action.relatedChallenge),
+			targetLifeline <- thisModule.nonUIgameObject2lifeline(object)),
+		receiveShowMsg: SD!Message (
+			ID <- thisModule.msgID.toString(),
+			action <- 'show',
+			isReceiveMsg <- true,
+			relatedOperand <- operand,
+			ownerLifeline <- thisModule.nonUIgameObject2lifeline(object),
+			sourceLifeline <- thisModule.challenge2lifeline(action.relatedChallenge),
+			targetLifeline <- thisModule.nonUIgameObject2lifeline(object))
+	do{
+		thisModule.msgID <- thisModule.msgID + 1; 
+	}
+}
+unique lazy rule actionRelatedToScreen{
+	from
+		action: GAP!Action
+	using{
+		fragment: SD!CombinedFragment=  
+			if (action.constraints.size()> 0) then
+				thisModule.action2fragment(action)
+			else
+				OclUndefined
+			endif;
+		operand: SD!Operand = 
+			if (not fragment.oclIsUndefined()) then
+				fragment.operands.first()
+			else
+				OclUndefined
+			endif;
+		}
+	to
+		sendShowMsg: SD!Message (
+			ID <- thisModule.msgID.toString(),
+			action <- 
+				if (action.isPlayerRequest) then
+					'select'
+				else
+					'show'
+				endif,
+			isSendMsg <- true,
+			relatedOperand <- operand,
+			ownerLifeline <- thisModule.state2lifeline(action.ownerState),
+			sourceLifeline <- thisModule.state2lifeline(action.ownerState),
+			targetLifeline <- thisModule.UIgameObject2lifeline(action.relatedScreen),
+			previous <- 
+				if (operand.oclIsUndefined()) then
+					thisModule.resolveTemp(action, 'receiveActionMsg')
+				else
+					operand.ownerFragment
+				endif),
+		screenReceivedMsg: SD!Message (
+			ID <- thisModule.msgID.toString(),
+			action <-
+				if (action.isPlayerRequest) then
+					'select'
+				else
+					'show'
+				endif,
+			isReceiveMsg <- true,
+			relatedOperand <- operand,
+			ownerLifeline <- thisModule.UIgameObject2lifeline(action.relatedScreen),
+			sourceLifeline <- thisModule.state2lifeline(action.ownerState),
+			targetLifeline <- thisModule.UIgameObject2lifeline(action.relatedScreen))
+	do{
+		thisModule.msgID <- thisModule.msgID + 1; 
+	}
+}
+rule runScoringRule{
+	from
+		action: GAP!Action(
+			action.title = 'runScoringRule')
+	using{
+		fragment: SD!CombinedFragment=  
+			if (action.constraints.size()> 0) then
+				thisModule.action2fragment(action)
+			else
+				OclUndefined
+			endif;
+		operand: SD!Operand = 
+			if (not fragment.oclIsUndefined()) then
+				fragment.operands.first()
+			else
+				OclUndefined
+			endif;
+		callerState: GAP!State = action.triggers.first().source.ownerState;
+	}
+	to
+		sendRunScoringRule: SD!Message (
+			ID <- thisModule.msgID.toString(),
+			action <- 'runScoringRule',
+			isSendMsg <- true,
+			ownerLifeline <- thisModule.state2lifeline(callerState),
+			sourceLifeline <- thisModule.state2lifeline(callerState),
+			targetLifeline <- thisModule.state2lifeline(action.ownerState)),
+		receiveRunScoringRule: SD!Message (
+			ID <- thisModule.msgID.toString(),
+			action <- 'runScoringRule',
+			isReceiveMsg <- true,
+			relatedOperand <- operand,
+			ownerLifeline <- thisModule.state2lifeline(action.ownerState),
+			sourceLifeline <- thisModule.state2lifeline(callerState),
+			targetLifeline <- thisModule.state2lifeline(action.ownerState)),
+		sendCalculateScore: SD!Message (
+			ID <- (thisModule.msgID+1).toString(),
+			action <- 'calculateScore',
+			isSendMsg <- true,
+			relatedOperand <- operand,
+			ownerLifeline <- thisModule.state2lifeline(action.ownerState),
+			sourceLifeline <- thisModule.state2lifeline(action.ownerState),
+			targetLifeline <- thisModule.scoringRule2lifeline(action.ownerState.ownerChallenge.scoringRule),
+			previous <- receiveRunScoringRule),
+		receiveCalculateScore: SD!Message (
+			ID <- (thisModule.msgID+1).toString(),
+			action <- 'calculateScore',
+			isReceiveMsg <- true,
+			relatedOperand <- operand,
+			ownerLifeline <- thisModule.scoringRule2lifeline(action.ownerState.ownerChallenge.scoringRule),
+			sourceLifeline <- thisModule.state2lifeline(action.ownerState),
+			targetLifeline <- thisModule.scoringRule2lifeline(action.ownerState.ownerChallenge.scoringRule),
+			next <- altFragment),
+		altFragment: SD!CombinedFragment(
+			ID <- (thisModule.msgID + 2).toString(),
+			type <- 'alt',
+			ownerLifeline <- thisModule.scoringRule2lifeline(action.ownerState.ownerChallenge.scoringRule),
+			previous <- receiveCalculateScore)
+	do{
+		thisModule.msgID <- thisModule.msgID + 3;
+		altFragment.operands <- action.ownerState.ownerChallenge.scoringRule.rewardConditions -> 
+						collect(rc | thisModule.rewardCondition2operand(rc));
+		thisModule.saveRewardsInLog(action);
+	}
+}
+unique lazy rule rewardCondition2operand{
+	from
+		rewardCondition: GAP!RewardCondition
+	to
+		operand: SD!Operand(
+			guard <- rewardCondition.title)
+	do{
+		rewardCondition.makeRewards;
+		rewardCondition.makeCapabilities;
+	}
+}
+helper context GAP!RewardCondition def: makeRewards : OclAny = 
+	if (self.rewards.size()>0) then
+		self.rewards -> collect(r | thisModule.createRewards(r))
+	else
+		OclUndefined
+	endif;
+helper context GAP!RewardCondition def: makeCapabilities : OclAny = 
+	if (not self.capability.oclIsUndefined()) then
+		thisModule.activateCapability(self.capability)
+	else
+		OclUndefined
+	endif;
+
+unique lazy rule createRewards{
+	from
+		reward: GAP!Reward
+	using{
+		actionTitle: String =  
+			if (reward.oclIsKindOf(GAP!NewLevel)
+				or reward.oclIsKindOf(GAP!LeaderBoard)) then
+				'getInstance()'
+			else
+				'create()'
+			endif;
+		target: SD!Lifeline = 
+			if (reward.oclIsKindOf(GAP!Point)) then
+				thisModule.point2lifeline(reward)
+			else
+				if (reward.oclIsKindOf(GAP!Badge)) then
+					thisModule.badge2lifeline(reward)
+				else
+					if (reward.oclIsKindOf(GAP!NewLevel)) then
+						thisModule.newLevelLifeline()
+					else
+						if (reward.oclIsKindOf(GAP!LeaderBoard)) then
+							thisModule.leaderboardLifeline()
+						else
+							if (reward.oclIsKindOf(GAP!Certificate)) then
+								thisModule.certificate2lifeline(reward)
+							else
+								OclUndefined
+							endif
+						endif
+					endif
+				endif
+			endif;
+		}
+	to
+		sendMsgs: SD!Message (
+			ID <- thisModule.msgID.toString(),
+			action <- actionTitle,
+			isSendMsg <- true,
+			relatedOperand <- thisModule.rewardCondition2operand(reward.ownerRewardCondition),
+			ownerLifeline <- thisModule.scoringRule2lifeline(reward.ownerRewardCondition.ownerRule),
+			sourceLifeline <- thisModule.scoringRule2lifeline(reward.ownerRewardCondition.ownerRule),
+			targetLifeline <- target),
+		receiveMsg: SD!Message (
+			ID <- thisModule.msgID.toString(),
+			action <- actionTitle,
+			isReceiveMsg <- true,
+			relatedOperand <- thisModule.rewardCondition2operand(reward.ownerRewardCondition),
+			ownerLifeline <-  target,
+			sourceLifeline <- thisModule.scoringRule2lifeline(reward.ownerRewardCondition.ownerRule),
+			targetLifeline <- target)
+	do {
+		thisModule.msgID <- thisModule.msgID + 1;
+	}
+}
+unique lazy rule activateCapability{
+	from
+		capability: GAP!Capability
+	to
+		sendMsg: SD!Message (
+			ID <- thisModule.msgID.toString(),
+			action <- 'activate',
+			isSendMsg <- true,
+			relatedOperand <- thisModule.rewardCondition2operand(capability.relatedRewardCondition),
+			ownerLifeline <- thisModule.scoringRule2lifeline(capability.relatedRewardCondition.ownerRule),
+			sourceLifeline <- thisModule.scoringRule2lifeline(capability.relatedRewardCondition.ownerRule),
+			targetLifeline <- thisModule.capability2lifeline(capability)),
+		receiveMsg: SD!Message (
+			ID <- thisModule.msgID.toString(),
+			action <- 'activate',
+			isReceiveMsg <- true,
+			relatedOperand <-  capability.relatedRewardCondition,
+			ownerLifeline <-  thisModule.capability2lifeline(capability),
+			sourceLifeline <- thisModule.scoringRule2lifeline(capability.relatedRewardCondition.ownerRule),
+			targetLifeline <- thisModule.capability2lifeline(capability))
+	do{
+		thisModule.msgID <- thisModule.msgID + 1;
+	}
+}
+unique lazy rule saveRewardsInLog{
+	from
+		action: GAP!Action
+	to
+		sendSaveResult: SD!Message (
+			ID <- (thisModule.msgID+1).toString(),
+			action <- '!not Defined: save challenge score',
+			isSendMsg <- true,
+			ownerLifeline <- thisModule.scoringRule2lifeline(action.ownerState.ownerChallenge.scoringRule),
+			sourceLifeline <- thisModule.scoringRule2lifeline(action.ownerState.ownerChallenge.scoringRule),
+			targetLifeline <- thisModule.playerLog2lifeline(action.ownerState.ownerChallenge.ownerPlayer.playerLog)),
+		receiveSaveResult: SD!Message (
+			ID <- (thisModule.msgID+1).toString(),
+			action <- '!not Defined: save challenge score',
+			isReceiveMsg <- true,
+			ownerLifeline <- thisModule.playerLog2lifeline(action.ownerState.ownerChallenge.ownerPlayer.playerLog),
+			sourceLifeline <- thisModule.scoringRule2lifeline(action.ownerState.ownerChallenge.scoringRule),
+			targetLifeline <- thisModule.playerLog2lifeline(action.ownerState.ownerChallenge.ownerPlayer.playerLog))
+	do{
+		thisModule.msgID <- thisModule.msgID + 2;
+	}
+}
+rule changeStateRule2MsgAndFragment{
+	from
+		changeStateRule: GAP!ChangeStateRule
+	using{
+		actionTitle : String = 'changeState'+
+			if (changeStateRule.oclIsKindOf(GAP!Deterministic)
+				or changeStateRule.oclIsKindOf(GAP!NonDeterministic)) then
+					'(condition)'
+			else
+				if (changeStateRule.oclIsKindOf(GAP!LocationBased)) then
+					'(location)'
+				else
+					if (changeStateRule.oclIsKindOf(GAP!TimeBased)) then
+						'(Time)'
+					else
+						if (changeStateRule.oclIsKindOf(GAP!ObjectiveBased)) then
+							'(objective)'
+						else
+							OclUndefined
+						endif
+					endif
+				endif
+			endif;
+		}
+	to
+		sendChangeState: SD!Message(
+			ID <- thisModule.msgID.toString(),
+			action <- actionTitle,
+			isSendMsg <- true,
+			ownerLifeline <- thisModule.state2lifeline(changeStateRule.ownerState),
+			sourceLifeline <- thisModule.state2lifeline(changeStateRule.ownerState),
+			targetLifeline <- thisModule.state2lifeline(changeStateRule.ownerState),
+			next <- recieveChangeState),
+		recieveChangeState: SD!Message(
+			ID <- thisModule.msgID.toString(),
+			action <- actionTitle,
+			isReceiveMsg <- true,
+			ownerLifeline <- thisModule.state2lifeline(changeStateRule.ownerState),
+			sourceLifeline <- thisModule.state2lifeline(changeStateRule.ownerState),
+			targetLifeline <- thisModule.state2lifeline(changeStateRule.ownerState),
+			previous <- sendChangeState,
+			next <- changeStateAltFragment),
+		changeStateAltFragment: SD!CombinedFragment(
+			ID <- (thisModule.msgID + 1).toString(),
+			type <- 'alt',
+			ownerLifeline <- thisModule.state2lifeline(changeStateRule.ownerState),
+			previous <- recieveChangeState)
+	do{
+		thisModule.msgID <- thisModule.msgID +2;
+		changeStateAltFragment.operands <- changeStateRule.targetState-> 
+			collect(t | thisModule.changeStateOperandPart(t, changeStateAltFragment));
+	}
+}
+		
+unique lazy rule changeStateOperandPart{
+	from
+		targetState:GAP!State, 
+		fragment: SD!CombinedFragment
+	to
+		operand: SD!Operand(
+			guard <- '!not Defined'),
+		sendCreateMsg: SD!Message(
+			ID <- thisModule.msgID.toString(),
+			action <- 'create()',
+			isSendMsg <- true,
+			relatedOperand <- operand,
+			ownerLifeline <- fragment.ownerLifeline,
+			sourceLifeline <- fragment.ownerLifeline,
+			targetLifeline <- thisModule.state2lifeline(targetState),
+			previous <- fragment),
+		receiveCreateMsg: SD!Message(
+			ID <- thisModule.msgID.toString(),
+			action <- 'create()',
+			isReceiveMsg <- true,
+			relatedOperand <- operand,
+			ownerLifeline <- thisModule.state2lifeline(targetState),
+			sourceLifeline <- fragment.ownerLifeline,
+			targetLifeline <- thisModule.state2lifeline(targetState))
+	do{
+		fragment.next <- sendCreateMsg;
+		thisModule.msgID <- thisModule.msgID + 1;
+	}
+}

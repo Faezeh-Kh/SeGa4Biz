@@ -1,0 +1,497 @@
+<?xml version="1.0" encoding="ISO-8859-1"?>
+<xmi:XMI xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:SequenceDiagram="www.sequenceDiagram.com">
+  <SequenceDiagram:SequenceDiagram title="Master Thesis Definition">
+    <lifelines name="Student :AnnotatedBPMN!PlayerCharacter" ownerObject="Student">
+      <elements xsi:type="SequenceDiagram:Message" ID="4" action="walk to the computer" isSendMsg="true" sourceLifeline="/0/@lifelines.0" targetLifeline="/0/@lifelines.2"/>
+      <elements xsi:type="SequenceDiagram:Message" ID="9" action="stand behind the computer" isSendMsg="true" sourceLifeline="/0/@lifelines.0" targetLifeline="/0/@lifelines.3"/>
+      <elements xsi:type="SequenceDiagram:Message" ID="12" action="choose download option" isSendMsg="true" sourceLifeline="/0/@lifelines.0" targetLifeline="/0/@lifelines.24"/>
+      <elements xsi:type="SequenceDiagram:Message" ID="13" action="choose print option" isSendMsg="true" sourceLifeline="/0/@lifelines.0" targetLifeline="/0/@lifelines.24"/>
+      <elements xsi:type="SequenceDiagram:Message" ID="18" action="walk to the supervisor room" isSendMsg="true" sourceLifeline="/0/@lifelines.0" targetLifeline="/0/@lifelines.7"/>
+      <elements xsi:type="SequenceDiagram:Message" ID="19" action="enter to the room" isSendMsg="true" sourceLifeline="/0/@lifelines.0" targetLifeline="/0/@lifelines.7"/>
+      <elements xsi:type="SequenceDiagram:Message" ID="20" action="stand in front of supervisor character" isSendMsg="true" sourceLifeline="/0/@lifelines.0" targetLifeline="/0/@lifelines.7"/>
+      <elements xsi:type="SequenceDiagram:Message" ID="23" action="give the form to the supervisor character" isSendMsg="true" sourceLifeline="/0/@lifelines.0" targetLifeline="/0/@lifelines.13"/>
+    </lifelines>
+    <lifelines name="Start Level :AnnotatedBPMN!State" ownerObject="Student">
+      <elements xsi:type="SequenceDiagram:Message" ID="0" action="show level startup screen " isReceiveMsg="true" targetLifeline="/0/@lifelines.1"/>
+      <elements xsi:type="SequenceDiagram:Message" ID="1" previous="/0/@lifelines.1/@elements.0" action="show" isSendMsg="true" sourceLifeline="/0/@lifelines.1" targetLifeline="/0/@lifelines.27"/>
+      <elements xsi:type="SequenceDiagram:Message" ID="2" action="set level start time in player log" isSendMsg="true" sourceLifeline="/0/@lifelines.1" targetLifeline="/0/@lifelines.1"/>
+      <elements xsi:type="SequenceDiagram:Message" ID="2" action="set level start time in player log" isReceiveMsg="true" sourceLifeline="/0/@lifelines.1" targetLifeline="/0/@lifelines.1"/>
+      <elements xsi:type="SequenceDiagram:Message" ID="3" previous="/0/@lifelines.1/@elements.3" action="!not Defined" isSendMsg="true" sourceLifeline="/0/@lifelines.1" targetLifeline="/0/@lifelines.28"/>
+      <elements xsi:type="SequenceDiagram:Message" ID="106" next="/0/@lifelines.1/@elements.6" action="changeState(condition)" isSendMsg="true" sourceLifeline="/0/@lifelines.1" targetLifeline="/0/@lifelines.1"/>
+      <elements xsi:type="SequenceDiagram:Message" ID="106" previous="/0/@lifelines.1/@elements.5" next="/0/@lifelines.1/@elements.7" action="changeState(condition)" isReceiveMsg="true" sourceLifeline="/0/@lifelines.1" targetLifeline="/0/@lifelines.1"/>
+      <elements xsi:type="SequenceDiagram:CombinedFragment" ID="107" previous="/0/@lifelines.1/@elements.6" next="/0/@lifelines.1/@elements.8">
+        <operands guard="!not Defined"/>
+      </elements>
+      <elements xsi:type="SequenceDiagram:Message" ID="108" previous="/0/@lifelines.1/@elements.7" relatedOperand="/0/@lifelines.1/@elements.7/@operands.0" action="create()" isSendMsg="true" sourceLifeline="/0/@lifelines.1" targetLifeline="/0/@lifelines.2"/>
+    </lifelines>
+    <lifelines name="student walking :AnnotatedBPMN!State" ownerObject="Student">
+      <elements xsi:type="SequenceDiagram:Message" ID="4" action="walk to the computer" isReceiveMsg="true" sourceLifeline="/0/@lifelines.0" targetLifeline="/0/@lifelines.2"/>
+      <elements xsi:type="SequenceDiagram:Message" ID="5" action="call Task1 of BP component" isSendMsg="true" sourceLifeline="/0/@lifelines.2" targetLifeline="/0/@lifelines.2"/>
+      <elements xsi:type="SequenceDiagram:Message" ID="5" action="call Task1 of BP component" isReceiveMsg="true" sourceLifeline="/0/@lifelines.2" targetLifeline="/0/@lifelines.2"/>
+      <elements xsi:type="SequenceDiagram:Message" ID="6" previous="/0/@lifelines.2/@elements.2" action="preparing department thesis definition form" isSendMsg="true" sourceLifeline="/0/@lifelines.2" targetLifeline="/0/@lifelines.29"/>
+      <elements xsi:type="SequenceDiagram:Message" ID="8" action="return (correctOutputs)" isReceiveMsg="true" sourceLifeline="/0/@lifelines.29" targetLifeline="/0/@lifelines.2"/>
+      <elements xsi:type="SequenceDiagram:Message" ID="108" relatedOperand="/0/@lifelines.1/@elements.7/@operands.0" action="create()" isReceiveMsg="true" sourceLifeline="/0/@lifelines.1" targetLifeline="/0/@lifelines.2"/>
+      <elements xsi:type="SequenceDiagram:Message" ID="109" next="/0/@lifelines.2/@elements.7" action="changeState(condition)" isSendMsg="true" sourceLifeline="/0/@lifelines.2" targetLifeline="/0/@lifelines.2"/>
+      <elements xsi:type="SequenceDiagram:Message" ID="109" previous="/0/@lifelines.2/@elements.6" next="/0/@lifelines.2/@elements.8" action="changeState(condition)" isReceiveMsg="true" sourceLifeline="/0/@lifelines.2" targetLifeline="/0/@lifelines.2"/>
+      <elements xsi:type="SequenceDiagram:CombinedFragment" ID="110" previous="/0/@lifelines.2/@elements.7" next="/0/@lifelines.2/@elements.9">
+        <operands guard="!not Defined"/>
+      </elements>
+      <elements xsi:type="SequenceDiagram:Message" ID="111" previous="/0/@lifelines.2/@elements.8" relatedOperand="/0/@lifelines.2/@elements.8/@operands.0" action="create()" isSendMsg="true" sourceLifeline="/0/@lifelines.2" targetLifeline="/0/@lifelines.3"/>
+    </lifelines>
+    <lifelines name="form preparation :AnnotatedBPMN!State" ownerObject="Student">
+      <elements xsi:type="SequenceDiagram:Message" ID="9" action="stand behind the computer" isReceiveMsg="true" sourceLifeline="/0/@lifelines.0" targetLifeline="/0/@lifelines.3"/>
+      <elements xsi:type="SequenceDiagram:Message" ID="10" action="run URL challenge " isSendMsg="true" sourceLifeline="/0/@lifelines.3" targetLifeline="/0/@lifelines.3"/>
+      <elements xsi:type="SequenceDiagram:Message" ID="10" action="run URL challenge " isReceiveMsg="true" sourceLifeline="/0/@lifelines.3" targetLifeline="/0/@lifelines.3"/>
+      <elements xsi:type="SequenceDiagram:Message" ID="11" previous="/0/@lifelines.3/@elements.2" action="startChallenge" isSendMsg="true" sourceLifeline="/0/@lifelines.3" targetLifeline="/0/@lifelines.31"/>
+      <elements xsi:type="SequenceDiagram:Message" ID="29" action="show URL Query screen" isSendMsg="true" sourceLifeline="/0/@lifelines.3" targetLifeline="/0/@lifelines.11"/>
+      <elements xsi:type="SequenceDiagram:Message" ID="111" relatedOperand="/0/@lifelines.2/@elements.8/@operands.0" action="create()" isReceiveMsg="true" sourceLifeline="/0/@lifelines.2" targetLifeline="/0/@lifelines.3"/>
+      <elements xsi:type="SequenceDiagram:Message" ID="112" next="/0/@lifelines.3/@elements.7" action="changeState(condition)" isSendMsg="true" sourceLifeline="/0/@lifelines.3" targetLifeline="/0/@lifelines.3"/>
+      <elements xsi:type="SequenceDiagram:Message" ID="112" previous="/0/@lifelines.3/@elements.6" next="/0/@lifelines.3/@elements.8" action="changeState(condition)" isReceiveMsg="true" sourceLifeline="/0/@lifelines.3" targetLifeline="/0/@lifelines.3"/>
+      <elements xsi:type="SequenceDiagram:CombinedFragment" ID="113" previous="/0/@lifelines.3/@elements.7" next="/0/@lifelines.3/@elements.9">
+        <operands guard="!not Defined"/>
+      </elements>
+      <elements xsi:type="SequenceDiagram:Message" ID="114" previous="/0/@lifelines.3/@elements.8" relatedOperand="/0/@lifelines.3/@elements.8/@operands.0" action="create()" isSendMsg="true" sourceLifeline="/0/@lifelines.3" targetLifeline="/0/@lifelines.11"/>
+    </lifelines>
+    <lifelines name="printer is on :AnnotatedBPMN!State" ownerObject="printer">
+      <elements xsi:type="SequenceDiagram:Message" ID="14" action="take the paper from printer" isSendMsg="true" sourceLifeline="/0/@lifelines.4" targetLifeline="/0/@lifelines.5"/>
+      <elements xsi:type="SequenceDiagram:Message" ID="81" action="play printer voice and show paper(constraint)" isReceiveMsg="true" sourceLifeline="/0/@lifelines.24" targetLifeline="/0/@lifelines.4"/>
+      <elements xsi:type="SequenceDiagram:CombinedFragment" ID="82" type="opt">
+        <operands guard="&#x2018;print&#x2019; option is selected"/>
+      </elements>
+      <elements xsi:type="SequenceDiagram:Message" ID="117" relatedOperand="/0/@lifelines.24/@elements.5/@operands.0" action="create()" isReceiveMsg="true" sourceLifeline="/0/@lifelines.24" targetLifeline="/0/@lifelines.4"/>
+      <elements xsi:type="SequenceDiagram:Message" ID="173" next="/0/@lifelines.4/@elements.5" action="changeState(condition)" isSendMsg="true" sourceLifeline="/0/@lifelines.4" targetLifeline="/0/@lifelines.4"/>
+      <elements xsi:type="SequenceDiagram:Message" ID="173" previous="/0/@lifelines.4/@elements.4" next="/0/@lifelines.4/@elements.6" action="changeState(condition)" isReceiveMsg="true" sourceLifeline="/0/@lifelines.4" targetLifeline="/0/@lifelines.4"/>
+      <elements xsi:type="SequenceDiagram:CombinedFragment" ID="174" previous="/0/@lifelines.4/@elements.5" next="/0/@lifelines.4/@elements.7">
+        <operands guard="!not Defined"/>
+      </elements>
+      <elements xsi:type="SequenceDiagram:Message" ID="175" previous="/0/@lifelines.4/@elements.6" relatedOperand="/0/@lifelines.4/@elements.6/@operands.0" action="create()" isSendMsg="true" sourceLifeline="/0/@lifelines.4" targetLifeline="/0/@lifelines.25"/>
+    </lifelines>
+    <lifelines name="form is printed :AnnotatedBPMN!State" ownerObject="Student">
+      <elements xsi:type="SequenceDiagram:Message" ID="14" action="take the paper from printer" isReceiveMsg="true" sourceLifeline="/0/@lifelines.4" targetLifeline="/0/@lifelines.5"/>
+      <elements xsi:type="SequenceDiagram:Message" ID="15" action="show form sections query screen" isSendMsg="true" sourceLifeline="/0/@lifelines.5" targetLifeline="/0/@lifelines.6"/>
+      <elements xsi:type="SequenceDiagram:Message" ID="118" next="/0/@lifelines.5/@elements.3" action="changeState(condition)" isSendMsg="true" sourceLifeline="/0/@lifelines.5" targetLifeline="/0/@lifelines.5"/>
+      <elements xsi:type="SequenceDiagram:Message" ID="118" previous="/0/@lifelines.5/@elements.2" next="/0/@lifelines.5/@elements.4" action="changeState(condition)" isReceiveMsg="true" sourceLifeline="/0/@lifelines.5" targetLifeline="/0/@lifelines.5"/>
+      <elements xsi:type="SequenceDiagram:CombinedFragment" ID="119" previous="/0/@lifelines.5/@elements.3" next="/0/@lifelines.5/@elements.5">
+        <operands guard="!not Defined"/>
+      </elements>
+      <elements xsi:type="SequenceDiagram:Message" ID="120" previous="/0/@lifelines.5/@elements.4" relatedOperand="/0/@lifelines.5/@elements.4/@operands.0" action="create()" isSendMsg="true" sourceLifeline="/0/@lifelines.5" targetLifeline="/0/@lifelines.6"/>
+    </lifelines>
+    <lifelines name="Form sections query :AnnotatedBPMN!State" ownerObject="Student">
+      <elements xsi:type="SequenceDiagram:Message" ID="15" action="show form sections query screen" isReceiveMsg="true" sourceLifeline="/0/@lifelines.5" targetLifeline="/0/@lifelines.6"/>
+      <elements xsi:type="SequenceDiagram:Message" ID="16" previous="/0/@lifelines.6/@elements.0" action="show" isSendMsg="true" sourceLifeline="/0/@lifelines.6" targetLifeline="/0/@lifelines.32"/>
+      <elements xsi:type="SequenceDiagram:Message" ID="17" action="fill each section and save" isSendMsg="true" sourceLifeline="/0/@lifelines.6" targetLifeline="/0/@lifelines.6"/>
+      <elements xsi:type="SequenceDiagram:Message" ID="17" action="fill each section and save" isReceiveMsg="true" sourceLifeline="/0/@lifelines.6" targetLifeline="/0/@lifelines.6"/>
+      <elements xsi:type="SequenceDiagram:Message" ID="84" action="save the form in player log(constraint)" isSendMsg="true" sourceLifeline="/0/@lifelines.6" targetLifeline="/0/@lifelines.26"/>
+      <elements xsi:type="SequenceDiagram:Message" ID="120" relatedOperand="/0/@lifelines.5/@elements.4/@operands.0" action="create()" isReceiveMsg="true" sourceLifeline="/0/@lifelines.5" targetLifeline="/0/@lifelines.6"/>
+      <elements xsi:type="SequenceDiagram:Message" ID="121" next="/0/@lifelines.6/@elements.7" action="changeState(condition)" isSendMsg="true" sourceLifeline="/0/@lifelines.6" targetLifeline="/0/@lifelines.6"/>
+      <elements xsi:type="SequenceDiagram:Message" ID="121" previous="/0/@lifelines.6/@elements.6" next="/0/@lifelines.6/@elements.8" action="changeState(condition)" isReceiveMsg="true" sourceLifeline="/0/@lifelines.6" targetLifeline="/0/@lifelines.6"/>
+      <elements xsi:type="SequenceDiagram:CombinedFragment" ID="122" previous="/0/@lifelines.6/@elements.7" next="/0/@lifelines.6/@elements.9">
+        <operands guard="!not Defined"/>
+      </elements>
+      <elements xsi:type="SequenceDiagram:Message" ID="123" previous="/0/@lifelines.6/@elements.8" relatedOperand="/0/@lifelines.6/@elements.8/@operands.0" action="create()" isSendMsg="true" sourceLifeline="/0/@lifelines.6" targetLifeline="/0/@lifelines.26"/>
+    </lifelines>
+    <lifelines name="meeting supervisor :AnnotatedBPMN!State" ownerObject="Student">
+      <elements xsi:type="SequenceDiagram:Message" ID="18" action="walk to the supervisor room" isReceiveMsg="true" sourceLifeline="/0/@lifelines.0" targetLifeline="/0/@lifelines.7"/>
+      <elements xsi:type="SequenceDiagram:Message" ID="19" action="enter to the room" isReceiveMsg="true" sourceLifeline="/0/@lifelines.0" targetLifeline="/0/@lifelines.7"/>
+      <elements xsi:type="SequenceDiagram:Message" ID="20" action="stand in front of supervisor character" isReceiveMsg="true" sourceLifeline="/0/@lifelines.0" targetLifeline="/0/@lifelines.7"/>
+      <elements xsi:type="SequenceDiagram:Message" ID="21" action="call Task2 of BP component" isSendMsg="true" sourceLifeline="/0/@lifelines.7" targetLifeline="/0/@lifelines.7"/>
+      <elements xsi:type="SequenceDiagram:Message" ID="21" action="call Task2 of BP component" isReceiveMsg="true" sourceLifeline="/0/@lifelines.7" targetLifeline="/0/@lifelines.7"/>
+      <elements xsi:type="SequenceDiagram:Message" ID="22" previous="/0/@lifelines.7/@elements.4" action="deliver the form to the supervisor" isSendMsg="true" sourceLifeline="/0/@lifelines.7" targetLifeline="/0/@lifelines.29"/>
+      <elements xsi:type="SequenceDiagram:Message" ID="124" next="/0/@lifelines.7/@elements.7" action="changeState(condition)" isSendMsg="true" sourceLifeline="/0/@lifelines.7" targetLifeline="/0/@lifelines.7"/>
+      <elements xsi:type="SequenceDiagram:Message" ID="124" previous="/0/@lifelines.7/@elements.6" next="/0/@lifelines.7/@elements.8" action="changeState(condition)" isReceiveMsg="true" sourceLifeline="/0/@lifelines.7" targetLifeline="/0/@lifelines.7"/>
+      <elements xsi:type="SequenceDiagram:CombinedFragment" ID="125" previous="/0/@lifelines.7/@elements.7"/>
+      <elements xsi:type="SequenceDiagram:Message" ID="178" relatedOperand="/0/@lifelines.41/@elements.9/@operands.0" action="create()" isReceiveMsg="true" sourceLifeline="/0/@lifelines.26" targetLifeline="/0/@lifelines.7"/>
+    </lifelines>
+    <lifelines name="form rejection :AnnotatedBPMN!State" ownerObject="Supervisor">
+      <elements xsi:type="SequenceDiagram:Message" ID="24" action="student look at the paper" isSendMsg="true" sourceLifeline="/0/@lifelines.8" targetLifeline="/0/@lifelines.9"/>
+      <elements xsi:type="SequenceDiagram:Message" ID="52" action="color the form to red" isReceiveMsg="true" sourceLifeline="/0/@lifelines.16" targetLifeline="/0/@lifelines.8"/>
+      <elements xsi:type="SequenceDiagram:Message" ID="53" action="highlights wrong fields of the saved form" isSendMsg="true" sourceLifeline="/0/@lifelines.8" targetLifeline="/0/@lifelines.8"/>
+      <elements xsi:type="SequenceDiagram:Message" ID="53" action="highlights wrong fields of the saved form" isReceiveMsg="true" sourceLifeline="/0/@lifelines.8" targetLifeline="/0/@lifelines.8"/>
+      <elements xsi:type="SequenceDiagram:Message" ID="54" action="return form paper to the student" isSendMsg="true" sourceLifeline="/0/@lifelines.8" targetLifeline="/0/@lifelines.8"/>
+      <elements xsi:type="SequenceDiagram:Message" ID="54" action="return form paper to the student" isReceiveMsg="true" sourceLifeline="/0/@lifelines.8" targetLifeline="/0/@lifelines.8"/>
+      <elements xsi:type="SequenceDiagram:Message" ID="55" action="call Task4 of BP component" isSendMsg="true" sourceLifeline="/0/@lifelines.8" targetLifeline="/0/@lifelines.8"/>
+      <elements xsi:type="SequenceDiagram:Message" ID="55" action="call Task4 of BP component" isReceiveMsg="true" sourceLifeline="/0/@lifelines.8" targetLifeline="/0/@lifelines.8"/>
+      <elements xsi:type="SequenceDiagram:Message" ID="56" previous="/0/@lifelines.8/@elements.7" action="change definition form" isSendMsg="true" sourceLifeline="/0/@lifelines.8" targetLifeline="/0/@lifelines.29"/>
+      <elements xsi:type="SequenceDiagram:Message" ID="153" relatedOperand="/0/@lifelines.16/@elements.15/@operands.1" action="create()" isReceiveMsg="true" sourceLifeline="/0/@lifelines.16" targetLifeline="/0/@lifelines.8"/>
+      <elements xsi:type="SequenceDiagram:Message" ID="154" next="/0/@lifelines.8/@elements.11" action="changeState(condition)" isSendMsg="true" sourceLifeline="/0/@lifelines.8" targetLifeline="/0/@lifelines.8"/>
+      <elements xsi:type="SequenceDiagram:Message" ID="154" previous="/0/@lifelines.8/@elements.10" next="/0/@lifelines.8/@elements.12" action="changeState(condition)" isReceiveMsg="true" sourceLifeline="/0/@lifelines.8" targetLifeline="/0/@lifelines.8"/>
+      <elements xsi:type="SequenceDiagram:CombinedFragment" ID="155" previous="/0/@lifelines.8/@elements.11"/>
+    </lifelines>
+    <lifelines name="change definition form :AnnotatedBPMN!State" ownerObject="Student">
+      <elements xsi:type="SequenceDiagram:Message" ID="24" action="student look at the paper" isReceiveMsg="true" sourceLifeline="/0/@lifelines.8" targetLifeline="/0/@lifelines.9"/>
+      <elements xsi:type="SequenceDiagram:Message" ID="25" action="leave supervisor room" isSendMsg="true" sourceLifeline="/0/@lifelines.9" targetLifeline="/0/@lifelines.9"/>
+      <elements xsi:type="SequenceDiagram:Message" ID="25" action="leave supervisor room" isReceiveMsg="true" sourceLifeline="/0/@lifelines.9" targetLifeline="/0/@lifelines.9"/>
+      <elements xsi:type="SequenceDiagram:Message" ID="26" action="show highlighted form screen" isSendMsg="true" sourceLifeline="/0/@lifelines.9" targetLifeline="/0/@lifelines.10"/>
+      <elements xsi:type="SequenceDiagram:Message" ID="129" next="/0/@lifelines.9/@elements.5" action="changeState(condition)" isSendMsg="true" sourceLifeline="/0/@lifelines.9" targetLifeline="/0/@lifelines.9"/>
+      <elements xsi:type="SequenceDiagram:Message" ID="129" previous="/0/@lifelines.9/@elements.4" next="/0/@lifelines.9/@elements.6" action="changeState(condition)" isReceiveMsg="true" sourceLifeline="/0/@lifelines.9" targetLifeline="/0/@lifelines.9"/>
+      <elements xsi:type="SequenceDiagram:CombinedFragment" ID="130" previous="/0/@lifelines.9/@elements.5" next="/0/@lifelines.9/@elements.7">
+        <operands guard="!not Defined"/>
+      </elements>
+      <elements xsi:type="SequenceDiagram:Message" ID="131" previous="/0/@lifelines.9/@elements.6" relatedOperand="/0/@lifelines.9/@elements.6/@operands.0" action="create()" isSendMsg="true" sourceLifeline="/0/@lifelines.9" targetLifeline="/0/@lifelines.10"/>
+    </lifelines>
+    <lifelines name="Form wrong sections query :AnnotatedBPMN!State" ownerObject="Student">
+      <elements xsi:type="SequenceDiagram:Message" ID="26" action="show highlighted form screen" isReceiveMsg="true" sourceLifeline="/0/@lifelines.9" targetLifeline="/0/@lifelines.10"/>
+      <elements xsi:type="SequenceDiagram:Message" ID="27" previous="/0/@lifelines.10/@elements.0" action="show" isSendMsg="true" sourceLifeline="/0/@lifelines.10" targetLifeline="/0/@lifelines.33"/>
+      <elements xsi:type="SequenceDiagram:Message" ID="28" action="player edits each wrong sections" isSendMsg="true" sourceLifeline="/0/@lifelines.10" targetLifeline="/0/@lifelines.10"/>
+      <elements xsi:type="SequenceDiagram:Message" ID="28" action="player edits each wrong sections" isReceiveMsg="true" sourceLifeline="/0/@lifelines.10" targetLifeline="/0/@lifelines.10"/>
+      <elements xsi:type="SequenceDiagram:Message" ID="88" action="save updated form in player log(constraint)" isSendMsg="true" sourceLifeline="/0/@lifelines.10" targetLifeline="/0/@lifelines.41"/>
+      <elements xsi:type="SequenceDiagram:Message" ID="131" relatedOperand="/0/@lifelines.9/@elements.6/@operands.0" action="create()" isReceiveMsg="true" sourceLifeline="/0/@lifelines.9" targetLifeline="/0/@lifelines.10"/>
+      <elements xsi:type="SequenceDiagram:Message" ID="132" next="/0/@lifelines.10/@elements.7" action="changeState(condition)" isSendMsg="true" sourceLifeline="/0/@lifelines.10" targetLifeline="/0/@lifelines.10"/>
+      <elements xsi:type="SequenceDiagram:Message" ID="132" previous="/0/@lifelines.10/@elements.6" next="/0/@lifelines.10/@elements.8" action="changeState(condition)" isReceiveMsg="true" sourceLifeline="/0/@lifelines.10" targetLifeline="/0/@lifelines.10"/>
+      <elements xsi:type="SequenceDiagram:CombinedFragment" ID="133" previous="/0/@lifelines.10/@elements.7" next="/0/@lifelines.10/@elements.9">
+        <operands guard="!not Defined"/>
+      </elements>
+      <elements xsi:type="SequenceDiagram:Message" ID="134" previous="/0/@lifelines.10/@elements.8" relatedOperand="/0/@lifelines.10/@elements.8/@operands.0" action="create()" isSendMsg="true" sourceLifeline="/0/@lifelines.10" targetLifeline="/0/@lifelines.41"/>
+    </lifelines>
+    <lifelines name="URL query :AnnotatedBPMN!State" ownerObject="Student">
+      <elements xsi:type="SequenceDiagram:Message" ID="29" action="show URL Query screen" isReceiveMsg="true" sourceLifeline="/0/@lifelines.3" targetLifeline="/0/@lifelines.11"/>
+      <elements xsi:type="SequenceDiagram:Message" ID="30" previous="/0/@lifelines.11/@elements.0" action="show" isSendMsg="true" sourceLifeline="/0/@lifelines.11" targetLifeline="/0/@lifelines.34"/>
+      <elements xsi:type="SequenceDiagram:Message" ID="31" action="select a URL from list" isSendMsg="true" sourceLifeline="/0/@lifelines.11" targetLifeline="/0/@lifelines.11"/>
+      <elements xsi:type="SequenceDiagram:Message" ID="31" action="select a URL from list" isReceiveMsg="true" sourceLifeline="/0/@lifelines.11" targetLifeline="/0/@lifelines.11"/>
+      <elements xsi:type="SequenceDiagram:Message" ID="32" action="ask task1 of BP component for correct answer" isSendMsg="true" sourceLifeline="/0/@lifelines.11" targetLifeline="/0/@lifelines.12"/>
+      <elements xsi:type="SequenceDiagram:Message" ID="114" relatedOperand="/0/@lifelines.3/@elements.8/@operands.0" action="create()" isReceiveMsg="true" sourceLifeline="/0/@lifelines.3" targetLifeline="/0/@lifelines.11"/>
+      <elements xsi:type="SequenceDiagram:Message" ID="135" next="/0/@lifelines.11/@elements.7" action="changeState(condition)" isSendMsg="true" sourceLifeline="/0/@lifelines.11" targetLifeline="/0/@lifelines.11"/>
+      <elements xsi:type="SequenceDiagram:Message" ID="135" previous="/0/@lifelines.11/@elements.6" next="/0/@lifelines.11/@elements.8" action="changeState(condition)" isReceiveMsg="true" sourceLifeline="/0/@lifelines.11" targetLifeline="/0/@lifelines.11"/>
+      <elements xsi:type="SequenceDiagram:CombinedFragment" ID="136" previous="/0/@lifelines.11/@elements.7" next="/0/@lifelines.11/@elements.9">
+        <operands guard="!not Defined"/>
+      </elements>
+      <elements xsi:type="SequenceDiagram:Message" ID="137" previous="/0/@lifelines.11/@elements.8" relatedOperand="/0/@lifelines.11/@elements.8/@operands.0" action="create()" isSendMsg="true" sourceLifeline="/0/@lifelines.11" targetLifeline="/0/@lifelines.12"/>
+    </lifelines>
+    <lifelines name="check URL challenge response :AnnotatedBPMN!State" ownerObject="Student">
+      <elements xsi:type="SequenceDiagram:Message" ID="32" action="ask task1 of BP component for correct answer" isReceiveMsg="true" sourceLifeline="/0/@lifelines.11" targetLifeline="/0/@lifelines.12"/>
+      <elements xsi:type="SequenceDiagram:Message" ID="33" previous="/0/@lifelines.12/@elements.0" action="preparing department thesis definition form" isSendMsg="true" sourceLifeline="/0/@lifelines.12" targetLifeline="/0/@lifelines.29"/>
+      <elements xsi:type="SequenceDiagram:Message" ID="34" action="validate user answer due to correct answer" isSendMsg="true" sourceLifeline="/0/@lifelines.12" targetLifeline="/0/@lifelines.12"/>
+      <elements xsi:type="SequenceDiagram:Message" ID="34" action="validate user answer due to correct answer" isReceiveMsg="true" sourceLifeline="/0/@lifelines.12" targetLifeline="/0/@lifelines.12"/>
+      <elements xsi:type="SequenceDiagram:Message" ID="35" action="show URL challenge result screen " isSendMsg="true" sourceLifeline="/0/@lifelines.12" targetLifeline="/0/@lifelines.35"/>
+      <elements xsi:type="SequenceDiagram:Message" ID="94" next="/0/@lifelines.12/@elements.6" action="runScoringRule" isSendMsg="true" sourceLifeline="/0/@lifelines.12" targetLifeline="/0/@lifelines.12"/>
+      <elements xsi:type="SequenceDiagram:Message" ID="94" next="/0/@lifelines.12/@elements.7" action="runScoringRule" isReceiveMsg="true" sourceLifeline="/0/@lifelines.12" targetLifeline="/0/@lifelines.12"/>
+      <elements xsi:type="SequenceDiagram:Message" ID="95" previous="/0/@lifelines.12/@elements.6" action="calculateScore" isSendMsg="true" sourceLifeline="/0/@lifelines.12" targetLifeline="/0/@lifelines.42"/>
+      <elements xsi:type="SequenceDiagram:Message" ID="137" relatedOperand="/0/@lifelines.11/@elements.8/@operands.0" action="create()" isReceiveMsg="true" sourceLifeline="/0/@lifelines.11" targetLifeline="/0/@lifelines.12"/>
+      <elements xsi:type="SequenceDiagram:Message" ID="138" next="/0/@lifelines.12/@elements.10" action="changeState(condition)" isSendMsg="true" sourceLifeline="/0/@lifelines.12" targetLifeline="/0/@lifelines.12"/>
+      <elements xsi:type="SequenceDiagram:Message" ID="138" previous="/0/@lifelines.12/@elements.9" next="/0/@lifelines.12/@elements.11" action="changeState(condition)" isReceiveMsg="true" sourceLifeline="/0/@lifelines.12" targetLifeline="/0/@lifelines.12"/>
+      <elements xsi:type="SequenceDiagram:CombinedFragment" ID="139" previous="/0/@lifelines.12/@elements.10" next="/0/@lifelines.12/@elements.12">
+        <operands guard="!not Defined"/>
+      </elements>
+      <elements xsi:type="SequenceDiagram:Message" ID="140" previous="/0/@lifelines.12/@elements.11" relatedOperand="/0/@lifelines.12/@elements.11/@operands.0" action="create()" isSendMsg="true" sourceLifeline="/0/@lifelines.12" targetLifeline="/0/@lifelines.35"/>
+    </lifelines>
+    <lifelines name="form delivery :AnnotatedBPMN!State" ownerObject="Student">
+      <elements xsi:type="SequenceDiagram:Message" ID="23" action="give the form to the supervisor character" isReceiveMsg="true" sourceLifeline="/0/@lifelines.0" targetLifeline="/0/@lifelines.13"/>
+      <elements xsi:type="SequenceDiagram:Message" ID="37" action="supervisor taking the paper" isSendMsg="true" sourceLifeline="/0/@lifelines.13" targetLifeline="/0/@lifelines.14"/>
+      <elements xsi:type="SequenceDiagram:Message" ID="126" next="/0/@lifelines.13/@elements.3" action="changeState(condition)" isSendMsg="true" sourceLifeline="/0/@lifelines.13" targetLifeline="/0/@lifelines.13"/>
+      <elements xsi:type="SequenceDiagram:Message" ID="126" previous="/0/@lifelines.13/@elements.2" next="/0/@lifelines.13/@elements.4" action="changeState(condition)" isReceiveMsg="true" sourceLifeline="/0/@lifelines.13" targetLifeline="/0/@lifelines.13"/>
+      <elements xsi:type="SequenceDiagram:CombinedFragment" ID="127" previous="/0/@lifelines.13/@elements.3" next="/0/@lifelines.13/@elements.5">
+        <operands guard="!not Defined"/>
+      </elements>
+      <elements xsi:type="SequenceDiagram:Message" ID="128" previous="/0/@lifelines.13/@elements.4" relatedOperand="/0/@lifelines.13/@elements.4/@operands.0" action="create()" isSendMsg="true" sourceLifeline="/0/@lifelines.13" targetLifeline="/0/@lifelines.14"/>
+    </lifelines>
+    <lifelines name="form taking :AnnotatedBPMN!State" ownerObject="Supervisor">
+      <elements xsi:type="SequenceDiagram:Message" ID="37" action="supervisor taking the paper" isReceiveMsg="true" sourceLifeline="/0/@lifelines.13" targetLifeline="/0/@lifelines.14"/>
+      <elements xsi:type="SequenceDiagram:Message" ID="38" action="call Task3 of BP component" isSendMsg="true" sourceLifeline="/0/@lifelines.14" targetLifeline="/0/@lifelines.14"/>
+      <elements xsi:type="SequenceDiagram:Message" ID="38" action="call Task3 of BP component" isReceiveMsg="true" sourceLifeline="/0/@lifelines.14" targetLifeline="/0/@lifelines.14"/>
+      <elements xsi:type="SequenceDiagram:Message" ID="39" previous="/0/@lifelines.14/@elements.2" action="form completeness checking" isSendMsg="true" sourceLifeline="/0/@lifelines.14" targetLifeline="/0/@lifelines.37"/>
+      <elements xsi:type="SequenceDiagram:Message" ID="41" action="return (correctOutputs)" isReceiveMsg="true" sourceLifeline="/0/@lifelines.37" targetLifeline="/0/@lifelines.14"/>
+      <elements xsi:type="SequenceDiagram:Message" ID="42" action="look at the paper" isSendMsg="true" sourceLifeline="/0/@lifelines.14" targetLifeline="/0/@lifelines.15"/>
+      <elements xsi:type="SequenceDiagram:Message" ID="128" relatedOperand="/0/@lifelines.13/@elements.4/@operands.0" action="create()" isReceiveMsg="true" sourceLifeline="/0/@lifelines.13" targetLifeline="/0/@lifelines.14"/>
+      <elements xsi:type="SequenceDiagram:Message" ID="144" next="/0/@lifelines.14/@elements.8" action="changeState(condition)" isSendMsg="true" sourceLifeline="/0/@lifelines.14" targetLifeline="/0/@lifelines.14"/>
+      <elements xsi:type="SequenceDiagram:Message" ID="144" previous="/0/@lifelines.14/@elements.7" next="/0/@lifelines.14/@elements.9" action="changeState(condition)" isReceiveMsg="true" sourceLifeline="/0/@lifelines.14" targetLifeline="/0/@lifelines.14"/>
+      <elements xsi:type="SequenceDiagram:CombinedFragment" ID="145" previous="/0/@lifelines.14/@elements.8" next="/0/@lifelines.14/@elements.10">
+        <operands guard="!not Defined"/>
+      </elements>
+      <elements xsi:type="SequenceDiagram:Message" ID="146" previous="/0/@lifelines.14/@elements.9" relatedOperand="/0/@lifelines.14/@elements.9/@operands.0" action="create()" isSendMsg="true" sourceLifeline="/0/@lifelines.14" targetLifeline="/0/@lifelines.15"/>
+    </lifelines>
+    <lifelines name="form completeness checking :AnnotatedBPMN!State" ownerObject="Supervisor">
+      <elements xsi:type="SequenceDiagram:Message" ID="42" action="look at the paper" isReceiveMsg="true" sourceLifeline="/0/@lifelines.14" targetLifeline="/0/@lifelines.15"/>
+      <elements xsi:type="SequenceDiagram:Message" ID="43" action="call Gateway1 of BP component" isSendMsg="true" sourceLifeline="/0/@lifelines.15" targetLifeline="/0/@lifelines.16"/>
+      <elements xsi:type="SequenceDiagram:Message" ID="146" relatedOperand="/0/@lifelines.14/@elements.9/@operands.0" action="create()" isReceiveMsg="true" sourceLifeline="/0/@lifelines.14" targetLifeline="/0/@lifelines.15"/>
+      <elements xsi:type="SequenceDiagram:Message" ID="147" next="/0/@lifelines.15/@elements.4" action="changeState(condition)" isSendMsg="true" sourceLifeline="/0/@lifelines.15" targetLifeline="/0/@lifelines.15"/>
+      <elements xsi:type="SequenceDiagram:Message" ID="147" previous="/0/@lifelines.15/@elements.3" next="/0/@lifelines.15/@elements.5" action="changeState(condition)" isReceiveMsg="true" sourceLifeline="/0/@lifelines.15" targetLifeline="/0/@lifelines.15"/>
+      <elements xsi:type="SequenceDiagram:CombinedFragment" ID="148" previous="/0/@lifelines.15/@elements.4" next="/0/@lifelines.15/@elements.6">
+        <operands guard="!not Defined"/>
+      </elements>
+      <elements xsi:type="SequenceDiagram:Message" ID="149" previous="/0/@lifelines.15/@elements.5" relatedOperand="/0/@lifelines.15/@elements.5/@operands.0" action="create()" isSendMsg="true" sourceLifeline="/0/@lifelines.15" targetLifeline="/0/@lifelines.16"/>
+    </lifelines>
+    <lifelines name="form correctness checking :AnnotatedBPMN!State" ownerObject="Supervisor">
+      <elements xsi:type="SequenceDiagram:Message" ID="43" action="call Gateway1 of BP component" isReceiveMsg="true" sourceLifeline="/0/@lifelines.15" targetLifeline="/0/@lifelines.16"/>
+      <elements xsi:type="SequenceDiagram:Message" ID="44" previous="/0/@lifelines.16/@elements.0" action="is the form complete?" isSendMsg="true" sourceLifeline="/0/@lifelines.16" targetLifeline="/0/@lifelines.37"/>
+      <elements xsi:type="SequenceDiagram:Message" ID="48" action="save result in player log" isSendMsg="true" sourceLifeline="/0/@lifelines.16" targetLifeline="/0/@lifelines.16"/>
+      <elements xsi:type="SequenceDiagram:Message" ID="48" action="save result in player log" isReceiveMsg="true" sourceLifeline="/0/@lifelines.16" targetLifeline="/0/@lifelines.16"/>
+      <elements xsi:type="SequenceDiagram:Message" ID="49" previous="/0/@lifelines.16/@elements.3" action="!not Defined" isSendMsg="true" sourceLifeline="/0/@lifelines.16" targetLifeline="/0/@lifelines.28"/>
+      <elements xsi:type="SequenceDiagram:Message" ID="50" action="run Thesis definition accuracy challenge" isSendMsg="true" sourceLifeline="/0/@lifelines.16" targetLifeline="/0/@lifelines.16"/>
+      <elements xsi:type="SequenceDiagram:Message" ID="50" action="run Thesis definition accuracy challenge" isReceiveMsg="true" sourceLifeline="/0/@lifelines.16" targetLifeline="/0/@lifelines.16"/>
+      <elements xsi:type="SequenceDiagram:Message" ID="51" previous="/0/@lifelines.16/@elements.6" action="startChallenge" isSendMsg="true" sourceLifeline="/0/@lifelines.16" targetLifeline="/0/@lifelines.38"/>
+      <elements xsi:type="SequenceDiagram:Message" ID="52" action="color the form to red" isSendMsg="true" sourceLifeline="/0/@lifelines.16" targetLifeline="/0/@lifelines.8"/>
+      <elements xsi:type="SequenceDiagram:Message" ID="58" action="color the form to green" isSendMsg="true" sourceLifeline="/0/@lifelines.16" targetLifeline="/0/@lifelines.17"/>
+      <elements xsi:type="SequenceDiagram:Message" ID="92" action="recall Task2 of BP component" isSendMsg="true" sourceLifeline="/0/@lifelines.16" targetLifeline="/0/@lifelines.41"/>
+      <elements xsi:type="SequenceDiagram:Message" ID="100" next="/0/@lifelines.45/@elements.0" action="runScoringRule" isSendMsg="true" sourceLifeline="/0/@lifelines.16" targetLifeline="/0/@lifelines.45"/>
+      <elements xsi:type="SequenceDiagram:Message" ID="149" relatedOperand="/0/@lifelines.15/@elements.5/@operands.0" action="create()" isReceiveMsg="true" sourceLifeline="/0/@lifelines.15" targetLifeline="/0/@lifelines.16"/>
+      <elements xsi:type="SequenceDiagram:Message" ID="150" next="/0/@lifelines.16/@elements.14" action="changeState(condition)" isSendMsg="true" sourceLifeline="/0/@lifelines.16" targetLifeline="/0/@lifelines.16"/>
+      <elements xsi:type="SequenceDiagram:Message" ID="150" previous="/0/@lifelines.16/@elements.13" next="/0/@lifelines.16/@elements.15" action="changeState(condition)" isReceiveMsg="true" sourceLifeline="/0/@lifelines.16" targetLifeline="/0/@lifelines.16"/>
+      <elements xsi:type="SequenceDiagram:CombinedFragment" ID="151" previous="/0/@lifelines.16/@elements.14" next="/0/@lifelines.16/@elements.16 /0/@lifelines.16/@elements.17">
+        <operands guard="!not Defined"/>
+        <operands guard="!not Defined"/>
+      </elements>
+      <elements xsi:type="SequenceDiagram:Message" ID="152" previous="/0/@lifelines.16/@elements.15" relatedOperand="/0/@lifelines.16/@elements.15/@operands.0" action="create()" isSendMsg="true" sourceLifeline="/0/@lifelines.16" targetLifeline="/0/@lifelines.17"/>
+      <elements xsi:type="SequenceDiagram:Message" ID="153" previous="/0/@lifelines.16/@elements.15" relatedOperand="/0/@lifelines.16/@elements.15/@operands.1" action="create()" isSendMsg="true" sourceLifeline="/0/@lifelines.16" targetLifeline="/0/@lifelines.8"/>
+    </lifelines>
+    <lifelines name="form acceptance :AnnotatedBPMN!State" ownerObject="Supervisor">
+      <elements xsi:type="SequenceDiagram:Message" ID="58" action="color the form to green" isReceiveMsg="true" sourceLifeline="/0/@lifelines.16" targetLifeline="/0/@lifelines.17"/>
+      <elements xsi:type="SequenceDiagram:Message" ID="59" action="call Task5 of BP component" isSendMsg="true" sourceLifeline="/0/@lifelines.17" targetLifeline="/0/@lifelines.17"/>
+      <elements xsi:type="SequenceDiagram:Message" ID="59" action="call Task5 of BP component" isReceiveMsg="true" sourceLifeline="/0/@lifelines.17" targetLifeline="/0/@lifelines.17"/>
+      <elements xsi:type="SequenceDiagram:Message" ID="60" previous="/0/@lifelines.17/@elements.2" action="form confirmation and signing" isSendMsg="true" sourceLifeline="/0/@lifelines.17" targetLifeline="/0/@lifelines.37"/>
+      <elements xsi:type="SequenceDiagram:Message" ID="61" action="Supervisor write something on the form" isSendMsg="true" sourceLifeline="/0/@lifelines.17" targetLifeline="/0/@lifelines.18"/>
+      <elements xsi:type="SequenceDiagram:Message" ID="152" relatedOperand="/0/@lifelines.16/@elements.15/@operands.0" action="create()" isReceiveMsg="true" sourceLifeline="/0/@lifelines.16" targetLifeline="/0/@lifelines.17"/>
+      <elements xsi:type="SequenceDiagram:Message" ID="156" next="/0/@lifelines.17/@elements.7" action="changeState(condition)" isSendMsg="true" sourceLifeline="/0/@lifelines.17" targetLifeline="/0/@lifelines.17"/>
+      <elements xsi:type="SequenceDiagram:Message" ID="156" previous="/0/@lifelines.17/@elements.6" next="/0/@lifelines.17/@elements.8" action="changeState(condition)" isReceiveMsg="true" sourceLifeline="/0/@lifelines.17" targetLifeline="/0/@lifelines.17"/>
+      <elements xsi:type="SequenceDiagram:CombinedFragment" ID="157" previous="/0/@lifelines.17/@elements.7" next="/0/@lifelines.17/@elements.9">
+        <operands guard="!not Defined"/>
+      </elements>
+      <elements xsi:type="SequenceDiagram:Message" ID="158" previous="/0/@lifelines.17/@elements.8" relatedOperand="/0/@lifelines.17/@elements.8/@operands.0" action="create()" isSendMsg="true" sourceLifeline="/0/@lifelines.17" targetLifeline="/0/@lifelines.18"/>
+    </lifelines>
+    <lifelines name="form confirmation and signing :AnnotatedBPMN!State" ownerObject="Supervisor">
+      <elements xsi:type="SequenceDiagram:Message" ID="61" action="Supervisor write something on the form" isReceiveMsg="true" sourceLifeline="/0/@lifelines.17" targetLifeline="/0/@lifelines.18"/>
+      <elements xsi:type="SequenceDiagram:Message" ID="62" action="put the form on the table" isSendMsg="true" sourceLifeline="/0/@lifelines.18" targetLifeline="/0/@lifelines.18"/>
+      <elements xsi:type="SequenceDiagram:Message" ID="62" action="put the form on the table" isReceiveMsg="true" sourceLifeline="/0/@lifelines.18" targetLifeline="/0/@lifelines.18"/>
+      <elements xsi:type="SequenceDiagram:Message" ID="63" action="call End Event of BP component" isSendMsg="true" sourceLifeline="/0/@lifelines.18" targetLifeline="/0/@lifelines.18"/>
+      <elements xsi:type="SequenceDiagram:Message" ID="63" action="call End Event of BP component" isReceiveMsg="true" sourceLifeline="/0/@lifelines.18" targetLifeline="/0/@lifelines.18"/>
+      <elements xsi:type="SequenceDiagram:Message" ID="64" previous="/0/@lifelines.18/@elements.4" action="endEvent" isSendMsg="true" sourceLifeline="/0/@lifelines.18" targetLifeline="/0/@lifelines.37"/>
+      <elements xsi:type="SequenceDiagram:Message" ID="158" relatedOperand="/0/@lifelines.17/@elements.8/@operands.0" action="create()" isReceiveMsg="true" sourceLifeline="/0/@lifelines.17" targetLifeline="/0/@lifelines.18"/>
+      <elements xsi:type="SequenceDiagram:Message" ID="159" next="/0/@lifelines.18/@elements.8" action="changeState(condition)" isSendMsg="true" sourceLifeline="/0/@lifelines.18" targetLifeline="/0/@lifelines.18"/>
+      <elements xsi:type="SequenceDiagram:Message" ID="159" previous="/0/@lifelines.18/@elements.7" next="/0/@lifelines.18/@elements.9" action="changeState(condition)" isReceiveMsg="true" sourceLifeline="/0/@lifelines.18" targetLifeline="/0/@lifelines.18"/>
+      <elements xsi:type="SequenceDiagram:CombinedFragment" ID="160" previous="/0/@lifelines.18/@elements.8"/>
+    </lifelines>
+    <lifelines name="Final State :AnnotatedBPMN!State" ownerObject="Supervisor">
+      <elements xsi:type="SequenceDiagram:Message" ID="65" action="save level finishing time in player log" isSendMsg="true" sourceLifeline="/0/@lifelines.19" targetLifeline="/0/@lifelines.19"/>
+      <elements xsi:type="SequenceDiagram:Message" ID="65" action="save level finishing time in player log" isReceiveMsg="true" sourceLifeline="/0/@lifelines.19" targetLifeline="/0/@lifelines.19"/>
+      <elements xsi:type="SequenceDiagram:Message" ID="66" previous="/0/@lifelines.19/@elements.1" action="!not Defined" isSendMsg="true" sourceLifeline="/0/@lifelines.19" targetLifeline="/0/@lifelines.28"/>
+      <elements xsi:type="SequenceDiagram:Message" ID="67" action="show end of level screen" isSendMsg="true" sourceLifeline="/0/@lifelines.19" targetLifeline="/0/@lifelines.19"/>
+      <elements xsi:type="SequenceDiagram:Message" ID="67" action="show end of level screen" isReceiveMsg="true" sourceLifeline="/0/@lifelines.19" targetLifeline="/0/@lifelines.19"/>
+      <elements xsi:type="SequenceDiagram:Message" ID="68" previous="/0/@lifelines.19/@elements.4" action="show" isSendMsg="true" sourceLifeline="/0/@lifelines.19" targetLifeline="/0/@lifelines.39"/>
+      <elements xsi:type="SequenceDiagram:Message" ID="69" action="update game result for player" isSendMsg="true" sourceLifeline="/0/@lifelines.19" targetLifeline="/0/@lifelines.19"/>
+      <elements xsi:type="SequenceDiagram:Message" ID="69" action="update game result for player" isReceiveMsg="true" sourceLifeline="/0/@lifelines.19" targetLifeline="/0/@lifelines.19"/>
+      <elements xsi:type="SequenceDiagram:Message" ID="70" previous="/0/@lifelines.19/@elements.7" action="!not Defined" isSendMsg="true" sourceLifeline="/0/@lifelines.19" targetLifeline="/0/@lifelines.28"/>
+      <elements xsi:type="SequenceDiagram:Message" ID="71" action="show level result screen" isSendMsg="true" sourceLifeline="/0/@lifelines.19" targetLifeline="/0/@lifelines.19"/>
+      <elements xsi:type="SequenceDiagram:Message" ID="71" action="show level result screen" isReceiveMsg="true" sourceLifeline="/0/@lifelines.19" targetLifeline="/0/@lifelines.19"/>
+      <elements xsi:type="SequenceDiagram:Message" ID="72" previous="/0/@lifelines.19/@elements.10" action="show" isSendMsg="true" sourceLifeline="/0/@lifelines.19" targetLifeline="/0/@lifelines.40"/>
+    </lifelines>
+    <lifelines name="open_s :AnnotatedBPMN!State" ownerObject="door_s">
+      <elements xsi:type="SequenceDiagram:Message" ID="73" action="open the door_s(constraint)" isSendMsg="true" sourceLifeline="/0/@lifelines.20" targetLifeline="/0/@lifelines.20"/>
+      <elements xsi:type="SequenceDiagram:Message" ID="73" action="open the door_s(constraint)" isReceiveMsg="true" sourceLifeline="/0/@lifelines.20" targetLifeline="/0/@lifelines.20"/>
+      <elements xsi:type="SequenceDiagram:CombinedFragment" ID="74" type="opt">
+        <operands guard="door is closed"/>
+      </elements>
+      <elements xsi:type="SequenceDiagram:Message" ID="161" next="/0/@lifelines.20/@elements.4" action="changeState(condition)" isSendMsg="true" sourceLifeline="/0/@lifelines.20" targetLifeline="/0/@lifelines.20"/>
+      <elements xsi:type="SequenceDiagram:Message" ID="161" previous="/0/@lifelines.20/@elements.3" next="/0/@lifelines.20/@elements.5" action="changeState(condition)" isReceiveMsg="true" sourceLifeline="/0/@lifelines.20" targetLifeline="/0/@lifelines.20"/>
+      <elements xsi:type="SequenceDiagram:CombinedFragment" ID="162" previous="/0/@lifelines.20/@elements.4" next="/0/@lifelines.20/@elements.6">
+        <operands guard="!not Defined"/>
+      </elements>
+      <elements xsi:type="SequenceDiagram:Message" ID="163" previous="/0/@lifelines.20/@elements.5" relatedOperand="/0/@lifelines.20/@elements.5/@operands.0" action="create()" isSendMsg="true" sourceLifeline="/0/@lifelines.20" targetLifeline="/0/@lifelines.21"/>
+      <elements xsi:type="SequenceDiagram:Message" ID="166" relatedOperand="/0/@lifelines.21/@elements.6/@operands.0" action="create()" isReceiveMsg="true" sourceLifeline="/0/@lifelines.21" targetLifeline="/0/@lifelines.20"/>
+    </lifelines>
+    <lifelines name="close_s :AnnotatedBPMN!State" ownerObject="door_s">
+      <elements xsi:type="SequenceDiagram:Message" ID="75" action="close the door_s(constraint)" isSendMsg="true" sourceLifeline="/0/@lifelines.21" targetLifeline="/0/@lifelines.21"/>
+      <elements xsi:type="SequenceDiagram:Message" ID="75" action="close the door_s(constraint)" isReceiveMsg="true" sourceLifeline="/0/@lifelines.21" targetLifeline="/0/@lifelines.21"/>
+      <elements xsi:type="SequenceDiagram:CombinedFragment" ID="76" type="opt">
+        <operands guard="door is opened"/>
+      </elements>
+      <elements xsi:type="SequenceDiagram:Message" ID="163" relatedOperand="/0/@lifelines.20/@elements.5/@operands.0" action="create()" isReceiveMsg="true" sourceLifeline="/0/@lifelines.20" targetLifeline="/0/@lifelines.21"/>
+      <elements xsi:type="SequenceDiagram:Message" ID="164" next="/0/@lifelines.21/@elements.5" action="changeState(condition)" isSendMsg="true" sourceLifeline="/0/@lifelines.21" targetLifeline="/0/@lifelines.21"/>
+      <elements xsi:type="SequenceDiagram:Message" ID="164" previous="/0/@lifelines.21/@elements.4" next="/0/@lifelines.21/@elements.6" action="changeState(condition)" isReceiveMsg="true" sourceLifeline="/0/@lifelines.21" targetLifeline="/0/@lifelines.21"/>
+      <elements xsi:type="SequenceDiagram:CombinedFragment" ID="165" previous="/0/@lifelines.21/@elements.5" next="/0/@lifelines.21/@elements.7">
+        <operands guard="!not Defined"/>
+      </elements>
+      <elements xsi:type="SequenceDiagram:Message" ID="166" previous="/0/@lifelines.21/@elements.6" relatedOperand="/0/@lifelines.21/@elements.6/@operands.0" action="create()" isSendMsg="true" sourceLifeline="/0/@lifelines.21" targetLifeline="/0/@lifelines.20"/>
+    </lifelines>
+    <lifelines name="open :AnnotatedBPMN!State" ownerObject="door">
+      <elements xsi:type="SequenceDiagram:Message" ID="77" action="open the door(constraint,Animation)" isSendMsg="true" sourceLifeline="/0/@lifelines.22" targetLifeline="/0/@lifelines.22"/>
+      <elements xsi:type="SequenceDiagram:Message" ID="77" action="open the door(constraint,Animation)" isReceiveMsg="true" sourceLifeline="/0/@lifelines.22" targetLifeline="/0/@lifelines.22"/>
+      <elements xsi:type="SequenceDiagram:CombinedFragment" ID="78" type="opt">
+        <operands guard="door is closed"/>
+      </elements>
+      <elements xsi:type="SequenceDiagram:Message" ID="167" next="/0/@lifelines.22/@elements.4" action="changeState(condition)" isSendMsg="true" sourceLifeline="/0/@lifelines.22" targetLifeline="/0/@lifelines.22"/>
+      <elements xsi:type="SequenceDiagram:Message" ID="167" previous="/0/@lifelines.22/@elements.3" next="/0/@lifelines.22/@elements.5" action="changeState(condition)" isReceiveMsg="true" sourceLifeline="/0/@lifelines.22" targetLifeline="/0/@lifelines.22"/>
+      <elements xsi:type="SequenceDiagram:CombinedFragment" ID="168" previous="/0/@lifelines.22/@elements.4" next="/0/@lifelines.22/@elements.6">
+        <operands guard="!not Defined"/>
+      </elements>
+      <elements xsi:type="SequenceDiagram:Message" ID="169" previous="/0/@lifelines.22/@elements.5" relatedOperand="/0/@lifelines.22/@elements.5/@operands.0" action="create()" isSendMsg="true" sourceLifeline="/0/@lifelines.22" targetLifeline="/0/@lifelines.23"/>
+      <elements xsi:type="SequenceDiagram:Message" ID="172" relatedOperand="/0/@lifelines.23/@elements.6/@operands.0" action="create()" isReceiveMsg="true" sourceLifeline="/0/@lifelines.23" targetLifeline="/0/@lifelines.22"/>
+    </lifelines>
+    <lifelines name="close :AnnotatedBPMN!State" ownerObject="door">
+      <elements xsi:type="SequenceDiagram:Message" ID="79" action="close the door(constraint,Animation)" isSendMsg="true" sourceLifeline="/0/@lifelines.23" targetLifeline="/0/@lifelines.23"/>
+      <elements xsi:type="SequenceDiagram:Message" ID="79" action="close the door(constraint,Animation)" isReceiveMsg="true" sourceLifeline="/0/@lifelines.23" targetLifeline="/0/@lifelines.23"/>
+      <elements xsi:type="SequenceDiagram:CombinedFragment" ID="80" type="opt">
+        <operands guard="door is opened"/>
+      </elements>
+      <elements xsi:type="SequenceDiagram:Message" ID="169" relatedOperand="/0/@lifelines.22/@elements.5/@operands.0" action="create()" isReceiveMsg="true" sourceLifeline="/0/@lifelines.22" targetLifeline="/0/@lifelines.23"/>
+      <elements xsi:type="SequenceDiagram:Message" ID="170" next="/0/@lifelines.23/@elements.5" action="changeState(condition)" isSendMsg="true" sourceLifeline="/0/@lifelines.23" targetLifeline="/0/@lifelines.23"/>
+      <elements xsi:type="SequenceDiagram:Message" ID="170" previous="/0/@lifelines.23/@elements.4" next="/0/@lifelines.23/@elements.6" action="changeState(condition)" isReceiveMsg="true" sourceLifeline="/0/@lifelines.23" targetLifeline="/0/@lifelines.23"/>
+      <elements xsi:type="SequenceDiagram:CombinedFragment" ID="171" previous="/0/@lifelines.23/@elements.5" next="/0/@lifelines.23/@elements.7">
+        <operands guard="!not Defined"/>
+      </elements>
+      <elements xsi:type="SequenceDiagram:Message" ID="172" previous="/0/@lifelines.23/@elements.6" relatedOperand="/0/@lifelines.23/@elements.6/@operands.0" action="create()" isSendMsg="true" sourceLifeline="/0/@lifelines.23" targetLifeline="/0/@lifelines.22"/>
+    </lifelines>
+    <lifelines name="URL challenge finished :AnnotatedBPMN!State" ownerObject="Student">
+      <elements xsi:type="SequenceDiagram:Message" ID="12" action="choose download option" isReceiveMsg="true" sourceLifeline="/0/@lifelines.0" targetLifeline="/0/@lifelines.24"/>
+      <elements xsi:type="SequenceDiagram:Message" ID="13" action="choose print option" isReceiveMsg="true" sourceLifeline="/0/@lifelines.0" targetLifeline="/0/@lifelines.24"/>
+      <elements xsi:type="SequenceDiagram:Message" ID="81" action="play printer voice and show paper(constraint)" isSendMsg="true" sourceLifeline="/0/@lifelines.24" targetLifeline="/0/@lifelines.4"/>
+      <elements xsi:type="SequenceDiagram:Message" ID="115" next="/0/@lifelines.24/@elements.4" action="changeState(condition)" isSendMsg="true" sourceLifeline="/0/@lifelines.24" targetLifeline="/0/@lifelines.24"/>
+      <elements xsi:type="SequenceDiagram:Message" ID="115" previous="/0/@lifelines.24/@elements.3" next="/0/@lifelines.24/@elements.5" action="changeState(condition)" isReceiveMsg="true" sourceLifeline="/0/@lifelines.24" targetLifeline="/0/@lifelines.24"/>
+      <elements xsi:type="SequenceDiagram:CombinedFragment" ID="116" previous="/0/@lifelines.24/@elements.4" next="/0/@lifelines.24/@elements.6">
+        <operands guard="!not Defined"/>
+      </elements>
+      <elements xsi:type="SequenceDiagram:Message" ID="117" previous="/0/@lifelines.24/@elements.5" relatedOperand="/0/@lifelines.24/@elements.5/@operands.0" action="create()" isSendMsg="true" sourceLifeline="/0/@lifelines.24" targetLifeline="/0/@lifelines.4"/>
+      <elements xsi:type="SequenceDiagram:Message" ID="143" relatedOperand="/0/@lifelines.35/@elements.5/@operands.0" action="create()" isReceiveMsg="true" sourceLifeline="/0/@lifelines.35" targetLifeline="/0/@lifelines.24"/>
+    </lifelines>
+    <lifelines name="printer is off :AnnotatedBPMN!State" ownerObject="printer">
+      <elements xsi:type="SequenceDiagram:Message" ID="83" action="stop printer voice" isSendMsg="true" sourceLifeline="/0/@lifelines.25" targetLifeline="/0/@lifelines.25"/>
+      <elements xsi:type="SequenceDiagram:Message" ID="83" action="stop printer voice" isReceiveMsg="true" sourceLifeline="/0/@lifelines.25" targetLifeline="/0/@lifelines.25"/>
+      <elements xsi:type="SequenceDiagram:Message" ID="175" relatedOperand="/0/@lifelines.4/@elements.6/@operands.0" action="create()" isReceiveMsg="true" sourceLifeline="/0/@lifelines.4" targetLifeline="/0/@lifelines.25"/>
+    </lifelines>
+    <lifelines name="form creation :AnnotatedBPMN!State" ownerObject="form Paper">
+      <elements xsi:type="SequenceDiagram:Message" ID="84" action="save the form in player log(constraint)" isReceiveMsg="true" sourceLifeline="/0/@lifelines.6" targetLifeline="/0/@lifelines.26"/>
+      <elements xsi:type="SequenceDiagram:CombinedFragment" ID="85" type="opt">
+        <operands guard="&#x2018;save&#x2019; option is selected"/>
+      </elements>
+      <elements xsi:type="SequenceDiagram:Message" ID="86" previous="/0/@lifelines.26/@elements.1" relatedOperand="/0/@lifelines.26/@elements.1/@operands.0" action="!not Defined" isSendMsg="true" sourceLifeline="/0/@lifelines.26" targetLifeline="/0/@lifelines.28"/>
+      <elements xsi:type="SequenceDiagram:Message" ID="87" action="Player write something on the form" isSendMsg="true" sourceLifeline="/0/@lifelines.26" targetLifeline="/0/@lifelines.26"/>
+      <elements xsi:type="SequenceDiagram:Message" ID="87" action="Player write something on the form" isReceiveMsg="true" sourceLifeline="/0/@lifelines.26" targetLifeline="/0/@lifelines.26"/>
+      <elements xsi:type="SequenceDiagram:Message" ID="91" action="Player edit something on the form" isSendMsg="true" sourceLifeline="/0/@lifelines.26" targetLifeline="/0/@lifelines.41"/>
+      <elements xsi:type="SequenceDiagram:Message" ID="123" relatedOperand="/0/@lifelines.6/@elements.8/@operands.0" action="create()" isReceiveMsg="true" sourceLifeline="/0/@lifelines.6" targetLifeline="/0/@lifelines.26"/>
+      <elements xsi:type="SequenceDiagram:Message" ID="176" next="/0/@lifelines.26/@elements.8" action="changeState(condition)" isSendMsg="true" sourceLifeline="/0/@lifelines.26" targetLifeline="/0/@lifelines.26"/>
+      <elements xsi:type="SequenceDiagram:Message" ID="176" previous="/0/@lifelines.26/@elements.7" next="/0/@lifelines.26/@elements.9" action="changeState(condition)" isReceiveMsg="true" sourceLifeline="/0/@lifelines.26" targetLifeline="/0/@lifelines.26"/>
+      <elements xsi:type="SequenceDiagram:CombinedFragment" ID="177" previous="/0/@lifelines.26/@elements.8" next="/0/@lifelines.26/@elements.10"/>
+      <elements xsi:type="SequenceDiagram:Message" ID="178" previous="/0/@lifelines.26/@elements.9" relatedOperand="/0/@lifelines.41/@elements.9/@operands.0" action="create()" isSendMsg="true" sourceLifeline="/0/@lifelines.26" targetLifeline="/0/@lifelines.7"/>
+    </lifelines>
+    <lifelines name="level startup :AnnotatedBPMN!UI" ownerObject="level startup">
+      <elements xsi:type="SequenceDiagram:Message" ID="1" action="show" isReceiveMsg="true" sourceLifeline="/0/@lifelines.1" targetLifeline="/0/@lifelines.27"/>
+    </lifelines>
+    <lifelines name="StudentLog :AnnotatedBPMN!PlayerLog" ownerObject="StudentLog">
+      <elements xsi:type="SequenceDiagram:Message" ID="3" action="!not Defined" isReceiveMsg="true" sourceLifeline="/0/@lifelines.1" targetLifeline="/0/@lifelines.28"/>
+      <elements xsi:type="SequenceDiagram:Message" ID="49" action="!not Defined" isReceiveMsg="true" sourceLifeline="/0/@lifelines.16" targetLifeline="/0/@lifelines.28"/>
+      <elements xsi:type="SequenceDiagram:Message" ID="66" action="!not Defined" isReceiveMsg="true" sourceLifeline="/0/@lifelines.19" targetLifeline="/0/@lifelines.28"/>
+      <elements xsi:type="SequenceDiagram:Message" ID="70" action="!not Defined" isReceiveMsg="true" sourceLifeline="/0/@lifelines.19" targetLifeline="/0/@lifelines.28"/>
+      <elements xsi:type="SequenceDiagram:Message" ID="86" relatedOperand="/0/@lifelines.26/@elements.1/@operands.0" action="!not Defined" isReceiveMsg="true" sourceLifeline="/0/@lifelines.26" targetLifeline="/0/@lifelines.28"/>
+      <elements xsi:type="SequenceDiagram:Message" ID="90" relatedOperand="/0/@lifelines.41/@elements.1/@operands.0" action="!not Defined" isReceiveMsg="true" sourceLifeline="/0/@lifelines.41" targetLifeline="/0/@lifelines.28"/>
+      <elements xsi:type="SequenceDiagram:Message" ID="100" action="!not Defined: save challenge score" isReceiveMsg="true" sourceLifeline="/0/@lifelines.42" targetLifeline="/0/@lifelines.28"/>
+      <elements xsi:type="SequenceDiagram:Message" ID="106" action="!not Defined: save challenge score" isReceiveMsg="true" sourceLifeline="/0/@lifelines.46" targetLifeline="/0/@lifelines.28"/>
+    </lifelines>
+    <lifelines name="Student_lane:AnnotatedBPMN!Lane" ownerObject="Student_lane">
+      <elements xsi:type="SequenceDiagram:Message" ID="6" action="preparing department thesis definition form" isReceiveMsg="true" sourceLifeline="/0/@lifelines.2" targetLifeline="/0/@lifelines.29"/>
+      <elements xsi:type="SequenceDiagram:Message" ID="7" action="!not defined: create/ update/ delete?" isSendMsg="true" sourceLifeline="/0/@lifelines.29" targetLifeline="/0/@lifelines.30"/>
+      <elements xsi:type="SequenceDiagram:Message" ID="8" action="return (correctOutputs)" isSendMsg="true" sourceLifeline="/0/@lifelines.29" targetLifeline="/0/@lifelines.2"/>
+      <elements xsi:type="SequenceDiagram:Message" ID="22" action="deliver the form to the supervisor" isReceiveMsg="true" sourceLifeline="/0/@lifelines.7" targetLifeline="/0/@lifelines.29"/>
+      <elements xsi:type="SequenceDiagram:Message" ID="33" action="preparing department thesis definition form" isReceiveMsg="true" sourceLifeline="/0/@lifelines.12" targetLifeline="/0/@lifelines.29"/>
+      <elements xsi:type="SequenceDiagram:Message" ID="56" action="change definition form" isReceiveMsg="true" sourceLifeline="/0/@lifelines.8" targetLifeline="/0/@lifelines.29"/>
+      <elements xsi:type="SequenceDiagram:Message" ID="57" action="read" isSendMsg="true" sourceLifeline="/0/@lifelines.29" targetLifeline="/0/@lifelines.30"/>
+      <elements xsi:type="SequenceDiagram:Message" ID="93" action="deliver the form to the supervisor" isReceiveMsg="true" sourceLifeline="/0/@lifelines.41" targetLifeline="/0/@lifelines.29"/>
+    </lifelines>
+    <lifelines name="department thesis definition form :AnnotatedBPMN!DataObject" ownerObject="department thesis definition form">
+      <elements xsi:type="SequenceDiagram:Message" ID="7" action="!not defined: create/ update/ delete?" isReceiveMsg="true" sourceLifeline="/0/@lifelines.29" targetLifeline="/0/@lifelines.30"/>
+      <elements xsi:type="SequenceDiagram:Message" ID="40" action="read" isReceiveMsg="true" sourceLifeline="/0/@lifelines.37" targetLifeline="/0/@lifelines.30"/>
+      <elements xsi:type="SequenceDiagram:Message" ID="57" action="read" isReceiveMsg="true" sourceLifeline="/0/@lifelines.29" targetLifeline="/0/@lifelines.30"/>
+    </lifelines>
+    <lifelines name="URL challenge :AnnotatedBPMN!KnowledgeChallenge" ownerObject="Student">
+      <elements xsi:type="SequenceDiagram:Message" ID="11" action="startChallenge" isReceiveMsg="true" sourceLifeline="/0/@lifelines.3" targetLifeline="/0/@lifelines.31"/>
+    </lifelines>
+    <lifelines name="form sections query :AnnotatedBPMN!UI" ownerObject="form sections query">
+      <elements xsi:type="SequenceDiagram:Message" ID="16" action="show" isReceiveMsg="true" sourceLifeline="/0/@lifelines.6" targetLifeline="/0/@lifelines.32"/>
+    </lifelines>
+    <lifelines name="highlighted form :AnnotatedBPMN!UI" ownerObject="highlighted form">
+      <elements xsi:type="SequenceDiagram:Message" ID="27" action="show" isReceiveMsg="true" sourceLifeline="/0/@lifelines.10" targetLifeline="/0/@lifelines.33"/>
+    </lifelines>
+    <lifelines name="URL query :AnnotatedBPMN!UI" ownerObject="URL query">
+      <elements xsi:type="SequenceDiagram:Message" ID="30" action="show" isReceiveMsg="true" sourceLifeline="/0/@lifelines.11" targetLifeline="/0/@lifelines.34"/>
+    </lifelines>
+    <lifelines name="show URL challenge result :AnnotatedBPMN!State" ownerObject="Student">
+      <elements xsi:type="SequenceDiagram:Message" ID="35" action="show URL challenge result screen " isReceiveMsg="true" sourceLifeline="/0/@lifelines.12" targetLifeline="/0/@lifelines.35"/>
+      <elements xsi:type="SequenceDiagram:Message" ID="36" previous="/0/@lifelines.35/@elements.0" action="show" isSendMsg="true" sourceLifeline="/0/@lifelines.35" targetLifeline="/0/@lifelines.36"/>
+      <elements xsi:type="SequenceDiagram:Message" ID="140" relatedOperand="/0/@lifelines.12/@elements.11/@operands.0" action="create()" isReceiveMsg="true" sourceLifeline="/0/@lifelines.12" targetLifeline="/0/@lifelines.35"/>
+      <elements xsi:type="SequenceDiagram:Message" ID="141" next="/0/@lifelines.35/@elements.4" action="changeState(condition)" isSendMsg="true" sourceLifeline="/0/@lifelines.35" targetLifeline="/0/@lifelines.35"/>
+      <elements xsi:type="SequenceDiagram:Message" ID="141" previous="/0/@lifelines.35/@elements.3" next="/0/@lifelines.35/@elements.5" action="changeState(condition)" isReceiveMsg="true" sourceLifeline="/0/@lifelines.35" targetLifeline="/0/@lifelines.35"/>
+      <elements xsi:type="SequenceDiagram:CombinedFragment" ID="142" previous="/0/@lifelines.35/@elements.4" next="/0/@lifelines.35/@elements.6">
+        <operands guard="!not Defined"/>
+      </elements>
+      <elements xsi:type="SequenceDiagram:Message" ID="143" previous="/0/@lifelines.35/@elements.5" relatedOperand="/0/@lifelines.35/@elements.5/@operands.0" action="create()" isSendMsg="true" sourceLifeline="/0/@lifelines.35" targetLifeline="/0/@lifelines.24"/>
+    </lifelines>
+    <lifelines name="URL challenge result :AnnotatedBPMN!UI" ownerObject="URL challenge result">
+      <elements xsi:type="SequenceDiagram:Message" ID="36" action="show" isReceiveMsg="true" sourceLifeline="/0/@lifelines.35" targetLifeline="/0/@lifelines.36"/>
+    </lifelines>
+    <lifelines name="Supervisor_lane:AnnotatedBPMN!Lane" ownerObject="Supervisor_lane">
+      <elements xsi:type="SequenceDiagram:Message" ID="39" action="form completeness checking" isReceiveMsg="true" sourceLifeline="/0/@lifelines.14" targetLifeline="/0/@lifelines.37"/>
+      <elements xsi:type="SequenceDiagram:Message" ID="40" action="read" isSendMsg="true" sourceLifeline="/0/@lifelines.37" targetLifeline="/0/@lifelines.30"/>
+      <elements xsi:type="SequenceDiagram:Message" ID="41" action="return (correctOutputs)" isSendMsg="true" sourceLifeline="/0/@lifelines.37" targetLifeline="/0/@lifelines.14"/>
+      <elements xsi:type="SequenceDiagram:Message" ID="44" action="is the form complete?" isReceiveMsg="true" sourceLifeline="/0/@lifelines.16" targetLifeline="/0/@lifelines.37"/>
+      <elements xsi:type="SequenceDiagram:CombinedFragment" ID="45">
+        <operands guard="!not Defined"/>
+        <operands guard="!not Defined"/>
+      </elements>
+      <elements xsi:type="SequenceDiagram:Message" ID="46" previous="/0/@lifelines.37/@elements.4" next="/0/@lifelines.37/@elements.6" relatedOperand="/0/@lifelines.37/@elements.4/@operands.0" action="setCorrectOutputs" isSendMsg="true" sourceLifeline="/0/@lifelines.37" targetLifeline="/0/@lifelines.37"/>
+      <elements xsi:type="SequenceDiagram:Message" ID="46" previous="/0/@lifelines.37/@elements.5" relatedOperand="/0/@lifelines.37/@elements.4/@operands.0" action="setCorrectOutputs" isReceiveMsg="true" sourceLifeline="/0/@lifelines.37" targetLifeline="/0/@lifelines.37"/>
+      <elements xsi:type="SequenceDiagram:Message" ID="47" previous="/0/@lifelines.37/@elements.4" next="/0/@lifelines.37/@elements.8" relatedOperand="/0/@lifelines.37/@elements.4/@operands.1" action="setCorrectOutputs" isSendMsg="true" sourceLifeline="/0/@lifelines.37" targetLifeline="/0/@lifelines.37"/>
+      <elements xsi:type="SequenceDiagram:Message" ID="47" previous="/0/@lifelines.37/@elements.7" relatedOperand="/0/@lifelines.37/@elements.4/@operands.1" action="setCorrectOutputs" isReceiveMsg="true" sourceLifeline="/0/@lifelines.37" targetLifeline="/0/@lifelines.37"/>
+      <elements xsi:type="SequenceDiagram:Message" ID="60" action="form confirmation and signing" isReceiveMsg="true" sourceLifeline="/0/@lifelines.17" targetLifeline="/0/@lifelines.37"/>
+      <elements xsi:type="SequenceDiagram:Message" ID="64" action="endEvent" isReceiveMsg="true" sourceLifeline="/0/@lifelines.18" targetLifeline="/0/@lifelines.37"/>
+    </lifelines>
+    <lifelines name="Thesis definition accuracy :AnnotatedBPMN!KnowledgeChallenge" ownerObject="Student">
+      <elements xsi:type="SequenceDiagram:Message" ID="51" action="startChallenge" isReceiveMsg="true" sourceLifeline="/0/@lifelines.16" targetLifeline="/0/@lifelines.38"/>
+    </lifelines>
+    <lifelines name="End of level :AnnotatedBPMN!UI" ownerObject="End of level">
+      <elements xsi:type="SequenceDiagram:Message" ID="68" action="show" isReceiveMsg="true" sourceLifeline="/0/@lifelines.19" targetLifeline="/0/@lifelines.39"/>
+    </lifelines>
+    <lifelines name="level result :AnnotatedBPMN!UI" ownerObject="level result">
+      <elements xsi:type="SequenceDiagram:Message" ID="72" action="show" isReceiveMsg="true" sourceLifeline="/0/@lifelines.19" targetLifeline="/0/@lifelines.40"/>
+    </lifelines>
+    <lifelines name="form updating :AnnotatedBPMN!State" ownerObject="form Paper">
+      <elements xsi:type="SequenceDiagram:Message" ID="88" action="save updated form in player log(constraint)" isReceiveMsg="true" sourceLifeline="/0/@lifelines.10" targetLifeline="/0/@lifelines.41"/>
+      <elements xsi:type="SequenceDiagram:CombinedFragment" ID="89" type="opt">
+        <operands guard="&#x2018;save&#x2019; option is selected"/>
+      </elements>
+      <elements xsi:type="SequenceDiagram:Message" ID="90" previous="/0/@lifelines.41/@elements.1" relatedOperand="/0/@lifelines.41/@elements.1/@operands.0" action="!not Defined" isSendMsg="true" sourceLifeline="/0/@lifelines.41" targetLifeline="/0/@lifelines.28"/>
+      <elements xsi:type="SequenceDiagram:Message" ID="91" action="Player edit something on the form" isReceiveMsg="true" sourceLifeline="/0/@lifelines.26" targetLifeline="/0/@lifelines.41"/>
+      <elements xsi:type="SequenceDiagram:Message" ID="92" action="recall Task2 of BP component" isReceiveMsg="true" sourceLifeline="/0/@lifelines.16" targetLifeline="/0/@lifelines.41"/>
+      <elements xsi:type="SequenceDiagram:Message" ID="93" previous="/0/@lifelines.41/@elements.4" action="deliver the form to the supervisor" isSendMsg="true" sourceLifeline="/0/@lifelines.41" targetLifeline="/0/@lifelines.29"/>
+      <elements xsi:type="SequenceDiagram:Message" ID="134" relatedOperand="/0/@lifelines.10/@elements.8/@operands.0" action="create()" isReceiveMsg="true" sourceLifeline="/0/@lifelines.10" targetLifeline="/0/@lifelines.41"/>
+      <elements xsi:type="SequenceDiagram:Message" ID="179" next="/0/@lifelines.41/@elements.8" action="changeState(condition)" isSendMsg="true" sourceLifeline="/0/@lifelines.41" targetLifeline="/0/@lifelines.41"/>
+      <elements xsi:type="SequenceDiagram:Message" ID="179" previous="/0/@lifelines.41/@elements.7" next="/0/@lifelines.41/@elements.9" action="changeState(condition)" isReceiveMsg="true" sourceLifeline="/0/@lifelines.41" targetLifeline="/0/@lifelines.41"/>
+      <elements xsi:type="SequenceDiagram:CombinedFragment" ID="180" previous="/0/@lifelines.41/@elements.8">
+        <operands guard="!not Defined"/>
+      </elements>
+    </lifelines>
+    <lifelines name="URL challenge reward :AnnotatedBPMN!ScoringRule" ownerObject="URL challenge reward">
+      <elements xsi:type="SequenceDiagram:Message" ID="95" next="/0/@lifelines.42/@elements.1" action="calculateScore" isReceiveMsg="true" sourceLifeline="/0/@lifelines.12" targetLifeline="/0/@lifelines.42"/>
+      <elements xsi:type="SequenceDiagram:CombinedFragment" ID="96" previous="/0/@lifelines.42/@elements.0">
+        <operands guard="if (user answer=correct answer) add 5 points"/>
+        <operands guard="else reduce 3 points"/>
+      </elements>
+      <elements xsi:type="SequenceDiagram:Message" ID="97" relatedOperand="/0/@lifelines.42/@elements.1/@operands.0" action="create" isSendMsg="true" sourceLifeline="/0/@lifelines.42" targetLifeline="/0/@lifelines.43"/>
+      <elements xsi:type="SequenceDiagram:Message" ID="98" relatedOperand="/0/@lifelines.42/@elements.1/@operands.1" action="create" isSendMsg="true" sourceLifeline="/0/@lifelines.42" targetLifeline="/0/@lifelines.44"/>
+      <elements xsi:type="SequenceDiagram:Message" ID="100" action="!not Defined: save challenge score" isSendMsg="true" sourceLifeline="/0/@lifelines.42" targetLifeline="/0/@lifelines.28"/>
+    </lifelines>
+    <lifelines name="5 point :AnnotatedBPMN!Point" ownerObject="point">
+      <elements xsi:type="SequenceDiagram:Message" ID="97" relatedOperand="/0/@lifelines.42/@elements.1/@operands.0" action="create" isReceiveMsg="true" sourceLifeline="/0/@lifelines.42" targetLifeline="/0/@lifelines.43"/>
+    </lifelines>
+    <lifelines name="3 point :AnnotatedBPMN!Point" ownerObject="point">
+      <elements xsi:type="SequenceDiagram:Message" ID="98" relatedOperand="/0/@lifelines.42/@elements.1/@operands.1" action="create" isReceiveMsg="true" sourceLifeline="/0/@lifelines.42" targetLifeline="/0/@lifelines.44"/>
+    </lifelines>
+    <lifelines name="challenge response checking :AnnotatedBPMN!State" ownerObject="Student">
+      <elements xsi:type="SequenceDiagram:Message" ID="100" next="/0/@lifelines.45/@elements.1" action="runScoringRule" isReceiveMsg="true" sourceLifeline="/0/@lifelines.16" targetLifeline="/0/@lifelines.45"/>
+      <elements xsi:type="SequenceDiagram:Message" ID="101" previous="/0/@lifelines.45/@elements.0" action="calculateScore" isSendMsg="true" sourceLifeline="/0/@lifelines.45" targetLifeline="/0/@lifelines.46"/>
+    </lifelines>
+    <lifelines name="Thesis definition accuracy challenge reward :AnnotatedBPMN!ScoringRule" ownerObject="Thesis definition accuracy challenge reward">
+      <elements xsi:type="SequenceDiagram:Message" ID="101" next="/0/@lifelines.46/@elements.1" action="calculateScore" isReceiveMsg="true" sourceLifeline="/0/@lifelines.45" targetLifeline="/0/@lifelines.46"/>
+      <elements xsi:type="SequenceDiagram:CombinedFragment" ID="102" previous="/0/@lifelines.46/@elements.0">
+        <operands guard="if (form is accurate) give the player a Badge"/>
+        <operands guard="else reduce 1 points from his score for each wrong answer"/>
+      </elements>
+      <elements xsi:type="SequenceDiagram:Message" ID="103" relatedOperand="/0/@lifelines.46/@elements.1/@operands.0" action="create" isSendMsg="true" sourceLifeline="/0/@lifelines.46" targetLifeline="/0/@lifelines.47"/>
+      <elements xsi:type="SequenceDiagram:Message" ID="104" relatedOperand="/0/@lifelines.46/@elements.1/@operands.1" action="create" isSendMsg="true" sourceLifeline="/0/@lifelines.46" targetLifeline="/0/@lifelines.48"/>
+      <elements xsi:type="SequenceDiagram:Message" ID="106" action="!not Defined: save challenge score" isSendMsg="true" sourceLifeline="/0/@lifelines.46" targetLifeline="/0/@lifelines.28"/>
+    </lifelines>
+    <lifelines name="Thesis definition expertise :AnnotatedBPMN!Badge" ownerObject="badge">
+      <elements xsi:type="SequenceDiagram:Message" ID="103" relatedOperand="/0/@lifelines.46/@elements.1/@operands.0" action="create" isReceiveMsg="true" sourceLifeline="/0/@lifelines.46" targetLifeline="/0/@lifelines.47"/>
+    </lifelines>
+    <lifelines name="1 point :AnnotatedBPMN!Point" ownerObject="point">
+      <elements xsi:type="SequenceDiagram:Message" ID="104" relatedOperand="/0/@lifelines.46/@elements.1/@operands.1" action="create" isReceiveMsg="true" sourceLifeline="/0/@lifelines.46" targetLifeline="/0/@lifelines.48"/>
+    </lifelines>
+  </SequenceDiagram:SequenceDiagram>
+  <SequenceDiagram:Message ID="0" action="show level startup screen " isSendMsg="true" targetLifeline="/0/@lifelines.1"/>
+</xmi:XMI>

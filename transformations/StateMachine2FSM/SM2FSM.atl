@@ -1,0 +1,255 @@
+-- @path SM=/SeGa4Biz/metamodels/SM.ecore
+-- @path FSM=/SeGa4Biz/metamodels/FSM.ecore
+
+module SM2FSM;
+create OUT: FSM from IN: SM;
+
+helper def: customEventID : Integer = 0;
+rule stateMachine{
+	from
+		sm_in: SM!StateMachine
+	to
+		sm_out: FSM!StateMachine(
+			name <- sm_in.name,
+			ownerObject <- sm_in.ownerObject)			
+}
+helper context SM!StateMachine def: neededStates: Set(FSM!State) =
+	self.states ->iterate(s; ts:Set(SM!State)=Set{} |
+	if (s.order.toString() <> 'final' and s.transitions.size()>0) then
+		if (not s.transitions->first().triggerEvent.oclIsUndefined()) then
+			if (not s.transitions->first().triggerEvent.name.endsWith('create()')) then
+				ts -> including(s)
+			else
+				ts
+			endif
+		else
+			ts -> including(s)
+		endif
+	else
+		ts
+	endif)
+;
+
+rule state{
+	from
+		state_in: SM!State (
+			state_in.ownerMachine.neededStates->includes(state_in))
+	to
+		state_out: FSM!State(
+			name <- state_in.name,
+			ownerMachine <- state_in.ownerMachine,
+			isStartState <- 
+				if (state_in.order.toString()='initial') then
+					true
+				else
+					if (SM!Transition->allInstances()->
+						exists(t | t.target = state_in and 
+									t.sourceState.order.toString()='initial' and
+									state_in.ownerMachine.neededStates->excludes(t.sourceState))) then
+						true
+					else
+						false
+					endif
+				endif)
+	do{
+		if (state_out.isStartState)
+			thisModule.startEvent(state_in);
+	}
+}
+unique lazy rule startEvent{
+	from
+		state_in: SM!State
+	to
+		startEvent: FSM!CoreEvents(
+			name <- 'START',
+			ownerMachine <- state_in.ownerMachine),
+		transition: FSM!LocalTransition (
+			target <- state_in,
+			triggerEvent <- startEvent)
+}
+rule nonCreateAction{
+	from
+		action_in: SM!Action (
+			not action_in.title.endsWith('create()'))
+	to
+		customAction: FSM!CustomAction (
+			title <- action_in.title,
+			ownerState <-action_in.actionOwnerState),
+		systemAction: FSM!SystemAction(
+			title <- 'Send Event',
+			ownerState <- action_in.actionOwnerState,
+			category <- 'State Machine'),
+		eventTargetParameter: FSM!Parameter(
+			name <- 'Event Target',
+			value <- 
+				if (action_in.target = action_in.ownerTransition.sourceState.ownerMachine.name) then
+					'Self'
+				else
+					'Game Object FSM'
+				endif,
+			ownerAction <- systemAction),
+		sendEventParameter: FSM!Parameter(
+			name <- 'Send Event',
+			value <- action_in.title.substring(2, action_in.title.size()),
+			ownerAction <- systemAction)
+	do{
+		if (eventTargetParameter.value = 'Game Object FSM')
+			thisModule.sendEventToGameObjectFSM(action_in,systemAction);
+	}
+}
+helper context SM!Action def: actionOwnerState : SM!State = 
+	if (not self.ownerTransition.oclIsUndefined()) then
+		self.ownerTransition.target
+	else
+		if (not self.activityOwnerState.oclIsUndefined()) then
+			self.activityOwnerState
+		else
+			if (not self.entryOwnerState.oclIsUndefined())then
+				self.entryOwnerState
+			else
+				if (not self.exitOwnerState.oclIsUndefined())then 
+					self.exitOwnerState
+				else
+					OclUndefined
+				endif
+			endif
+		endif
+	endif;
+unique lazy rule sendEventToGameObjectFSM{
+	from
+		action_in: SM!Action,
+		systemAction: FSM!SystemAction
+	using{
+		ownerObject: String = SM!StateMachine->allInstances()->
+			select(sm | sm.name = action_in.target)->first().ownerObject;
+		}
+	to
+		gameObject: FSM!Parameter(
+			name <- 'Game Object',
+			value <- ownerObject,
+			ownerAction <- systemAction),
+		FSMname: FSM!Parameter(
+			name <- 'FSM Name',
+			value <- action_in.target,
+			ownerAction <- systemAction)
+}
+rule createAction{
+	from
+		action_in: SM!Action(action_in.title.endsWith('create()'))
+	using{
+			FSMname: String = action_in.target;
+			gameObject: String = SM!StateMachine -> allInstances() -> 
+				select(sm | sm.name = FSMname)->first().ownerObject;
+		}
+	to
+		action_out: FSM!SystemAction (
+			title <- 'Enable FSM',
+			category <- 'State Machine',
+			ownerState <-
+				if (not action_in.ownerTransition.oclIsUndefined()) then
+					action_in.ownerTransition.target
+					else
+						if (not action_in.activityOwnerState.oclIsUndefined()) then
+							action_in.activityOwnerState
+						else
+							if (not action_in.entryOwnerState.oclIsUndefined())then
+								action_in.entryOwnerState
+							else
+								if (not action_in.exitOwnerState.oclIsUndefined())then 
+									action_in.exitOwnerState
+								else
+									OclUndefined
+								endif
+							endif
+						endif
+					endif),
+			gameObjectParameter: FSM!Parameter(
+				name <- 'Game Object',
+				value <- gameObject,
+				ownerAction <- action_out),
+			fsmNameParameter: FSM!Parameter(
+				name <- 'Fsm Name',
+				value <- FSMname,
+				ownerAction <- action_out),
+			enableParameter: FSM!Parameter(
+				name <- 'Enable',
+				value <- 'true',
+				ownerAction <- action_out)
+}
+rule constraint2action{
+	from
+		guard: SM!Constraint
+	to
+		action: FSM!CustomAction(
+			title <- 'check transition constraint',
+			ownerState <- guard.ownerTransition.sourceState),
+		parameter: FSM!Parameter(
+			name <- guard.description,
+			ownerAction <- action)
+}
+rule transition{
+	from
+		transition_in: SM!LocalTransition (
+			transition_in.target.order.toString()<>'final' and
+			transition_in.sourceState.ownerMachine.neededStates->
+				includes(transition_in.sourceState))
+	to
+		transition_out: FSM!LocalTransition(
+			sourceState <- transition_in.sourceState,
+			target <- transition_in.target,
+			triggerEvent <- 
+				if (not transition_in.triggerEvent.oclIsUndefined()) then
+					thisModule.transitionTriggerEvent(transition_in.triggerEvent)
+				else
+					if (transition_in.sourceState.stateTransitions.size()=1) then
+						thisModule.finishedEvent(transition_in.sourceState)
+					else
+						thisModule.customEvent(transition_in)
+					endif
+				endif)
+}
+helper context SM!State def: stateTransitions: Sequence (SM!Transition) = 
+	SM!Transition -> allInstances() -> select(t | t.sourceState = self)-> asSequence();
+unique lazy rule customEvent{
+	from
+		transition_in: SM!LocalTransition
+	to
+		transitionEvent: FSM!CustomEvent(
+			name <- 'newEvent '+ thisModule.customEventID.toString(),
+			ownerState <- transition_in.sourceState,
+			isGlobal <- false)
+	do{
+		thisModule.customEventID <- thisModule.customEventID + 1; 
+	}
+}
+unique lazy rule transitionTriggerEvent{
+	from
+		triggerEvent: SM!TriggerEvent
+	using{
+		ownerState: FSM!State = triggerEvent.ownerTransition.sourceState;
+	}
+	to
+		event: FSM!CustomEvent(
+			name <- triggerEvent.name,
+			ownerState <-ownerState,
+			isGlobal <- 
+				if (triggerEvent.source <> ownerState.ownerMachine.name) then
+					true
+				else
+					false
+				endif,
+			isPlayerRequest <- 
+				if (triggerEvent.source.startsWith('Player')) then
+					true
+				else
+					false
+				endif)
+}
+unique lazy rule finishedEvent{
+	from 
+		state: SM!State
+	to
+		finishEvent: FSM!CoreEvents(
+			name <- 'FINISHED',
+			ownerState <- state)
+}

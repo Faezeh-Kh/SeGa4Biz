@@ -1,0 +1,74 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ecore:EPackage xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xmlns:ecore="http://www.eclipse.org/emf/2002/Ecore" name="StateMachine" nsURI="www.stateMachine.com" nsPrefix="StateMachine">
+  <eClassifiers xsi:type="ecore:EClass" name="StateMachine">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="name" lowerBound="1" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="states" lowerBound="1"
+        upperBound="-1" eType="#//State" containment="true" eOpposite="#//State/ownerMachine"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="ownerObject" lowerBound="1"
+        eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="State">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="name" lowerBound="1" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="order" lowerBound="1" eType="#//order"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="transitions" upperBound="-1"
+        eType="#//Transition" containment="true" eOpposite="#//Transition/sourceState"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="entryAction" eType="#//Action"
+        containment="true" eOpposite="#//Action/entryOwnerState"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="exitAction" eType="#//Action"
+        containment="true" eOpposite="#//Action/exitOwnerState"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="doActivity" upperBound="-1"
+        eType="#//Action" containment="true" eOpposite="#//Action/activityOwnerState"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="ownerMachine" lowerBound="1"
+        eType="#//StateMachine" eOpposite="#//StateMachine/states"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EEnum" name="order">
+    <eLiterals name="initial"/>
+    <eLiterals name="intermediate" value="1"/>
+    <eLiterals name="final" value="2"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="Transition">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="sourceState" lowerBound="1"
+        eType="#//State" eOpposite="#//State/transitions"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="target" lowerBound="1"
+        eType="#//State"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="guardCondition" upperBound="-1"
+        eType="#//Constraint" containment="true" eOpposite="#//Constraint/ownerTransition"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="triggerEvent" eType="#//TriggerEvent"
+        containment="true" eOpposite="#//TriggerEvent/ownerTransition"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="actions" eType="#//Action"
+        containment="true" eOpposite="#//Action/ownerTransition"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="LocalTransition" eSuperTypes="#//Transition"/>
+  <eClassifiers xsi:type="ecore:EClass" name="GlobalTransition" eSuperTypes="#//Transition"/>
+  <eClassifiers xsi:type="ecore:EClass" name="TriggerEvent">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="name" lowerBound="1" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="ownerTransition" lowerBound="1"
+        eType="#//Transition" eOpposite="#//Transition/triggerEvent"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="source" lowerBound="1"
+        eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="Action">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="title" lowerBound="1" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="ownerTransition" lowerBound="1"
+        eType="#//Transition" eOpposite="#//Transition/actions"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="entryOwnerState" lowerBound="1"
+        eType="#//State" eOpposite="#//State/entryAction"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="exitOwnerState" lowerBound="1"
+        eType="#//State" eOpposite="#//State/exitAction"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="activityOwnerState" lowerBound="1"
+        eType="#//State" eOpposite="#//State/doActivity"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="target" lowerBound="1"
+        eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="Constraint">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="description" lowerBound="1"
+        eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="ownerTransition" lowerBound="1"
+        eType="#//Transition" eOpposite="#//Transition/guardCondition"/>
+  </eClassifiers>
+  <eSubpackages name="PrimitiveTypes" nsURI="www.PrimitiveTypes.com" nsPrefix="PrimitiveTypes">
+    <eClassifiers xsi:type="ecore:EDataType" name="String" instanceTypeName="string"/>
+    <eClassifiers xsi:type="ecore:EDataType" name="Boolean" instanceClassName="boolean"/>
+  </eSubpackages>
+</ecore:EPackage>

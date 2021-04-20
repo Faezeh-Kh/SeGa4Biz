@@ -1,0 +1,425 @@
+<?xml version="1.0" encoding="ISO-8859-1"?>
+<xmi:XMI xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:ClassDiagram="www.classdiagram.com">
+  <ClassDiagram:Package name="GameLogic">
+    <contents xsi:type="ClassDiagram:Class" name="level 1_Vacation Request_connected">
+      <attributes name="levelNumber"/>
+      <attributes name="isFinalLevel"/>
+      <attributes name="neededScore"/>
+      <operations name="initializeLevel"/>
+      <operations name="loadLevel"/>
+      <operations name="restartLevel"/>
+      <outputRelations xsi:type="ClassDiagram:Association" target="/1/@contents.0" isAggregation="true"/>
+    </contents>
+    <contents xsi:type="ClassDiagram:Class" name="employeeLog">
+      <attributes name="currentGameLevel"/>
+      <attributes name="score"/>
+      <attributes name="badges"/>
+      <outputRelations xsi:type="ClassDiagram:Dependency" target="/2/@contents.0"/>
+    </contents>
+    <contents xsi:type="ClassDiagram:Class" name="Employee_State">
+      <attributes name="isStartState"/>
+    </contents>
+    <contents xsi:type="ClassDiagram:Class" name="Start_Level" superClass="/0/@contents.2">
+      <operations name="changeState">
+        <parameters name="condition"/>
+      </operations>
+      <operations name="show_level1startup_screen"/>
+      <operations name="choose_start_button"/>
+      <operations name="set_level_start_time_in_player_log"/>
+      <outputRelations xsi:type="ClassDiagram:Inheritance" target="/0/@contents.2"/>
+      <outputRelations xsi:type="ClassDiagram:Dependency" target="/0/@contents.4"/>
+      <outputRelations xsi:type="ClassDiagram:Dependency" target="/1/@contents.4"/>
+      <outputRelations xsi:type="ClassDiagram:Dependency" target="/1/@contents.5"/>
+      <outputRelations xsi:type="ClassDiagram:Dependency" target="/0/@contents.1"/>
+    </contents>
+    <contents xsi:type="ClassDiagram:Class" name="initialize_request" superClass="/0/@contents.2">
+      <operations name="changeState">
+        <parameters name="condition"/>
+      </operations>
+      <operations name="call_Task1_of_BP_component"/>
+      <outputRelations xsi:type="ClassDiagram:Inheritance" target="/0/@contents.2"/>
+      <outputRelations xsi:type="ClassDiagram:Dependency" target="/0/@contents.5"/>
+      <outputRelations xsi:type="ClassDiagram:Dependency" target="/3/@contents.0"/>
+    </contents>
+    <contents xsi:type="ClassDiagram:Class" name="show_request_page" superClass="/0/@contents.2">
+      <operations name="changeState">
+        <parameters name="condition"/>
+      </operations>
+      <operations name="show_request_vacation_screen"/>
+      <operations name="choose_send_email_button"/>
+      <outputRelations xsi:type="ClassDiagram:Inheritance" target="/0/@contents.2"/>
+      <outputRelations xsi:type="ClassDiagram:Dependency" target="/0/@contents.6"/>
+      <outputRelations xsi:type="ClassDiagram:Dependency" target="/1/@contents.6"/>
+      <outputRelations xsi:type="ClassDiagram:Dependency" target="/1/@contents.7"/>
+    </contents>
+    <contents xsi:type="ClassDiagram:Class" name="initialize_email" superClass="/0/@contents.2">
+      <operations name="changeState">
+        <parameters name="condition"/>
+      </operations>
+      <operations name="call_task2_of_BP_component"/>
+      <outputRelations xsi:type="ClassDiagram:Inheritance" target="/0/@contents.2"/>
+      <outputRelations xsi:type="ClassDiagram:Dependency" target="/0/@contents.7"/>
+      <outputRelations xsi:type="ClassDiagram:Dependency" target="/3/@contents.0"/>
+    </contents>
+    <contents xsi:type="ClassDiagram:Class" name="make_new_email" superClass="/0/@contents.2">
+      <operations name="changeState">
+        <parameters name="condition"/>
+      </operations>
+      <operations name="show_sending_email_screen"/>
+      <operations name="insert_email_title"/>
+      <operations name="run_email_title_format_challenge"/>
+      <operations name="choose_email_address"/>
+      <operations name="run_email_address_challenge"/>
+      <operations name="choose_rules_checking_button"/>
+      <operations name="show_vacation_rules_screen"/>
+      <operations name="enter_empty_fields"/>
+      <operations name="choose_validation_button"/>
+      <operations name="run_request_validation_challenge"/>
+      <operations name="call_Task3_of_BP_component"/>
+      <outputRelations xsi:type="ClassDiagram:Inheritance" target="/0/@contents.2"/>
+      <outputRelations xsi:type="ClassDiagram:Dependency" target="/0/@contents.8"/>
+      <outputRelations xsi:type="ClassDiagram:Dependency" target="/1/@contents.8"/>
+      <outputRelations xsi:type="ClassDiagram:Dependency" target="/1/@contents.9"/>
+      <outputRelations xsi:type="ClassDiagram:Dependency" target="/0/@contents.26"/>
+      <outputRelations xsi:type="ClassDiagram:Dependency" target="/1/@contents.10"/>
+      <outputRelations xsi:type="ClassDiagram:Dependency" target="/0/@contents.27"/>
+      <outputRelations xsi:type="ClassDiagram:Dependency" target="/1/@contents.11"/>
+      <outputRelations xsi:type="ClassDiagram:Dependency" target="/1/@contents.12"/>
+      <outputRelations xsi:type="ClassDiagram:Dependency" target="/1/@contents.13"/>
+      <outputRelations xsi:type="ClassDiagram:Dependency" target="/1/@contents.15"/>
+      <outputRelations xsi:type="ClassDiagram:Dependency" target="/0/@contents.28"/>
+      <outputRelations xsi:type="ClassDiagram:Dependency" target="/3/@contents.0"/>
+      <outputRelations xsi:type="ClassDiagram:Dependency" target="/0/@contents.14"/>
+      <outputRelations xsi:type="ClassDiagram:Dependency" target="/0/@contents.16"/>
+      <outputRelations xsi:type="ClassDiagram:Dependency" target="/0/@contents.18"/>
+    </contents>
+    <contents xsi:type="ClassDiagram:Class" name="work_load_checking" superClass="/0/@contents.2">
+      <operations name="changeState">
+        <parameters name="condition"/>
+      </operations>
+      <operations name="show_&#x201c;work_load&#x201d;_screen"/>
+      <operations name="call_gateway1_of_BP_component"/>
+      <outputRelations xsi:type="ClassDiagram:Inheritance" target="/0/@contents.2"/>
+      <outputRelations xsi:type="ClassDiagram:Dependency" target="/0/@contents.9"/>
+      <outputRelations xsi:type="ClassDiagram:Dependency" target="/1/@contents.16"/>
+      <outputRelations xsi:type="ClassDiagram:Dependency" target="/3/@contents.0"/>
+    </contents>
+    <contents xsi:type="ClassDiagram:Class" name="determining_work_load_degree" superClass="/0/@contents.2">
+      <operations name="changeState">
+        <parameters name="condition"/>
+      </operations>
+      <operations name="choose_high_button"/>
+      <operations name="call_Task4_of_BP_component"/>
+      <operations name="choose_low_button"/>
+      <operations name="call_Task5_of_BP_component"/>
+      <outputRelations xsi:type="ClassDiagram:Inheritance" target="/0/@contents.2"/>
+      <outputRelations xsi:type="ClassDiagram:Dependency" target="/0/@contents.10"/>
+      <outputRelations xsi:type="ClassDiagram:Dependency" target="/0/@contents.11"/>
+      <outputRelations xsi:type="ClassDiagram:Dependency" target="/1/@contents.17"/>
+      <outputRelations xsi:type="ClassDiagram:Dependency" target="/3/@contents.0"/>
+      <outputRelations xsi:type="ClassDiagram:Dependency" target="/1/@contents.18"/>
+      <outputRelations xsi:type="ClassDiagram:Dependency" target="/3/@contents.0"/>
+    </contents>
+    <contents xsi:type="ClassDiagram:Class" name="wait_for_manager_confirmation" superClass="/0/@contents.2">
+      <operations name="changeState">
+        <parameters name="condition"/>
+      </operations>
+      <operations name="show_result1"/>
+      <operations name="call_Task6_of_BP_component"/>
+      <outputRelations xsi:type="ClassDiagram:Inheritance" target="/0/@contents.2"/>
+      <outputRelations xsi:type="ClassDiagram:Dependency" target="/0/@contents.20"/>
+      <outputRelations xsi:type="ClassDiagram:Dependency" target="/1/@contents.19"/>
+      <outputRelations xsi:type="ClassDiagram:Dependency" target="/3/@contents.1"/>
+    </contents>
+    <contents xsi:type="ClassDiagram:Class" name="go_to_vacation" superClass="/0/@contents.2">
+      <operations name="changeState">
+        <parameters name="condition"/>
+      </operations>
+      <operations name="show_result2"/>
+      <operations name="call_end_event_of_BP_component"/>
+      <outputRelations xsi:type="ClassDiagram:Inheritance" target="/0/@contents.2"/>
+      <outputRelations xsi:type="ClassDiagram:Dependency" target="/0/@contents.12"/>
+      <outputRelations xsi:type="ClassDiagram:Dependency" target="/1/@contents.20"/>
+      <outputRelations xsi:type="ClassDiagram:Dependency" target="/3/@contents.0"/>
+    </contents>
+    <contents xsi:type="ClassDiagram:Class" name="end_state" superClass="/0/@contents.2">
+      <operations name="save_level_finishing_time_in_player_log"/>
+      <operations name="update_player_game_result"/>
+      <operations name="show_the_screen_of_score_menu"/>
+      <operations name="show_player_score_on_screen"/>
+      <operations name="show_run_time_duration"/>
+      <outputRelations xsi:type="ClassDiagram:Inheritance" target="/0/@contents.2"/>
+      <outputRelations xsi:type="ClassDiagram:Dependency" target="/0/@contents.1"/>
+      <outputRelations xsi:type="ClassDiagram:Dependency" target="/1/@contents.24"/>
+      <outputRelations xsi:type="ClassDiagram:Dependency" target="/1/@contents.25"/>
+      <outputRelations xsi:type="ClassDiagram:Dependency" target="/1/@contents.26"/>
+    </contents>
+    <contents xsi:type="ClassDiagram:Class" name="email_title_format_challange_State">
+      <attributes name="isStartState"/>
+    </contents>
+    <contents xsi:type="ClassDiagram:Class" name="email_title_accuracy_checking" superClass="/0/@contents.13">
+      <operations name="runScoringRule"/>
+      <outputRelations xsi:type="ClassDiagram:Inheritance" target="/0/@contents.13"/>
+    </contents>
+    <contents xsi:type="ClassDiagram:Class" name="email_address_challenge_State">
+      <attributes name="isStartState"/>
+    </contents>
+    <contents xsi:type="ClassDiagram:Class" name="email_address_accuracy_checking" superClass="/0/@contents.15">
+      <operations name="runScoringRule"/>
+      <outputRelations xsi:type="ClassDiagram:Inheritance" target="/0/@contents.15"/>
+    </contents>
+    <contents xsi:type="ClassDiagram:Class" name="request_validation_challenge_State">
+      <attributes name="isStartState"/>
+    </contents>
+    <contents xsi:type="ClassDiagram:Class" name="request_validation" superClass="/0/@contents.17">
+      <operations name="runScoringRule"/>
+      <outputRelations xsi:type="ClassDiagram:Inheritance" target="/0/@contents.17"/>
+      <outputRelations xsi:type="ClassDiagram:Dependency" target="/0/@contents.7"/>
+    </contents>
+    <contents xsi:type="ClassDiagram:Class" name="Manager_State">
+      <attributes name="isStartState"/>
+    </contents>
+    <contents xsi:type="ClassDiagram:Class" name="manager_request_checking" superClass="/0/@contents.19">
+      <operations name="changeState">
+        <parameters name="condition"/>
+      </operations>
+      <operations name="call_gateway2_of_BP_component"/>
+      <outputRelations xsi:type="ClassDiagram:Inheritance" target="/0/@contents.19"/>
+      <outputRelations xsi:type="ClassDiagram:Dependency" target="/0/@contents.21"/>
+      <outputRelations xsi:type="ClassDiagram:Dependency" target="/3/@contents.1"/>
+    </contents>
+    <contents xsi:type="ClassDiagram:Class" name="define_work_load_necessity" superClass="/0/@contents.19">
+      <operations name="changeState">
+        <parameters name="condition"/>
+      </operations>
+      <operations name="choose_one_way_randomly"/>
+      <outputRelations xsi:type="ClassDiagram:Inheritance" target="/0/@contents.19"/>
+      <outputRelations xsi:type="ClassDiagram:Dependency" target="/0/@contents.22"/>
+      <outputRelations xsi:type="ClassDiagram:Dependency" target="/0/@contents.23"/>
+    </contents>
+    <contents xsi:type="ClassDiagram:Class" name="high_work_load" superClass="/0/@contents.19">
+      <operations name="changeState">
+        <parameters name="condition"/>
+      </operations>
+      <operations name="call_Task7_of_BP_component"/>
+      <outputRelations xsi:type="ClassDiagram:Inheritance" target="/0/@contents.19"/>
+      <outputRelations xsi:type="ClassDiagram:Dependency" target="/0/@contents.24"/>
+      <outputRelations xsi:type="ClassDiagram:Dependency" target="/3/@contents.1"/>
+    </contents>
+    <contents xsi:type="ClassDiagram:Class" name="low_work_load" superClass="/0/@contents.19">
+      <operations name="changeState">
+        <parameters name="condition"/>
+      </operations>
+      <operations name="call_Task8_of_BP_component"/>
+      <outputRelations xsi:type="ClassDiagram:Inheritance" target="/0/@contents.19"/>
+      <outputRelations xsi:type="ClassDiagram:Dependency" target="/0/@contents.25"/>
+      <outputRelations xsi:type="ClassDiagram:Dependency" target="/3/@contents.1"/>
+    </contents>
+    <contents xsi:type="ClassDiagram:Class" name="reject_vacation" superClass="/0/@contents.19">
+      <operations name="changeState">
+        <parameters name="condition"/>
+      </operations>
+      <operations name="show_rejection_message"/>
+      <operations name="call_end_event_of_BP_component"/>
+      <outputRelations xsi:type="ClassDiagram:Inheritance" target="/0/@contents.19"/>
+      <outputRelations xsi:type="ClassDiagram:Dependency" target="/0/@contents.12"/>
+      <outputRelations xsi:type="ClassDiagram:Dependency" target="/1/@contents.21"/>
+      <outputRelations xsi:type="ClassDiagram:Dependency" target="/3/@contents.0"/>
+    </contents>
+    <contents xsi:type="ClassDiagram:Class" name="confirm_vacation" superClass="/0/@contents.19">
+      <operations name="changeState">
+        <parameters name="condition"/>
+      </operations>
+      <operations name="show_confirmation_message"/>
+      <operations name="call_end_event_of_BP_component"/>
+      <outputRelations xsi:type="ClassDiagram:Inheritance" target="/0/@contents.19"/>
+      <outputRelations xsi:type="ClassDiagram:Dependency" target="/0/@contents.12"/>
+      <outputRelations xsi:type="ClassDiagram:Dependency" target="/1/@contents.22"/>
+      <outputRelations xsi:type="ClassDiagram:Dependency" target="/3/@contents.0"/>
+    </contents>
+    <contents xsi:type="ClassDiagram:Class" name="email_title_format_challange">
+      <operations name="startChallenge"/>
+      <operations name="forceStopChallenge"/>
+      <operations name="validStopChallenge"/>
+      <outputRelations xsi:type="ClassDiagram:Dependency" target="/0/@contents.13"/>
+      <outputRelations xsi:type="ClassDiagram:Association" target="/0/@contents.29" isAggregation="true"/>
+    </contents>
+    <contents xsi:type="ClassDiagram:Class" name="email_address_challenge">
+      <operations name="startChallenge"/>
+      <operations name="forceStopChallenge"/>
+      <operations name="validStopChallenge"/>
+      <outputRelations xsi:type="ClassDiagram:Dependency" target="/0/@contents.15"/>
+      <outputRelations xsi:type="ClassDiagram:Association" target="/0/@contents.30" isAggregation="true"/>
+    </contents>
+    <contents xsi:type="ClassDiagram:Class" name="request_validation_challenge">
+      <operations name="startChallenge"/>
+      <operations name="forceStopChallenge"/>
+      <operations name="validStopChallenge"/>
+      <outputRelations xsi:type="ClassDiagram:Dependency" target="/0/@contents.17"/>
+      <outputRelations xsi:type="ClassDiagram:Association" target="/0/@contents.31" isAggregation="true"/>
+    </contents>
+    <contents xsi:type="ClassDiagram:Class" name="email_title_format_reward">
+      <attributes name="calculatedScore"/>
+      <attributes name="context"/>
+      <operations name="calculateScore"/>
+      <outputRelations xsi:type="ClassDiagram:Association" target="/0/@contents.1"/>
+      <outputRelations xsi:type="ClassDiagram:Dependency" target="/1/@contents.30"/>
+      <outputRelations xsi:type="ClassDiagram:Dependency" target="/1/@contents.30"/>
+    </contents>
+    <contents xsi:type="ClassDiagram:Class" name="email_address_reward">
+      <attributes name="calculatedScore"/>
+      <attributes name="context"/>
+      <operations name="calculateScore"/>
+      <outputRelations xsi:type="ClassDiagram:Association" target="/0/@contents.1"/>
+      <outputRelations xsi:type="ClassDiagram:Dependency" target="/1/@contents.30"/>
+      <outputRelations xsi:type="ClassDiagram:Dependency" target="/1/@contents.30"/>
+    </contents>
+    <contents xsi:type="ClassDiagram:Class" name="valid_request_reward">
+      <attributes name="calculatedScore"/>
+      <attributes name="context"/>
+      <operations name="calculateScore"/>
+      <outputRelations xsi:type="ClassDiagram:Association" target="/0/@contents.1"/>
+      <outputRelations xsi:type="ClassDiagram:Dependency" target="/1/@contents.30"/>
+      <outputRelations xsi:type="ClassDiagram:Dependency" target="/1/@contents.30"/>
+      <outputRelations xsi:type="ClassDiagram:Dependency" target="/1/@contents.30"/>
+    </contents>
+  </ClassDiagram:Package>
+  <ClassDiagram:Package name="GameObjects">
+    <contents xsi:type="ClassDiagram:Class" name="Scene_Vacation Request_connected">
+      <outputRelations xsi:type="ClassDiagram:Association" target="/1/@contents.2" isAggregation="true"/>
+      <outputRelations xsi:type="ClassDiagram:Association" target="/1/@contents.3" isAggregation="true"/>
+      <outputRelations xsi:type="ClassDiagram:Association" target="/1/@contents.1" isAggregation="true"/>
+    </contents>
+    <contents xsi:type="ClassDiagram:Class" name="MainCanvas">
+      <outputRelations xsi:type="ClassDiagram:Association" target="/1/@contents.4" isAggregation="true"/>
+      <outputRelations xsi:type="ClassDiagram:Association" target="/1/@contents.6" isAggregation="true"/>
+      <outputRelations xsi:type="ClassDiagram:Association" target="/1/@contents.8" isAggregation="true"/>
+      <outputRelations xsi:type="ClassDiagram:Association" target="/1/@contents.12" isAggregation="true"/>
+      <outputRelations xsi:type="ClassDiagram:Association" target="/1/@contents.16" isAggregation="true"/>
+      <outputRelations xsi:type="ClassDiagram:Association" target="/1/@contents.24" isAggregation="true"/>
+    </contents>
+    <contents xsi:type="ClassDiagram:Class" name="Employee">
+      <outputRelations xsi:type="ClassDiagram:Dependency" target="/1/@contents.28"/>
+      <outputRelations xsi:type="ClassDiagram:Dependency" target="/0/@contents.2"/>
+    </contents>
+    <contents xsi:type="ClassDiagram:Class" name="Manager">
+      <outputRelations xsi:type="ClassDiagram:Dependency" target="/1/@contents.28"/>
+      <outputRelations xsi:type="ClassDiagram:Dependency" target="/0/@contents.19"/>
+    </contents>
+    <contents xsi:type="ClassDiagram:Class" name="level1startup">
+      <outputRelations xsi:type="ClassDiagram:Association" target="/1/@contents.5" isAggregation="true"/>
+    </contents>
+    <contents xsi:type="ClassDiagram:Class" name="start_button"/>
+    <contents xsi:type="ClassDiagram:Class" name="request_vacation">
+      <outputRelations xsi:type="ClassDiagram:Association" target="/1/@contents.7" isAggregation="true"/>
+    </contents>
+    <contents xsi:type="ClassDiagram:Class" name="send_Email_Button"/>
+    <contents xsi:type="ClassDiagram:Class" name="sending_email">
+      <outputRelations xsi:type="ClassDiagram:Association" target="/1/@contents.9" isAggregation="true"/>
+      <outputRelations xsi:type="ClassDiagram:Association" target="/1/@contents.10" isAggregation="true"/>
+      <outputRelations xsi:type="ClassDiagram:Association" target="/1/@contents.11" isAggregation="true"/>
+    </contents>
+    <contents xsi:type="ClassDiagram:Class" name="title_input"/>
+    <contents xsi:type="ClassDiagram:Class" name="email_Addresses"/>
+    <contents xsi:type="ClassDiagram:Class" name="rules_Checking_Button"/>
+    <contents xsi:type="ClassDiagram:Class" name="vacation_rules">
+      <outputRelations xsi:type="ClassDiagram:Association" target="/1/@contents.13" isAggregation="true"/>
+      <outputRelations xsi:type="ClassDiagram:Association" target="/1/@contents.14" isAggregation="true"/>
+      <outputRelations xsi:type="ClassDiagram:Association" target="/1/@contents.15" isAggregation="true"/>
+    </contents>
+    <contents xsi:type="ClassDiagram:Class" name="vacation_Date_Input"/>
+    <contents xsi:type="ClassDiagram:Class" name="vacationTime_Input"/>
+    <contents xsi:type="ClassDiagram:Class" name="validation_button"/>
+    <contents xsi:type="ClassDiagram:Class" name="workload">
+      <outputRelations xsi:type="ClassDiagram:Association" target="/1/@contents.17" isAggregation="true"/>
+      <outputRelations xsi:type="ClassDiagram:Association" target="/1/@contents.18" isAggregation="true"/>
+      <outputRelations xsi:type="ClassDiagram:Association" target="/1/@contents.19" isAggregation="true"/>
+      <outputRelations xsi:type="ClassDiagram:Association" target="/1/@contents.20" isAggregation="true"/>
+      <outputRelations xsi:type="ClassDiagram:Association" target="/1/@contents.21" isAggregation="true"/>
+      <outputRelations xsi:type="ClassDiagram:Association" target="/1/@contents.22" isAggregation="true"/>
+      <outputRelations xsi:type="ClassDiagram:Association" target="/1/@contents.23" isAggregation="true"/>
+    </contents>
+    <contents xsi:type="ClassDiagram:Class" name="highButton"/>
+    <contents xsi:type="ClassDiagram:Class" name="lowButton"/>
+    <contents xsi:type="ClassDiagram:Class" name="result1"/>
+    <contents xsi:type="ClassDiagram:Class" name="result2"/>
+    <contents xsi:type="ClassDiagram:Class" name="rejection_msg"/>
+    <contents xsi:type="ClassDiagram:Class" name="confirmation_msg"/>
+    <contents xsi:type="ClassDiagram:Class" name="endButton"/>
+    <contents xsi:type="ClassDiagram:Class" name="score_menu">
+      <outputRelations xsi:type="ClassDiagram:Association" target="/1/@contents.25" isAggregation="true"/>
+      <outputRelations xsi:type="ClassDiagram:Association" target="/1/@contents.26" isAggregation="true"/>
+    </contents>
+    <contents xsi:type="ClassDiagram:Class" name="score"/>
+    <contents xsi:type="ClassDiagram:Class" name="duration"/>
+    <contents xsi:type="ClassDiagram:Interface" name="Component"/>
+    <contents xsi:type="ClassDiagram:Class" name="Transform" implements="/1/@contents.27">
+      <attributes name="position"/>
+      <attributes name="rotation"/>
+      <attributes name="scale"/>
+    </contents>
+    <contents xsi:type="ClassDiagram:Interface" name="Reward"/>
+    <contents xsi:type="ClassDiagram:Class" name="Point" implements="/1/@contents.29">
+      <attributes name="value"/>
+    </contents>
+  </ClassDiagram:Package>
+  <ClassDiagram:Package name="DB">
+    <contents xsi:type="ClassDiagram:Class" name="Game_DB_worker">
+      <attributes name="instance" type="/2/@contents.0"/>
+      <operations name="getInstance" returnType="/2/@contents.0"/>
+      <operations name="create"/>
+      <operations name="read"/>
+      <operations name="update"/>
+      <operations name="delete"/>
+    </contents>
+    <contents xsi:type="ClassDiagram:Class" name="BP_DB_worker">
+      <attributes name="instance" type="/2/@contents.1"/>
+      <operations name="getInstance" returnType="/2/@contents.1"/>
+      <operations name="create"/>
+      <operations name="read"/>
+      <operations name="update"/>
+      <operations name="delete"/>
+    </contents>
+  </ClassDiagram:Package>
+  <ClassDiagram:Package name="Vacation_Request_connected_process">
+    <contents xsi:type="ClassDiagram:Class" name="Employee_lane">
+      <operations name="request_for_vacation"/>
+      <operations name="Send_request_Email"/>
+      <operations name="check_work_load"/>
+      <operations name="Wait_for_manager_confirmation"/>
+      <operations name="vacation_confirmation"/>
+      <operations name="startEvent"/>
+      <operations name="endEvent"/>
+      <operations name="degree_of_work_load"/>
+      <outputRelations xsi:type="ClassDiagram:Dependency" target="/3/@contents.1"/>
+      <outputRelations xsi:type="ClassDiagram:Dependency" target="/3/@contents.3"/>
+      <outputRelations xsi:type="ClassDiagram:Dependency" target="/3/@contents.4"/>
+    </contents>
+    <contents xsi:type="ClassDiagram:Class" name="Manager_lane">
+      <operations name="vacation_request_checking"/>
+      <operations name="reject_vacation"/>
+      <operations name="confirm_vacation"/>
+      <operations name="work_load_necessity_degree"/>
+      <outputRelations xsi:type="ClassDiagram:Dependency" target="/3/@contents.0"/>
+      <outputRelations xsi:type="ClassDiagram:Dependency" target="/3/@contents.0"/>
+    </contents>
+    <contents xsi:type="ClassDiagram:Class" name="Avan_Company">
+      <outputRelations xsi:type="ClassDiagram:Association" target="/3/@contents.0" isAggregation="true"/>
+      <outputRelations xsi:type="ClassDiagram:Association" target="/3/@contents.1" isAggregation="true"/>
+    </contents>
+    <contents xsi:type="ClassDiagram:Class" name="Email_Addresses">
+      <operations name="create"/>
+      <operations name="read"/>
+      <operations name="update"/>
+      <operations name="delete"/>
+      <outputRelations xsi:type="ClassDiagram:Dependency" target="/2/@contents.1"/>
+    </contents>
+    <contents xsi:type="ClassDiagram:Class" name="vacation_request_rules">
+      <operations name="create"/>
+      <operations name="read"/>
+      <operations name="update"/>
+      <operations name="delete"/>
+      <outputRelations xsi:type="ClassDiagram:Dependency" target="/2/@contents.1"/>
+    </contents>
+  </ClassDiagram:Package>
+</xmi:XMI>

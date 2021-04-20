@@ -1,0 +1,160 @@
+-- @path SD=/SeGa4Biz/metamodels/SD.ecore
+
+module OrderLifelineElements;
+create OUT: SD from IN: SD;
+
+helper context SD!Lifeline def: firstLifelineElement : SD!Message =
+	let lifelineMsgs: Sequence(SD!Message) = self.elements -> select(e | e.oclIsKindOf(SD!Message))->asSequence() in
+	let createMsg: Sequence(SD!Message) = lifelineMsgs-> select (m | m.action = 'create()' and m.isReceiveMsg) in
+	if (createMsg.size()>0)then
+		createMsg->first()
+	else
+		lifelineMsgs->first()
+	endif;
+
+helper context SD!Lifeline def: lifelineWithoutFirstMsg : Sequence(SD!lifelineElement) =
+	self.elements.excluding(self.firstLifelineElement);
+
+helper context SD!lifelineElement def: preElement: SD!lifelineElement = 
+	let lifelineWithoutFirstElement: Sequence(SD!lifelineElement) = 
+		self.ownerLifeline.lifelineWithoutFirstMsg in
+		if (lifelineWithoutFirstElement->includes(self)) then
+			if (lifelineWithoutFirstElement->first()= self) then
+				self.ownerLifeline.firstLifelineElement
+			else
+				lifelineWithoutFirstElement.at(lifelineWithoutFirstElement.indexOf(self)-1)
+			endif
+		else
+			OclUndefined
+		endif;
+
+helper context SD!lifelineElement def: nextElement: SD!lifelineElement = 
+	let lifelineWithoutFirstElement: Sequence(SD!lifelineElement) = 
+		self.ownerLifeline.lifelineWithoutFirstMsg in
+	if (lifelineWithoutFirstElement.includes(self)) then
+		if (lifelineWithoutFirstElement.last()=self) then
+			OclUndefined
+		else
+			lifelineWithoutFirstElement.at(lifelineWithoutFirstElement.indexOf(self)+1)
+		endif
+	else
+		lifelineWithoutFirstElement.first()
+	endif;
+
+helper context SD!CombinedFragment def: fragmentNextElement : Sequence(SD!lifelineElement)=
+	self.ownerLifeline.elements.subSequence(self.ownerLifeline.elements.indexOf(self), self.ownerLifeline.elements.size())->
+		select(e | not e.preElement.oclIsUndefined())->
+		select(e | e.relatedOperand->notEmpty())->
+		select(e | not e.preElement.relatedOperand->includesAll(e.relatedOperand));
+
+helper context SD!CombinedFragment def: firstElementAfterFragment : SD!lifelineElement=
+	self.ownerLifeline.elements.subSequence(self.ownerLifeline.elements->indexOf(self), self.ownerLifeline.elements->size())
+		->select(e | not e.preElement.oclIsUndefined())
+		->select(e | e.preElement.relatedOperand-> notEmpty()
+					 and e.preElement.relatedOperand -> includes(self.operands->last())
+					 and e.relatedOperand -> isEmpty())->first();
+
+helper context SD!Operand def: LastElementOfOperand : SD!lifelineElement =
+	let fragment: SD!CombinedFragment = self.ownerFragment in
+	fragment.ownerLifeline.elements->
+		subSequence (fragment.ownerLifeline.elements->indexOf(fragment), fragment.ownerLifeline.elements->size())->
+			select(e | e.relatedOperand-> notEmpty() and e.relatedOperand->includes(self))->last();
+			
+rule sequenceDiagram{
+	from
+		sd_in: SD!SequenceDiagram
+	to
+		sd_out: SD!SequenceDiagram(
+			lifelines <- sd_in.lifelines,
+			title <- sd_in.title)
+}
+rule lifeline{
+	from
+		lifeline_in: SD!Lifeline
+	using{
+		index: Integer = 1;
+		}
+	to
+		lifeline_out: SD!Lifeline (
+			elements <- lifeline_in.elements,
+			name <- lifeline_in.name,
+			ownerDiagram <- lifeline_in.ownerDiagram,
+			ownerObject <- lifeline_in.ownerObject,
+			partOf <- lifeline_in.partOf)
+}
+
+rule message{
+	from
+		msg_in: SD!Message (
+			not msg_in.ownerLifeline.oclIsUndefined())
+	to
+		msg_out: SD!Message(
+			ID <- msg_in.ID,
+			action <- msg_in.action,
+			isReceiveMsg <- msg_in.isReceiveMsg,
+			isSendMsg <- msg_in.isSendMsg,
+			next <- msg_in.next->append(msg_in.nextElement)->asSequence(),
+			ownerLifeline <- msg_in.ownerLifeline,
+			previous <- msg_in.previous->append(msg_in.preElement)->asSequence(),
+			relatedOperand <- msg_in.relatedOperand,
+			sourceLifeline <- msg_in.sourceLifeline,
+			targetLifeline <- msg_in.targetLifeline)
+}
+rule sourlessMessage{
+	from
+		msg_in: SD!Message (
+			msg_in.ownerLifeline.oclIsUndefined())
+	to
+		msg_out: SD!Message(
+			ID <- msg_in.ID,
+			action <- msg_in.action,
+			isReceiveMsg <- msg_in.isReceiveMsg,
+			isSendMsg <- msg_in.isSendMsg,
+			targetLifeline <- msg_in.targetLifeline)
+}
+rule combinedFragment{
+	from
+		cf_in: SD!CombinedFragment
+	to
+		cf_out: SD!CombinedFragment(
+			ID <- cf_in.ID,
+			next <- if (cf_in.type.toString() <> 'par') then
+						cf_in.fragmentNextElement->append(cf_in.firstElementAfterFragment)
+					else
+						cf_in.fragmentNextElement
+					endif,
+			operands <- cf_in.operands,
+			ownerLifeline <- cf_in.ownerLifeline,
+			previous <- cf_in.previous->append(cf_in.preElement)->asSequence(),
+			relatedOperand <- cf_in.relatedOperand,
+			type <- cf_in.type)
+	do{
+		for (e in cf_out.next){
+			e-> refUnsetValue('previous', Sequence{});
+			e.previous <- cf_out; 
+		}
+	}
+}
+
+rule operand{
+	from
+		op_in: SD!Operand
+	to
+		op_out:SD!Operand(
+			guard <- op_in.guard,
+			ownerFragment <- op_in.ownerFragment)
+	do{
+		if (not op_out.LastElementOfOperand.oclIsUndefined()){
+			op_out.LastElementOfOperand -> refUnsetValue('next', Sequence{});
+			if (op_out.ownerFragment.type.toString() <> 'loop'){
+				op_out.LastElementOfOperand-> refSetValue('next', op_out.ownerFragment.firstElementAfterFragment);
+				if (not op_out.ownerFragment.firstElementAfterFragment.oclIsUndefined())
+					op_out.ownerFragment.firstElementAfterFragment.previous <- op_out.LastElementOfOperand;
+			}
+			else{
+				op_out.LastElementOfOperand -> refSetValue('next', op_out.ownerFragment);
+				op_out.ownerFragment.previous -> append(op_out.LastElementOfOperand);
+			}
+		}
+	}
+}

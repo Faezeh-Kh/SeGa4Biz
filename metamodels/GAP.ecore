@@ -1,0 +1,499 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ecore:EPackage xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xmlns:ecore="http://www.eclipse.org/emf/2002/Ecore" name="GAP" nsURI="www.GAP.com" nsPrefix="GAP">
+  <eSubpackages name="GameLogic" nsURI="www.GameLogic.com" nsPrefix="GameLogic">
+    <eClassifiers xsi:type="ecore:EClass" name="GameLevel">
+      <eStructuralFeatures xsi:type="ecore:EAttribute" name="levelTitle" lowerBound="1"
+          eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+      <eStructuralFeatures xsi:type="ecore:EAttribute" name="levelNumber" lowerBound="1"
+          eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EInt"/>
+      <eStructuralFeatures xsi:type="ecore:EAttribute" name="isFinalLevel" lowerBound="1"
+          eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBoolean"/>
+      <eStructuralFeatures xsi:type="ecore:EAttribute" name="neededScore" lowerBound="1"
+          eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EInt"/>
+      <eStructuralFeatures xsi:type="ecore:EReference" name="relatedScene" lowerBound="1"
+          eType="ecore:EClass /SeGa4Biz/metamodels/GAP.ecore#//GUI/Scene"
+          containment="true" eOpposite="/SeGa4Biz/metamodels/GAP.ecore#//GUI/Scene/relatedGameLevel"/>
+      <eStructuralFeatures xsi:type="ecore:EReference" name="ownerBP" lowerBound="1"
+          eType="ecore:EClass /SeGa4Biz/metamodels/GAP.ecore#//BPMN/BusinessProcess"
+          eOpposite="/SeGa4Biz/metamodels/GAP.ecore#//BPMN/BusinessProcess/relatedLevel"/>
+    </eClassifiers>
+    <eClassifiers xsi:type="ecore:EClass" name="PlayerLog">
+      <eStructuralFeatures xsi:type="ecore:EAttribute" name="name" lowerBound="1"
+          eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+      <eStructuralFeatures xsi:type="ecore:EReference" name="ownerPlayer" lowerBound="1"
+          eType="ecore:EClass /SeGa4Biz/metamodels/GAP.ecore#//GUI/PlayerCharacter"
+          eOpposite="/SeGa4Biz/metamodels/GAP.ecore#//GUI/PlayerCharacter/playerLog"/>
+    </eClassifiers>
+    <eClassifiers xsi:type="ecore:EClass" name="Capability">
+      <eStructuralFeatures xsi:type="ecore:EAttribute" name="title" lowerBound="1"
+          eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+      <eStructuralFeatures xsi:type="ecore:EAttribute" name="isActive" lowerBound="1"
+          eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBoolean"/>
+      <eStructuralFeatures xsi:type="ecore:EReference" name="ownerPlayer" eType="ecore:EClass /SeGa4Biz/metamodels/GAP.ecore#//GUI/PlayerCharacter"
+          eOpposite="/SeGa4Biz/metamodels/GAP.ecore#//GUI/PlayerCharacter/capabilities"/>
+      <eStructuralFeatures xsi:type="ecore:EReference" name="relatedRewardCondition"
+          eType="ecore:EClass /SeGa4Biz/metamodels/GAP.ecore#//GameLogic/ScoringModel/RewardCondition"
+          eOpposite="/SeGa4Biz/metamodels/GAP.ecore#//GameLogic/ScoringModel/RewardCondition/capability"/>
+    </eClassifiers>
+    <eClassifiers xsi:type="ecore:EClass" name="Challenge">
+      <eStructuralFeatures xsi:type="ecore:EAttribute" name="title" lowerBound="1"
+          eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+      <eStructuralFeatures xsi:type="ecore:EReference" name="ownerPlayer" lowerBound="1"
+          eType="ecore:EClass /SeGa4Biz/metamodels/GAP.ecore#//GUI/PlayerCharacter"
+          eOpposite="/SeGa4Biz/metamodels/GAP.ecore#//GUI/PlayerCharacter/challenges"/>
+      <eStructuralFeatures xsi:type="ecore:EReference" name="scoringRule" eType="ecore:EClass /SeGa4Biz/metamodels/GAP.ecore#//GameLogic/ScoringModel/ScoringRule"
+          containment="true" eOpposite="/SeGa4Biz/metamodels/GAP.ecore#//GameLogic/ScoringModel/ScoringRule/ownerChallenge"/>
+      <eStructuralFeatures xsi:type="ecore:EReference" name="newObjects" upperBound="-1"
+          eType="ecore:EClass /SeGa4Biz/metamodels/GAP.ecore#//GUI/GameObject"
+          containment="true"/>
+      <eStructuralFeatures xsi:type="ecore:EReference" name="states" upperBound="-1"
+          eType="ecore:EClass /SeGa4Biz/metamodels/GAP.ecore#//GameLogic/State"
+          containment="true" eOpposite="/SeGa4Biz/metamodels/GAP.ecore#//GameLogic/State/ownerChallenge"/>
+    </eClassifiers>
+    <eClassifiers xsi:type="ecore:EClass" name="TimeChallenge" eSuperTypes="/SeGa4Biz/metamodels/GAP.ecore#//GameLogic/Challenge">
+      <eStructuralFeatures xsi:type="ecore:EAttribute" name="maxTime" lowerBound="1"
+          eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EInt"/>
+    </eClassifiers>
+    <eClassifiers xsi:type="ecore:EClass" name="KnowledgeChallenge" eSuperTypes="/SeGa4Biz/metamodels/GAP.ecore#//GameLogic/Challenge">
+      <eStructuralFeatures xsi:type="ecore:EAttribute" name="description" lowerBound="1"
+          eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    </eClassifiers>
+    <eClassifiers xsi:type="ecore:EClass" name="FrequencyChallenge" eSuperTypes="/SeGa4Biz/metamodels/GAP.ecore#//GameLogic/Challenge">
+      <eStructuralFeatures xsi:type="ecore:EAttribute" name="maxAttempts" lowerBound="1"
+          eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EInt"/>
+    </eClassifiers>
+    <eClassifiers xsi:type="ecore:EClass" name="State">
+      <eStructuralFeatures xsi:type="ecore:EAttribute" name="name" lowerBound="1"
+          eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+      <eStructuralFeatures xsi:type="ecore:EAttribute" name="isStartState" lowerBound="1"
+          eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBoolean"/>
+      <eStructuralFeatures xsi:type="ecore:EReference" name="actions" upperBound="-1"
+          eType="ecore:EClass /SeGa4Biz/metamodels/GAP.ecore#//GameLogic/Action"
+          containment="true" eOpposite="/SeGa4Biz/metamodels/GAP.ecore#//GameLogic/Action/ownerState"/>
+      <eStructuralFeatures xsi:type="ecore:EReference" name="changeRules" upperBound="-1"
+          eType="ecore:EClass /SeGa4Biz/metamodels/GAP.ecore#//GameLogic/ChangeStateRule"
+          containment="true" eOpposite="/SeGa4Biz/metamodels/GAP.ecore#//GameLogic/ChangeStateRule/ownerState"/>
+      <eStructuralFeatures xsi:type="ecore:EReference" name="ownerObject" lowerBound="1"
+          eType="ecore:EClass /SeGa4Biz/metamodels/GAP.ecore#//GUI/GameObject"
+          eOpposite="/SeGa4Biz/metamodels/GAP.ecore#//GUI/GameObject/states"/>
+      <eStructuralFeatures xsi:type="ecore:EReference" name="ownerChallenge" lowerBound="1"
+          eType="ecore:EClass /SeGa4Biz/metamodels/GAP.ecore#//GameLogic/Challenge"
+          eOpposite="/SeGa4Biz/metamodels/GAP.ecore#//GameLogic/Challenge/states"/>
+    </eClassifiers>
+    <eClassifiers xsi:type="ecore:EClass" name="Action">
+      <eStructuralFeatures xsi:type="ecore:EAttribute" name="title" lowerBound="1"
+          eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+      <eStructuralFeatures xsi:type="ecore:EReference" name="ownerState" lowerBound="1"
+          eType="ecore:EClass /SeGa4Biz/metamodels/GAP.ecore#//GameLogic/State"
+          eOpposite="/SeGa4Biz/metamodels/GAP.ecore#//GameLogic/State/actions"/>
+      <eStructuralFeatures xsi:type="ecore:EReference" name="constraints" upperBound="-1"
+          eType="ecore:EClass /SeGa4Biz/metamodels/GAP.ecore#//GameLogic/Constraint"
+          containment="true" eOpposite="/SeGa4Biz/metamodels/GAP.ecore#//GameLogic/Constraint/ownerAction"/>
+      <eStructuralFeatures xsi:type="ecore:EReference" name="triggers" upperBound="-1"
+          eType="ecore:EClass /SeGa4Biz/metamodels/GAP.ecore#//GameLogic/Trigger"
+          containment="true" eOpposite="/SeGa4Biz/metamodels/GAP.ecore#//GameLogic/Trigger/ownerAction"/>
+      <eStructuralFeatures xsi:type="ecore:EAttribute" name="isPlayerRequest" lowerBound="1"
+          eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBoolean"/>
+      <eStructuralFeatures xsi:type="ecore:EAttribute" name="relatedElementType" eType="ecore:EEnum /SeGa4Biz/metamodels/GAP.ecore#//GameLogic/RelatedElementToAction"/>
+      <eStructuralFeatures xsi:type="ecore:EReference" name="relatedLog" eType="ecore:EClass /SeGa4Biz/metamodels/GAP.ecore#//GameLogic/PlayerLog"/>
+      <eStructuralFeatures xsi:type="ecore:EReference" name="relatedChallenge" eType="ecore:EClass /SeGa4Biz/metamodels/GAP.ecore#//GameLogic/Challenge"/>
+      <eStructuralFeatures xsi:type="ecore:EReference" name="relatedScreen" eType="ecore:EClass /SeGa4Biz/metamodels/GAP.ecore#//GUI/UI"/>
+      <eStructuralFeatures xsi:type="ecore:EReference" name="relatedBPelement" eType="ecore:EClass /SeGa4Biz/metamodels/GAP.ecore#//BPMN/BP_Element"/>
+      <eStructuralFeatures xsi:type="ecore:EReference" name="relatedArt" eType="ecore:EClass /SeGa4Biz/metamodels/GAP.ecore#//GUI/Art"/>
+    </eClassifiers>
+    <eClassifiers xsi:type="ecore:EEnum" name="RelatedElementToAction">
+      <eLiterals name="none"/>
+      <eLiterals name="log" value="1"/>
+      <eLiterals name="challenge" value="2"/>
+      <eLiterals name="bpElement" value="3"/>
+      <eLiterals name="screen" value="4"/>
+      <eLiterals name="art" value="5"/>
+    </eClassifiers>
+    <eClassifiers xsi:type="ecore:EClass" name="PersonalAction" eSuperTypes="/SeGa4Biz/metamodels/GAP.ecore#//GameLogic/Action"/>
+    <eClassifiers xsi:type="ecore:EClass" name="Interaction" eSuperTypes="/SeGa4Biz/metamodels/GAP.ecore#//GameLogic/Action">
+      <eStructuralFeatures xsi:type="ecore:EReference" name="from" lowerBound="1"
+          eType="ecore:EClass /SeGa4Biz/metamodels/GAP.ecore#//GUI/GameObject"/>
+      <eStructuralFeatures xsi:type="ecore:EReference" name="to" lowerBound="1" eType="ecore:EClass /SeGa4Biz/metamodels/GAP.ecore#//GUI/GameObject"/>
+    </eClassifiers>
+    <eClassifiers xsi:type="ecore:EClass" name="Constraint">
+      <eStructuralFeatures xsi:type="ecore:EAttribute" name="description" lowerBound="1"
+          eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+      <eStructuralFeatures xsi:type="ecore:EReference" name="ownerAction" eType="ecore:EClass /SeGa4Biz/metamodels/GAP.ecore#//GameLogic/Action"
+          eOpposite="/SeGa4Biz/metamodels/GAP.ecore#//GameLogic/Action/constraints"/>
+    </eClassifiers>
+    <eClassifiers xsi:type="ecore:EClass" name="Trigger">
+      <eStructuralFeatures xsi:type="ecore:EReference" name="ownerAction" lowerBound="1"
+          eType="ecore:EClass /SeGa4Biz/metamodels/GAP.ecore#//GameLogic/Action"
+          eOpposite="/SeGa4Biz/metamodels/GAP.ecore#//GameLogic/Action/triggers"/>
+      <eStructuralFeatures xsi:type="ecore:EReference" name="source" lowerBound="1"
+          eType="ecore:EClass /SeGa4Biz/metamodels/GAP.ecore#//GameLogic/Action"/>
+    </eClassifiers>
+    <eClassifiers xsi:type="ecore:EClass" name="ChangeStateRule">
+      <eStructuralFeatures xsi:type="ecore:EReference" name="ownerState" eType="ecore:EClass /SeGa4Biz/metamodels/GAP.ecore#//GameLogic/State"
+          eOpposite="/SeGa4Biz/metamodels/GAP.ecore#//GameLogic/State/changeRules"/>
+      <eStructuralFeatures xsi:type="ecore:EReference" name="targetState" upperBound="-1"
+          eType="ecore:EClass /SeGa4Biz/metamodels/GAP.ecore#//GameLogic/State"/>
+    </eClassifiers>
+    <eClassifiers xsi:type="ecore:EClass" name="Deterministic" eSuperTypes="/SeGa4Biz/metamodels/GAP.ecore#//GameLogic/ChangeStateRule"/>
+    <eClassifiers xsi:type="ecore:EClass" name="NonDeterministic" eSuperTypes="/SeGa4Biz/metamodels/GAP.ecore#//GameLogic/ChangeStateRule"/>
+    <eClassifiers xsi:type="ecore:EClass" name="LocationBased" eSuperTypes="/SeGa4Biz/metamodels/GAP.ecore#//GameLogic/ChangeStateRule"/>
+    <eClassifiers xsi:type="ecore:EClass" name="TimeBased" eSuperTypes="/SeGa4Biz/metamodels/GAP.ecore#//GameLogic/ChangeStateRule"/>
+    <eClassifiers xsi:type="ecore:EClass" name="ObjectiveBased" eSuperTypes="/SeGa4Biz/metamodels/GAP.ecore#//GameLogic/ChangeStateRule"/>
+    <eSubpackages name="ScoringModel" nsURI="www.ScoringModel.com" nsPrefix="ScoringModel">
+      <eClassifiers xsi:type="ecore:EClass" name="ScoringRule">
+        <eStructuralFeatures xsi:type="ecore:EAttribute" name="title" lowerBound="1"
+            eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+        <eStructuralFeatures xsi:type="ecore:EAttribute" name="ruleContext" lowerBound="1"
+            eType="ecore:EEnum /SeGa4Biz/metamodels/GAP.ecore#//GameLogic/ScoringModel/RuleContext"/>
+        <eStructuralFeatures xsi:type="ecore:EReference" name="rewardConditions" upperBound="-1"
+            eType="ecore:EClass /SeGa4Biz/metamodels/GAP.ecore#//GameLogic/ScoringModel/RewardCondition"
+            containment="true" eOpposite="/SeGa4Biz/metamodels/GAP.ecore#//GameLogic/ScoringModel/RewardCondition/ownerRule"/>
+        <eStructuralFeatures xsi:type="ecore:EReference" name="ownerChallenge" lowerBound="1"
+            eType="ecore:EClass /SeGa4Biz/metamodels/GAP.ecore#//GameLogic/Challenge"
+            eOpposite="/SeGa4Biz/metamodels/GAP.ecore#//GameLogic/Challenge/scoringRule"/>
+      </eClassifiers>
+      <eClassifiers xsi:type="ecore:EEnum" name="RuleContext">
+        <eLiterals name="challenge"/>
+        <eLiterals name="gameLevel" value="1"/>
+        <eLiterals name="wholeGame" value="2"/>
+      </eClassifiers>
+      <eClassifiers xsi:type="ecore:EClass" name="RewardCondition">
+        <eStructuralFeatures xsi:type="ecore:EAttribute" name="title" lowerBound="1"
+            eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+        <eStructuralFeatures xsi:type="ecore:EAttribute" name="policy" lowerBound="1"
+            eType="ecore:EEnum /SeGa4Biz/metamodels/GAP.ecore#//GameLogic/ScoringModel/ScoringPolicy"/>
+        <eStructuralFeatures xsi:type="ecore:EReference" name="rewards" upperBound="-1"
+            eType="ecore:EClass /SeGa4Biz/metamodels/GAP.ecore#//GameLogic/ScoringModel/Reward"
+            containment="true" eOpposite="/SeGa4Biz/metamodels/GAP.ecore#//GameLogic/ScoringModel/Reward/ownerRewardCondition"/>
+        <eStructuralFeatures xsi:type="ecore:EReference" name="capability" eType="ecore:EClass /SeGa4Biz/metamodels/GAP.ecore#//GameLogic/Capability"
+            eOpposite="/SeGa4Biz/metamodels/GAP.ecore#//GameLogic/Capability/relatedRewardCondition"/>
+        <eStructuralFeatures xsi:type="ecore:EReference" name="ownerRule" lowerBound="1"
+            eType="ecore:EClass /SeGa4Biz/metamodels/GAP.ecore#//GameLogic/ScoringModel/ScoringRule"
+            eOpposite="/SeGa4Biz/metamodels/GAP.ecore#//GameLogic/ScoringModel/ScoringRule/rewardConditions"/>
+      </eClassifiers>
+      <eClassifiers xsi:type="ecore:EEnum" name="ScoringPolicy">
+        <eLiterals name="FixedAction"/>
+        <eLiterals name="Sudden" value="1"/>
+        <eLiterals name="Random" value="2"/>
+        <eLiterals name="Rolling" value="3"/>
+        <eLiterals name="SocialTreasure" value="4"/>
+        <eLiterals name="RewardPacing" value="5"/>
+      </eClassifiers>
+      <eClassifiers xsi:type="ecore:EClass" name="Reward">
+        <eStructuralFeatures xsi:type="ecore:EReference" name="ownerRewardCondition"
+            eType="ecore:EClass /SeGa4Biz/metamodels/GAP.ecore#//GameLogic/ScoringModel/RewardCondition"
+            eOpposite="/SeGa4Biz/metamodels/GAP.ecore#//GameLogic/ScoringModel/RewardCondition/rewards"/>
+      </eClassifiers>
+      <eClassifiers xsi:type="ecore:EClass" name="Point" eSuperTypes="/SeGa4Biz/metamodels/GAP.ecore#//GameLogic/ScoringModel/Reward">
+        <eStructuralFeatures xsi:type="ecore:EAttribute" name="value" lowerBound="1"
+            eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EInt"/>
+      </eClassifiers>
+      <eClassifiers xsi:type="ecore:EClass" name="NewLevel" eSuperTypes="/SeGa4Biz/metamodels/GAP.ecore#//GameLogic/ScoringModel/Reward"/>
+      <eClassifiers xsi:type="ecore:EClass" name="Badge" eSuperTypes="/SeGa4Biz/metamodels/GAP.ecore#//GameLogic/ScoringModel/Reward">
+        <eStructuralFeatures xsi:type="ecore:EAttribute" name="title" lowerBound="1"
+            eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+      </eClassifiers>
+      <eClassifiers xsi:type="ecore:EClass" name="LeaderBoard" eSuperTypes="/SeGa4Biz/metamodels/GAP.ecore#//GameLogic/ScoringModel/Reward"/>
+      <eClassifiers xsi:type="ecore:EClass" name="Certificate" eSuperTypes="/SeGa4Biz/metamodels/GAP.ecore#//GameLogic/ScoringModel/Reward">
+        <eStructuralFeatures xsi:type="ecore:EAttribute" name="title" lowerBound="1"
+            eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+      </eClassifiers>
+      <eClassifiers xsi:type="ecore:EClass" name="BasicPoint" eSuperTypes="/SeGa4Biz/metamodels/GAP.ecore#//GameLogic/ScoringModel/Reward"/>
+      <eClassifiers xsi:type="ecore:EClass" name="FirstTimePoint" eSuperTypes="/SeGa4Biz/metamodels/GAP.ecore#//GameLogic/ScoringModel/Reward"/>
+      <eClassifiers xsi:type="ecore:EClass" name="SkillPoint" eSuperTypes="/SeGa4Biz/metamodels/GAP.ecore#//GameLogic/ScoringModel/Reward"/>
+      <eClassifiers xsi:type="ecore:EClass" name="CoinPoint" eSuperTypes="/SeGa4Biz/metamodels/GAP.ecore#//GameLogic/ScoringModel/Reward"/>
+    </eSubpackages>
+  </eSubpackages>
+  <eSubpackages name="GUI" nsURI="www.GUI.com" nsPrefix="GUI">
+    <eClassifiers xsi:type="ecore:EClass" name="Scene">
+      <eStructuralFeatures xsi:type="ecore:EAttribute" name="levelName" lowerBound="1"
+          eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+      <eStructuralFeatures xsi:type="ecore:EReference" name="objects" upperBound="-1"
+          eType="ecore:EClass /SeGa4Biz/metamodels/GAP.ecore#//GUI/GameObject"
+          eOpposite="/SeGa4Biz/metamodels/GAP.ecore#//GUI/GameObject/ownerScene"/>
+      <eStructuralFeatures xsi:type="ecore:EReference" name="relatedGameLevel" lowerBound="1"
+          eType="ecore:EClass /SeGa4Biz/metamodels/GAP.ecore#//GameLogic/GameLevel"
+          eOpposite="/SeGa4Biz/metamodels/GAP.ecore#//GameLogic/GameLevel/relatedScene"/>
+    </eClassifiers>
+    <eClassifiers xsi:type="ecore:EClass" name="GameObject">
+      <eStructuralFeatures xsi:type="ecore:EAttribute" name="name" lowerBound="1"
+          eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+      <eStructuralFeatures xsi:type="ecore:EReference" name="ownerScene" upperBound="-1"
+          eType="ecore:EClass /SeGa4Biz/metamodels/GAP.ecore#//GUI/Scene"
+          eOpposite="/SeGa4Biz/metamodels/GAP.ecore#//GUI/Scene/objects"/>
+      <eStructuralFeatures xsi:type="ecore:EReference" name="states" upperBound="-1"
+          eType="ecore:EClass /SeGa4Biz/metamodels/GAP.ecore#//GameLogic/State"
+          containment="true" eOpposite="/SeGa4Biz/metamodels/GAP.ecore#//GameLogic/State/ownerObject"/>
+      <eStructuralFeatures xsi:type="ecore:EReference" name="components" lowerBound="1"
+          upperBound="-1" eType="ecore:EClass /SeGa4Biz/metamodels/GAP.ecore#//GUI/Component"/>
+      <eStructuralFeatures xsi:type="ecore:EReference" name="innerObjects" upperBound="-1"
+          eType="ecore:EClass /SeGa4Biz/metamodels/GAP.ecore#//GUI/GameObject"
+          containment="true"/>
+      <eStructuralFeatures xsi:type="ecore:EReference" name="ownerPool" lowerBound="1"
+          eType="ecore:EClass /SeGa4Biz/metamodels/GAP.ecore#//BPMN/Pool"
+          eOpposite="/SeGa4Biz/metamodels/GAP.ecore#//BPMN/Pool/relatedObjects"/>
+      <eStructuralFeatures xsi:type="ecore:EReference" name="ownerLane" lowerBound="1"
+          eType="ecore:EClass /SeGa4Biz/metamodels/GAP.ecore#//BPMN/Lane"
+          eOpposite="/SeGa4Biz/metamodels/GAP.ecore#//BPMN/Lane/relatedObjects"/>
+      <eStructuralFeatures xsi:type="ecore:EReference" name="ownerResource" lowerBound="1"
+          eType="ecore:EClass /SeGa4Biz/metamodels/GAP.ecore#//BPMN/Resource"
+          eOpposite="/SeGa4Biz/metamodels/GAP.ecore#//BPMN/Resource/relatedObject"/>
+      <eStructuralFeatures xsi:type="ecore:EReference" name="ownerMessageFlow" lowerBound="1"
+          eType="ecore:EClass /SeGa4Biz/metamodels/GAP.ecore#//BPMN/MessageFlow"
+          eOpposite="/SeGa4Biz/metamodels/GAP.ecore#//BPMN/MessageFlow/relatedObjects"/>
+    </eClassifiers>
+    <eClassifiers xsi:type="ecore:EClass" name="PlayerCharacter" eSuperTypes="/SeGa4Biz/metamodels/GAP.ecore#//GUI/GameObject">
+      <eStructuralFeatures xsi:type="ecore:EReference" name="capabilities" upperBound="-1"
+          eType="ecore:EClass /SeGa4Biz/metamodels/GAP.ecore#//GameLogic/Capability"
+          containment="true" eOpposite="/SeGa4Biz/metamodels/GAP.ecore#//GameLogic/Capability/ownerPlayer"/>
+      <eStructuralFeatures xsi:type="ecore:EReference" name="challenges" upperBound="-1"
+          eType="ecore:EClass /SeGa4Biz/metamodels/GAP.ecore#//GameLogic/Challenge"
+          containment="true" eOpposite="/SeGa4Biz/metamodels/GAP.ecore#//GameLogic/Challenge/ownerPlayer"/>
+      <eStructuralFeatures xsi:type="ecore:EReference" name="playerLog" lowerBound="1"
+          eType="ecore:EClass /SeGa4Biz/metamodels/GAP.ecore#//GameLogic/PlayerLog"
+          containment="true" eOpposite="/SeGa4Biz/metamodels/GAP.ecore#//GameLogic/PlayerLog/ownerPlayer"/>
+    </eClassifiers>
+    <eClassifiers xsi:type="ecore:EClass" name="NonPlayerCharacter" eSuperTypes="/SeGa4Biz/metamodels/GAP.ecore#//GUI/GameObject"/>
+    <eClassifiers xsi:type="ecore:EClass" name="Component">
+      <eStructuralFeatures xsi:type="ecore:EReference" name="assets" upperBound="-1"
+          eType="ecore:EClass /SeGa4Biz/metamodels/GAP.ecore#//GUI/Asset"/>
+    </eClassifiers>
+    <eClassifiers xsi:type="ecore:EClass" name="Transform" eSuperTypes="/SeGa4Biz/metamodels/GAP.ecore#//GUI/Component">
+      <eStructuralFeatures xsi:type="ecore:EReference" name="position" lowerBound="1"
+          eType="ecore:EClass /SeGa4Biz/metamodels/GAP.ecore#//GUI/Vector3"/>
+      <eStructuralFeatures xsi:type="ecore:EReference" name="rotation" lowerBound="1"
+          eType="ecore:EClass /SeGa4Biz/metamodels/GAP.ecore#//GUI/Vector3"/>
+      <eStructuralFeatures xsi:type="ecore:EReference" name="scale" lowerBound="1"
+          eType="ecore:EClass /SeGa4Biz/metamodels/GAP.ecore#//GUI/Vector3"/>
+    </eClassifiers>
+    <eClassifiers xsi:type="ecore:EClass" name="Vector3">
+      <eStructuralFeatures xsi:type="ecore:EAttribute" name="x" lowerBound="1" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EDouble"/>
+      <eStructuralFeatures xsi:type="ecore:EAttribute" name="y" lowerBound="1" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EDouble"/>
+      <eStructuralFeatures xsi:type="ecore:EAttribute" name="z" lowerBound="1" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EDouble"/>
+    </eClassifiers>
+    <eClassifiers xsi:type="ecore:EClass" name="Asset"/>
+    <eClassifiers xsi:type="ecore:EClass" name="CharacterController" eSuperTypes="/SeGa4Biz/metamodels/GAP.ecore#//GUI/Component"/>
+    <eClassifiers xsi:type="ecore:EClass" name="Collider" eSuperTypes="/SeGa4Biz/metamodels/GAP.ecore#//GUI/Component">
+      <eStructuralFeatures xsi:type="ecore:EAttribute" name="isTrigger" lowerBound="1"
+          eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBoolean"/>
+    </eClassifiers>
+    <eClassifiers xsi:type="ecore:EClass" name="RigidBody" eSuperTypes="/SeGa4Biz/metamodels/GAP.ecore#//GUI/Component"/>
+    <eClassifiers xsi:type="ecore:EClass" name="UI" eSuperTypes="/SeGa4Biz/metamodels/GAP.ecore#//GUI/GameObject /SeGa4Biz/metamodels/GAP.ecore#//GUI/Component"/>
+    <eClassifiers xsi:type="ecore:EClass" name="Canvas" eSuperTypes="/SeGa4Biz/metamodels/GAP.ecore#//GUI/UI">
+      <eStructuralFeatures xsi:type="ecore:EReference" name="innerUIelements" upperBound="-1"
+          eType="ecore:EClass /SeGa4Biz/metamodels/GAP.ecore#//GUI/UI"/>
+    </eClassifiers>
+    <eClassifiers xsi:type="ecore:EClass" name="Panel" eSuperTypes="/SeGa4Biz/metamodels/GAP.ecore#//GUI/UI">
+      <eStructuralFeatures xsi:type="ecore:EReference" name="innerUIelements" upperBound="-1"
+          eType="ecore:EClass /SeGa4Biz/metamodels/GAP.ecore#//GUI/UI"/>
+    </eClassifiers>
+    <eClassifiers xsi:type="ecore:EClass" name="Button" eSuperTypes="/SeGa4Biz/metamodels/GAP.ecore#//GUI/UI">
+      <eStructuralFeatures xsi:type="ecore:EReference" name="buttonText" upperBound="-1"
+          eType="ecore:EClass /SeGa4Biz/metamodels/GAP.ecore#//GUI/Text"/>
+    </eClassifiers>
+    <eClassifiers xsi:type="ecore:EClass" name="Text" eSuperTypes="/SeGa4Biz/metamodels/GAP.ecore#//GUI/UI">
+      <eStructuralFeatures xsi:type="ecore:EAttribute" name="value" lowerBound="1"
+          eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    </eClassifiers>
+    <eClassifiers xsi:type="ecore:EClass" name="Image" eSuperTypes="/SeGa4Biz/metamodels/GAP.ecore#//GUI/UI"/>
+    <eClassifiers xsi:type="ecore:EClass" name="Toggle" eSuperTypes="/SeGa4Biz/metamodels/GAP.ecore#//GUI/UI">
+      <eStructuralFeatures xsi:type="ecore:EAttribute" name="header" lowerBound="1"
+          eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    </eClassifiers>
+    <eClassifiers xsi:type="ecore:EClass" name="InputField" eSuperTypes="/SeGa4Biz/metamodels/GAP.ecore#//GUI/UI"/>
+    <eClassifiers xsi:type="ecore:EClass" name="Art" eSuperTypes="/SeGa4Biz/metamodels/GAP.ecore#//GUI/Component"/>
+    <eClassifiers xsi:type="ecore:EClass" name="Animation" eSuperTypes="/SeGa4Biz/metamodels/GAP.ecore#//GUI/Art"/>
+    <eClassifiers xsi:type="ecore:EClass" name="Audio" eSuperTypes="/SeGa4Biz/metamodels/GAP.ecore#//GUI/Art"/>
+    <eClassifiers xsi:type="ecore:EClass" name="Video" eSuperTypes="/SeGa4Biz/metamodels/GAP.ecore#//GUI/Art"/>
+    <eClassifiers xsi:type="ecore:EClass" name="Material" eSuperTypes="/SeGa4Biz/metamodels/GAP.ecore#//GUI/Art"/>
+  </eSubpackages>
+  <eSubpackages name="BPMN" nsURI="www.BPMN.com" nsPrefix="BPMN">
+    <eClassifiers xsi:type="ecore:EClass" name="BusinessProcess">
+      <eStructuralFeatures xsi:type="ecore:EAttribute" name="name" lowerBound="1"
+          eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+      <eStructuralFeatures xsi:type="ecore:EReference" name="participants" lowerBound="1"
+          upperBound="-1" eType="ecore:EClass /SeGa4Biz/metamodels/GAP.ecore#//BPMN/Pool"
+          containment="true" eOpposite="/SeGa4Biz/metamodels/GAP.ecore#//BPMN/Pool/ownerBP"/>
+      <eStructuralFeatures xsi:type="ecore:EReference" name="resources" upperBound="-1"
+          eType="ecore:EClass /SeGa4Biz/metamodels/GAP.ecore#//BPMN/Resource"
+          containment="true" eOpposite="/SeGa4Biz/metamodels/GAP.ecore#//BPMN/Resource/ownerBP"/>
+      <eStructuralFeatures xsi:type="ecore:EReference" name="relatedLevel" lowerBound="1"
+          upperBound="-1" eType="ecore:EClass /SeGa4Biz/metamodels/GAP.ecore#//GameLogic/GameLevel"
+          containment="true" eOpposite="/SeGa4Biz/metamodels/GAP.ecore#//GameLogic/GameLevel/ownerBP"/>
+    </eClassifiers>
+    <eClassifiers xsi:type="ecore:EClass" name="Pool">
+      <eStructuralFeatures xsi:type="ecore:EAttribute" name="name" lowerBound="1"
+          eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+      <eStructuralFeatures xsi:type="ecore:EReference" name="lanes" lowerBound="1"
+          upperBound="-1" eType="ecore:EClass /SeGa4Biz/metamodels/GAP.ecore#//BPMN/Lane"
+          containment="true" eOpposite="/SeGa4Biz/metamodels/GAP.ecore#//BPMN/Lane/ownerPool"/>
+      <eStructuralFeatures xsi:type="ecore:EReference" name="ownerBP" lowerBound="1"
+          eType="ecore:EClass /SeGa4Biz/metamodels/GAP.ecore#//BPMN/BusinessProcess"
+          eOpposite="/SeGa4Biz/metamodels/GAP.ecore#//BPMN/BusinessProcess/participants"/>
+      <eStructuralFeatures xsi:type="ecore:EReference" name="msgFlows" upperBound="-1"
+          eType="ecore:EClass /SeGa4Biz/metamodels/GAP.ecore#//BPMN/MessageFlow"
+          containment="true" eOpposite="/SeGa4Biz/metamodels/GAP.ecore#//BPMN/MessageFlow/ownerPool"/>
+      <eStructuralFeatures xsi:type="ecore:EReference" name="relatedObjects" upperBound="-1"
+          eType="ecore:EClass /SeGa4Biz/metamodels/GAP.ecore#//GUI/GameObject"
+          containment="true" eOpposite="/SeGa4Biz/metamodels/GAP.ecore#//GUI/GameObject/ownerPool"/>
+    </eClassifiers>
+    <eClassifiers xsi:type="ecore:EClass" name="Lane">
+      <eStructuralFeatures xsi:type="ecore:EAttribute" name="name" lowerBound="1"
+          eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+      <eStructuralFeatures xsi:type="ecore:EReference" name="ownerPool" lowerBound="1"
+          eType="ecore:EClass /SeGa4Biz/metamodels/GAP.ecore#//BPMN/Pool"
+          eOpposite="/SeGa4Biz/metamodels/GAP.ecore#//BPMN/Pool/lanes"/>
+      <eStructuralFeatures xsi:type="ecore:EReference" name="elements" lowerBound="1"
+          upperBound="-1" eType="ecore:EClass /SeGa4Biz/metamodels/GAP.ecore#//BPMN/BP_Element"
+          containment="true" eOpposite="/SeGa4Biz/metamodels/GAP.ecore#//BPMN/BP_Element/performerLane"/>
+      <eStructuralFeatures xsi:type="ecore:EReference" name="relatedObjects" upperBound="-1"
+          eType="ecore:EClass /SeGa4Biz/metamodels/GAP.ecore#//GUI/GameObject"
+          containment="true" eOpposite="/SeGa4Biz/metamodels/GAP.ecore#//GUI/GameObject/ownerLane"/>
+    </eClassifiers>
+    <eClassifiers xsi:type="ecore:EClass" name="BP_Element">
+      <eStructuralFeatures xsi:type="ecore:EReference" name="performerLane" lowerBound="1"
+          eType="ecore:EClass /SeGa4Biz/metamodels/GAP.ecore#//BPMN/Lane"
+          eOpposite="/SeGa4Biz/metamodels/GAP.ecore#//BPMN/Lane/elements"/>
+      <eStructuralFeatures xsi:type="ecore:EReference" name="flows" upperBound="-1"
+          eType="ecore:EClass /SeGa4Biz/metamodels/GAP.ecore#//BPMN/SequenceFlow"
+          containment="true" eOpposite="/SeGa4Biz/metamodels/GAP.ecore#//BPMN/SequenceFlow/ownerElement"/>
+    </eClassifiers>
+    <eClassifiers xsi:type="ecore:EClass" name="Activity" eSuperTypes="/SeGa4Biz/metamodels/GAP.ecore#//BPMN/BP_Element">
+      <eStructuralFeatures xsi:type="ecore:EAttribute" name="title" lowerBound="1"
+          eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    </eClassifiers>
+    <eClassifiers xsi:type="ecore:EClass" name="SubProcess" eSuperTypes="/SeGa4Biz/metamodels/GAP.ecore#//BPMN/BusinessProcess /SeGa4Biz/metamodels/GAP.ecore#//BPMN/Activity"/>
+    <eClassifiers xsi:type="ecore:EClass" name="EventSubProcess" eSuperTypes="/SeGa4Biz/metamodels/GAP.ecore#//BPMN/SubProcess">
+      <eStructuralFeatures xsi:type="ecore:EAttribute" name="isInterrupting" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBoolean"/>
+      <eStructuralFeatures xsi:type="ecore:EAttribute" name="isNonInterrupting" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBoolean"/>
+    </eClassifiers>
+    <eClassifiers xsi:type="ecore:EClass" name="AdHoc" eSuperTypes="/SeGa4Biz/metamodels/GAP.ecore#//BPMN/SubProcess"/>
+    <eClassifiers xsi:type="ecore:EClass" name="Transaction" eSuperTypes="/SeGa4Biz/metamodels/GAP.ecore#//BPMN/SubProcess"/>
+    <eClassifiers xsi:type="ecore:EClass" name="Task" eSuperTypes="/SeGa4Biz/metamodels/GAP.ecore#//BPMN/Activity">
+      <eStructuralFeatures xsi:type="ecore:EAttribute" name="type" lowerBound="1"
+          eType="ecore:EEnum /SeGa4Biz/metamodels/GAP.ecore#//BPMN/TaskType"/>
+      <eStructuralFeatures xsi:type="ecore:EReference" name="relatedState" upperBound="-1"
+          eType="ecore:EClass /SeGa4Biz/metamodels/GAP.ecore#//GameLogic/State"/>
+    </eClassifiers>
+    <eClassifiers xsi:type="ecore:EEnum" name="TaskType">
+      <eLiterals name="userTask"/>
+      <eLiterals name="manualTask" value="1"/>
+      <eLiterals name="serviceTask" value="2"/>
+      <eLiterals name="sendEmailTask" value="3"/>
+      <eLiterals name="receiveEmailTask" value="4"/>
+    </eClassifiers>
+    <eClassifiers xsi:type="ecore:EClass" name="SequenceFlow">
+      <eStructuralFeatures xsi:type="ecore:EAttribute" name="description" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+      <eStructuralFeatures xsi:type="ecore:EReference" name="ownerElement" lowerBound="1"
+          eType="ecore:EClass /SeGa4Biz/metamodels/GAP.ecore#//BPMN/BP_Element"
+          eOpposite="/SeGa4Biz/metamodels/GAP.ecore#//BPMN/BP_Element/flows"/>
+      <eStructuralFeatures xsi:type="ecore:EReference" name="target" lowerBound="1"
+          eType="ecore:EClass /SeGa4Biz/metamodels/GAP.ecore#//BPMN/BP_Element"/>
+      <eStructuralFeatures xsi:type="ecore:EReference" name="relatedState" upperBound="-1"
+          eType="ecore:EClass /SeGa4Biz/metamodels/GAP.ecore#//GameLogic/State"/>
+    </eClassifiers>
+    <eClassifiers xsi:type="ecore:EClass" name="MessageFlow">
+      <eStructuralFeatures xsi:type="ecore:EReference" name="ownerPool" lowerBound="1"
+          eType="ecore:EClass /SeGa4Biz/metamodels/GAP.ecore#//BPMN/Pool"
+          eOpposite="/SeGa4Biz/metamodels/GAP.ecore#//BPMN/Pool/msgFlows"/>
+      <eStructuralFeatures xsi:type="ecore:EReference" name="target" lowerBound="1"
+          eType="ecore:EClass /SeGa4Biz/metamodels/GAP.ecore#//BPMN/Pool"/>
+      <eStructuralFeatures xsi:type="ecore:EReference" name="relatedObjects" upperBound="-1"
+          eType="ecore:EClass /SeGa4Biz/metamodels/GAP.ecore#//GUI/GameObject"
+          containment="true" eOpposite="/SeGa4Biz/metamodels/GAP.ecore#//GUI/GameObject/ownerMessageFlow"/>
+    </eClassifiers>
+    <eClassifiers xsi:type="ecore:EClass" name="DataAssociationFlow">
+      <eStructuralFeatures xsi:type="ecore:EReference" name="ownerResource" lowerBound="1"
+          eType="ecore:EClass /SeGa4Biz/metamodels/GAP.ecore#//BPMN/Resource"
+          eOpposite="/SeGa4Biz/metamodels/GAP.ecore#//BPMN/Resource/flows"/>
+      <eStructuralFeatures xsi:type="ecore:EReference" name="sourceOrTarget" lowerBound="1"
+          eType="ecore:EClass /SeGa4Biz/metamodels/GAP.ecore#//BPMN/BP_Element"/>
+      <eStructuralFeatures xsi:type="ecore:EReference" name="relatedState" upperBound="-1"
+          eType="ecore:EClass /SeGa4Biz/metamodels/GAP.ecore#//GameLogic/State"/>
+      <eStructuralFeatures xsi:type="ecore:EAttribute" name="type" lowerBound="1"
+          eType="ecore:EEnum /SeGa4Biz/metamodels/GAP.ecore#//BPMN/DataAssociationFlowType"/>
+    </eClassifiers>
+    <eClassifiers xsi:type="ecore:EEnum" name="DataAssociationFlowType">
+      <eLiterals name="inputFlow"/>
+      <eLiterals name="outputFlow" value="1"/>
+    </eClassifiers>
+    <eClassifiers xsi:type="ecore:EClass" name="Event" eSuperTypes="/SeGa4Biz/metamodels/GAP.ecore#//BPMN/BP_Element">
+      <eStructuralFeatures xsi:type="ecore:EAttribute" name="triggerType" lowerBound="1"
+          eType="ecore:EEnum /SeGa4Biz/metamodels/GAP.ecore#//BPMN/EventTriggerType"/>
+      <eStructuralFeatures xsi:type="ecore:EReference" name="relatedState" upperBound="-1"
+          eType="ecore:EClass /SeGa4Biz/metamodels/GAP.ecore#//GameLogic/State"/>
+      <eStructuralFeatures xsi:type="ecore:EReference" name="relatedChallenge" upperBound="-1"
+          eType="ecore:EClass /SeGa4Biz/metamodels/GAP.ecore#//GameLogic/Challenge"/>
+    </eClassifiers>
+    <eClassifiers xsi:type="ecore:EClass" name="StartEvent" eSuperTypes="/SeGa4Biz/metamodels/GAP.ecore#//BPMN/Event">
+      <eStructuralFeatures xsi:type="ecore:EAttribute" name="isInterrupting" lowerBound="1"
+          eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBoolean"/>
+    </eClassifiers>
+    <eClassifiers xsi:type="ecore:EClass" name="IntermediateEvent" eSuperTypes="/SeGa4Biz/metamodels/GAP.ecore#//BPMN/Event">
+      <eStructuralFeatures xsi:type="ecore:EAttribute" name="isInterrupting" lowerBound="1"
+          eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBoolean"/>
+    </eClassifiers>
+    <eClassifiers xsi:type="ecore:EClass" name="EndEvent" eSuperTypes="/SeGa4Biz/metamodels/GAP.ecore#//BPMN/Event"/>
+    <eClassifiers xsi:type="ecore:EEnum" name="EventTriggerType">
+      <eLiterals name="none"/>
+      <eLiterals name="MessageCatching" value="1"/>
+      <eLiterals name="MessageThrowing" value="2"/>
+      <eLiterals name="Timer" value="3"/>
+      <eLiterals name="ErrorCatching" value="4"/>
+      <eLiterals name="ErrorThrowing" value="5"/>
+      <eLiterals name="CancelCatching" value="6"/>
+      <eLiterals name="CancelThrowing" value="7"/>
+      <eLiterals name="Conditional" value="8"/>
+      <eLiterals name="LinkCatching" value="9"/>
+      <eLiterals name="LinkThrowing" value="10"/>
+      <eLiterals name="signalCatching" value="11"/>
+      <eLiterals name="SignalThrowing" value="12"/>
+      <eLiterals name="terminate" value="13"/>
+    </eClassifiers>
+    <eClassifiers xsi:type="ecore:EClass" name="Resource">
+      <eStructuralFeatures xsi:type="ecore:EAttribute" name="title" lowerBound="1"
+          eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+      <eStructuralFeatures xsi:type="ecore:EReference" name="flows" lowerBound="1"
+          upperBound="-1" eType="ecore:EClass /SeGa4Biz/metamodels/GAP.ecore#//BPMN/DataAssociationFlow"
+          containment="true" eOpposite="/SeGa4Biz/metamodels/GAP.ecore#//BPMN/DataAssociationFlow/ownerResource"/>
+      <eStructuralFeatures xsi:type="ecore:EReference" name="ownerBP" lowerBound="1"
+          eType="ecore:EClass /SeGa4Biz/metamodels/GAP.ecore#//BPMN/BusinessProcess"
+          eOpposite="/SeGa4Biz/metamodels/GAP.ecore#//BPMN/BusinessProcess/resources"/>
+      <eStructuralFeatures xsi:type="ecore:EReference" name="relatedObject" upperBound="-1"
+          eType="ecore:EClass /SeGa4Biz/metamodels/GAP.ecore#//GUI/GameObject"
+          containment="true" eOpposite="/SeGa4Biz/metamodels/GAP.ecore#//GUI/GameObject/ownerResource"/>
+    </eClassifiers>
+    <eClassifiers xsi:type="ecore:EClass" name="DataObject" eSuperTypes="/SeGa4Biz/metamodels/GAP.ecore#//BPMN/Resource"/>
+    <eClassifiers xsi:type="ecore:EClass" name="DataStore" eSuperTypes="/SeGa4Biz/metamodels/GAP.ecore#//BPMN/Resource"/>
+    <eClassifiers xsi:type="ecore:EClass" name="Gateway" eSuperTypes="/SeGa4Biz/metamodels/GAP.ecore#//BPMN/BP_Element">
+      <eStructuralFeatures xsi:type="ecore:EReference" name="relatedChallenge" upperBound="-1"
+          eType="ecore:EClass /SeGa4Biz/metamodels/GAP.ecore#//GameLogic/Challenge"/>
+    </eClassifiers>
+    <eClassifiers xsi:type="ecore:EClass" name="Exclusive" eSuperTypes="/SeGa4Biz/metamodels/GAP.ecore#//BPMN/Gateway">
+      <eStructuralFeatures xsi:type="ecore:EAttribute" name="triggerCondition" lowerBound="1"
+          eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"
+          iD="true"/>
+    </eClassifiers>
+    <eClassifiers xsi:type="ecore:EClass" name="Inclusive" eSuperTypes="/SeGa4Biz/metamodels/GAP.ecore#//BPMN/Gateway">
+      <eStructuralFeatures xsi:type="ecore:EAttribute" name="triggerCondition" lowerBound="1"
+          eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    </eClassifiers>
+    <eClassifiers xsi:type="ecore:EClass" name="Parallel" eSuperTypes="/SeGa4Biz/metamodels/GAP.ecore#//BPMN/Gateway"/>
+    <eClassifiers xsi:type="ecore:EClass" name="EventBased" eSuperTypes="/SeGa4Biz/metamodels/GAP.ecore#//BPMN/Gateway">
+      <eStructuralFeatures xsi:type="ecore:EAttribute" name="triggerEvent" lowerBound="1"
+          eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    </eClassifiers>
+    <eClassifiers xsi:type="ecore:EClass" name="Complex" eSuperTypes="/SeGa4Biz/metamodels/GAP.ecore#//BPMN/Gateway">
+      <eStructuralFeatures xsi:type="ecore:EAttribute" name="description" lowerBound="1"
+          eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    </eClassifiers>
+  </eSubpackages>
+  <eSubpackages name="PrimitiveType" nsURI="www.PrimitiveType.com" nsPrefix="PrimitiveType">
+    <eClassifiers xsi:type="ecore:EDataType" name="String"/>
+    <eClassifiers xsi:type="ecore:EDataType" name="Boolean"/>
+    <eClassifiers xsi:type="ecore:EDataType" name="Integer"/>
+    <eClassifiers xsi:type="ecore:EDataType" name="Double"/>
+    <eClassifiers xsi:type="ecore:EDataType" name="Map"/>
+  </eSubpackages>
+</ecore:EPackage>

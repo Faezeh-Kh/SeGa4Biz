@@ -1,0 +1,946 @@
+-- @path UMLclassDiagram=/SeGa4Biz/metamodels/UMLclassDiagram.ecore
+-- @path GAP=/SeGa4Biz/metamodels/GAP.ecore
+
+module GAP2ClassDiagram;
+create OUT: UMLclassDiagram from IN: GAP;
+--Game Part----------------------------------------------------------------
+helper def: GameLogicPackage: UMLclassDiagram!Package = OclUndefined;
+helper def: GameObjectsPackage: UMLclassDiagram!Package = OclUndefined;
+helper def: DBPackage: UMLclassDiagram!Package = OclUndefined;
+helper def: Game_DB_worker: UMLclassDiagram!Class = OclUndefined;
+helper def: BP_DB_Worker: UMLclassDiagram!Class = OclUndefined;
+
+--called rules--
+--create basic packages for class diagram
+entrypoint rule basicPackages (){
+	to
+		glPackage: UMLclassDiagram!Package(
+			name <- 'GameLogic'),
+		gameObjectsPackage: UMLclassDiagram!Package(
+			name <- 'GameObjects'),
+		DBPackage: UMLclassDiagram!Package(
+			name <- 'DB')
+	do{
+		thisModule.GameLogicPackage <- glPackage;
+		thisModule.GameObjectsPackage <- gameObjectsPackage;
+		thisModule.DBPackage <- DBPackage;
+		thisModule.DB_Classes();
+	}
+}
+--create two classes in DB package which will be used by other elements to work by DBs
+rule DB_Classes(){
+	to
+		game_DB_worker:  UMLclassDiagram!Class (
+			name <- 'Game_DB_worker',
+			package <- thisModule.DBPackage),
+		bp_DB_worker:  UMLclassDiagram!Class(
+			name <- 'BP_DB_worker',
+			package <- thisModule.DBPackage),
+		gameDBinstance: UMLclassDiagram!Attribute(
+			name <- 'instance', 
+			type <- game_DB_worker,
+			owner <- game_DB_worker),
+		gameDBOperation: UMLclassDiagram!Operation(
+			name <- 'getInstance',
+			returnType <- game_DB_worker,
+			owner <- game_DB_worker),
+		c1: UMLclassDiagram!Operation (
+			name <- 'create', owner <- game_DB_worker),
+		r1: UMLclassDiagram!Operation (
+			name <- 'read', owner <- game_DB_worker),
+		u1: UMLclassDiagram!Operation (
+			name <- 'update', owner <- game_DB_worker),
+		d1: UMLclassDiagram!Operation (
+			name <- 'delete', owner <- game_DB_worker),
+		bpDBinstance: UMLclassDiagram!Attribute(
+			name <- 'instance', 
+			type <- bp_DB_worker,
+			owner <- bp_DB_worker),
+		bpDBOperation: UMLclassDiagram!Operation(
+			name <- 'getInstance',
+			returnType <- bp_DB_worker,
+			owner <- bp_DB_worker),
+		c2: UMLclassDiagram!Operation (
+			name <- 'create', owner <- bp_DB_worker),
+		r2: UMLclassDiagram!Operation (
+			name <- 'read', owner <- bp_DB_worker),
+		u2: UMLclassDiagram!Operation (
+			name <- 'update', owner <- bp_DB_worker),
+		d2: UMLclassDiagram!Operation (
+			name <- 'delete', owner <- bp_DB_worker)
+	do{
+		thisModule.Game_DB_worker <- game_DB_worker;
+		thisModule.BP_DB_Worker <- bp_DB_worker;
+	}
+}
+
+rule gameLevel2class{
+	from
+		gl: GAP!GameLevel
+	to
+		levelClass: UMLclassDiagram!Class(
+			name <- 'level '+gl.levelNumber.toString()+'_' + gl.levelTitle,
+			package <- thisModule.GameLogicPackage),
+		levelNumber: UMLclassDiagram!Attribute(
+			name <- 'levelNumber',
+			owner <- levelClass),
+		isFinalLevel: UMLclassDiagram!Attribute(
+			name <- 'isFinalLevel',
+			owner <- levelClass),
+		neededScore: UMLclassDiagram!Attribute(
+			name <- 'neededScore',
+			owner <- levelClass),
+		initializeLevel: UMLclassDiagram!Operation(
+			name <- 'initializeLevel',
+			owner <- levelClass),
+		LoadLevel: UMLclassDiagram!Operation(
+			name <- 'loadLevel',
+			owner <- levelClass),
+		RestartLevel: UMLclassDiagram!Operation(
+			name <- 'restartLevel',
+			owner <- levelClass),
+		association: UMLclassDiagram!Association (
+			isAggregation <- true,
+			source <- levelClass,
+			target <- gl.relatedScene)
+}
+rule scene2class{
+	from
+		scene: GAP!Scene
+	using{
+		relatedObjects: Sequence (GAP!GameObject) = scene.objects->select(o | not o.oclIsKindOf(GAP!UI));
+		}
+	to
+		sceneClass: UMLclassDiagram!Class(
+			name <- 'Scene_' + scene.levelName,
+			package <- thisModule.GameObjectsPackage),
+		aggregationToObjects: distinct UMLclassDiagram!Association foreach (gameObject in relatedObjects) (
+			isAggregation <- true,
+			source <- sceneClass,
+			target <- gameObject)
+	do{
+		if (GAP!UI->allInstances()->notEmpty())
+			thisModule.aggregationFromSceneToMainCanvas(scene);
+	}
+}
+unique lazy rule aggregationFromSceneToMainCanvas{
+	from
+		scene: GAP!Scene
+	to
+		aggregation: UMLclassDiagram!Association (
+			isAggregation <- true,
+			source <- scene,
+			target <- thisModule.mainCanvas())
+}
+rule nonUIgameObject2Class{
+	from
+		gameObject: GAP!GameObject (not gameObject.oclIsKindOf(GAP!UI))
+	to
+		objectClass: UMLclassDiagram!Class(
+			name <- gameObject.name.regexReplaceAll(' ', '_'),
+			package <- thisModule.GameObjectsPackage),
+		dependency: distinct UMLclassDiagram!Dependency foreach (c in gameObject.components)(
+			source <- objectClass,
+			target <- c)
+	do{
+		for (obj in gameObject.innerObjects){
+			thisModule.aggregationToInnerObjects(obj,gameObject);}
+	}
+}
+rule UIgameObject2Class{
+	from
+		gameObject: GAP!GameObject (gameObject.oclIsKindOf(GAP!UI))
+	using{
+		superObject: GAP!GameObject = 
+			GAP!GameObject->allInstances()->select(o | o.innerObjects.includes(gameObject))->first();
+		}
+	to
+		objectClass: UMLclassDiagram!Class(
+			name <- gameObject.name.regexReplaceAll(' ', '_'),
+			package <- thisModule.GameObjectsPackage), 
+		dependency: distinct UMLclassDiagram!Dependency foreach (c in gameObject.components)(
+			source <- objectClass,
+			target <- c)
+	do{
+		if (superObject.oclIsUndefined()) 
+			thisModule.aggregationFromMainCanvasToObject(gameObject);
+		for (obj in gameObject.innerObjects){
+			thisModule.aggregationToInnerObjects(obj,gameObject);}
+	}
+}
+unique lazy rule aggregationToInnerObjects{
+	from
+		innerObject: GAP!GameObject,
+		ownerObject: GAP!GameObject
+	to
+		aggregation: UMLclassDiagram!Association (
+			isAggregation <- true,
+			source <- ownerObject,
+			target <- innerObject)
+}
+unique lazy rule aggregationFromMainCanvasToObject{
+	from
+		ownerObject: GAP!GameObject
+	to
+		aggregation: UMLclassDiagram!Association (
+			isAggregation <- true,
+			source <- thisModule.mainCanvas(),
+			target <- ownerObject)
+}
+unique lazy rule mainCanvas{
+	from
+		ui: GAP!UI
+	to
+		superClass: UMLclassDiagram!Class(
+			name <- 'MainCanvas',
+			package <- thisModule.GameObjectsPackage)
+}
+--component classes
+unique lazy rule componentInterface{
+	from
+		component: GAP!Component
+	to
+		componentInterface: UMLclassDiagram!Interface (
+			name <- 'Component',
+			package <- thisModule.GameObjectsPackage)
+}
+rule transform{
+	from
+		transform: GAP!Transform
+	to
+		transformClass: UMLclassDiagram!Class(
+			name <- 'Transform',
+			implements <- thisModule.componentInterface(),
+			package <- thisModule.GameObjectsPackage),
+		position: UMLclassDiagram!Attribute(
+			name <- 'position',
+			owner <- transformClass),
+		rotation: UMLclassDiagram!Attribute(
+			name <- 'rotation',
+			owner <- transformClass),
+		scale: UMLclassDiagram!Attribute(
+			name <- 'scale',
+			owner <- transformClass)
+}
+rule characterController{
+	from
+		cc: GAP!CharacterController
+	to
+		characterController: UMLclassDiagram!Class(
+			name <- 'CharacterController',
+			implements <- thisModule.componentInterface(),
+			package <- thisModule.GameObjectsPackage)
+}
+rule collider{
+	from
+		c: GAP!Collider
+	to
+		collider: UMLclassDiagram!Class(
+			name <- if (c.isTrigger) then 'Trigger' else 'Collider'endif ,
+			implements <- thisModule.componentInterface(),
+			package <- thisModule.GameObjectsPackage)
+}
+rule rigidBody{
+	from
+		rb: GAP!RigidBody
+	to
+		rigidBody: UMLclassDiagram!Class(
+			name <- 'RigidBody',
+			implements <- thisModule.componentInterface(),
+			package <- thisModule.GameObjectsPackage)
+}
+unique lazy rule UIsuperClass{
+	from
+		ui: GAP!UI
+	to
+		UI: UMLclassDiagram!Class(
+			name <- 'UI',
+			implements <- thisModule.componentInterface(),
+			package <- thisModule.GameObjectsPackage)
+}
+rule canvas{
+	from
+		c: GAP!Canvas (c.name.oclIsUndefined())
+	to
+		canvas: UMLclassDiagram!Class(
+			name <- 'Canvas',
+			superClass <- thisModule.UIsuperClass(),
+			package <- thisModule.GameObjectsPackage)
+}
+rule panel{
+	from
+		p: GAP!Panel(p.name.oclIsUndefined())
+	to
+		panel: UMLclassDiagram!Class(
+			name <- 'Panel',
+			superClass <- thisModule.UIsuperClass(),
+			package <- thisModule.GameObjectsPackage)
+}
+rule button{
+	from
+		b: GAP!Button(b.name.oclIsUndefined())
+	to
+		button: UMLclassDiagram!Class(
+			name <- 'Button',
+			superClass <- thisModule.UIsuperClass(),
+			package <- thisModule.GameObjectsPackage)
+}
+rule text{
+	from
+		t: GAP!Text(t.name.oclIsUndefined())
+	to
+		text: UMLclassDiagram!Class(
+			name <- 'Text',
+			superClass <- thisModule.UIsuperClass(),
+			package <- thisModule.GameObjectsPackage)
+}
+rule image{
+	from
+		i: GAP!Image(i.name.oclIsUndefined())
+	to
+		image: UMLclassDiagram!Class(
+			name <- 'Image',
+			superClass <- thisModule.UIsuperClass(),
+			package <- thisModule.GameObjectsPackage)
+}
+unique lazy rule ArtSuperclass{
+	from
+		art: GAP!Art
+	to
+		artClass: UMLclassDiagram!Class(
+			name <- 'Art',
+			implements <- thisModule.componentInterface(),
+			package <- thisModule.GameObjectsPackage)
+}
+rule animation{
+	from
+		a: GAP!Animation
+	to
+		animation: UMLclassDiagram!Class(
+			name <- 'Animation',
+			superClass <- thisModule.ArtSuperclass(),
+			package <- thisModule.GameObjectsPackage)
+}
+rule audio{
+	from
+		a: GAP!Audio
+	to
+		audio: UMLclassDiagram!Class(
+			name <- 'Audio',
+			superClass <- thisModule.ArtSuperclass(),
+			package <- thisModule.GameObjectsPackage)
+}
+rule video{
+	from
+		v: GAP!Video
+	to
+		video: UMLclassDiagram!Class(
+			name <- 'Video',
+			superClass <- thisModule.ArtSuperclass(),
+			package <- thisModule.GameObjectsPackage)
+}
+rule material{
+	from
+		m: GAP!Material
+	to
+		material: UMLclassDiagram!Class(
+			name <- 'Material',
+			superClass <- thisModule.ArtSuperclass(),
+			package <- thisModule.GameObjectsPackage)
+}
+rule playerlog2class{
+	from
+		playerLog: GAP!PlayerLog
+	to
+		log: UMLclassDiagram!Class(
+			name <- playerLog.name.regexReplaceAll(' ', '_'),
+			package <- thisModule.GameLogicPackage),
+		currentGameLevel: UMLclassDiagram!Attribute(
+			name <- 'currentGameLevel',
+			owner <- log),
+		score: UMLclassDiagram!Attribute(
+			name <- 'score',
+			owner <- log),
+		badges: UMLclassDiagram!Attribute(
+			name <- 'badges',
+			owner <- log),
+		dependency: UMLclassDiagram!Dependency(
+			source <- log,
+			target <- thisModule.Game_DB_worker)
+}
+rule state2class{
+	from
+		state: GAP!State
+	to
+		stateClass: UMLclassDiagram!Class(
+			name <- state.name.regexReplaceAll(' ', '_'),
+			superClass <- state.stateSuperClass,
+			package <- thisModule.GameLogicPackage),
+		inheritance: UMLclassDiagram!Inheritance(
+			source <- stateClass,
+			target <- state.stateSuperClass)
+}
+helper context GAP!State def: stateSuperClass : OclAny =  
+	if (not self.ownerObject.oclIsUndefined()) then
+		thisModule.objectSuperState(self.ownerObject)
+	else
+		if (not self.ownerChallenge.oclIsUndefined()) then
+			thisModule.challengeSuperState(self.ownerChallenge)
+		else
+			OclUndefined
+		endif
+	endif;
+unique lazy rule objectSuperState{
+	from
+		object: GAP!GameObject 
+	to
+		objectSuperState: UMLclassDiagram!Class(
+			name <- object.name.regexReplaceAll(' ', '_') + '_State',
+			package <- thisModule.GameLogicPackage),
+		isStartState: UMLclassDiagram!Attribute (
+			name <- 'isStartState',
+			owner <- objectSuperState),
+		relation: UMLclassDiagram!Dependency(
+			source <- object,
+			target <- objectSuperState)
+}
+unique lazy rule challengeSuperState{
+	from
+		challenge: GAP!Challenge 
+	to
+		challengeSuperState: UMLclassDiagram!Class(
+			name <- challenge.title.regexReplaceAll(' ', '_') + '_State',
+			package <- thisModule.GameLogicPackage),
+		isStartState: UMLclassDiagram!Attribute (
+			name <- 'isStartState',
+			owner <- challengeSuperState),
+		relation: UMLclassDiagram!Dependency(
+			source <- challenge,
+			target <- challengeSuperState)
+}
+rule changeStateRule{
+	from
+		changeStateRule: GAP!ChangeStateRule
+	to
+		operation: UMLclassDiagram!Operation(
+			name <- 'changeState',
+			owner <- changeStateRule.ownerState),
+		parameter: UMLclassDiagram!Parameter(
+			name <- if (changeStateRule.oclIsKindOf(GAP!Deterministic)
+						or changeStateRule.oclIsKindOf(GAP!NonDeterministic)) then
+							'condition'
+						else
+							if (changeStateRule.oclIsKindOf(GAP!LocationBased)) then
+								'location'
+							else
+								if (changeStateRule.oclIsKindOf(GAP!TimeBased)) then
+									'Time'
+								else
+									if (changeStateRule.oclIsKindOf(GAP!ObjectiveBased)) then
+										'objective'
+									else
+										OclUndefined
+									endif
+								endif
+							endif
+						endif,
+			owner <- operation),
+		dependency: distinct UMLclassDiagram!Dependency foreach (target in changeStateRule.targetState)(
+			source <- changeStateRule.ownerState,
+			target <- target)
+}
+rule action2operation{
+	from
+		action: GAP!Action 
+	to
+		operation: UMLclassDiagram!Operation(
+			name <- action.title.regexReplaceAll(' ', '_'),
+			owner <- action.ownerState)
+	do{
+		action.actionDependencies;
+	}
+}
+helper context GAP!Action def: actionDependencies : OclAny = 
+	if (not self.relatedArt.oclIsUndefined()) then
+		thisModule.artParameter(self)
+	else
+		if (not self.relatedBPelement.oclIsUndefined()) then
+			thisModule.dependencyToBPelement(self)
+		else
+			if (not self.relatedChallenge.oclIsUndefined()) then
+				thisModule.dependencyToChallenge(self)
+			else
+				if (not self.relatedLog.oclIsUndefined()) then
+					thisModule.dependencyToLog(self)
+				else
+					if (not self.relatedScreen.oclIsUndefined()) then
+						thisModule.dependencyToScreen(self)
+					else
+						OclUndefined
+					endif
+				endif
+			endif
+		endif
+	endif;		
+unique lazy rule dependencyToLog{
+	from
+		action: GAP!Action (
+			not action.relatedLog.oclIsUndefined())
+	to
+		dependencyToLog: UMLclassDiagram!Dependency(
+				source <- action.ownerState,
+				target <- action.relatedLog)
+}
+unique lazy rule dependencyToChallenge{
+	from
+		action: GAP!Action (
+			not action.relatedChallenge.oclIsUndefined())
+	to
+		dependencyToChallenge: UMLclassDiagram!Dependency(
+				source <- action.ownerState,
+				target <- action.relatedChallenge)
+}
+unique lazy rule dependencyToBPelement{
+	from
+		action: GAP!Action (
+			not action.relatedBPelement.oclIsUndefined())
+	to
+		dependencyToBPelement: UMLclassDiagram!Dependency(
+				source <- action.ownerState,
+				target <- thisModule.lane2class(action.relatedBPelement.performerLane))
+}
+unique lazy rule dependencyToScreen{
+	from
+		action: GAP!Action (
+			not action.relatedScreen.oclIsUndefined())
+	to
+		dependencyToScreen: UMLclassDiagram!Dependency(
+				source <- action.ownerState,
+				target <- action.relatedScreen)
+}
+unique lazy rule artParameter{
+	from
+		action: GAP!Action (
+			not action.relatedArt.oclIsUndefined())
+	using{
+		artType : String = action.relatedArt.oclType().toString();
+		}
+	to
+		artParameter: UMLclassDiagram!Parameter(
+			name <- artType.substring(15, artType.size()).regexReplaceAll(' ', '_'),
+			owner <- action)
+}
+rule constraint2parameter{
+	from
+		constraint: GAP!Constraint
+	to
+		parameter: UMLclassDiagram!Parameter(
+			name <- 'constraint',
+			owner <- constraint.ownerAction)
+}
+rule trigger2dependency{
+	from
+		trigger: GAP!Trigger (trigger.source.ownerState <> trigger.ownerAction.ownerState)
+	to
+		dependency: UMLclassDiagram!Dependency(
+			source <- trigger.source.ownerState,
+			target <- trigger.ownerAction.ownerState)
+}
+rule capability2class{
+	from
+		capability: GAP!Capability
+	to
+		class: UMLclassDiagram!Class(
+			name <- capability.title.regexReplaceAll(' ', '_'),
+			package <- thisModule.GameLogicPackage),
+		isActive: UMLclassDiagram!Attribute(
+			name <- 'isActive',
+			owner <- class),
+		activate: UMLclassDiagram!Operation(
+			name <- 'activate',
+			owner <- class)
+}
+rule challenge2class{
+	from
+		challenge: GAP!Challenge
+	to
+		challengeClass: UMLclassDiagram!Class (
+			name <- challenge.title.regexReplaceAll(' ', '_'),
+			attributes <- if (challenge.oclIsKindOf(GAP!TimeChallenge)) then
+					thisModule.timeChallengeAttributes(challenge)
+					else
+						if (challenge.oclIsKindOf(GAP!FrequencyChallenge)) then
+					thisModule.frequencyChallengeAttributes(challenge)
+					else
+						OclUndefined
+						endif
+						endif,
+			package <- thisModule.GameLogicPackage),
+		startChallenge: UMLclassDiagram!Operation(
+			name <- 'startChallenge',
+			owner <- challenge),
+		forceStopChallenge: UMLclassDiagram!Operation(
+			name <- 'forceStopChallenge',
+			owner <- challenge),
+		validStopChallenge: UMLclassDiagram!Operation(
+			name <- 'validStopChallenge',
+			owner <- challenge),
+		aggregationToObject: distinct UMLclassDiagram!Association foreach (object in challenge.newObjects)(
+				isAggregation <- 'true',
+				source <- challengeClass,
+				target <- object),
+		aggregationToRule: UMLclassDiagram!Association(
+				isAggregation <- true,
+				source <- challengeClass,
+				target <- challenge.scoringRule)
+}
+unique lazy rule timeChallengeAttributes{
+	from
+		timeChallenge: GAP!TimeChallenge
+	to
+		validTime: UMLclassDiagram!Attribute(
+			name <- 'validTime',
+			owner <- timeChallenge),
+		startTime: UMLclassDiagram!Attribute(
+			name <- 'startTime',
+			owner <- timeChallenge),
+		endTime: UMLclassDiagram!Attribute(
+			name <- 'endTime',
+			owner <- timeChallenge)
+}
+unique lazy rule frequencyChallengeAttributes{
+	from
+		frequencyChallenge: GAP!FrequencyChallenge
+	to
+		validNumberOfAttempts: UMLclassDiagram!Attribute(
+			name <- 'validNumberOfAttempts',
+			owner <- frequencyChallenge),
+		playerNumberOfAttempts: UMLclassDiagram!Attribute(
+			name <- 'playerNumberOfAttempts',
+			owner <- frequencyChallenge)
+}
+
+rule scoringRule2class{
+	from
+		scoringRule: GAP!ScoringRule
+	to
+		scoringRuleClass: UMLclassDiagram!Class(
+			name <- scoringRule.title.regexReplaceAll(' ', '_'),
+			package <- thisModule.GameLogicPackage),
+		calculatedScore: UMLclassDiagram!Attribute(
+			name <- 'calculatedScore',
+			owner <- scoringRuleClass),
+		calculateScore: UMLclassDiagram!Operation(
+			name <- 'calculateScore',
+			owner <- scoringRuleClass),
+		rulecontext: UMLclassDiagram!Attribute(
+			name <- 'context',
+			owner <- scoringRuleClass),
+		associationToLog: UMLclassDiagram!Association(
+			source <- scoringRuleClass,
+			target <- scoringRule.ownerChallenge.ownerPlayer.playerLog)
+}
+rule rewardConditionRelations{
+	from
+		rewardCondition: GAP!RewardCondition
+	to
+		dependencyToRewards: distinct UMLclassDiagram!Dependency foreach (reward in rewardCondition.rewards)(
+				source <- rewardCondition.ownerRule,
+				target <-  if (reward.oclIsKindOf(GAP!Point))then
+						thisModule.pointClass()
+					  else
+					  	if (reward.oclIsKindOf(GAP!Badge))then
+						 	thisModule.badgeClass()
+					    else
+					    	if (reward.oclIsKindOf(GAP!NewLevel))then
+								thisModule.newLevelClass()
+					    	else
+					    		if (reward.oclIsKindOf(GAP!LeaderBoard))then
+									thisModule.leaderBoardClass()
+					  			else
+					  				if (reward.oclIsKindOf(GAP!Certificate))then
+										thisModule.certificateClass()
+					  				else
+					  					OclUndefined
+									endif
+								endif
+							endif
+						endif
+					endif)
+	do{
+		if (not rewardCondition.capability.oclIsUndefined())
+			thisModule.dependencyToCapability(rewardCondition);
+	}
+}
+unique lazy rule dependencyToCapability{
+	from
+		rewardCondition: GAP!RewardCondition
+	to
+		dependency: UMLclassDiagram!Dependency (
+			source <- rewardCondition.ownerRule,
+			target <- rewardCondition.capability)
+}
+unique lazy rule pointClass{
+	from
+		point: GAP!Point
+	to
+		pointClass: UMLclassDiagram!Class(
+			name <- 'Point',
+			implements <- thisModule.rewardInterface(),
+			package <- thisModule.GameObjectsPackage),
+		pointValue: UMLclassDiagram!Attribute(
+			name <- 'value',
+			owner <- pointClass)
+}
+unique lazy rule badgeClass{
+	from
+		badge: GAP!Badge
+	to
+		badgeClass: UMLclassDiagram!Class(
+			name <- 'Badge',
+			implements <- thisModule.rewardInterface(),
+			package <- thisModule.GameObjectsPackage),
+		badgeTitle: UMLclassDiagram!Attribute(
+			name <- 'title',
+			owner <- badgeClass)
+}
+unique lazy rule certificateClass{
+	from
+		certificate: GAP!Certificate
+	to
+		certificateClass: UMLclassDiagram!Class(
+			name <- 'Certificate',
+			implements <- thisModule.rewardInterface(),
+			package <- thisModule.GameObjectsPackage)
+}
+unique lazy rule newLevelClass{
+	from
+		newLevel: GAP!NewLevel
+	to
+		newLevelClass: UMLclassDiagram!Class(
+			name <- 'NewLevel',
+			implements <- thisModule.rewardInterface(),
+			package <- thisModule.GameObjectsPackage),
+		levelInstance: UMLclassDiagram!Attribute(
+			name <- 'instance', 
+			type <- newLevelClass,
+			owner <- newLevelClass),
+		allLevels: UMLclassDiagram!Attribute(
+			name <- 'levels',
+			owner <- newLevelClass),
+		levelOperation: UMLclassDiagram!Operation(
+			name <- 'getInstance',
+			returnType <- newLevelClass,
+			owner <- newLevelClass),
+		goToNextLevel: UMLclassDiagram!Operation(
+			name <- 'goToNextLevel',
+			owner <- newLevelClass)
+}
+unique lazy rule leaderBoardClass{
+	from
+		leaderBoard: GAP!LeaderBoard
+	to
+		leaderBoardClass: UMLclassDiagram!Class(
+			name <- 'LeaderBoard',
+			implements <- thisModule.rewardInterface(),
+			package <- thisModule.GameObjectsPackage),
+		leaderBoardInstance: UMLclassDiagram!Attribute(
+			name <- 'instance', 
+			type <- leaderBoardClass,
+			owner <- leaderBoardClass),
+		ranking: UMLclassDiagram!Attribute(
+			name <- 'ranking',
+			owner <- leaderBoardClass),
+		leaderBoardOperation: UMLclassDiagram!Operation(
+			name <- 'getInstance',
+			returnType <- leaderBoardClass,
+			owner <- leaderBoardClass),
+		updateRanking: UMLclassDiagram!Operation(
+			name <- 'updateRanking',
+			owner <- leaderBoardClass)
+}
+unique lazy rule rewardInterface{
+	from
+		reward: GAP!Reward
+	to
+		rewardInterface: UMLclassDiagram!Interface (
+			name <- 'Reward',
+			package <- thisModule.GameObjectsPackage)
+}
+--BPMN Part----------------------------------------------------------------
+helper context GAP!SequenceFlow def: sequenceFlowContext : String =
+	if ( self.ownerElement.performerLane <> self.target.performerLane) 
+		then
+		'outer'
+	else
+		'inner'
+	endif;
+
+helper context GAP!Event def: eventOperationName : String = 
+	if self.oclIsKindOf(GAP!StartEvent) then 
+			'startEvent'
+	else
+		if self.oclIsKindOf(GAP!EndEvent) then
+			'endEvent'
+		else
+			'intermediateEvent'
+		endif
+	endif;
+
+rule BP2Package {
+	from
+		bp: GAP!BusinessProcess
+	to
+		package : UMLclassDiagram!Package (name <- bp.name.regexReplaceAll(' ', '_') + '_process')
+}
+rule pool2class{
+	from
+		pool: GAP!Pool
+	to
+		class : UMLclassDiagram!Class (
+			name <- pool.name.regexReplaceAll(' ', '_'),
+			outputRelations <- pool.lanes -> collect(lane | thisModule.aggregationFromPoolToLanes(lane)),
+			package <- pool.ownerBP)
+
+}
+unique lazy rule aggregationFromPoolToLanes{
+	from
+		lane: GAP!Lane
+	to
+		aggregations :UMLclassDiagram!Association (
+			isAggregation <- true,
+			target <- thisModule.lane2class(lane))
+}
+unique lazy rule lane2class{
+	from
+		lane: GAP!Lane
+	to
+		class : UMLclassDiagram!Class (
+			name <- lane.name.regexReplaceAll(' ', '_') + '_lane',
+			package <- lane.ownerPool.ownerBP)
+}
+rule task2operation{
+	from
+		task: GAP!Task
+	to
+		operation : UMLclassDiagram!Operation (
+			name <- task.title.regexReplaceAll(' ', '_'),
+			owner <- thisModule.lane2class(task.performerLane))
+}
+rule resource2class{
+	from
+		res: GAP!Resource
+	to
+		class: UMLclassDiagram!Class (
+			name <- res.title.regexReplaceAll(' ', '_'), package <- res.ownerBP),
+		c: UMLclassDiagram!Operation (
+			name <- 'create', owner <- class),
+		r: UMLclassDiagram!Operation (
+			name <- 'read', owner <- class),
+		u: UMLclassDiagram!Operation (
+			name <- 'update', owner <- class),
+		d: UMLclassDiagram!Operation (
+			name <- 'delete', owner <- class),
+		dependency: UMLclassDiagram!Dependency(
+			source <- res,
+			target <- thisModule.BP_DB_Worker)
+}
+rule seqFlow2dependency{
+	from
+		seqflow: GAP!SequenceFlow (
+			seqflow.sequenceFlowContext='outer')
+	to
+		dependency: UMLclassDiagram!Dependency (
+			source <- thisModule.lane2class(
+						seqflow.ownerElement.performerLane),
+			target <- thisModule.lane2class(
+						seqflow.target.performerLane))
+}
+rule msgFlow2association{
+	from
+		msgflow: GAP!MessageFlow
+	to
+		association: UMLclassDiagram!Association (
+			source <- msgflow.ownerPool,
+			target <- msgflow.target)
+}
+rule inputDataAssociation2dependency{
+	from
+		dataAssociation: GAP!DataAssociationFlow(
+			dataAssociation.type.toString() = 'inputFlow')
+	to
+		dependency: UMLclassDiagram!Dependency (
+			source <- thisModule.lane2class(
+						dataAssociation.sourceOrTarget.performerLane),
+			target <- dataAssociation.ownerResource)
+}
+rule outputDataAssociation2dependency{
+	from
+		dataAssociation: GAP!DataAssociationFlow(
+			dataAssociation.type.toString() = 'outputFlow')
+	to
+		dependency: UMLclassDiagram!Dependency (
+			source <- thisModule.lane2class(
+						dataAssociation.sourceOrTarget.performerLane),
+			target <- dataAssociation.ownerResource)
+}
+rule event2operation{
+	from
+		event: GAP!Event
+	to
+		operation : UMLclassDiagram!Operation (
+			name <- if event.triggerType.toString()<>'none' then 
+						event.eventOperationName + '_' + event.triggerType.toString()
+					else
+						event.eventOperationName
+					endif,
+			owner <- thisModule.lane2class(event.performerLane))
+}
+rule exclusiveGateway2operation{
+	from
+		gateway: GAP!Exclusive
+	to
+		operation: UMLclassDiagram!Operation (
+			name <- gateway.triggerCondition.regexReplaceAll(' ', '_'),
+			owner <- thisModule.lane2class(gateway.performerLane))
+}
+rule inclusiveGateway2operation{
+	from
+		gateway: GAP!Inclusive
+	to
+		operation: UMLclassDiagram!Operation (
+			name <- gateway.triggerCondition.regexReplaceAll(' ', '_'),
+			owner <- thisModule.lane2class(gateway.performerLane))
+}
+rule parallelGateway2operation{
+	from
+		gateway: GAP!Parallel
+	to
+		operation: UMLclassDiagram!Operation (
+			name <- 'parallelGateway',
+			owner <- thisModule.lane2class(gateway.performerLane))
+}
+rule eventBasedGateway2operation{
+	from
+		gateway: GAP!EventBased
+	to
+		operation: UMLclassDiagram!Operation (
+			name <- gateway.triggerEvent.regexReplaceAll(' ', '_'),
+			owner <- thisModule.lane2class(gateway.performerLane))
+}
+rule complexGateway2operation{
+	from
+		gateway: GAP!Complex
+	to
+		operation: UMLclassDiagram!Operation (
+			name <- gateway.description.regexReplaceAll(' ', '_'),
+			owner <- thisModule.lane2class(gateway.performerLane))
+}
+rule subProcess2operation{
+	from
+		subProcess: GAP!SubProcess
+	to
+		operation : UMLclassDiagram!Operation (
+			name <- subProcess.title.regexReplaceAll(' ', '_'),
+			owner <- thisModule.lane2class(subProcess.performerLane))
+}

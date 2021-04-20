@@ -1,0 +1,417 @@
+<?xml version="1.0" encoding="ISO-8859-1"?>
+<SequenceDiagram:SequenceDiagram xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:SequenceDiagram="www.sequenceDiagram.com" title="Vacation Request_connected">
+  <lifelines name="Player:Employee" ownerObject="Employee">
+    <elements xsi:type="SequenceDiagram:Message" ID="2" action="choose start button" isSendMsg="true" sourceLifeline="//@lifelines.0" targetLifeline="//@lifelines.1"/>
+    <elements xsi:type="SequenceDiagram:Message" ID="10" action="choose send email button" isSendMsg="true" sourceLifeline="//@lifelines.0" targetLifeline="//@lifelines.3"/>
+    <elements xsi:type="SequenceDiagram:Message" ID="17" action="insert email title" isSendMsg="true" sourceLifeline="//@lifelines.0" targetLifeline="//@lifelines.5"/>
+    <elements xsi:type="SequenceDiagram:Message" ID="20" action="choose email address" isSendMsg="true" sourceLifeline="//@lifelines.0" targetLifeline="//@lifelines.5"/>
+    <elements xsi:type="SequenceDiagram:Message" ID="23" action="choose rules checking button" isSendMsg="true" sourceLifeline="//@lifelines.0" targetLifeline="//@lifelines.5"/>
+    <elements xsi:type="SequenceDiagram:Message" ID="26" action="enter empty fields" isSendMsg="true" sourceLifeline="//@lifelines.0" targetLifeline="//@lifelines.5"/>
+    <elements xsi:type="SequenceDiagram:Message" ID="27" action="choose validation button" isSendMsg="true" sourceLifeline="//@lifelines.0" targetLifeline="//@lifelines.5"/>
+    <elements xsi:type="SequenceDiagram:Message" ID="39" action="choose high button" isSendMsg="true" sourceLifeline="//@lifelines.0" targetLifeline="//@lifelines.8"/>
+    <elements xsi:type="SequenceDiagram:Message" ID="42" action="choose low button" isSendMsg="true" sourceLifeline="//@lifelines.0" targetLifeline="//@lifelines.8"/>
+  </lifelines>
+  <lifelines name="Start_Level" ownerObject="Employee">
+    <elements xsi:type="SequenceDiagram:Message" ID="0" action="show level1startup screen" isSendMsg="true" sourceLifeline="//@lifelines.1" targetLifeline="//@lifelines.1"/>
+    <elements xsi:type="SequenceDiagram:Message" ID="0" action="show level1startup screen" isReceiveMsg="true" sourceLifeline="//@lifelines.1" targetLifeline="//@lifelines.1"/>
+    <elements xsi:type="SequenceDiagram:Message" ID="1" previous="//@lifelines.1/@elements.1" action="show" isSendMsg="true" sourceLifeline="//@lifelines.1" targetLifeline="//@lifelines.18"/>
+    <elements xsi:type="SequenceDiagram:Message" ID="2" action="choose start button" isReceiveMsg="true" sourceLifeline="//@lifelines.0" targetLifeline="//@lifelines.1"/>
+    <elements xsi:type="SequenceDiagram:Message" ID="3" action="set level start time in player log" isSendMsg="true" sourceLifeline="//@lifelines.1" targetLifeline="//@lifelines.1"/>
+    <elements xsi:type="SequenceDiagram:Message" ID="3" action="set level start time in player log" isReceiveMsg="true" sourceLifeline="//@lifelines.1" targetLifeline="//@lifelines.1"/>
+    <elements xsi:type="SequenceDiagram:Message" ID="4" previous="//@lifelines.1/@elements.5" action="!not Defined" isSendMsg="true" sourceLifeline="//@lifelines.1" targetLifeline="//@lifelines.19"/>
+    <elements xsi:type="SequenceDiagram:Message" ID="103" next="//@lifelines.1/@elements.8" action="changeState(condition)" isSendMsg="true" sourceLifeline="//@lifelines.1" targetLifeline="//@lifelines.1"/>
+    <elements xsi:type="SequenceDiagram:Message" ID="103" previous="//@lifelines.1/@elements.7" next="//@lifelines.1/@elements.9" action="changeState(condition)" isReceiveMsg="true" sourceLifeline="//@lifelines.1" targetLifeline="//@lifelines.1"/>
+    <elements xsi:type="SequenceDiagram:CombinedFragment" ID="104" previous="//@lifelines.1/@elements.8" next="//@lifelines.1/@elements.10">
+      <operands guard="!not Defined"/>
+    </elements>
+    <elements xsi:type="SequenceDiagram:Message" ID="105" previous="//@lifelines.1/@elements.9" relatedOperand="//@lifelines.1/@elements.9/@operands.0" action="create()" isSendMsg="true" sourceLifeline="//@lifelines.1" targetLifeline="//@lifelines.2"/>
+  </lifelines>
+  <lifelines name="initialize_request" ownerObject="Employee">
+    <elements xsi:type="SequenceDiagram:Message" ID="5" action="call Task1 of BP component" isSendMsg="true" sourceLifeline="//@lifelines.2" targetLifeline="//@lifelines.2"/>
+    <elements xsi:type="SequenceDiagram:Message" ID="5" action="call Task1 of BP component" isReceiveMsg="true" sourceLifeline="//@lifelines.2" targetLifeline="//@lifelines.2"/>
+    <elements xsi:type="SequenceDiagram:Message" ID="6" previous="//@lifelines.2/@elements.1" action="request for vacation" isSendMsg="true" sourceLifeline="//@lifelines.2" targetLifeline="//@lifelines.20"/>
+    <elements xsi:type="SequenceDiagram:Message" ID="7" action="return (correctOutputs)" isReceiveMsg="true" sourceLifeline="//@lifelines.20" targetLifeline="//@lifelines.2"/>
+    <elements xsi:type="SequenceDiagram:Message" ID="105" relatedOperand="//@lifelines.1/@elements.9/@operands.0" action="create()" isReceiveMsg="true" sourceLifeline="//@lifelines.1" targetLifeline="//@lifelines.2"/>
+    <elements xsi:type="SequenceDiagram:Message" ID="106" next="//@lifelines.2/@elements.6" action="changeState(condition)" isSendMsg="true" sourceLifeline="//@lifelines.2" targetLifeline="//@lifelines.2"/>
+    <elements xsi:type="SequenceDiagram:Message" ID="106" previous="//@lifelines.2/@elements.5" next="//@lifelines.2/@elements.7" action="changeState(condition)" isReceiveMsg="true" sourceLifeline="//@lifelines.2" targetLifeline="//@lifelines.2"/>
+    <elements xsi:type="SequenceDiagram:CombinedFragment" ID="107" previous="//@lifelines.2/@elements.6" next="//@lifelines.2/@elements.8">
+      <operands guard="!not Defined"/>
+    </elements>
+    <elements xsi:type="SequenceDiagram:Message" ID="108" previous="//@lifelines.2/@elements.7" relatedOperand="//@lifelines.2/@elements.7/@operands.0" action="create()" isSendMsg="true" sourceLifeline="//@lifelines.2" targetLifeline="//@lifelines.3"/>
+  </lifelines>
+  <lifelines name="show_request_page" ownerObject="Employee">
+    <elements xsi:type="SequenceDiagram:Message" ID="8" action="show request vacation screen" isSendMsg="true" sourceLifeline="//@lifelines.3" targetLifeline="//@lifelines.3"/>
+    <elements xsi:type="SequenceDiagram:Message" ID="8" action="show request vacation screen" isReceiveMsg="true" sourceLifeline="//@lifelines.3" targetLifeline="//@lifelines.3"/>
+    <elements xsi:type="SequenceDiagram:Message" ID="9" previous="//@lifelines.3/@elements.1" action="show" isSendMsg="true" sourceLifeline="//@lifelines.3" targetLifeline="//@lifelines.21"/>
+    <elements xsi:type="SequenceDiagram:Message" ID="10" action="choose send email button" isReceiveMsg="true" sourceLifeline="//@lifelines.0" targetLifeline="//@lifelines.3"/>
+    <elements xsi:type="SequenceDiagram:Message" ID="108" relatedOperand="//@lifelines.2/@elements.7/@operands.0" action="create()" isReceiveMsg="true" sourceLifeline="//@lifelines.2" targetLifeline="//@lifelines.3"/>
+    <elements xsi:type="SequenceDiagram:Message" ID="109" next="//@lifelines.3/@elements.6" action="changeState(condition)" isSendMsg="true" sourceLifeline="//@lifelines.3" targetLifeline="//@lifelines.3"/>
+    <elements xsi:type="SequenceDiagram:Message" ID="109" previous="//@lifelines.3/@elements.5" next="//@lifelines.3/@elements.7" action="changeState(condition)" isReceiveMsg="true" sourceLifeline="//@lifelines.3" targetLifeline="//@lifelines.3"/>
+    <elements xsi:type="SequenceDiagram:CombinedFragment" ID="110" previous="//@lifelines.3/@elements.6" next="//@lifelines.3/@elements.8">
+      <operands guard="!not Defined"/>
+    </elements>
+    <elements xsi:type="SequenceDiagram:Message" ID="111" previous="//@lifelines.3/@elements.7" relatedOperand="//@lifelines.3/@elements.7/@operands.0" action="create()" isSendMsg="true" sourceLifeline="//@lifelines.3" targetLifeline="//@lifelines.4"/>
+  </lifelines>
+  <lifelines name="initialize_email" ownerObject="Employee">
+    <elements xsi:type="SequenceDiagram:Message" ID="11" action="call task2 of BP component" isSendMsg="true" sourceLifeline="//@lifelines.4" targetLifeline="//@lifelines.4"/>
+    <elements xsi:type="SequenceDiagram:Message" ID="11" action="call task2 of BP component" isReceiveMsg="true" sourceLifeline="//@lifelines.4" targetLifeline="//@lifelines.4"/>
+    <elements xsi:type="SequenceDiagram:Message" ID="12" previous="//@lifelines.4/@elements.1" action="Send request Email" isSendMsg="true" sourceLifeline="//@lifelines.4" targetLifeline="//@lifelines.20"/>
+    <elements xsi:type="SequenceDiagram:Message" ID="111" relatedOperand="//@lifelines.3/@elements.7/@operands.0" action="create()" isReceiveMsg="true" sourceLifeline="//@lifelines.3" targetLifeline="//@lifelines.4"/>
+    <elements xsi:type="SequenceDiagram:Message" ID="112" next="//@lifelines.4/@elements.5" action="changeState(condition)" isSendMsg="true" sourceLifeline="//@lifelines.4" targetLifeline="//@lifelines.4"/>
+    <elements xsi:type="SequenceDiagram:Message" ID="112" previous="//@lifelines.4/@elements.4" next="//@lifelines.4/@elements.6" action="changeState(condition)" isReceiveMsg="true" sourceLifeline="//@lifelines.4" targetLifeline="//@lifelines.4"/>
+    <elements xsi:type="SequenceDiagram:CombinedFragment" ID="113" previous="//@lifelines.4/@elements.5" next="//@lifelines.4/@elements.7">
+      <operands guard="!not Defined"/>
+    </elements>
+    <elements xsi:type="SequenceDiagram:Message" ID="114" previous="//@lifelines.4/@elements.6" relatedOperand="//@lifelines.4/@elements.6/@operands.0" action="create()" isSendMsg="true" sourceLifeline="//@lifelines.4" targetLifeline="//@lifelines.5"/>
+  </lifelines>
+  <lifelines name="make_new_email" ownerObject="Employee">
+    <elements xsi:type="SequenceDiagram:Message" ID="15" action="show sending email screen" isSendMsg="true" sourceLifeline="//@lifelines.5" targetLifeline="//@lifelines.5"/>
+    <elements xsi:type="SequenceDiagram:Message" ID="15" action="show sending email screen" isReceiveMsg="true" sourceLifeline="//@lifelines.5" targetLifeline="//@lifelines.5"/>
+    <elements xsi:type="SequenceDiagram:Message" ID="16" previous="//@lifelines.5/@elements.1" action="show" isSendMsg="true" sourceLifeline="//@lifelines.5" targetLifeline="//@lifelines.24"/>
+    <elements xsi:type="SequenceDiagram:Message" ID="17" action="insert email title" isReceiveMsg="true" sourceLifeline="//@lifelines.0" targetLifeline="//@lifelines.5"/>
+    <elements xsi:type="SequenceDiagram:Message" ID="18" action="run email title format challenge" isSendMsg="true" sourceLifeline="//@lifelines.5" targetLifeline="//@lifelines.5"/>
+    <elements xsi:type="SequenceDiagram:Message" ID="18" action="run email title format challenge" isReceiveMsg="true" sourceLifeline="//@lifelines.5" targetLifeline="//@lifelines.5"/>
+    <elements xsi:type="SequenceDiagram:Message" ID="19" previous="//@lifelines.5/@elements.5" action="startChallenge" isSendMsg="true" sourceLifeline="//@lifelines.5" targetLifeline="//@lifelines.25"/>
+    <elements xsi:type="SequenceDiagram:Message" ID="20" action="choose email address" isReceiveMsg="true" sourceLifeline="//@lifelines.0" targetLifeline="//@lifelines.5"/>
+    <elements xsi:type="SequenceDiagram:Message" ID="21" action="run email address challenge" isSendMsg="true" sourceLifeline="//@lifelines.5" targetLifeline="//@lifelines.5"/>
+    <elements xsi:type="SequenceDiagram:Message" ID="21" action="run email address challenge" isReceiveMsg="true" sourceLifeline="//@lifelines.5" targetLifeline="//@lifelines.5"/>
+    <elements xsi:type="SequenceDiagram:Message" ID="22" previous="//@lifelines.5/@elements.9" action="startChallenge" isSendMsg="true" sourceLifeline="//@lifelines.5" targetLifeline="//@lifelines.26"/>
+    <elements xsi:type="SequenceDiagram:Message" ID="23" action="choose rules checking button" isReceiveMsg="true" sourceLifeline="//@lifelines.0" targetLifeline="//@lifelines.5"/>
+    <elements xsi:type="SequenceDiagram:Message" ID="24" action="show vacation rules screen" isSendMsg="true" sourceLifeline="//@lifelines.5" targetLifeline="//@lifelines.5"/>
+    <elements xsi:type="SequenceDiagram:Message" ID="24" action="show vacation rules screen" isReceiveMsg="true" sourceLifeline="//@lifelines.5" targetLifeline="//@lifelines.5"/>
+    <elements xsi:type="SequenceDiagram:Message" ID="25" previous="//@lifelines.5/@elements.13" action="show" isSendMsg="true" sourceLifeline="//@lifelines.5" targetLifeline="//@lifelines.27"/>
+    <elements xsi:type="SequenceDiagram:Message" ID="26" action="enter empty fields" isReceiveMsg="true" sourceLifeline="//@lifelines.0" targetLifeline="//@lifelines.5"/>
+    <elements xsi:type="SequenceDiagram:Message" ID="27" action="choose validation button" isReceiveMsg="true" sourceLifeline="//@lifelines.0" targetLifeline="//@lifelines.5"/>
+    <elements xsi:type="SequenceDiagram:Message" ID="28" action="run request validation challenge" isSendMsg="true" sourceLifeline="//@lifelines.5" targetLifeline="//@lifelines.5"/>
+    <elements xsi:type="SequenceDiagram:Message" ID="28" action="run request validation challenge" isReceiveMsg="true" sourceLifeline="//@lifelines.5" targetLifeline="//@lifelines.5"/>
+    <elements xsi:type="SequenceDiagram:Message" ID="29" previous="//@lifelines.5/@elements.18" action="startChallenge" isSendMsg="true" sourceLifeline="//@lifelines.5" targetLifeline="//@lifelines.28"/>
+    <elements xsi:type="SequenceDiagram:Message" ID="30" action="call Task3 of BP component" isReceiveMsg="true" sourceLifeline="//@lifelines.6" targetLifeline="//@lifelines.5"/>
+    <elements xsi:type="SequenceDiagram:Message" ID="31" previous="//@lifelines.5/@elements.20" action="check work load" isSendMsg="true" sourceLifeline="//@lifelines.5" targetLifeline="//@lifelines.20"/>
+    <elements xsi:type="SequenceDiagram:Message" ID="81" action="runScoringRule" isSendMsg="true" sourceLifeline="//@lifelines.5" targetLifeline="//@lifelines.38"/>
+    <elements xsi:type="SequenceDiagram:Message" ID="88" action="runScoringRule" isSendMsg="true" sourceLifeline="//@lifelines.5" targetLifeline="//@lifelines.42"/>
+    <elements xsi:type="SequenceDiagram:Message" ID="95" action="runScoringRule" isSendMsg="true" sourceLifeline="//@lifelines.5" targetLifeline="//@lifelines.6"/>
+    <elements xsi:type="SequenceDiagram:Message" ID="114" relatedOperand="//@lifelines.4/@elements.6/@operands.0" action="create()" isReceiveMsg="true" sourceLifeline="//@lifelines.4" targetLifeline="//@lifelines.5"/>
+    <elements xsi:type="SequenceDiagram:Message" ID="115" next="//@lifelines.5/@elements.27" action="changeState(condition)" isSendMsg="true" sourceLifeline="//@lifelines.5" targetLifeline="//@lifelines.5"/>
+    <elements xsi:type="SequenceDiagram:Message" ID="115" previous="//@lifelines.5/@elements.26" next="//@lifelines.5/@elements.28" action="changeState(condition)" isReceiveMsg="true" sourceLifeline="//@lifelines.5" targetLifeline="//@lifelines.5"/>
+    <elements xsi:type="SequenceDiagram:CombinedFragment" ID="116" previous="//@lifelines.5/@elements.27" next="//@lifelines.5/@elements.29">
+      <operands guard="!not Defined"/>
+    </elements>
+    <elements xsi:type="SequenceDiagram:Message" ID="117" previous="//@lifelines.5/@elements.28" relatedOperand="//@lifelines.5/@elements.28/@operands.0" action="create()" isSendMsg="true" sourceLifeline="//@lifelines.5" targetLifeline="//@lifelines.7"/>
+  </lifelines>
+  <lifelines name="request_validation" ownerObject="Employee">
+    <elements xsi:type="SequenceDiagram:Message" ID="30" action="call Task3 of BP component" isSendMsg="true" sourceLifeline="//@lifelines.6" targetLifeline="//@lifelines.5"/>
+    <elements xsi:type="SequenceDiagram:Message" ID="95" action="runScoringRule" isReceiveMsg="true" sourceLifeline="//@lifelines.5" targetLifeline="//@lifelines.6"/>
+    <elements xsi:type="SequenceDiagram:Message" ID="96" previous="//@lifelines.6/@elements.1" action="calculateScore" isSendMsg="true" sourceLifeline="//@lifelines.6" targetLifeline="//@lifelines.46"/>
+  </lifelines>
+  <lifelines name="work_load_checking" ownerObject="Employee">
+    <elements xsi:type="SequenceDiagram:Message" ID="32" action="show &#x201c;work load&#x201d; screen" isSendMsg="true" sourceLifeline="//@lifelines.7" targetLifeline="//@lifelines.7"/>
+    <elements xsi:type="SequenceDiagram:Message" ID="32" action="show &#x201c;work load&#x201d; screen" isReceiveMsg="true" sourceLifeline="//@lifelines.7" targetLifeline="//@lifelines.7"/>
+    <elements xsi:type="SequenceDiagram:Message" ID="33" previous="//@lifelines.7/@elements.1" action="show" isSendMsg="true" sourceLifeline="//@lifelines.7" targetLifeline="//@lifelines.29"/>
+    <elements xsi:type="SequenceDiagram:Message" ID="34" action="call gateway1 of BP component" isSendMsg="true" sourceLifeline="//@lifelines.7" targetLifeline="//@lifelines.7"/>
+    <elements xsi:type="SequenceDiagram:Message" ID="34" action="call gateway1 of BP component" isReceiveMsg="true" sourceLifeline="//@lifelines.7" targetLifeline="//@lifelines.7"/>
+    <elements xsi:type="SequenceDiagram:Message" ID="35" previous="//@lifelines.7/@elements.4" action="degree of work load" isSendMsg="true" sourceLifeline="//@lifelines.7" targetLifeline="//@lifelines.20"/>
+    <elements xsi:type="SequenceDiagram:Message" ID="117" relatedOperand="//@lifelines.5/@elements.28/@operands.0" action="create()" isReceiveMsg="true" sourceLifeline="//@lifelines.5" targetLifeline="//@lifelines.7"/>
+    <elements xsi:type="SequenceDiagram:Message" ID="118" next="//@lifelines.7/@elements.8" action="changeState(condition)" isSendMsg="true" sourceLifeline="//@lifelines.7" targetLifeline="//@lifelines.7"/>
+    <elements xsi:type="SequenceDiagram:Message" ID="118" previous="//@lifelines.7/@elements.7" next="//@lifelines.7/@elements.9" action="changeState(condition)" isReceiveMsg="true" sourceLifeline="//@lifelines.7" targetLifeline="//@lifelines.7"/>
+    <elements xsi:type="SequenceDiagram:CombinedFragment" ID="119" previous="//@lifelines.7/@elements.8" next="//@lifelines.7/@elements.10">
+      <operands guard="!not Defined"/>
+    </elements>
+    <elements xsi:type="SequenceDiagram:Message" ID="120" previous="//@lifelines.7/@elements.9" relatedOperand="//@lifelines.7/@elements.9/@operands.0" action="create()" isSendMsg="true" sourceLifeline="//@lifelines.7" targetLifeline="//@lifelines.8"/>
+  </lifelines>
+  <lifelines name="determining_work_load_degree" ownerObject="Employee">
+    <elements xsi:type="SequenceDiagram:Message" ID="39" action="choose high button" isReceiveMsg="true" sourceLifeline="//@lifelines.0" targetLifeline="//@lifelines.8"/>
+    <elements xsi:type="SequenceDiagram:Message" ID="40" action="call Task4 of BP component" isSendMsg="true" sourceLifeline="//@lifelines.8" targetLifeline="//@lifelines.8"/>
+    <elements xsi:type="SequenceDiagram:Message" ID="40" action="call Task4 of BP component" isReceiveMsg="true" sourceLifeline="//@lifelines.8" targetLifeline="//@lifelines.8"/>
+    <elements xsi:type="SequenceDiagram:Message" ID="41" previous="//@lifelines.8/@elements.2" action="Wait for manager confirmation" isSendMsg="true" sourceLifeline="//@lifelines.8" targetLifeline="//@lifelines.20"/>
+    <elements xsi:type="SequenceDiagram:Message" ID="42" action="choose low button" isReceiveMsg="true" sourceLifeline="//@lifelines.0" targetLifeline="//@lifelines.8"/>
+    <elements xsi:type="SequenceDiagram:Message" ID="43" action="call Task5 of BP component" isSendMsg="true" sourceLifeline="//@lifelines.8" targetLifeline="//@lifelines.8"/>
+    <elements xsi:type="SequenceDiagram:Message" ID="43" action="call Task5 of BP component" isReceiveMsg="true" sourceLifeline="//@lifelines.8" targetLifeline="//@lifelines.8"/>
+    <elements xsi:type="SequenceDiagram:Message" ID="44" previous="//@lifelines.8/@elements.6" action="vacation confirmation" isSendMsg="true" sourceLifeline="//@lifelines.8" targetLifeline="//@lifelines.20"/>
+    <elements xsi:type="SequenceDiagram:Message" ID="120" relatedOperand="//@lifelines.7/@elements.9/@operands.0" action="create()" isReceiveMsg="true" sourceLifeline="//@lifelines.7" targetLifeline="//@lifelines.8"/>
+    <elements xsi:type="SequenceDiagram:Message" ID="121" next="//@lifelines.8/@elements.10" action="changeState(condition)" isSendMsg="true" sourceLifeline="//@lifelines.8" targetLifeline="//@lifelines.8"/>
+    <elements xsi:type="SequenceDiagram:Message" ID="121" previous="//@lifelines.8/@elements.9" next="//@lifelines.8/@elements.11" action="changeState(condition)" isReceiveMsg="true" sourceLifeline="//@lifelines.8" targetLifeline="//@lifelines.8"/>
+    <elements xsi:type="SequenceDiagram:CombinedFragment" ID="122" previous="//@lifelines.8/@elements.10" next="//@lifelines.8/@elements.12 //@lifelines.8/@elements.13">
+      <operands guard="!not Defined"/>
+      <operands guard="!not Defined"/>
+    </elements>
+    <elements xsi:type="SequenceDiagram:Message" ID="123" previous="//@lifelines.8/@elements.11" relatedOperand="//@lifelines.8/@elements.11/@operands.0" action="create()" isSendMsg="true" sourceLifeline="//@lifelines.8" targetLifeline="//@lifelines.9"/>
+    <elements xsi:type="SequenceDiagram:Message" ID="124" previous="//@lifelines.8/@elements.11" relatedOperand="//@lifelines.8/@elements.11/@operands.1" action="create()" isSendMsg="true" sourceLifeline="//@lifelines.8" targetLifeline="//@lifelines.10"/>
+  </lifelines>
+  <lifelines name="wait_for_manager_confirmation" ownerObject="Employee">
+    <elements xsi:type="SequenceDiagram:Message" ID="45" action="show result1" isSendMsg="true" sourceLifeline="//@lifelines.9" targetLifeline="//@lifelines.9"/>
+    <elements xsi:type="SequenceDiagram:Message" ID="45" action="show result1" isReceiveMsg="true" sourceLifeline="//@lifelines.9" targetLifeline="//@lifelines.9"/>
+    <elements xsi:type="SequenceDiagram:Message" ID="46" previous="//@lifelines.9/@elements.1" action="show" isSendMsg="true" sourceLifeline="//@lifelines.9" targetLifeline="//@lifelines.30"/>
+    <elements xsi:type="SequenceDiagram:Message" ID="47" action="call Task6 of BP component" isSendMsg="true" sourceLifeline="//@lifelines.9" targetLifeline="//@lifelines.9"/>
+    <elements xsi:type="SequenceDiagram:Message" ID="47" action="call Task6 of BP component" isReceiveMsg="true" sourceLifeline="//@lifelines.9" targetLifeline="//@lifelines.9"/>
+    <elements xsi:type="SequenceDiagram:Message" ID="48" previous="//@lifelines.9/@elements.4" action="vacation request checking" isSendMsg="true" sourceLifeline="//@lifelines.9" targetLifeline="//@lifelines.31"/>
+    <elements xsi:type="SequenceDiagram:Message" ID="49" action="return (correctOutputs)" isReceiveMsg="true" sourceLifeline="//@lifelines.31" targetLifeline="//@lifelines.9"/>
+    <elements xsi:type="SequenceDiagram:Message" ID="123" relatedOperand="//@lifelines.8/@elements.11/@operands.0" action="create()" isReceiveMsg="true" sourceLifeline="//@lifelines.8" targetLifeline="//@lifelines.9"/>
+    <elements xsi:type="SequenceDiagram:Message" ID="125" next="//@lifelines.9/@elements.9" action="changeState(condition)" isSendMsg="true" sourceLifeline="//@lifelines.9" targetLifeline="//@lifelines.9"/>
+    <elements xsi:type="SequenceDiagram:Message" ID="125" previous="//@lifelines.9/@elements.8" next="//@lifelines.9/@elements.10" action="changeState(condition)" isReceiveMsg="true" sourceLifeline="//@lifelines.9" targetLifeline="//@lifelines.9"/>
+    <elements xsi:type="SequenceDiagram:CombinedFragment" ID="126" previous="//@lifelines.9/@elements.9" next="//@lifelines.9/@elements.11">
+      <operands guard="!not Defined"/>
+    </elements>
+    <elements xsi:type="SequenceDiagram:Message" ID="127" previous="//@lifelines.9/@elements.10" relatedOperand="//@lifelines.9/@elements.10/@operands.0" action="create()" isSendMsg="true" sourceLifeline="//@lifelines.9" targetLifeline="//@lifelines.12"/>
+  </lifelines>
+  <lifelines name="go_to_vacation" ownerObject="Employee">
+    <elements xsi:type="SequenceDiagram:Message" ID="50" action="show result2" isSendMsg="true" sourceLifeline="//@lifelines.10" targetLifeline="//@lifelines.10"/>
+    <elements xsi:type="SequenceDiagram:Message" ID="50" action="show result2" isReceiveMsg="true" sourceLifeline="//@lifelines.10" targetLifeline="//@lifelines.10"/>
+    <elements xsi:type="SequenceDiagram:Message" ID="51" previous="//@lifelines.10/@elements.1" action="show" isSendMsg="true" sourceLifeline="//@lifelines.10" targetLifeline="//@lifelines.32"/>
+    <elements xsi:type="SequenceDiagram:Message" ID="52" action="call end event of BP component" isSendMsg="true" sourceLifeline="//@lifelines.10" targetLifeline="//@lifelines.10"/>
+    <elements xsi:type="SequenceDiagram:Message" ID="52" action="call end event of BP component" isReceiveMsg="true" sourceLifeline="//@lifelines.10" targetLifeline="//@lifelines.10"/>
+    <elements xsi:type="SequenceDiagram:Message" ID="53" previous="//@lifelines.10/@elements.4" action="endEvent" isSendMsg="true" sourceLifeline="//@lifelines.10" targetLifeline="//@lifelines.20"/>
+    <elements xsi:type="SequenceDiagram:Message" ID="124" relatedOperand="//@lifelines.8/@elements.11/@operands.1" action="create()" isReceiveMsg="true" sourceLifeline="//@lifelines.8" targetLifeline="//@lifelines.10"/>
+    <elements xsi:type="SequenceDiagram:Message" ID="128" next="//@lifelines.10/@elements.8" action="changeState(condition)" isSendMsg="true" sourceLifeline="//@lifelines.10" targetLifeline="//@lifelines.10"/>
+    <elements xsi:type="SequenceDiagram:Message" ID="128" previous="//@lifelines.10/@elements.7" next="//@lifelines.10/@elements.9" action="changeState(condition)" isReceiveMsg="true" sourceLifeline="//@lifelines.10" targetLifeline="//@lifelines.10"/>
+    <elements xsi:type="SequenceDiagram:CombinedFragment" ID="129" previous="//@lifelines.10/@elements.8" next="//@lifelines.10/@elements.10"/>
+    <elements xsi:type="SequenceDiagram:Message" ID="130" previous="//@lifelines.10/@elements.9" relatedOperand="//@lifelines.17/@elements.9/@operands.0" action="create()" isSendMsg="true" sourceLifeline="//@lifelines.10" targetLifeline="//@lifelines.11"/>
+  </lifelines>
+  <lifelines name="end_state" ownerObject="Employee">
+    <elements xsi:type="SequenceDiagram:Message" ID="54" action="save level finishing time in player log" isSendMsg="true" sourceLifeline="//@lifelines.11" targetLifeline="//@lifelines.11"/>
+    <elements xsi:type="SequenceDiagram:Message" ID="54" action="save level finishing time in player log" isReceiveMsg="true" sourceLifeline="//@lifelines.11" targetLifeline="//@lifelines.11"/>
+    <elements xsi:type="SequenceDiagram:Message" ID="55" previous="//@lifelines.11/@elements.1" action="!not Defined" isSendMsg="true" sourceLifeline="//@lifelines.11" targetLifeline="//@lifelines.19"/>
+    <elements xsi:type="SequenceDiagram:Message" ID="56" action="update player game result" isSendMsg="true" sourceLifeline="//@lifelines.11" targetLifeline="//@lifelines.11"/>
+    <elements xsi:type="SequenceDiagram:Message" ID="56" action="update player game result" isReceiveMsg="true" sourceLifeline="//@lifelines.11" targetLifeline="//@lifelines.11"/>
+    <elements xsi:type="SequenceDiagram:Message" ID="57" action="show the screen of score menu" isSendMsg="true" sourceLifeline="//@lifelines.11" targetLifeline="//@lifelines.11"/>
+    <elements xsi:type="SequenceDiagram:Message" ID="57" action="show the screen of score menu" isReceiveMsg="true" sourceLifeline="//@lifelines.11" targetLifeline="//@lifelines.11"/>
+    <elements xsi:type="SequenceDiagram:Message" ID="58" previous="//@lifelines.11/@elements.6" action="show" isSendMsg="true" sourceLifeline="//@lifelines.11" targetLifeline="//@lifelines.33"/>
+    <elements xsi:type="SequenceDiagram:Message" ID="59" action="show player score on screen" isSendMsg="true" sourceLifeline="//@lifelines.11" targetLifeline="//@lifelines.11"/>
+    <elements xsi:type="SequenceDiagram:Message" ID="59" action="show player score on screen" isReceiveMsg="true" sourceLifeline="//@lifelines.11" targetLifeline="//@lifelines.11"/>
+    <elements xsi:type="SequenceDiagram:Message" ID="60" previous="//@lifelines.11/@elements.9" action="show" isSendMsg="true" sourceLifeline="//@lifelines.11" targetLifeline="//@lifelines.34"/>
+    <elements xsi:type="SequenceDiagram:Message" ID="61" action="show run time duration" isSendMsg="true" sourceLifeline="//@lifelines.11" targetLifeline="//@lifelines.11"/>
+    <elements xsi:type="SequenceDiagram:Message" ID="61" action="show run time duration" isReceiveMsg="true" sourceLifeline="//@lifelines.11" targetLifeline="//@lifelines.11"/>
+    <elements xsi:type="SequenceDiagram:Message" ID="62" previous="//@lifelines.11/@elements.12" action="show" isSendMsg="true" sourceLifeline="//@lifelines.11" targetLifeline="//@lifelines.35"/>
+    <elements xsi:type="SequenceDiagram:Message" ID="130" relatedOperand="//@lifelines.17/@elements.9/@operands.0" action="create()" isReceiveMsg="true" sourceLifeline="//@lifelines.10" targetLifeline="//@lifelines.11"/>
+  </lifelines>
+  <lifelines name="manager_request_checking" ownerObject="Manager">
+    <elements xsi:type="SequenceDiagram:Message" ID="63" action="call gateway2 of BP component" isSendMsg="true" sourceLifeline="//@lifelines.12" targetLifeline="//@lifelines.12"/>
+    <elements xsi:type="SequenceDiagram:Message" ID="63" action="call gateway2 of BP component" isReceiveMsg="true" sourceLifeline="//@lifelines.12" targetLifeline="//@lifelines.12"/>
+    <elements xsi:type="SequenceDiagram:Message" ID="64" previous="//@lifelines.12/@elements.1" action="work load necessity degree" isSendMsg="true" sourceLifeline="//@lifelines.12" targetLifeline="//@lifelines.31"/>
+    <elements xsi:type="SequenceDiagram:Message" ID="127" relatedOperand="//@lifelines.9/@elements.10/@operands.0" action="create()" isReceiveMsg="true" sourceLifeline="//@lifelines.9" targetLifeline="//@lifelines.12"/>
+    <elements xsi:type="SequenceDiagram:Message" ID="131" next="//@lifelines.12/@elements.5" action="changeState(condition)" isSendMsg="true" sourceLifeline="//@lifelines.12" targetLifeline="//@lifelines.12"/>
+    <elements xsi:type="SequenceDiagram:Message" ID="131" previous="//@lifelines.12/@elements.4" next="//@lifelines.12/@elements.6" action="changeState(condition)" isReceiveMsg="true" sourceLifeline="//@lifelines.12" targetLifeline="//@lifelines.12"/>
+    <elements xsi:type="SequenceDiagram:CombinedFragment" ID="132" previous="//@lifelines.12/@elements.5" next="//@lifelines.12/@elements.7">
+      <operands guard="!not Defined"/>
+    </elements>
+    <elements xsi:type="SequenceDiagram:Message" ID="133" previous="//@lifelines.12/@elements.6" relatedOperand="//@lifelines.12/@elements.6/@operands.0" action="create()" isSendMsg="true" sourceLifeline="//@lifelines.12" targetLifeline="//@lifelines.13"/>
+  </lifelines>
+  <lifelines name="define_work_load_necessity" ownerObject="Manager">
+    <elements xsi:type="SequenceDiagram:Message" ID="68" action="choose one way randomly" isSendMsg="true" sourceLifeline="//@lifelines.13" targetLifeline="//@lifelines.13"/>
+    <elements xsi:type="SequenceDiagram:Message" ID="68" action="choose one way randomly" isReceiveMsg="true" sourceLifeline="//@lifelines.13" targetLifeline="//@lifelines.13"/>
+    <elements xsi:type="SequenceDiagram:Message" ID="133" relatedOperand="//@lifelines.12/@elements.6/@operands.0" action="create()" isReceiveMsg="true" sourceLifeline="//@lifelines.12" targetLifeline="//@lifelines.13"/>
+    <elements xsi:type="SequenceDiagram:Message" ID="134" next="//@lifelines.13/@elements.4" action="changeState(condition)" isSendMsg="true" sourceLifeline="//@lifelines.13" targetLifeline="//@lifelines.13"/>
+    <elements xsi:type="SequenceDiagram:Message" ID="134" previous="//@lifelines.13/@elements.3" next="//@lifelines.13/@elements.5" action="changeState(condition)" isReceiveMsg="true" sourceLifeline="//@lifelines.13" targetLifeline="//@lifelines.13"/>
+    <elements xsi:type="SequenceDiagram:CombinedFragment" ID="135" previous="//@lifelines.13/@elements.4" next="//@lifelines.13/@elements.6 //@lifelines.13/@elements.7">
+      <operands guard="!not Defined"/>
+      <operands guard="!not Defined"/>
+    </elements>
+    <elements xsi:type="SequenceDiagram:Message" ID="136" previous="//@lifelines.13/@elements.5" relatedOperand="//@lifelines.13/@elements.5/@operands.0" action="create()" isSendMsg="true" sourceLifeline="//@lifelines.13" targetLifeline="//@lifelines.14"/>
+    <elements xsi:type="SequenceDiagram:Message" ID="137" previous="//@lifelines.13/@elements.5" relatedOperand="//@lifelines.13/@elements.5/@operands.1" action="create()" isSendMsg="true" sourceLifeline="//@lifelines.13" targetLifeline="//@lifelines.15"/>
+  </lifelines>
+  <lifelines name="high_work_load" ownerObject="Manager">
+    <elements xsi:type="SequenceDiagram:Message" ID="69" action="call Task7 of BP component" isSendMsg="true" sourceLifeline="//@lifelines.14" targetLifeline="//@lifelines.14"/>
+    <elements xsi:type="SequenceDiagram:Message" ID="69" action="call Task7 of BP component" isReceiveMsg="true" sourceLifeline="//@lifelines.14" targetLifeline="//@lifelines.14"/>
+    <elements xsi:type="SequenceDiagram:Message" ID="70" previous="//@lifelines.14/@elements.1" action="reject vacation" isSendMsg="true" sourceLifeline="//@lifelines.14" targetLifeline="//@lifelines.31"/>
+    <elements xsi:type="SequenceDiagram:Message" ID="136" relatedOperand="//@lifelines.13/@elements.5/@operands.0" action="create()" isReceiveMsg="true" sourceLifeline="//@lifelines.13" targetLifeline="//@lifelines.14"/>
+    <elements xsi:type="SequenceDiagram:Message" ID="138" next="//@lifelines.14/@elements.5" action="changeState(condition)" isSendMsg="true" sourceLifeline="//@lifelines.14" targetLifeline="//@lifelines.14"/>
+    <elements xsi:type="SequenceDiagram:Message" ID="138" previous="//@lifelines.14/@elements.4" next="//@lifelines.14/@elements.6" action="changeState(condition)" isReceiveMsg="true" sourceLifeline="//@lifelines.14" targetLifeline="//@lifelines.14"/>
+    <elements xsi:type="SequenceDiagram:CombinedFragment" ID="139" previous="//@lifelines.14/@elements.5" next="//@lifelines.14/@elements.7">
+      <operands guard="!not Defined"/>
+    </elements>
+    <elements xsi:type="SequenceDiagram:Message" ID="140" previous="//@lifelines.14/@elements.6" relatedOperand="//@lifelines.14/@elements.6/@operands.0" action="create()" isSendMsg="true" sourceLifeline="//@lifelines.14" targetLifeline="//@lifelines.16"/>
+  </lifelines>
+  <lifelines name="low_work_load" ownerObject="Manager">
+    <elements xsi:type="SequenceDiagram:Message" ID="71" action="call Task8 of BP component" isSendMsg="true" sourceLifeline="//@lifelines.15" targetLifeline="//@lifelines.15"/>
+    <elements xsi:type="SequenceDiagram:Message" ID="71" action="call Task8 of BP component" isReceiveMsg="true" sourceLifeline="//@lifelines.15" targetLifeline="//@lifelines.15"/>
+    <elements xsi:type="SequenceDiagram:Message" ID="72" previous="//@lifelines.15/@elements.1" action="confirm vacation" isSendMsg="true" sourceLifeline="//@lifelines.15" targetLifeline="//@lifelines.31"/>
+    <elements xsi:type="SequenceDiagram:Message" ID="137" relatedOperand="//@lifelines.13/@elements.5/@operands.1" action="create()" isReceiveMsg="true" sourceLifeline="//@lifelines.13" targetLifeline="//@lifelines.15"/>
+    <elements xsi:type="SequenceDiagram:Message" ID="141" next="//@lifelines.15/@elements.5" action="changeState(condition)" isSendMsg="true" sourceLifeline="//@lifelines.15" targetLifeline="//@lifelines.15"/>
+    <elements xsi:type="SequenceDiagram:Message" ID="141" previous="//@lifelines.15/@elements.4" next="//@lifelines.15/@elements.6" action="changeState(condition)" isReceiveMsg="true" sourceLifeline="//@lifelines.15" targetLifeline="//@lifelines.15"/>
+    <elements xsi:type="SequenceDiagram:CombinedFragment" ID="142" previous="//@lifelines.15/@elements.5" next="//@lifelines.15/@elements.7">
+      <operands guard="!not Defined"/>
+    </elements>
+    <elements xsi:type="SequenceDiagram:Message" ID="143" previous="//@lifelines.15/@elements.6" relatedOperand="//@lifelines.15/@elements.6/@operands.0" action="create()" isSendMsg="true" sourceLifeline="//@lifelines.15" targetLifeline="//@lifelines.17"/>
+  </lifelines>
+  <lifelines name="reject_vacation" ownerObject="Manager">
+    <elements xsi:type="SequenceDiagram:Message" ID="73" action="show rejection message" isSendMsg="true" sourceLifeline="//@lifelines.16" targetLifeline="//@lifelines.16"/>
+    <elements xsi:type="SequenceDiagram:Message" ID="73" action="show rejection message" isReceiveMsg="true" sourceLifeline="//@lifelines.16" targetLifeline="//@lifelines.16"/>
+    <elements xsi:type="SequenceDiagram:Message" ID="74" previous="//@lifelines.16/@elements.1" action="show" isSendMsg="true" sourceLifeline="//@lifelines.16" targetLifeline="//@lifelines.36"/>
+    <elements xsi:type="SequenceDiagram:Message" ID="75" action="call end event of BP component" isSendMsg="true" sourceLifeline="//@lifelines.16" targetLifeline="//@lifelines.16"/>
+    <elements xsi:type="SequenceDiagram:Message" ID="75" action="call end event of BP component" isReceiveMsg="true" sourceLifeline="//@lifelines.16" targetLifeline="//@lifelines.16"/>
+    <elements xsi:type="SequenceDiagram:Message" ID="76" previous="//@lifelines.16/@elements.4" action="endEvent" isSendMsg="true" sourceLifeline="//@lifelines.16" targetLifeline="//@lifelines.20"/>
+    <elements xsi:type="SequenceDiagram:Message" ID="140" relatedOperand="//@lifelines.14/@elements.6/@operands.0" action="create()" isReceiveMsg="true" sourceLifeline="//@lifelines.14" targetLifeline="//@lifelines.16"/>
+    <elements xsi:type="SequenceDiagram:Message" ID="144" next="//@lifelines.16/@elements.8" action="changeState(condition)" isSendMsg="true" sourceLifeline="//@lifelines.16" targetLifeline="//@lifelines.16"/>
+    <elements xsi:type="SequenceDiagram:Message" ID="144" previous="//@lifelines.16/@elements.7" next="//@lifelines.16/@elements.9" action="changeState(condition)" isReceiveMsg="true" sourceLifeline="//@lifelines.16" targetLifeline="//@lifelines.16"/>
+    <elements xsi:type="SequenceDiagram:CombinedFragment" ID="145" previous="//@lifelines.16/@elements.8"/>
+  </lifelines>
+  <lifelines name="confirm_vacation" ownerObject="Manager">
+    <elements xsi:type="SequenceDiagram:Message" ID="77" action="show confirmation message" isSendMsg="true" sourceLifeline="//@lifelines.17" targetLifeline="//@lifelines.17"/>
+    <elements xsi:type="SequenceDiagram:Message" ID="77" action="show confirmation message" isReceiveMsg="true" sourceLifeline="//@lifelines.17" targetLifeline="//@lifelines.17"/>
+    <elements xsi:type="SequenceDiagram:Message" ID="78" previous="//@lifelines.17/@elements.1" action="show" isSendMsg="true" sourceLifeline="//@lifelines.17" targetLifeline="//@lifelines.37"/>
+    <elements xsi:type="SequenceDiagram:Message" ID="79" action="call end event of BP component" isSendMsg="true" sourceLifeline="//@lifelines.17" targetLifeline="//@lifelines.17"/>
+    <elements xsi:type="SequenceDiagram:Message" ID="79" action="call end event of BP component" isReceiveMsg="true" sourceLifeline="//@lifelines.17" targetLifeline="//@lifelines.17"/>
+    <elements xsi:type="SequenceDiagram:Message" ID="80" previous="//@lifelines.17/@elements.4" action="endEvent" isSendMsg="true" sourceLifeline="//@lifelines.17" targetLifeline="//@lifelines.20"/>
+    <elements xsi:type="SequenceDiagram:Message" ID="143" relatedOperand="//@lifelines.15/@elements.6/@operands.0" action="create()" isReceiveMsg="true" sourceLifeline="//@lifelines.15" targetLifeline="//@lifelines.17"/>
+    <elements xsi:type="SequenceDiagram:Message" ID="146" next="//@lifelines.17/@elements.8" action="changeState(condition)" isSendMsg="true" sourceLifeline="//@lifelines.17" targetLifeline="//@lifelines.17"/>
+    <elements xsi:type="SequenceDiagram:Message" ID="146" previous="//@lifelines.17/@elements.7" next="//@lifelines.17/@elements.9" action="changeState(condition)" isReceiveMsg="true" sourceLifeline="//@lifelines.17" targetLifeline="//@lifelines.17"/>
+    <elements xsi:type="SequenceDiagram:CombinedFragment" ID="147" previous="//@lifelines.17/@elements.8">
+      <operands guard="!not Defined"/>
+    </elements>
+  </lifelines>
+  <lifelines name="level1startup" ownerObject="level1startup">
+    <elements xsi:type="SequenceDiagram:Message" ID="1" action="show" isReceiveMsg="true" sourceLifeline="//@lifelines.1" targetLifeline="//@lifelines.18"/>
+  </lifelines>
+  <lifelines name="employeeLog" ownerObject="employeeLog">
+    <elements xsi:type="SequenceDiagram:Message" ID="4" action="!not Defined" isReceiveMsg="true" sourceLifeline="//@lifelines.1" targetLifeline="//@lifelines.19"/>
+    <elements xsi:type="SequenceDiagram:Message" ID="55" action="!not Defined" isReceiveMsg="true" sourceLifeline="//@lifelines.11" targetLifeline="//@lifelines.19"/>
+    <elements xsi:type="SequenceDiagram:Message" ID="87" action="!not Defined: save challenge score" isReceiveMsg="true" sourceLifeline="//@lifelines.39" targetLifeline="//@lifelines.19"/>
+    <elements xsi:type="SequenceDiagram:Message" ID="94" action="!not Defined: save challenge score" isReceiveMsg="true" sourceLifeline="//@lifelines.43" targetLifeline="//@lifelines.19"/>
+    <elements xsi:type="SequenceDiagram:Message" ID="102" action="!not Defined: save challenge score" isReceiveMsg="true" sourceLifeline="//@lifelines.46" targetLifeline="//@lifelines.19"/>
+  </lifelines>
+  <lifelines name="Employee:Lane" ownerObject="Employee_lane">
+    <elements xsi:type="SequenceDiagram:Message" ID="6" action="request for vacation" isReceiveMsg="true" sourceLifeline="//@lifelines.2" targetLifeline="//@lifelines.20"/>
+    <elements xsi:type="SequenceDiagram:Message" ID="7" action="return (correctOutputs)" isSendMsg="true" sourceLifeline="//@lifelines.20" targetLifeline="//@lifelines.2"/>
+    <elements xsi:type="SequenceDiagram:Message" ID="12" action="Send request Email" isReceiveMsg="true" sourceLifeline="//@lifelines.4" targetLifeline="//@lifelines.20"/>
+    <elements xsi:type="SequenceDiagram:Message" ID="13" action="!not defined: create/ update/ delete?" isSendMsg="true" sourceLifeline="//@lifelines.20" targetLifeline="//@lifelines.22"/>
+    <elements xsi:type="SequenceDiagram:Message" ID="14" action="!not defined: create/ update/ delete?" isSendMsg="true" sourceLifeline="//@lifelines.20" targetLifeline="//@lifelines.23"/>
+    <elements xsi:type="SequenceDiagram:Message" ID="31" action="check work load" isReceiveMsg="true" sourceLifeline="//@lifelines.5" targetLifeline="//@lifelines.20"/>
+    <elements xsi:type="SequenceDiagram:Message" ID="35" action="degree of work load" isReceiveMsg="true" sourceLifeline="//@lifelines.7" targetLifeline="//@lifelines.20"/>
+    <elements xsi:type="SequenceDiagram:CombinedFragment" ID="36">
+      <operands guard="!not Defined"/>
+      <operands guard="!not Defined"/>
+    </elements>
+    <elements xsi:type="SequenceDiagram:Message" ID="37" previous="//@lifelines.20/@elements.7" next="//@lifelines.20/@elements.9" relatedOperand="//@lifelines.20/@elements.7/@operands.0" action="setCorrectOutputs" isSendMsg="true" sourceLifeline="//@lifelines.20" targetLifeline="//@lifelines.20"/>
+    <elements xsi:type="SequenceDiagram:Message" ID="37" previous="//@lifelines.20/@elements.8" relatedOperand="//@lifelines.20/@elements.7/@operands.0" action="setCorrectOutputs" isReceiveMsg="true" sourceLifeline="//@lifelines.20" targetLifeline="//@lifelines.20"/>
+    <elements xsi:type="SequenceDiagram:Message" ID="38" previous="//@lifelines.20/@elements.7" next="//@lifelines.20/@elements.11" relatedOperand="//@lifelines.20/@elements.7/@operands.1" action="setCorrectOutputs" isSendMsg="true" sourceLifeline="//@lifelines.20" targetLifeline="//@lifelines.20"/>
+    <elements xsi:type="SequenceDiagram:Message" ID="38" previous="//@lifelines.20/@elements.10" relatedOperand="//@lifelines.20/@elements.7/@operands.1" action="setCorrectOutputs" isReceiveMsg="true" sourceLifeline="//@lifelines.20" targetLifeline="//@lifelines.20"/>
+    <elements xsi:type="SequenceDiagram:Message" ID="41" action="Wait for manager confirmation" isReceiveMsg="true" sourceLifeline="//@lifelines.8" targetLifeline="//@lifelines.20"/>
+    <elements xsi:type="SequenceDiagram:Message" ID="44" action="vacation confirmation" isReceiveMsg="true" sourceLifeline="//@lifelines.8" targetLifeline="//@lifelines.20"/>
+    <elements xsi:type="SequenceDiagram:Message" ID="53" action="endEvent" isReceiveMsg="true" sourceLifeline="//@lifelines.10" targetLifeline="//@lifelines.20"/>
+    <elements xsi:type="SequenceDiagram:Message" ID="76" action="endEvent" isReceiveMsg="true" sourceLifeline="//@lifelines.16" targetLifeline="//@lifelines.20"/>
+    <elements xsi:type="SequenceDiagram:Message" ID="80" action="endEvent" isReceiveMsg="true" sourceLifeline="//@lifelines.17" targetLifeline="//@lifelines.20"/>
+  </lifelines>
+  <lifelines name="request_vacation" ownerObject="request vacation">
+    <elements xsi:type="SequenceDiagram:Message" ID="9" action="show" isReceiveMsg="true" sourceLifeline="//@lifelines.3" targetLifeline="//@lifelines.21"/>
+  </lifelines>
+  <lifelines name="Email_Addresses:Resource" ownerObject="Email Addresses">
+    <elements xsi:type="SequenceDiagram:Message" ID="13" action="!not defined: create/ update/ delete?" isReceiveMsg="true" sourceLifeline="//@lifelines.20" targetLifeline="//@lifelines.22"/>
+  </lifelines>
+  <lifelines name="vacation_request_rules:Resource" ownerObject="vacation request rules">
+    <elements xsi:type="SequenceDiagram:Message" ID="14" action="!not defined: create/ update/ delete?" isReceiveMsg="true" sourceLifeline="//@lifelines.20" targetLifeline="//@lifelines.23"/>
+  </lifelines>
+  <lifelines name="sending_email" ownerObject="sending email">
+    <elements xsi:type="SequenceDiagram:Message" ID="16" action="show" isReceiveMsg="true" sourceLifeline="//@lifelines.5" targetLifeline="//@lifelines.24"/>
+  </lifelines>
+  <lifelines name="email_title_format_challange" ownerObject="Employee">
+    <elements xsi:type="SequenceDiagram:Message" ID="19" action="startChallenge" isReceiveMsg="true" sourceLifeline="//@lifelines.5" targetLifeline="//@lifelines.25"/>
+  </lifelines>
+  <lifelines name="email_address_challenge" ownerObject="Employee">
+    <elements xsi:type="SequenceDiagram:Message" ID="22" action="startChallenge" isReceiveMsg="true" sourceLifeline="//@lifelines.5" targetLifeline="//@lifelines.26"/>
+  </lifelines>
+  <lifelines name="vacation_rules" ownerObject="vacation rules">
+    <elements xsi:type="SequenceDiagram:Message" ID="25" action="show" isReceiveMsg="true" sourceLifeline="//@lifelines.5" targetLifeline="//@lifelines.27"/>
+  </lifelines>
+  <lifelines name="request_validation_challenge" ownerObject="Employee">
+    <elements xsi:type="SequenceDiagram:Message" ID="29" action="startChallenge" isReceiveMsg="true" sourceLifeline="//@lifelines.5" targetLifeline="//@lifelines.28"/>
+  </lifelines>
+  <lifelines name="workload" ownerObject="workload">
+    <elements xsi:type="SequenceDiagram:Message" ID="33" action="show" isReceiveMsg="true" sourceLifeline="//@lifelines.7" targetLifeline="//@lifelines.29"/>
+  </lifelines>
+  <lifelines name="result1" ownerObject="result1">
+    <elements xsi:type="SequenceDiagram:Message" ID="46" action="show" isReceiveMsg="true" sourceLifeline="//@lifelines.9" targetLifeline="//@lifelines.30"/>
+  </lifelines>
+  <lifelines name="Manager:Lane" ownerObject="Manager_lane">
+    <elements xsi:type="SequenceDiagram:Message" ID="48" action="vacation request checking" isReceiveMsg="true" sourceLifeline="//@lifelines.9" targetLifeline="//@lifelines.31"/>
+    <elements xsi:type="SequenceDiagram:Message" ID="49" action="return (correctOutputs)" isSendMsg="true" sourceLifeline="//@lifelines.31" targetLifeline="//@lifelines.9"/>
+    <elements xsi:type="SequenceDiagram:Message" ID="64" action="work load necessity degree" isReceiveMsg="true" sourceLifeline="//@lifelines.12" targetLifeline="//@lifelines.31"/>
+    <elements xsi:type="SequenceDiagram:CombinedFragment" ID="65">
+      <operands guard="!not Defined"/>
+      <operands guard="!not Defined"/>
+    </elements>
+    <elements xsi:type="SequenceDiagram:Message" ID="66" previous="//@lifelines.31/@elements.3" next="//@lifelines.31/@elements.5" relatedOperand="//@lifelines.31/@elements.3/@operands.0" action="setCorrectOutputs" isSendMsg="true" sourceLifeline="//@lifelines.31" targetLifeline="//@lifelines.31"/>
+    <elements xsi:type="SequenceDiagram:Message" ID="66" previous="//@lifelines.31/@elements.4" relatedOperand="//@lifelines.31/@elements.3/@operands.0" action="setCorrectOutputs" isReceiveMsg="true" sourceLifeline="//@lifelines.31" targetLifeline="//@lifelines.31"/>
+    <elements xsi:type="SequenceDiagram:Message" ID="67" previous="//@lifelines.31/@elements.3" next="//@lifelines.31/@elements.7" relatedOperand="//@lifelines.31/@elements.3/@operands.1" action="setCorrectOutputs" isSendMsg="true" sourceLifeline="//@lifelines.31" targetLifeline="//@lifelines.31"/>
+    <elements xsi:type="SequenceDiagram:Message" ID="67" previous="//@lifelines.31/@elements.6" relatedOperand="//@lifelines.31/@elements.3/@operands.1" action="setCorrectOutputs" isReceiveMsg="true" sourceLifeline="//@lifelines.31" targetLifeline="//@lifelines.31"/>
+    <elements xsi:type="SequenceDiagram:Message" ID="70" action="reject vacation" isReceiveMsg="true" sourceLifeline="//@lifelines.14" targetLifeline="//@lifelines.31"/>
+    <elements xsi:type="SequenceDiagram:Message" ID="72" action="confirm vacation" isReceiveMsg="true" sourceLifeline="//@lifelines.15" targetLifeline="//@lifelines.31"/>
+  </lifelines>
+  <lifelines name="result2" ownerObject="result2">
+    <elements xsi:type="SequenceDiagram:Message" ID="51" action="show" isReceiveMsg="true" sourceLifeline="//@lifelines.10" targetLifeline="//@lifelines.32"/>
+  </lifelines>
+  <lifelines name="score_menu" ownerObject="score menu">
+    <elements xsi:type="SequenceDiagram:Message" ID="58" action="show" isReceiveMsg="true" sourceLifeline="//@lifelines.11" targetLifeline="//@lifelines.33"/>
+  </lifelines>
+  <lifelines name="score" ownerObject="score">
+    <elements xsi:type="SequenceDiagram:Message" ID="60" action="show" isReceiveMsg="true" sourceLifeline="//@lifelines.11" targetLifeline="//@lifelines.34"/>
+  </lifelines>
+  <lifelines name="duration" ownerObject="duration">
+    <elements xsi:type="SequenceDiagram:Message" ID="62" action="show" isReceiveMsg="true" sourceLifeline="//@lifelines.11" targetLifeline="//@lifelines.35"/>
+  </lifelines>
+  <lifelines name="rejection_msg" ownerObject="rejection msg">
+    <elements xsi:type="SequenceDiagram:Message" ID="74" action="show" isReceiveMsg="true" sourceLifeline="//@lifelines.16" targetLifeline="//@lifelines.36"/>
+  </lifelines>
+  <lifelines name="confirmation_msg" ownerObject="confirmation msg">
+    <elements xsi:type="SequenceDiagram:Message" ID="78" action="show" isReceiveMsg="true" sourceLifeline="//@lifelines.17" targetLifeline="//@lifelines.37"/>
+  </lifelines>
+  <lifelines name="email_title_accuracy_checking" ownerObject="Employee">
+    <elements xsi:type="SequenceDiagram:Message" ID="81" action="runScoringRule" isReceiveMsg="true" sourceLifeline="//@lifelines.5" targetLifeline="//@lifelines.38"/>
+    <elements xsi:type="SequenceDiagram:Message" ID="82" previous="//@lifelines.38/@elements.0" action="calculateScore" isSendMsg="true" sourceLifeline="//@lifelines.38" targetLifeline="//@lifelines.39"/>
+  </lifelines>
+  <lifelines name="email_title_format_reward" ownerObject="email title format reward">
+    <elements xsi:type="SequenceDiagram:Message" ID="82" next="//@lifelines.39/@elements.1" action="calculateScore" isReceiveMsg="true" sourceLifeline="//@lifelines.38" targetLifeline="//@lifelines.39"/>
+    <elements xsi:type="SequenceDiagram:CombinedFragment" ID="83" previous="//@lifelines.39/@elements.0">
+      <operands guard="email title format reward"/>
+      <operands guard="if (title format is incorrect) subscribe 3 points "/>
+    </elements>
+    <elements xsi:type="SequenceDiagram:Message" ID="84" relatedOperand="//@lifelines.39/@elements.1/@operands.0" action="create()" isSendMsg="true" sourceLifeline="//@lifelines.39" targetLifeline="//@lifelines.40"/>
+    <elements xsi:type="SequenceDiagram:Message" ID="85" relatedOperand="//@lifelines.39/@elements.1/@operands.1" action="create()" isSendMsg="true" sourceLifeline="//@lifelines.39" targetLifeline="//@lifelines.41"/>
+    <elements xsi:type="SequenceDiagram:Message" ID="87" action="!not Defined: save challenge score" isSendMsg="true" sourceLifeline="//@lifelines.39" targetLifeline="//@lifelines.19"/>
+  </lifelines>
+  <lifelines name="5_point" ownerObject="point">
+    <elements xsi:type="SequenceDiagram:Message" ID="84" relatedOperand="//@lifelines.39/@elements.1/@operands.0" action="create()" isReceiveMsg="true" sourceLifeline="//@lifelines.39" targetLifeline="//@lifelines.40"/>
+  </lifelines>
+  <lifelines name="-3_point" ownerObject="point">
+    <elements xsi:type="SequenceDiagram:Message" ID="85" relatedOperand="//@lifelines.39/@elements.1/@operands.1" action="create()" isReceiveMsg="true" sourceLifeline="//@lifelines.39" targetLifeline="//@lifelines.41"/>
+  </lifelines>
+  <lifelines name="email_address_accuracy_checking" ownerObject="Employee">
+    <elements xsi:type="SequenceDiagram:Message" ID="88" action="runScoringRule" isReceiveMsg="true" sourceLifeline="//@lifelines.5" targetLifeline="//@lifelines.42"/>
+    <elements xsi:type="SequenceDiagram:Message" ID="89" previous="//@lifelines.42/@elements.0" action="calculateScore" isSendMsg="true" sourceLifeline="//@lifelines.42" targetLifeline="//@lifelines.43"/>
+  </lifelines>
+  <lifelines name="email_address_reward" ownerObject="email address reward">
+    <elements xsi:type="SequenceDiagram:Message" ID="89" next="//@lifelines.43/@elements.1" action="calculateScore" isReceiveMsg="true" sourceLifeline="//@lifelines.42" targetLifeline="//@lifelines.43"/>
+    <elements xsi:type="SequenceDiagram:CombinedFragment" ID="90" previous="//@lifelines.43/@elements.0">
+      <operands guard="if (manager address is selected) add 5 points "/>
+      <operands guard="if (manager address is not selected) subscribe 3 points "/>
+    </elements>
+    <elements xsi:type="SequenceDiagram:Message" ID="91" relatedOperand="//@lifelines.43/@elements.1/@operands.0" action="create()" isSendMsg="true" sourceLifeline="//@lifelines.43" targetLifeline="//@lifelines.44"/>
+    <elements xsi:type="SequenceDiagram:Message" ID="92" relatedOperand="//@lifelines.43/@elements.1/@operands.1" action="create()" isSendMsg="true" sourceLifeline="//@lifelines.43" targetLifeline="//@lifelines.45"/>
+    <elements xsi:type="SequenceDiagram:Message" ID="94" action="!not Defined: save challenge score" isSendMsg="true" sourceLifeline="//@lifelines.43" targetLifeline="//@lifelines.19"/>
+  </lifelines>
+  <lifelines name="5_point" ownerObject="point">
+    <elements xsi:type="SequenceDiagram:Message" ID="91" relatedOperand="//@lifelines.43/@elements.1/@operands.0" action="create()" isReceiveMsg="true" sourceLifeline="//@lifelines.43" targetLifeline="//@lifelines.44"/>
+  </lifelines>
+  <lifelines name="-3_point" ownerObject="point">
+    <elements xsi:type="SequenceDiagram:Message" ID="92" relatedOperand="//@lifelines.43/@elements.1/@operands.1" action="create()" isReceiveMsg="true" sourceLifeline="//@lifelines.43" targetLifeline="//@lifelines.45"/>
+  </lifelines>
+  <lifelines name="valid_request_reward" ownerObject="valid request reward">
+    <elements xsi:type="SequenceDiagram:Message" ID="96" next="//@lifelines.46/@elements.1" action="calculateScore" isReceiveMsg="true" sourceLifeline="//@lifelines.6" targetLifeline="//@lifelines.46"/>
+    <elements xsi:type="SequenceDiagram:CombinedFragment" ID="97" previous="//@lifelines.46/@elements.0">
+      <operands guard="if (request date &lt; vacation date) add 3 points "/>
+      <operands guard="if (request date = vacation date and request time &lt; work time) add 3 points"/>
+      <operands guard="if (request date = vacation date and request time >= work time) subscribe 2 points "/>
+    </elements>
+    <elements xsi:type="SequenceDiagram:Message" ID="98" relatedOperand="//@lifelines.46/@elements.1/@operands.0" action="create()" isSendMsg="true" sourceLifeline="//@lifelines.46" targetLifeline="//@lifelines.47"/>
+    <elements xsi:type="SequenceDiagram:Message" ID="99" relatedOperand="//@lifelines.46/@elements.1/@operands.1" action="create()" isSendMsg="true" sourceLifeline="//@lifelines.46" targetLifeline="//@lifelines.48"/>
+    <elements xsi:type="SequenceDiagram:Message" ID="100" relatedOperand="//@lifelines.46/@elements.1/@operands.2" action="create()" isSendMsg="true" sourceLifeline="//@lifelines.46" targetLifeline="//@lifelines.49"/>
+    <elements xsi:type="SequenceDiagram:Message" ID="102" action="!not Defined: save challenge score" isSendMsg="true" sourceLifeline="//@lifelines.46" targetLifeline="//@lifelines.19"/>
+  </lifelines>
+  <lifelines name="3_point" ownerObject="point">
+    <elements xsi:type="SequenceDiagram:Message" ID="98" relatedOperand="//@lifelines.46/@elements.1/@operands.0" action="create()" isReceiveMsg="true" sourceLifeline="//@lifelines.46" targetLifeline="//@lifelines.47"/>
+  </lifelines>
+  <lifelines name="3_point" ownerObject="point">
+    <elements xsi:type="SequenceDiagram:Message" ID="99" relatedOperand="//@lifelines.46/@elements.1/@operands.1" action="create()" isReceiveMsg="true" sourceLifeline="//@lifelines.46" targetLifeline="//@lifelines.48"/>
+  </lifelines>
+  <lifelines name="-2_point" ownerObject="point">
+    <elements xsi:type="SequenceDiagram:Message" ID="100" relatedOperand="//@lifelines.46/@elements.1/@operands.2" action="create()" isReceiveMsg="true" sourceLifeline="//@lifelines.46" targetLifeline="//@lifelines.49"/>
+  </lifelines>
+</SequenceDiagram:SequenceDiagram>

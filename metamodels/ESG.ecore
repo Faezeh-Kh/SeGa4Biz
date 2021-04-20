@@ -1,0 +1,280 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ecore:EPackage xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xmlns:ecore="http://www.eclipse.org/emf/2002/Ecore" name="EducationalSeriousGame" nsURI="www.EducationalSeriousGame.com"
+    nsPrefix="EducationalSeriousGame">
+  <eSubpackages name="GameLogic" nsURI="www.GameLogic.com" nsPrefix="GameLogic">
+    <eClassifiers xsi:type="ecore:EClass" name="GameLevel">
+      <eStructuralFeatures xsi:type="ecore:EAttribute" name="levelTitle" lowerBound="1"
+          eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+      <eStructuralFeatures xsi:type="ecore:EAttribute" name="levelNumber" lowerBound="1"
+          eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EInt"/>
+      <eStructuralFeatures xsi:type="ecore:EAttribute" name="neededScore" lowerBound="1"
+          eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EInt"/>
+      <eStructuralFeatures xsi:type="ecore:EAttribute" name="isFinalLevel" lowerBound="1"
+          eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBoolean"/>
+      <eStructuralFeatures xsi:type="ecore:EReference" name="relatedScene" lowerBound="1"
+          eType="#//GUI/Scene" eOpposite="#//GUI/Scene/relatedGameLevel"/>
+    </eClassifiers>
+    <eClassifiers xsi:type="ecore:EClass" name="PlayerLog">
+      <eStructuralFeatures xsi:type="ecore:EAttribute" name="name" lowerBound="1"
+          eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+      <eStructuralFeatures xsi:type="ecore:EReference" name="ownerPlayer" lowerBound="1"
+          eType="#//GUI/PlayerCharacter" eOpposite="#//GUI/PlayerCharacter/playerLog"/>
+    </eClassifiers>
+    <eClassifiers xsi:type="ecore:EClass" name="Capability">
+      <eStructuralFeatures xsi:type="ecore:EAttribute" name="title" lowerBound="1"
+          eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+      <eStructuralFeatures xsi:type="ecore:EAttribute" name="isActive" lowerBound="1"
+          eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBoolean"/>
+      <eStructuralFeatures xsi:type="ecore:EReference" name="ownerPlayer" eType="#//GUI/PlayerCharacter"
+          eOpposite="#//GUI/PlayerCharacter/capabilities"/>
+      <eStructuralFeatures xsi:type="ecore:EReference" name="relatedRewardCondition"
+          eType="#//GameLogic/ScoringModel/RewardCondition" eOpposite="#//GameLogic/ScoringModel/RewardCondition/capability"/>
+    </eClassifiers>
+    <eClassifiers xsi:type="ecore:EClass" name="Challenge">
+      <eStructuralFeatures xsi:type="ecore:EAttribute" name="title" lowerBound="1"
+          eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+      <eStructuralFeatures xsi:type="ecore:EReference" name="ownerPlayer" eType="#//GUI/PlayerCharacter"
+          eOpposite="#//GUI/PlayerCharacter/challenges"/>
+      <eStructuralFeatures xsi:type="ecore:EReference" name="scoringRule" eType="#//GameLogic/ScoringModel/ScoringRule"
+          containment="true" eOpposite="#//GameLogic/ScoringModel/ScoringRule/ownerChallenge"/>
+      <eStructuralFeatures xsi:type="ecore:EReference" name="newObjects" upperBound="-1"
+          eType="#//GUI/GameObject" containment="true"/>
+      <eStructuralFeatures xsi:type="ecore:EReference" name="states" upperBound="-1"
+          eType="#//GameLogic/State" containment="true" eOpposite="#//GameLogic/State/ownerChallenge"/>
+    </eClassifiers>
+    <eClassifiers xsi:type="ecore:EClass" name="TimeChallenge" eSuperTypes="#//GameLogic/Challenge">
+      <eStructuralFeatures xsi:type="ecore:EAttribute" name="maxTime" lowerBound="1"
+          eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EInt"/>
+    </eClassifiers>
+    <eClassifiers xsi:type="ecore:EClass" name="KnowledgeChallenge" eSuperTypes="#//GameLogic/Challenge">
+      <eStructuralFeatures xsi:type="ecore:EAttribute" name="description" lowerBound="1"
+          eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+      <eStructuralFeatures xsi:type="ecore:EAttribute" name="correctAnswers" lowerBound="1"
+          eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    </eClassifiers>
+    <eClassifiers xsi:type="ecore:EClass" name="FrequencyChallenge" eSuperTypes="#//GameLogic/Challenge">
+      <eStructuralFeatures xsi:type="ecore:EAttribute" name="maxAttempts" lowerBound="1"
+          eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EInt"/>
+    </eClassifiers>
+    <eClassifiers xsi:type="ecore:EClass" name="State">
+      <eStructuralFeatures xsi:type="ecore:EAttribute" name="name" lowerBound="1"
+          eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+      <eStructuralFeatures xsi:type="ecore:EAttribute" name="isStartState" lowerBound="1"
+          eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBoolean"/>
+      <eStructuralFeatures xsi:type="ecore:EReference" name="actions" upperBound="-1"
+          eType="#//GameLogic/Action" containment="true" eOpposite="#//GameLogic/Action/ownerState"/>
+      <eStructuralFeatures xsi:type="ecore:EReference" name="changeRules" upperBound="-1"
+          eType="#//GameLogic/ChangeStateRule" containment="true" eOpposite="#//GameLogic/ChangeStateRule/ownerState"/>
+      <eStructuralFeatures xsi:type="ecore:EReference" name="ownerObject" lowerBound="1"
+          eType="#//GUI/GameObject" eOpposite="#//GUI/GameObject/states"/>
+      <eStructuralFeatures xsi:type="ecore:EReference" name="ownerChallenge" lowerBound="1"
+          eType="#//GameLogic/Challenge" eOpposite="#//GameLogic/Challenge/states"/>
+    </eClassifiers>
+    <eClassifiers xsi:type="ecore:EClass" name="Action">
+      <eStructuralFeatures xsi:type="ecore:EAttribute" name="title" lowerBound="1"
+          eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+      <eStructuralFeatures xsi:type="ecore:EReference" name="ownerState" eType="#//GameLogic/State"
+          eOpposite="#//GameLogic/State/actions"/>
+      <eStructuralFeatures xsi:type="ecore:EReference" name="constraints" upperBound="-1"
+          eType="#//GameLogic/Constraint" containment="true" eOpposite="#//GameLogic/Constraint/ownerAction"/>
+      <eStructuralFeatures xsi:type="ecore:EReference" name="triggers" upperBound="-1"
+          eType="#//GameLogic/Trigger" containment="true" eOpposite="#//GameLogic/Trigger/ownerAction"/>
+      <eStructuralFeatures xsi:type="ecore:EAttribute" name="isPlayerRequest" lowerBound="1"
+          eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBoolean"/>
+      <eStructuralFeatures xsi:type="ecore:EAttribute" name="relatedElementType" eType="#//GameLogic/RelatedElementToAction"/>
+      <eStructuralFeatures xsi:type="ecore:EReference" name="relatedLog" eType="#//GameLogic/PlayerLog"/>
+      <eStructuralFeatures xsi:type="ecore:EReference" name="relatedChallenge" eType="#//GameLogic/Challenge"/>
+      <eStructuralFeatures xsi:type="ecore:EReference" name="relatedScreen" eType="#//GUI/UI"/>
+      <eStructuralFeatures xsi:type="ecore:EReference" name="relatedArt" eType="#//GUI/Art"/>
+    </eClassifiers>
+    <eClassifiers xsi:type="ecore:EEnum" name="RelatedElementToAction">
+      <eLiterals name="none"/>
+      <eLiterals name="log" value="1"/>
+      <eLiterals name="challenge" value="2"/>
+      <eLiterals name="screen" value="3"/>
+      <eLiterals name="art" value="4"/>
+    </eClassifiers>
+    <eClassifiers xsi:type="ecore:EClass" name="PersonalAction" eSuperTypes="#//GameLogic/Action"/>
+    <eClassifiers xsi:type="ecore:EClass" name="Interaction" eSuperTypes="#//GameLogic/Action">
+      <eStructuralFeatures xsi:type="ecore:EReference" name="from" lowerBound="1"
+          eType="#//GUI/GameObject"/>
+      <eStructuralFeatures xsi:type="ecore:EReference" name="to" lowerBound="1" eType="#//GUI/GameObject"/>
+    </eClassifiers>
+    <eClassifiers xsi:type="ecore:EClass" name="Constraint">
+      <eStructuralFeatures xsi:type="ecore:EAttribute" name="description" lowerBound="1"
+          eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+      <eStructuralFeatures xsi:type="ecore:EReference" name="ownerAction" eType="#//GameLogic/Action"
+          eOpposite="#//GameLogic/Action/constraints"/>
+    </eClassifiers>
+    <eClassifiers xsi:type="ecore:EClass" name="Trigger">
+      <eStructuralFeatures xsi:type="ecore:EReference" name="ownerAction" eType="#//GameLogic/Action"
+          eOpposite="#//GameLogic/Action/triggers"/>
+      <eStructuralFeatures xsi:type="ecore:EReference" name="source" lowerBound="1"
+          eType="#//GameLogic/Action"/>
+    </eClassifiers>
+    <eClassifiers xsi:type="ecore:EClass" name="ChangeStateRule">
+      <eStructuralFeatures xsi:type="ecore:EReference" name="ownerState" eType="#//GameLogic/State"
+          eOpposite="#//GameLogic/State/changeRules"/>
+      <eStructuralFeatures xsi:type="ecore:EReference" name="targetState" upperBound="-1"
+          eType="#//GameLogic/State"/>
+    </eClassifiers>
+    <eClassifiers xsi:type="ecore:EClass" name="Deterministic" eSuperTypes="#//GameLogic/ChangeStateRule"/>
+    <eClassifiers xsi:type="ecore:EClass" name="NonDeterministic" eSuperTypes="#//GameLogic/ChangeStateRule"/>
+    <eClassifiers xsi:type="ecore:EClass" name="LocationBased" eSuperTypes="#//GameLogic/ChangeStateRule"/>
+    <eClassifiers xsi:type="ecore:EClass" name="TimeBased" eSuperTypes="#//GameLogic/ChangeStateRule"/>
+    <eClassifiers xsi:type="ecore:EClass" name="ObjectiveBased" eSuperTypes="#//GameLogic/ChangeStateRule"/>
+    <eSubpackages name="ScoringModel" nsURI="www.ScoringModel.com" nsPrefix="ScoringModel">
+      <eClassifiers xsi:type="ecore:EClass" name="ScoringRule">
+        <eStructuralFeatures xsi:type="ecore:EAttribute" name="title" lowerBound="1"
+            eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+        <eStructuralFeatures xsi:type="ecore:EReference" name="rewardConditions" upperBound="-1"
+            eType="#//GameLogic/ScoringModel/RewardCondition" containment="true" eOpposite="#//GameLogic/ScoringModel/RewardCondition/ownerRule"/>
+        <eStructuralFeatures xsi:type="ecore:EReference" name="ownerChallenge" lowerBound="1"
+            eType="#//GameLogic/Challenge" eOpposite="#//GameLogic/Challenge/scoringRule"/>
+        <eStructuralFeatures xsi:type="ecore:EAttribute" name="ruleContext" lowerBound="1"
+            eType="#//GameLogic/ScoringModel/RuleContext"/>
+      </eClassifiers>
+      <eClassifiers xsi:type="ecore:EEnum" name="RuleContext">
+        <eLiterals name="challenge"/>
+        <eLiterals name="gameLevel" value="1"/>
+        <eLiterals name="wholeGame" value="2"/>
+      </eClassifiers>
+      <eClassifiers xsi:type="ecore:EClass" name="RewardCondition">
+        <eStructuralFeatures xsi:type="ecore:EAttribute" name="title" lowerBound="1"
+            eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+        <eStructuralFeatures xsi:type="ecore:EAttribute" name="constraint" lowerBound="1"
+            eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+        <eStructuralFeatures xsi:type="ecore:EAttribute" name="policy" lowerBound="1"
+            eType="#//GameLogic/ScoringModel/ScoringPolicy"/>
+        <eStructuralFeatures xsi:type="ecore:EReference" name="rewards" upperBound="-1"
+            eType="#//GameLogic/ScoringModel/Reward" containment="true" eOpposite="#//GameLogic/ScoringModel/Reward/ownerRewardCondition"/>
+        <eStructuralFeatures xsi:type="ecore:EReference" name="capability" eType="#//GameLogic/Capability"
+            eOpposite="#//GameLogic/Capability/relatedRewardCondition"/>
+        <eStructuralFeatures xsi:type="ecore:EReference" name="ownerRule" lowerBound="1"
+            eType="#//GameLogic/ScoringModel/ScoringRule" eOpposite="#//GameLogic/ScoringModel/ScoringRule/rewardConditions"/>
+      </eClassifiers>
+      <eClassifiers xsi:type="ecore:EEnum" name="ScoringPolicy">
+        <eLiterals name="FixedAction"/>
+        <eLiterals name="Sudden" value="1"/>
+        <eLiterals name="Random" value="2"/>
+        <eLiterals name="Rolling" value="3"/>
+        <eLiterals name="SocialTreasure" value="4"/>
+        <eLiterals name="RewardPacing" value="5"/>
+      </eClassifiers>
+      <eClassifiers xsi:type="ecore:EClass" name="Reward">
+        <eStructuralFeatures xsi:type="ecore:EReference" name="ownerRewardCondition"
+            eType="#//GameLogic/ScoringModel/RewardCondition" eOpposite="#//GameLogic/ScoringModel/RewardCondition/rewards"/>
+      </eClassifiers>
+      <eClassifiers xsi:type="ecore:EClass" name="Point" eSuperTypes="#//GameLogic/ScoringModel/Reward">
+        <eStructuralFeatures xsi:type="ecore:EAttribute" name="value" lowerBound="1"
+            eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EInt"/>
+      </eClassifiers>
+      <eClassifiers xsi:type="ecore:EClass" name="NewLevel" eSuperTypes="#//GameLogic/ScoringModel/Reward">
+        <eStructuralFeatures xsi:type="ecore:EAttribute" name="levelsAndScores" lowerBound="1"
+            transient="true">
+          <eGenericType eClassifier="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EMap">
+            <eTypeArguments/>
+            <eTypeArguments/>
+          </eGenericType>
+        </eStructuralFeatures>
+      </eClassifiers>
+      <eClassifiers xsi:type="ecore:EClass" name="Badge" eSuperTypes="#//GameLogic/ScoringModel/Reward">
+        <eStructuralFeatures xsi:type="ecore:EAttribute" name="title" lowerBound="1"
+            eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+      </eClassifiers>
+      <eClassifiers xsi:type="ecore:EClass" name="LeaderBoard" eSuperTypes="#//GameLogic/ScoringModel/Reward"/>
+      <eClassifiers xsi:type="ecore:EClass" name="Certificate" eSuperTypes="#//GameLogic/ScoringModel/Reward">
+        <eStructuralFeatures xsi:type="ecore:EAttribute" name="title" lowerBound="1"
+            eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+      </eClassifiers>
+      <eClassifiers xsi:type="ecore:EClass" name="BasicPoint" eSuperTypes="#//GameLogic/ScoringModel/Point"/>
+      <eClassifiers xsi:type="ecore:EClass" name="FirstTimePoint" eSuperTypes="#//GameLogic/ScoringModel/Point"/>
+      <eClassifiers xsi:type="ecore:EClass" name="SkillPoint" eSuperTypes="#//GameLogic/ScoringModel/Point"/>
+      <eClassifiers xsi:type="ecore:EClass" name="CoinPoint" eSuperTypes="#//GameLogic/ScoringModel/Point"/>
+    </eSubpackages>
+  </eSubpackages>
+  <eSubpackages name="GUI" nsURI="www.GUI.com" nsPrefix="GUI">
+    <eClassifiers xsi:type="ecore:EClass" name="Scene">
+      <eStructuralFeatures xsi:type="ecore:EAttribute" name="name" lowerBound="1"
+          eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+      <eStructuralFeatures xsi:type="ecore:EReference" name="objects" lowerBound="1"
+          upperBound="-1" eType="#//GUI/GameObject" containment="true" eOpposite="#//GUI/GameObject/ownerScene"/>
+      <eStructuralFeatures xsi:type="ecore:EReference" name="relatedGameLevel" lowerBound="1"
+          eType="#//GameLogic/GameLevel" eOpposite="#//GameLogic/GameLevel/relatedScene"/>
+    </eClassifiers>
+    <eClassifiers xsi:type="ecore:EClass" name="GameObject">
+      <eStructuralFeatures xsi:type="ecore:EAttribute" name="name" lowerBound="1"
+          eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+      <eStructuralFeatures xsi:type="ecore:EReference" name="ownerScene" lowerBound="1"
+          eType="#//GUI/Scene" eOpposite="#//GUI/Scene/objects"/>
+      <eStructuralFeatures xsi:type="ecore:EReference" name="states" upperBound="-1"
+          eType="#//GameLogic/State" containment="true" eOpposite="#//GameLogic/State/ownerObject"/>
+      <eStructuralFeatures xsi:type="ecore:EReference" name="components" lowerBound="1"
+          upperBound="-1" eType="#//GUI/Component"/>
+      <eStructuralFeatures xsi:type="ecore:EReference" name="innerObjects" upperBound="-1"
+          eType="#//GUI/GameObject" containment="true"/>
+    </eClassifiers>
+    <eClassifiers xsi:type="ecore:EClass" name="PlayerCharacter" eSuperTypes="#//GUI/GameObject">
+      <eStructuralFeatures xsi:type="ecore:EReference" name="capabilities" upperBound="-1"
+          eType="#//GameLogic/Capability" containment="true" eOpposite="#//GameLogic/Capability/ownerPlayer"/>
+      <eStructuralFeatures xsi:type="ecore:EReference" name="challenges" upperBound="-1"
+          eType="#//GameLogic/Challenge" containment="true" eOpposite="#//GameLogic/Challenge/ownerPlayer"/>
+      <eStructuralFeatures xsi:type="ecore:EReference" name="playerLog" lowerBound="1"
+          eType="#//GameLogic/PlayerLog" containment="true" eOpposite="#//GameLogic/PlayerLog/ownerPlayer"/>
+    </eClassifiers>
+    <eClassifiers xsi:type="ecore:EClass" name="NonPlayerCharacter" eSuperTypes="#//GUI/GameObject"/>
+    <eClassifiers xsi:type="ecore:EClass" name="Component">
+      <eStructuralFeatures xsi:type="ecore:EReference" name="assets" upperBound="-1"
+          eType="#//GUI/Asset"/>
+    </eClassifiers>
+    <eClassifiers xsi:type="ecore:EClass" name="Transform" eSuperTypes="#//GUI/Component">
+      <eStructuralFeatures xsi:type="ecore:EReference" name="position" lowerBound="1"
+          eType="#//GUI/Vector3"/>
+      <eStructuralFeatures xsi:type="ecore:EReference" name="rotation" lowerBound="1"
+          eType="#//GUI/Vector3"/>
+      <eStructuralFeatures xsi:type="ecore:EReference" name="scale" lowerBound="1"
+          eType="#//GUI/Vector3"/>
+    </eClassifiers>
+    <eClassifiers xsi:type="ecore:EClass" name="Vector3">
+      <eStructuralFeatures xsi:type="ecore:EAttribute" name="x" lowerBound="1" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EDouble"/>
+      <eStructuralFeatures xsi:type="ecore:EAttribute" name="y" lowerBound="1" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EDouble"/>
+      <eStructuralFeatures xsi:type="ecore:EAttribute" name="z" lowerBound="1" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EDouble"/>
+    </eClassifiers>
+    <eClassifiers xsi:type="ecore:EClass" name="Asset"/>
+    <eClassifiers xsi:type="ecore:EClass" name="CharacterController" eSuperTypes="#//GUI/Component"/>
+    <eClassifiers xsi:type="ecore:EClass" name="Collider" eSuperTypes="#//GUI/Component">
+      <eStructuralFeatures xsi:type="ecore:EAttribute" name="isTrigger" lowerBound="1"
+          eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBoolean"/>
+    </eClassifiers>
+    <eClassifiers xsi:type="ecore:EClass" name="RigidBody" eSuperTypes="#//GUI/Component"/>
+    <eClassifiers xsi:type="ecore:EClass" name="UI" eSuperTypes="#//GUI/GameObject #//GUI/Component"/>
+    <eClassifiers xsi:type="ecore:EClass" name="Canvas" eSuperTypes="#//GUI/UI">
+      <eStructuralFeatures xsi:type="ecore:EReference" name="innerUIelements" upperBound="-1"
+          eType="#//GUI/UI"/>
+    </eClassifiers>
+    <eClassifiers xsi:type="ecore:EClass" name="Panel" eSuperTypes="#//GUI/UI">
+      <eStructuralFeatures xsi:type="ecore:EReference" name="innerUIelements" upperBound="-1"
+          eType="#//GUI/UI"/>
+    </eClassifiers>
+    <eClassifiers xsi:type="ecore:EClass" name="Button" eSuperTypes="#//GUI/UI">
+      <eStructuralFeatures xsi:type="ecore:EReference" name="buttonText" upperBound="-1"
+          eType="#//GUI/Text"/>
+    </eClassifiers>
+    <eClassifiers xsi:type="ecore:EClass" name="Text" eSuperTypes="#//GUI/UI">
+      <eStructuralFeatures xsi:type="ecore:EAttribute" name="value" lowerBound="1"
+          eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    </eClassifiers>
+    <eClassifiers xsi:type="ecore:EClass" name="Image" eSuperTypes="#//GUI/UI"/>
+    <eClassifiers xsi:type="ecore:EClass" name="Toggle" eSuperTypes="#//GUI/UI">
+      <eStructuralFeatures xsi:type="ecore:EAttribute" name="header" lowerBound="1"
+          eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    </eClassifiers>
+    <eClassifiers xsi:type="ecore:EClass" name="InputField" eSuperTypes="#//GUI/UI"/>
+    <eClassifiers xsi:type="ecore:EClass" name="Art" eSuperTypes="#//GUI/Component"/>
+    <eClassifiers xsi:type="ecore:EClass" name="Animation" eSuperTypes="#//GUI/Art"/>
+    <eClassifiers xsi:type="ecore:EClass" name="Audio" eSuperTypes="#//GUI/Art"/>
+    <eClassifiers xsi:type="ecore:EClass" name="Video" eSuperTypes="#//GUI/Art"/>
+    <eClassifiers xsi:type="ecore:EClass" name="Material" eSuperTypes="#//GUI/Art"/>
+  </eSubpackages>
+</ecore:EPackage>

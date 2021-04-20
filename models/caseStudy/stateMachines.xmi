@@ -1,0 +1,3637 @@
+<?xml version="1.0" encoding="ISO-8859-1"?>
+<xmi:XMI xmi:version="2.0"
+    xmlns:xmi="http://www.omg.org/XMI"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xmlns:StateMachine="www.stateMachine.com">
+  <StateMachine:StateMachine
+      name="Player:Employee"
+      ownerObject="Employee">
+    <states
+        name="Start">
+      <transitions
+          xsi:type="StateMachine:LocalTransition"
+          target="/0/@states.1">
+        <actions
+            title="/2:choose start button"
+            target="Start_Level"/>
+      </transitions>
+    </states>
+    <states
+        name="2 Performed"
+        order="intermediate">
+      <transitions
+          xsi:type="StateMachine:LocalTransition"
+          target="/0/@states.2">
+        <actions
+            title="/10:choose send email button"
+            target="show_request_page"/>
+      </transitions>
+    </states>
+    <states
+        name="10 Performed"
+        order="intermediate">
+      <transitions
+          xsi:type="StateMachine:LocalTransition"
+          target="/0/@states.3">
+        <actions
+            title="/17:insert email title"
+            target="make_new_email"/>
+      </transitions>
+    </states>
+    <states
+        name="17 Performed"
+        order="intermediate">
+      <transitions
+          xsi:type="StateMachine:LocalTransition"
+          target="/0/@states.4">
+        <actions
+            title="/20:choose email address"
+            target="make_new_email"/>
+      </transitions>
+    </states>
+    <states
+        name="20 Performed"
+        order="intermediate">
+      <transitions
+          xsi:type="StateMachine:LocalTransition"
+          target="/0/@states.5">
+        <actions
+            title="/23:choose rules checking button"
+            target="make_new_email"/>
+      </transitions>
+    </states>
+    <states
+        name="23 Performed"
+        order="intermediate">
+      <transitions
+          xsi:type="StateMachine:LocalTransition"
+          target="/0/@states.6">
+        <actions
+            title="/26:enter empty fields"
+            target="make_new_email"/>
+      </transitions>
+    </states>
+    <states
+        name="26 Performed"
+        order="intermediate">
+      <transitions
+          xsi:type="StateMachine:LocalTransition"
+          target="/0/@states.7">
+        <actions
+            title="/27:choose validation button"
+            target="make_new_email"/>
+      </transitions>
+    </states>
+    <states
+        name="27 Performed"
+        order="intermediate">
+      <transitions
+          xsi:type="StateMachine:LocalTransition"
+          target="/0/@states.8">
+        <actions
+            title="/39:choose high button"
+            target="determining_work_load_degree"/>
+      </transitions>
+    </states>
+    <states
+        name="39 Performed"
+        order="intermediate">
+      <transitions
+          xsi:type="StateMachine:LocalTransition"
+          target="/0/@states.9">
+        <actions
+            title="/42:choose low button"
+            target="determining_work_load_degree"/>
+      </transitions>
+    </states>
+    <states
+        name="42 Performed"
+        order="intermediate">
+      <transitions
+          xsi:type="StateMachine:LocalTransition"
+          target="/0/@states.10"/>
+    </states>
+    <states
+        name="End"
+        order="final"/>
+  </StateMachine:StateMachine>
+  <StateMachine:StateMachine
+      name="Start_Level"
+      ownerObject="Employee">
+    <states
+        name="0 Performed"
+        order="intermediate">
+      <transitions
+          xsi:type="StateMachine:LocalTransition"
+          target="/1/@states.1">
+        <triggerEvent
+            name="0:show level1startup screen"
+            source="Start_Level"/>
+      </transitions>
+    </states>
+    <states
+        name="0 Received"
+        order="intermediate">
+      <transitions
+          xsi:type="StateMachine:LocalTransition"
+          target="/1/@states.2">
+        <actions
+            title="/1:show"
+            target="level1startup"/>
+      </transitions>
+    </states>
+    <states
+        name="1 Performed"
+        order="intermediate">
+      <transitions
+          xsi:type="StateMachine:LocalTransition"
+          target="/1/@states.3">
+        <triggerEvent
+            name="2:choose start button"
+            source="Player:Employee"/>
+      </transitions>
+    </states>
+    <states
+        name="2 Received"
+        order="intermediate">
+      <transitions
+          xsi:type="StateMachine:LocalTransition"
+          target="/1/@states.4">
+        <actions
+            title="/3:set level start time in player log"
+            target="Start_Level"/>
+      </transitions>
+    </states>
+    <states
+        name="3 Performed"
+        order="intermediate">
+      <transitions
+          xsi:type="StateMachine:LocalTransition"
+          target="/1/@states.5">
+        <triggerEvent
+            name="3:set level start time in player log"
+            source="Start_Level"/>
+      </transitions>
+    </states>
+    <states
+        name="3 Received"
+        order="intermediate">
+      <transitions
+          xsi:type="StateMachine:LocalTransition"
+          target="/1/@states.9">
+        <actions
+            title="/4:!not Defined"
+            target="employeeLog"/>
+      </transitions>
+    </states>
+    <states
+        name="103 Performed"
+        order="intermediate">
+      <transitions
+          xsi:type="StateMachine:LocalTransition"
+          target="/1/@states.7">
+        <triggerEvent
+            name="103:changeState(condition)"
+            source="Start_Level"/>
+      </transitions>
+    </states>
+    <states
+        name="103 Received"
+        order="intermediate">
+      <transitions
+          xsi:type="StateMachine:LocalTransition"
+          target="/1/@states.10"/>
+    </states>
+    <states
+        name="Start">
+      <transitions
+          xsi:type="StateMachine:LocalTransition"
+          target="/1/@states.0">
+        <actions
+            title="/0:show level1startup screen"
+            target="Start_Level"/>
+      </transitions>
+    </states>
+    <states
+        name="4 Performed"
+        order="intermediate">
+      <transitions
+          xsi:type="StateMachine:LocalTransition"
+          target="/1/@states.6">
+        <actions
+            title="/103:changeState(condition)"
+            target="Start_Level"/>
+      </transitions>
+    </states>
+    <states
+        name="104 alt"
+        order="intermediate">
+      <transitions
+          xsi:type="StateMachine:LocalTransition"
+          target="/1/@states.11">
+        <guardCondition
+            description="[start button is pressed]"/>
+        <actions
+            title="/105:create()"
+            target="initialize_request"/>
+      </transitions>
+    </states>
+    <states
+        name="105 Performed"
+        order="intermediate">
+      <transitions
+          xsi:type="StateMachine:LocalTransition"
+          target="/1/@states.12"/>
+    </states>
+    <states
+        name="End"
+        order="final"/>
+  </StateMachine:StateMachine>
+  <StateMachine:StateMachine
+      name="initialize_request"
+      ownerObject="Employee">
+    <states
+        name="Start">
+      <transitions
+          xsi:type="StateMachine:LocalTransition"
+          target="/2/@states.1">
+        <triggerEvent
+            name="105:create()"
+            source="Start_Level"/>
+      </transitions>
+    </states>
+    <states
+        name="105 Received"
+        order="intermediate">
+      <transitions
+          xsi:type="StateMachine:LocalTransition"
+          target="/2/@states.2">
+        <actions
+            title="/5:call Task1 of BP component"
+            target="initialize_request"/>
+      </transitions>
+    </states>
+    <states
+        name="5 Performed"
+        order="intermediate">
+      <transitions
+          xsi:type="StateMachine:LocalTransition"
+          target="/2/@states.3">
+        <triggerEvent
+            name="5:call Task1 of BP component"
+            source="initialize_request"/>
+      </transitions>
+    </states>
+    <states
+        name="5 Received"
+        order="intermediate">
+      <transitions
+          xsi:type="StateMachine:LocalTransition"
+          target="/2/@states.4">
+        <actions
+            title="/6:request for vacation"
+            target="Employee:Lane"/>
+      </transitions>
+    </states>
+    <states
+        name="6 Performed"
+        order="intermediate">
+      <transitions
+          xsi:type="StateMachine:LocalTransition"
+          target="/2/@states.5">
+        <triggerEvent
+            name="7:return (correctOutputs)"
+            source="Employee:Lane"/>
+      </transitions>
+    </states>
+    <states
+        name="7 Received"
+        order="intermediate">
+      <transitions
+          xsi:type="StateMachine:LocalTransition"
+          target="/2/@states.6">
+        <actions
+            title="/106:changeState(condition)"
+            target="initialize_request"/>
+      </transitions>
+    </states>
+    <states
+        name="106 Performed"
+        order="intermediate">
+      <transitions
+          xsi:type="StateMachine:LocalTransition"
+          target="/2/@states.7">
+        <triggerEvent
+            name="106:changeState(condition)"
+            source="initialize_request"/>
+      </transitions>
+    </states>
+    <states
+        name="106 Received"
+        order="intermediate">
+      <transitions
+          xsi:type="StateMachine:LocalTransition"
+          target="/2/@states.8"/>
+    </states>
+    <states
+        name="107 alt"
+        order="intermediate">
+      <transitions
+          xsi:type="StateMachine:LocalTransition"
+          target="/2/@states.9">
+        <guardCondition
+            description="[!not Defined]"/>
+        <actions
+            title="/108:create()"
+            target="show_request_page"/>
+      </transitions>
+    </states>
+    <states
+        name="108 Performed"
+        order="intermediate">
+      <transitions
+          xsi:type="StateMachine:LocalTransition"
+          target="/2/@states.10"/>
+    </states>
+    <states
+        name="End"
+        order="final"/>
+  </StateMachine:StateMachine>
+  <StateMachine:StateMachine
+      name="show_request_page"
+      ownerObject="Employee">
+    <states
+        name="Start">
+      <transitions
+          xsi:type="StateMachine:LocalTransition"
+          target="/3/@states.1">
+        <triggerEvent
+            name="108:create()"
+            source="initialize_request"/>
+      </transitions>
+    </states>
+    <states
+        name="108 Received"
+        order="intermediate">
+      <transitions
+          xsi:type="StateMachine:LocalTransition"
+          target="/3/@states.2">
+        <actions
+            title="/8:show request vacation screen"
+            target="show_request_page"/>
+      </transitions>
+    </states>
+    <states
+        name="8 Performed"
+        order="intermediate">
+      <transitions
+          xsi:type="StateMachine:LocalTransition"
+          target="/3/@states.3">
+        <triggerEvent
+            name="8:show request vacation screen"
+            source="show_request_page"/>
+      </transitions>
+    </states>
+    <states
+        name="8 Received"
+        order="intermediate">
+      <transitions
+          xsi:type="StateMachine:LocalTransition"
+          target="/3/@states.4">
+        <actions
+            title="/9:show"
+            target="request_vacation"/>
+      </transitions>
+    </states>
+    <states
+        name="9 Performed"
+        order="intermediate">
+      <transitions
+          xsi:type="StateMachine:LocalTransition"
+          target="/3/@states.5">
+        <triggerEvent
+            name="10:choose send email button"
+            source="Player:Employee"/>
+      </transitions>
+    </states>
+    <states
+        name="10 Received"
+        order="intermediate">
+      <transitions
+          xsi:type="StateMachine:LocalTransition"
+          target="/3/@states.6">
+        <actions
+            title="/109:changeState(condition)"
+            target="show_request_page"/>
+      </transitions>
+    </states>
+    <states
+        name="109 Performed"
+        order="intermediate">
+      <transitions
+          xsi:type="StateMachine:LocalTransition"
+          target="/3/@states.7">
+        <triggerEvent
+            name="109:changeState(condition)"
+            source="show_request_page"/>
+      </transitions>
+    </states>
+    <states
+        name="109 Received"
+        order="intermediate">
+      <transitions
+          xsi:type="StateMachine:LocalTransition"
+          target="/3/@states.8"/>
+    </states>
+    <states
+        name="110 alt"
+        order="intermediate">
+      <transitions
+          xsi:type="StateMachine:LocalTransition"
+          target="/3/@states.9">
+        <guardCondition
+            description="[!not Defined]"/>
+        <actions
+            title="/111:create()"
+            target="initialize_email"/>
+      </transitions>
+    </states>
+    <states
+        name="111 Performed"
+        order="intermediate">
+      <transitions
+          xsi:type="StateMachine:LocalTransition"
+          target="/3/@states.10"/>
+    </states>
+    <states
+        name="End"
+        order="final"/>
+  </StateMachine:StateMachine>
+  <StateMachine:StateMachine
+      name="initialize_email"
+      ownerObject="Employee">
+    <states
+        name="Start">
+      <transitions
+          xsi:type="StateMachine:LocalTransition"
+          target="/4/@states.1">
+        <triggerEvent
+            name="111:create()"
+            source="show_request_page"/>
+      </transitions>
+    </states>
+    <states
+        name="111 Received"
+        order="intermediate">
+      <transitions
+          xsi:type="StateMachine:LocalTransition"
+          target="/4/@states.2">
+        <actions
+            title="/11:call task2 of BP component"
+            target="initialize_email"/>
+      </transitions>
+    </states>
+    <states
+        name="11 Performed"
+        order="intermediate">
+      <transitions
+          xsi:type="StateMachine:LocalTransition"
+          target="/4/@states.3">
+        <triggerEvent
+            name="11:call task2 of BP component"
+            source="initialize_email"/>
+      </transitions>
+    </states>
+    <states
+        name="11 Received"
+        order="intermediate">
+      <transitions
+          xsi:type="StateMachine:LocalTransition"
+          target="/4/@states.6">
+        <actions
+            title="/12:Send request Email"
+            target="Employee:Lane"/>
+      </transitions>
+    </states>
+    <states
+        name="112 Performed"
+        order="intermediate">
+      <transitions
+          xsi:type="StateMachine:LocalTransition"
+          target="/4/@states.5">
+        <triggerEvent
+            name="112:changeState(condition)"
+            source="initialize_email"/>
+      </transitions>
+    </states>
+    <states
+        name="112 Received"
+        order="intermediate">
+      <transitions
+          xsi:type="StateMachine:LocalTransition"
+          target="/4/@states.7"/>
+    </states>
+    <states
+        name="12 Performed"
+        order="intermediate">
+      <transitions
+          xsi:type="StateMachine:LocalTransition"
+          target="/4/@states.4">
+        <actions
+            title="/112:changeState(condition)"
+            target="initialize_email"/>
+      </transitions>
+    </states>
+    <states
+        name="113 alt"
+        order="intermediate">
+      <transitions
+          xsi:type="StateMachine:LocalTransition"
+          target="/4/@states.8">
+        <guardCondition
+            description="[!not Defined]"/>
+        <actions
+            title="/114:create()"
+            target="make_new_email"/>
+      </transitions>
+    </states>
+    <states
+        name="114 Performed"
+        order="intermediate">
+      <transitions
+          xsi:type="StateMachine:LocalTransition"
+          target="/4/@states.9"/>
+    </states>
+    <states
+        name="End"
+        order="final"/>
+  </StateMachine:StateMachine>
+  <StateMachine:StateMachine
+      name="make_new_email"
+      ownerObject="Employee">
+    <states
+        name="Start">
+      <transitions
+          xsi:type="StateMachine:LocalTransition"
+          target="/5/@states.1">
+        <triggerEvent
+            name="114:create()"
+            source="initialize_email"/>
+      </transitions>
+    </states>
+    <states
+        name="114 Received"
+        order="intermediate">
+      <transitions
+          xsi:type="StateMachine:LocalTransition"
+          target="/5/@states.2">
+        <actions
+            title="/15:show sending email screen"
+            target="make_new_email"/>
+      </transitions>
+    </states>
+    <states
+        name="15 Performed"
+        order="intermediate">
+      <transitions
+          xsi:type="StateMachine:LocalTransition"
+          target="/5/@states.3">
+        <triggerEvent
+            name="15:show sending email screen"
+            source="make_new_email"/>
+      </transitions>
+    </states>
+    <states
+        name="15 Received"
+        order="intermediate">
+      <transitions
+          xsi:type="StateMachine:LocalTransition"
+          target="/5/@states.4">
+        <actions
+            title="/16:show"
+            target="sending_email"/>
+      </transitions>
+    </states>
+    <states
+        name="16 Performed"
+        order="intermediate">
+      <transitions
+          xsi:type="StateMachine:LocalTransition"
+          target="/5/@states.5">
+        <triggerEvent
+            name="17:insert email title"
+            source="Player:Employee"/>
+      </transitions>
+    </states>
+    <states
+        name="17 Received"
+        order="intermediate">
+      <transitions
+          xsi:type="StateMachine:LocalTransition"
+          target="/5/@states.6">
+        <actions
+            title="/18:run email title format challenge"
+            target="make_new_email"/>
+      </transitions>
+    </states>
+    <states
+        name="18 Performed"
+        order="intermediate">
+      <transitions
+          xsi:type="StateMachine:LocalTransition"
+          target="/5/@states.7">
+        <triggerEvent
+            name="18:run email title format challenge"
+            source="make_new_email"/>
+      </transitions>
+    </states>
+    <states
+        name="18 Received"
+        order="intermediate">
+      <transitions
+          xsi:type="StateMachine:LocalTransition"
+          target="/5/@states.25">
+        <actions
+            title="/19:startChallenge"
+            target="email_title_format_challange"/>
+      </transitions>
+    </states>
+    <states
+        name="81 Performed"
+        order="intermediate">
+      <transitions
+          xsi:type="StateMachine:LocalTransition"
+          target="/5/@states.9">
+        <triggerEvent
+            name="20:choose email address"
+            source="Player:Employee"/>
+      </transitions>
+    </states>
+    <states
+        name="20 Received"
+        order="intermediate">
+      <transitions
+          xsi:type="StateMachine:LocalTransition"
+          target="/5/@states.10">
+        <actions
+            title="/21:run email address challenge"
+            target="make_new_email"/>
+      </transitions>
+    </states>
+    <states
+        name="21 Performed"
+        order="intermediate">
+      <transitions
+          xsi:type="StateMachine:LocalTransition"
+          target="/5/@states.11">
+        <triggerEvent
+            name="21:run email address challenge"
+            source="make_new_email"/>
+      </transitions>
+    </states>
+    <states
+        name="21 Received"
+        order="intermediate">
+      <transitions
+          xsi:type="StateMachine:LocalTransition"
+          target="/5/@states.26">
+        <actions
+            title="/22:startChallenge"
+            target="email_address_challenge"/>
+      </transitions>
+    </states>
+    <states
+        name="88 Performed"
+        order="intermediate">
+      <transitions
+          xsi:type="StateMachine:LocalTransition"
+          target="/5/@states.13">
+        <triggerEvent
+            name="23:choose rules checking button"
+            source="Player:Employee"/>
+      </transitions>
+    </states>
+    <states
+        name="23 Received"
+        order="intermediate">
+      <transitions
+          xsi:type="StateMachine:LocalTransition"
+          target="/5/@states.14">
+        <actions
+            title="/24:show vacation rules screen"
+            target="make_new_email"/>
+      </transitions>
+    </states>
+    <states
+        name="24 Performed"
+        order="intermediate">
+      <transitions
+          xsi:type="StateMachine:LocalTransition"
+          target="/5/@states.15">
+        <triggerEvent
+            name="24:show vacation rules screen"
+            source="make_new_email"/>
+      </transitions>
+    </states>
+    <states
+        name="24 Received"
+        order="intermediate">
+      <transitions
+          xsi:type="StateMachine:LocalTransition"
+          target="/5/@states.16">
+        <actions
+            title="/25:show"
+            target="vacation_rules"/>
+      </transitions>
+    </states>
+    <states
+        name="25 Performed"
+        order="intermediate">
+      <transitions
+          xsi:type="StateMachine:LocalTransition"
+          target="/5/@states.17">
+        <triggerEvent
+            name="26:enter empty fields"
+            source="Player:Employee"/>
+      </transitions>
+    </states>
+    <states
+        name="26 Received"
+        order="intermediate">
+      <transitions
+          xsi:type="StateMachine:LocalTransition"
+          target="/5/@states.18">
+        <triggerEvent
+            name="27:choose validation button"
+            source="Player:Employee"/>
+      </transitions>
+    </states>
+    <states
+        name="27 Received"
+        order="intermediate">
+      <transitions
+          xsi:type="StateMachine:LocalTransition"
+          target="/5/@states.19">
+        <actions
+            title="/28:run request validation challenge"
+            target="make_new_email"/>
+      </transitions>
+    </states>
+    <states
+        name="28 Performed"
+        order="intermediate">
+      <transitions
+          xsi:type="StateMachine:LocalTransition"
+          target="/5/@states.20">
+        <triggerEvent
+            name="28:run request validation challenge"
+            source="make_new_email"/>
+      </transitions>
+    </states>
+    <states
+        name="28 Received"
+        order="intermediate">
+      <transitions
+          xsi:type="StateMachine:LocalTransition"
+          target="/5/@states.27">
+        <actions
+            title="/29:startChallenge"
+            target="request_validation_challenge"/>
+      </transitions>
+    </states>
+    <states
+        name="95 Performed"
+        order="intermediate">
+      <transitions
+          xsi:type="StateMachine:LocalTransition"
+          target="/5/@states.22">
+        <triggerEvent
+            name="30:call Task3 of BP component"
+            source="request_validation"/>
+      </transitions>
+    </states>
+    <states
+        name="30 Received"
+        order="intermediate">
+      <transitions
+          xsi:type="StateMachine:LocalTransition"
+          target="/5/@states.28">
+        <actions
+            title="/31:check work load"
+            target="Employee:Lane"/>
+      </transitions>
+    </states>
+    <states
+        name="115 Performed"
+        order="intermediate">
+      <transitions
+          xsi:type="StateMachine:LocalTransition"
+          target="/5/@states.24">
+        <triggerEvent
+            name="115:changeState(condition)"
+            source="make_new_email"/>
+      </transitions>
+    </states>
+    <states
+        name="115 Received"
+        order="intermediate">
+      <transitions
+          xsi:type="StateMachine:LocalTransition"
+          target="/5/@states.29"/>
+    </states>
+    <states
+        name="19 Performed"
+        order="intermediate">
+      <transitions
+          xsi:type="StateMachine:LocalTransition"
+          target="/5/@states.8">
+        <actions
+            title="/81:runScoringRule"
+            target="email_title_accuracy_checking"/>
+      </transitions>
+    </states>
+    <states
+        name="22 Performed"
+        order="intermediate">
+      <transitions
+          xsi:type="StateMachine:LocalTransition"
+          target="/5/@states.12">
+        <actions
+            title="/88:runScoringRule"
+            target="email_address_accuracy_checking"/>
+      </transitions>
+    </states>
+    <states
+        name="29 Performed"
+        order="intermediate">
+      <transitions
+          xsi:type="StateMachine:LocalTransition"
+          target="/5/@states.21">
+        <actions
+            title="/95:runScoringRule"
+            target="request_validation"/>
+      </transitions>
+    </states>
+    <states
+        name="31 Performed"
+        order="intermediate">
+      <transitions
+          xsi:type="StateMachine:LocalTransition"
+          target="/5/@states.23">
+        <actions
+            title="/115:changeState(condition)"
+            target="make_new_email"/>
+      </transitions>
+    </states>
+    <states
+        name="116 alt"
+        order="intermediate">
+      <transitions
+          xsi:type="StateMachine:LocalTransition"
+          target="/5/@states.30">
+        <guardCondition
+            description="[!not Defined]"/>
+        <actions
+            title="/117:create()"
+            target="work_load_checking"/>
+      </transitions>
+    </states>
+    <states
+        name="117 Performed"
+        order="intermediate">
+      <transitions
+          xsi:type="StateMachine:LocalTransition"
+          target="/5/@states.31"/>
+    </states>
+    <states
+        name="End"
+        order="final"/>
+  </StateMachine:StateMachine>
+  <StateMachine:StateMachine
+      name="request_validation"
+      ownerObject="Employee">
+    <states
+        name="30 Performed"
+        order="intermediate">
+      <transitions
+          xsi:type="StateMachine:LocalTransition"
+          target="/6/@states.1">
+        <triggerEvent
+            name="95:runScoringRule"
+            source="make_new_email"/>
+      </transitions>
+    </states>
+    <states
+        name="95 Received"
+        order="intermediate">
+      <transitions
+          xsi:type="StateMachine:LocalTransition"
+          target="/6/@states.3">
+        <actions
+            title="/96:calculateScore"
+            target="valid_request_reward"/>
+      </transitions>
+    </states>
+    <states
+        name="Start">
+      <transitions
+          xsi:type="StateMachine:LocalTransition"
+          target="/6/@states.0">
+        <actions
+            title="/30:call Task3 of BP component"
+            target="make_new_email"/>
+      </transitions>
+    </states>
+    <states
+        name="96 Performed"
+        order="intermediate">
+      <transitions
+          xsi:type="StateMachine:LocalTransition"
+          target="/6/@states.4"/>
+    </states>
+    <states
+        name="End"
+        order="final"/>
+  </StateMachine:StateMachine>
+  <StateMachine:StateMachine
+      name="work_load_checking"
+      ownerObject="Employee">
+    <states
+        name="Start">
+      <transitions
+          xsi:type="StateMachine:LocalTransition"
+          target="/7/@states.1">
+        <triggerEvent
+            name="117:create()"
+            source="make_new_email"/>
+      </transitions>
+    </states>
+    <states
+        name="117 Received"
+        order="intermediate">
+      <transitions
+          xsi:type="StateMachine:LocalTransition"
+          target="/7/@states.2">
+        <actions
+            title="/32:show &#x201c;work load&#x201d; screen"
+            target="work_load_checking"/>
+      </transitions>
+    </states>
+    <states
+        name="32 Performed"
+        order="intermediate">
+      <transitions
+          xsi:type="StateMachine:LocalTransition"
+          target="/7/@states.3">
+        <triggerEvent
+            name="32:show &#x201c;work load&#x201d; screen"
+            source="work_load_checking"/>
+      </transitions>
+    </states>
+    <states
+        name="32 Received"
+        order="intermediate">
+      <transitions
+          xsi:type="StateMachine:LocalTransition"
+          target="/7/@states.8">
+        <actions
+            title="/33:show"
+            target="workload"/>
+      </transitions>
+    </states>
+    <states
+        name="34 Performed"
+        order="intermediate">
+      <transitions
+          xsi:type="StateMachine:LocalTransition"
+          target="/7/@states.5">
+        <triggerEvent
+            name="34:call gateway1 of BP component"
+            source="work_load_checking"/>
+      </transitions>
+    </states>
+    <states
+        name="34 Received"
+        order="intermediate">
+      <transitions
+          xsi:type="StateMachine:LocalTransition"
+          target="/7/@states.9">
+        <actions
+            title="/35:degree of work load"
+            target="Employee:Lane"/>
+      </transitions>
+    </states>
+    <states
+        name="118 Performed"
+        order="intermediate">
+      <transitions
+          xsi:type="StateMachine:LocalTransition"
+          target="/7/@states.7">
+        <triggerEvent
+            name="118:changeState(condition)"
+            source="work_load_checking"/>
+      </transitions>
+    </states>
+    <states
+        name="118 Received"
+        order="intermediate">
+      <transitions
+          xsi:type="StateMachine:LocalTransition"
+          target="/7/@states.10"/>
+    </states>
+    <states
+        name="33 Performed"
+        order="intermediate">
+      <transitions
+          xsi:type="StateMachine:LocalTransition"
+          target="/7/@states.4">
+        <actions
+            title="/34:call gateway1 of BP component"
+            target="work_load_checking"/>
+      </transitions>
+    </states>
+    <states
+        name="35 Performed"
+        order="intermediate">
+      <transitions
+          xsi:type="StateMachine:LocalTransition"
+          target="/7/@states.6">
+        <actions
+            title="/118:changeState(condition)"
+            target="work_load_checking"/>
+      </transitions>
+    </states>
+    <states
+        name="119 alt"
+        order="intermediate">
+      <transitions
+          xsi:type="StateMachine:LocalTransition"
+          target="/7/@states.11">
+        <guardCondition
+            description="[!not Defined]"/>
+        <actions
+            title="/120:create()"
+            target="determining_work_load_degree"/>
+      </transitions>
+    </states>
+    <states
+        name="120 Performed"
+        order="intermediate">
+      <transitions
+          xsi:type="StateMachine:LocalTransition"
+          target="/7/@states.12"/>
+    </states>
+    <states
+        name="End"
+        order="final"/>
+  </StateMachine:StateMachine>
+  <StateMachine:StateMachine
+      name="determining_work_load_degree"
+      ownerObject="Employee">
+    <states
+        name="Start">
+      <transitions
+          xsi:type="StateMachine:LocalTransition"
+          target="/8/@states.1">
+        <triggerEvent
+            name="120:create()"
+            source="work_load_checking"/>
+      </transitions>
+    </states>
+    <states
+        name="120 Received"
+        order="intermediate">
+      <transitions
+          xsi:type="StateMachine:LocalTransition"
+          target="/8/@states.2">
+        <triggerEvent
+            name="39:choose high button"
+            source="Player:Employee"/>
+      </transitions>
+    </states>
+    <states
+        name="39 Received"
+        order="intermediate">
+      <transitions
+          xsi:type="StateMachine:LocalTransition"
+          target="/8/@states.3">
+        <actions
+            title="/40:call Task4 of BP component"
+            target="determining_work_load_degree"/>
+      </transitions>
+    </states>
+    <states
+        name="40 Performed"
+        order="intermediate">
+      <transitions
+          xsi:type="StateMachine:LocalTransition"
+          target="/8/@states.4">
+        <triggerEvent
+            name="40:call Task4 of BP component"
+            source="determining_work_load_degree"/>
+      </transitions>
+    </states>
+    <states
+        name="40 Received"
+        order="intermediate">
+      <transitions
+          xsi:type="StateMachine:LocalTransition"
+          target="/8/@states.5">
+        <actions
+            title="/41:Wait for manager confirmation"
+            target="Employee:Lane"/>
+      </transitions>
+    </states>
+    <states
+        name="41 Performed"
+        order="intermediate">
+      <transitions
+          xsi:type="StateMachine:LocalTransition"
+          target="/8/@states.6">
+        <triggerEvent
+            name="42:choose low button"
+            source="Player:Employee"/>
+      </transitions>
+    </states>
+    <states
+        name="42 Received"
+        order="intermediate">
+      <transitions
+          xsi:type="StateMachine:LocalTransition"
+          target="/8/@states.7">
+        <actions
+            title="/43:call Task5 of BP component"
+            target="determining_work_load_degree"/>
+      </transitions>
+    </states>
+    <states
+        name="43 Performed"
+        order="intermediate">
+      <transitions
+          xsi:type="StateMachine:LocalTransition"
+          target="/8/@states.8">
+        <triggerEvent
+            name="43:call Task5 of BP component"
+            source="determining_work_load_degree"/>
+      </transitions>
+    </states>
+    <states
+        name="43 Received"
+        order="intermediate">
+      <transitions
+          xsi:type="StateMachine:LocalTransition"
+          target="/8/@states.11">
+        <actions
+            title="/44:vacation confirmation"
+            target="Employee:Lane"/>
+      </transitions>
+    </states>
+    <states
+        name="121 Performed"
+        order="intermediate">
+      <transitions
+          xsi:type="StateMachine:LocalTransition"
+          target="/8/@states.10">
+        <triggerEvent
+            name="121:changeState(condition)"
+            source="determining_work_load_degree"/>
+      </transitions>
+    </states>
+    <states
+        name="121 Received"
+        order="intermediate">
+      <transitions
+          xsi:type="StateMachine:LocalTransition"
+          target="/8/@states.12"/>
+    </states>
+    <states
+        name="44 Performed"
+        order="intermediate">
+      <transitions
+          xsi:type="StateMachine:LocalTransition"
+          target="/8/@states.9">
+        <actions
+            title="/121:changeState(condition)"
+            target="determining_work_load_degree"/>
+      </transitions>
+    </states>
+    <states
+        name="122 alt"
+        order="intermediate">
+      <transitions
+          xsi:type="StateMachine:LocalTransition"
+          target="/8/@states.13">
+        <guardCondition
+            description="[!not Defined]"/>
+        <actions
+            title="/123:create()"
+            target="wait_for_manager_confirmation"/>
+      </transitions>
+      <transitions
+          xsi:type="StateMachine:LocalTransition"
+          target="/8/@states.15">
+        <guardCondition
+            description="[!not Defined]"/>
+        <actions
+            title="/124:create()"
+            target="go_to_vacation"/>
+      </transitions>
+    </states>
+    <states
+        name="123 Performed"
+        order="intermediate">
+      <transitions
+          xsi:type="StateMachine:LocalTransition"
+          target="/8/@states.14"/>
+    </states>
+    <states
+        name="End"
+        order="final"/>
+    <states
+        name="124 Performed"
+        order="intermediate">
+      <transitions
+          xsi:type="StateMachine:LocalTransition"
+          target="/8/@states.14"/>
+    </states>
+  </StateMachine:StateMachine>
+  <StateMachine:StateMachine
+      name="wait_for_manager_confirmation"
+      ownerObject="Employee">
+    <states
+        name="Start">
+      <transitions
+          xsi:type="StateMachine:LocalTransition"
+          target="/9/@states.1">
+        <triggerEvent
+            name="123:create()"
+            source="determining_work_load_degree"/>
+      </transitions>
+    </states>
+    <states
+        name="123 Received"
+        order="intermediate">
+      <transitions
+          xsi:type="StateMachine:LocalTransition"
+          target="/9/@states.2">
+        <actions
+            title="/45:show result1"
+            target="wait_for_manager_confirmation"/>
+      </transitions>
+    </states>
+    <states
+        name="45 Performed"
+        order="intermediate">
+      <transitions
+          xsi:type="StateMachine:LocalTransition"
+          target="/9/@states.3">
+        <triggerEvent
+            name="45:show result1"
+            source="wait_for_manager_confirmation"/>
+      </transitions>
+    </states>
+    <states
+        name="45 Received"
+        order="intermediate">
+      <transitions
+          xsi:type="StateMachine:LocalTransition"
+          target="/9/@states.10">
+        <actions
+            title="/46:show"
+            target="result1"/>
+      </transitions>
+    </states>
+    <states
+        name="47 Performed"
+        order="intermediate">
+      <transitions
+          xsi:type="StateMachine:LocalTransition"
+          target="/9/@states.5">
+        <triggerEvent
+            name="47:call Task6 of BP component"
+            source="wait_for_manager_confirmation"/>
+      </transitions>
+    </states>
+    <states
+        name="47 Received"
+        order="intermediate">
+      <transitions
+          xsi:type="StateMachine:LocalTransition"
+          target="/9/@states.6">
+        <actions
+            title="/48:vacation request checking"
+            target="Manager:Lane"/>
+      </transitions>
+    </states>
+    <states
+        name="48 Performed"
+        order="intermediate">
+      <transitions
+          xsi:type="StateMachine:LocalTransition"
+          target="/9/@states.7">
+        <triggerEvent
+            name="49:return (correctOutputs)"
+            source="Manager:Lane"/>
+      </transitions>
+    </states>
+    <states
+        name="49 Received"
+        order="intermediate">
+      <transitions
+          xsi:type="StateMachine:LocalTransition"
+          target="/9/@states.8">
+        <actions
+            title="/125:changeState(condition)"
+            target="wait_for_manager_confirmation"/>
+      </transitions>
+    </states>
+    <states
+        name="125 Performed"
+        order="intermediate">
+      <transitions
+          xsi:type="StateMachine:LocalTransition"
+          target="/9/@states.9">
+        <triggerEvent
+            name="125:changeState(condition)"
+            source="wait_for_manager_confirmation"/>
+      </transitions>
+    </states>
+    <states
+        name="125 Received"
+        order="intermediate">
+      <transitions
+          xsi:type="StateMachine:LocalTransition"
+          target="/9/@states.11"/>
+    </states>
+    <states
+        name="46 Performed"
+        order="intermediate">
+      <transitions
+          xsi:type="StateMachine:LocalTransition"
+          target="/9/@states.4">
+        <actions
+            title="/47:call Task6 of BP component"
+            target="wait_for_manager_confirmation"/>
+      </transitions>
+    </states>
+    <states
+        name="126 alt"
+        order="intermediate">
+      <transitions
+          xsi:type="StateMachine:LocalTransition"
+          target="/9/@states.12">
+        <guardCondition
+            description="[!not Defined]"/>
+        <actions
+            title="/127:create()"
+            target="manager_request_checking"/>
+      </transitions>
+    </states>
+    <states
+        name="127 Performed"
+        order="intermediate">
+      <transitions
+          xsi:type="StateMachine:LocalTransition"
+          target="/9/@states.13"/>
+    </states>
+    <states
+        name="End"
+        order="final"/>
+  </StateMachine:StateMachine>
+  <StateMachine:StateMachine
+      name="go_to_vacation"
+      ownerObject="Employee">
+    <states
+        name="Start">
+      <transitions
+          xsi:type="StateMachine:LocalTransition"
+          target="/10/@states.1">
+        <triggerEvent
+            name="124:create()"
+            source="determining_work_load_degree"/>
+      </transitions>
+    </states>
+    <states
+        name="124 Received"
+        order="intermediate">
+      <transitions
+          xsi:type="StateMachine:LocalTransition"
+          target="/10/@states.2">
+        <actions
+            title="/50:show result2"
+            target="go_to_vacation"/>
+      </transitions>
+    </states>
+    <states
+        name="50 Performed"
+        order="intermediate">
+      <transitions
+          xsi:type="StateMachine:LocalTransition"
+          target="/10/@states.3">
+        <triggerEvent
+            name="50:show result2"
+            source="go_to_vacation"/>
+      </transitions>
+    </states>
+    <states
+        name="50 Received"
+        order="intermediate">
+      <transitions
+          xsi:type="StateMachine:LocalTransition"
+          target="/10/@states.8">
+        <actions
+            title="/51:show"
+            target="result2"/>
+      </transitions>
+    </states>
+    <states
+        name="52 Performed"
+        order="intermediate">
+      <transitions
+          xsi:type="StateMachine:LocalTransition"
+          target="/10/@states.5">
+        <triggerEvent
+            name="52:call end event of BP component"
+            source="go_to_vacation"/>
+      </transitions>
+    </states>
+    <states
+        name="52 Received"
+        order="intermediate">
+      <transitions
+          xsi:type="StateMachine:LocalTransition"
+          target="/10/@states.9">
+        <actions
+            title="/53:endEvent"
+            target="Employee:Lane"/>
+      </transitions>
+    </states>
+    <states
+        name="128 Performed"
+        order="intermediate">
+      <transitions
+          xsi:type="StateMachine:LocalTransition"
+          target="/10/@states.7">
+        <triggerEvent
+            name="128:changeState(condition)"
+            source="go_to_vacation"/>
+      </transitions>
+    </states>
+    <states
+        name="128 Received"
+        order="intermediate">
+      <transitions
+          xsi:type="StateMachine:LocalTransition"
+          target="/10/@states.10"/>
+    </states>
+    <states
+        name="51 Performed"
+        order="intermediate">
+      <transitions
+          xsi:type="StateMachine:LocalTransition"
+          target="/10/@states.4">
+        <actions
+            title="/52:call end event of BP component"
+            target="go_to_vacation"/>
+      </transitions>
+    </states>
+    <states
+        name="53 Performed"
+        order="intermediate">
+      <transitions
+          xsi:type="StateMachine:LocalTransition"
+          target="/10/@states.6">
+        <actions
+            title="/128:changeState(condition)"
+            target="go_to_vacation"/>
+      </transitions>
+    </states>
+    <states
+        name="129 alt"
+        order="intermediate">
+      <transitions
+          xsi:type="StateMachine:LocalTransition"
+          target="/10/@states.11">
+        <guardCondition
+            description="[!not Defined]"/>
+        <actions
+            title="/130:create()"
+            target="end_state"/>
+      </transitions>
+    </states>
+    <states
+        name="130 Performed"
+        order="intermediate">
+      <transitions
+          xsi:type="StateMachine:LocalTransition"
+          target="/10/@states.12"/>
+    </states>
+    <states
+        name="End"
+        order="final"/>
+  </StateMachine:StateMachine>
+  <StateMachine:StateMachine
+      name="end_state"
+      ownerObject="Employee">
+    <states
+        name="Start">
+      <transitions
+          xsi:type="StateMachine:LocalTransition"
+          target="/11/@states.1">
+        <triggerEvent
+            name="130:create()"
+            source="go_to_vacation"/>
+      </transitions>
+    </states>
+    <states
+        name="130 Received"
+        order="intermediate">
+      <transitions
+          xsi:type="StateMachine:LocalTransition"
+          target="/11/@states.2">
+        <actions
+            title="/54:save level finishing time in player log"
+            target="end_state"/>
+      </transitions>
+    </states>
+    <states
+        name="54 Performed"
+        order="intermediate">
+      <transitions
+          xsi:type="StateMachine:LocalTransition"
+          target="/11/@states.3">
+        <triggerEvent
+            name="54:save level finishing time in player log"
+            source="end_state"/>
+      </transitions>
+    </states>
+    <states
+        name="54 Received"
+        order="intermediate">
+      <transitions
+          xsi:type="StateMachine:LocalTransition"
+          target="/11/@states.12">
+        <actions
+            title="/55:!not Defined"
+            target="employeeLog"/>
+      </transitions>
+    </states>
+    <states
+        name="56 Performed"
+        order="intermediate">
+      <transitions
+          xsi:type="StateMachine:LocalTransition"
+          target="/11/@states.5">
+        <triggerEvent
+            name="56:update player game result"
+            source="end_state"/>
+      </transitions>
+    </states>
+    <states
+        name="56 Received"
+        order="intermediate">
+      <transitions
+          xsi:type="StateMachine:LocalTransition"
+          target="/11/@states.6">
+        <actions
+            title="/57:show the screen of score menu"
+            target="end_state"/>
+      </transitions>
+    </states>
+    <states
+        name="57 Performed"
+        order="intermediate">
+      <transitions
+          xsi:type="StateMachine:LocalTransition"
+          target="/11/@states.7">
+        <triggerEvent
+            name="57:show the screen of score menu"
+            source="end_state"/>
+      </transitions>
+    </states>
+    <states
+        name="57 Received"
+        order="intermediate">
+      <transitions
+          xsi:type="StateMachine:LocalTransition"
+          target="/11/@states.13">
+        <actions
+            title="/58:show"
+            target="score_menu"/>
+      </transitions>
+    </states>
+    <states
+        name="59 Performed"
+        order="intermediate">
+      <transitions
+          xsi:type="StateMachine:LocalTransition"
+          target="/11/@states.9">
+        <triggerEvent
+            name="59:show player score on screen"
+            source="end_state"/>
+      </transitions>
+    </states>
+    <states
+        name="59 Received"
+        order="intermediate">
+      <transitions
+          xsi:type="StateMachine:LocalTransition"
+          target="/11/@states.14">
+        <actions
+            title="/60:show"
+            target="score"/>
+      </transitions>
+    </states>
+    <states
+        name="61 Performed"
+        order="intermediate">
+      <transitions
+          xsi:type="StateMachine:LocalTransition"
+          target="/11/@states.11">
+        <triggerEvent
+            name="61:show run time duration"
+            source="end_state"/>
+      </transitions>
+    </states>
+    <states
+        name="61 Received"
+        order="intermediate">
+      <transitions
+          xsi:type="StateMachine:LocalTransition"
+          target="/11/@states.15">
+        <actions
+            title="/62:show"
+            target="duration"/>
+      </transitions>
+    </states>
+    <states
+        name="55 Performed"
+        order="intermediate">
+      <transitions
+          xsi:type="StateMachine:LocalTransition"
+          target="/11/@states.4">
+        <actions
+            title="/56:update player game result"
+            target="end_state"/>
+      </transitions>
+    </states>
+    <states
+        name="58 Performed"
+        order="intermediate">
+      <transitions
+          xsi:type="StateMachine:LocalTransition"
+          target="/11/@states.8">
+        <actions
+            title="/59:show player score on screen"
+            target="end_state"/>
+      </transitions>
+    </states>
+    <states
+        name="60 Performed"
+        order="intermediate">
+      <transitions
+          xsi:type="StateMachine:LocalTransition"
+          target="/11/@states.10">
+        <actions
+            title="/61:show run time duration"
+            target="end_state"/>
+      </transitions>
+    </states>
+    <states
+        name="62 Performed"
+        order="intermediate">
+      <transitions
+          xsi:type="StateMachine:LocalTransition"
+          target="/11/@states.16"/>
+    </states>
+    <states
+        name="End"
+        order="final"/>
+  </StateMachine:StateMachine>
+  <StateMachine:StateMachine
+      name="manager_request_checking"
+      ownerObject="Manager">
+    <states
+        name="Start">
+      <transitions
+          xsi:type="StateMachine:LocalTransition"
+          target="/12/@states.1">
+        <triggerEvent
+            name="127:create()"
+            source="wait_for_manager_confirmation"/>
+      </transitions>
+    </states>
+    <states
+        name="127 Received"
+        order="intermediate">
+      <transitions
+          xsi:type="StateMachine:LocalTransition"
+          target="/12/@states.2">
+        <actions
+            title="/63:call gateway2 of BP component"
+            target="manager_request_checking"/>
+      </transitions>
+    </states>
+    <states
+        name="63 Performed"
+        order="intermediate">
+      <transitions
+          xsi:type="StateMachine:LocalTransition"
+          target="/12/@states.3">
+        <triggerEvent
+            name="63:call gateway2 of BP component"
+            source="manager_request_checking"/>
+      </transitions>
+    </states>
+    <states
+        name="63 Received"
+        order="intermediate">
+      <transitions
+          xsi:type="StateMachine:LocalTransition"
+          target="/12/@states.6">
+        <actions
+            title="/64:work load necessity degree"
+            target="Manager:Lane"/>
+      </transitions>
+    </states>
+    <states
+        name="131 Performed"
+        order="intermediate">
+      <transitions
+          xsi:type="StateMachine:LocalTransition"
+          target="/12/@states.5">
+        <triggerEvent
+            name="131:changeState(condition)"
+            source="manager_request_checking"/>
+      </transitions>
+    </states>
+    <states
+        name="131 Received"
+        order="intermediate">
+      <transitions
+          xsi:type="StateMachine:LocalTransition"
+          target="/12/@states.7"/>
+    </states>
+    <states
+        name="64 Performed"
+        order="intermediate">
+      <transitions
+          xsi:type="StateMachine:LocalTransition"
+          target="/12/@states.4">
+        <actions
+            title="/131:changeState(condition)"
+            target="manager_request_checking"/>
+      </transitions>
+    </states>
+    <states
+        name="132 alt"
+        order="intermediate">
+      <transitions
+          xsi:type="StateMachine:LocalTransition"
+          target="/12/@states.8">
+        <guardCondition
+            description="[!not Defined]"/>
+        <actions
+            title="/133:create()"
+            target="define_work_load_necessity"/>
+      </transitions>
+    </states>
+    <states
+        name="133 Performed"
+        order="intermediate">
+      <transitions
+          xsi:type="StateMachine:LocalTransition"
+          target="/12/@states.9"/>
+    </states>
+    <states
+        name="End"
+        order="final"/>
+  </StateMachine:StateMachine>
+  <StateMachine:StateMachine
+      name="define_work_load_necessity"
+      ownerObject="Manager">
+    <states
+        name="Start">
+      <transitions
+          xsi:type="StateMachine:LocalTransition"
+          target="/13/@states.1">
+        <triggerEvent
+            name="133:create()"
+            source="manager_request_checking"/>
+      </transitions>
+    </states>
+    <states
+        name="133 Received"
+        order="intermediate">
+      <transitions
+          xsi:type="StateMachine:LocalTransition"
+          target="/13/@states.2">
+        <actions
+            title="/68:choose one way randomly"
+            target="define_work_load_necessity"/>
+      </transitions>
+    </states>
+    <states
+        name="68 Performed"
+        order="intermediate">
+      <transitions
+          xsi:type="StateMachine:LocalTransition"
+          target="/13/@states.3">
+        <triggerEvent
+            name="68:choose one way randomly"
+            source="define_work_load_necessity"/>
+      </transitions>
+    </states>
+    <states
+        name="68 Received"
+        order="intermediate">
+      <transitions
+          xsi:type="StateMachine:LocalTransition"
+          target="/13/@states.4">
+        <actions
+            title="/134:changeState(condition)"
+            target="define_work_load_necessity"/>
+      </transitions>
+    </states>
+    <states
+        name="134 Performed"
+        order="intermediate">
+      <transitions
+          xsi:type="StateMachine:LocalTransition"
+          target="/13/@states.5">
+        <triggerEvent
+            name="134:changeState(condition)"
+            source="define_work_load_necessity"/>
+      </transitions>
+    </states>
+    <states
+        name="134 Received"
+        order="intermediate">
+      <transitions
+          xsi:type="StateMachine:LocalTransition"
+          target="/13/@states.6"/>
+    </states>
+    <states
+        name="135 alt"
+        order="intermediate">
+      <transitions
+          xsi:type="StateMachine:LocalTransition"
+          target="/13/@states.7">
+        <guardCondition
+            description="[!not Defined]"/>
+        <actions
+            title="/136:create()"
+            target="high_work_load"/>
+      </transitions>
+      <transitions
+          xsi:type="StateMachine:LocalTransition"
+          target="/13/@states.9">
+        <guardCondition
+            description="[!not Defined]"/>
+        <actions
+            title="/137:create()"
+            target="low_work_load"/>
+      </transitions>
+    </states>
+    <states
+        name="136 Performed"
+        order="intermediate">
+      <transitions
+          xsi:type="StateMachine:LocalTransition"
+          target="/13/@states.8"/>
+    </states>
+    <states
+        name="End"
+        order="final"/>
+    <states
+        name="137 Performed"
+        order="intermediate">
+      <transitions
+          xsi:type="StateMachine:LocalTransition"
+          target="/13/@states.8"/>
+    </states>
+  </StateMachine:StateMachine>
+  <StateMachine:StateMachine
+      name="high_work_load"
+      ownerObject="Manager">
+    <states
+        name="Start">
+      <transitions
+          xsi:type="StateMachine:LocalTransition"
+          target="/14/@states.1">
+        <triggerEvent
+            name="136:create()"
+            source="define_work_load_necessity"/>
+      </transitions>
+    </states>
+    <states
+        name="136 Received"
+        order="intermediate">
+      <transitions
+          xsi:type="StateMachine:LocalTransition"
+          target="/14/@states.2">
+        <actions
+            title="/69:call Task7 of BP component"
+            target="high_work_load"/>
+      </transitions>
+    </states>
+    <states
+        name="69 Performed"
+        order="intermediate">
+      <transitions
+          xsi:type="StateMachine:LocalTransition"
+          target="/14/@states.3">
+        <triggerEvent
+            name="69:call Task7 of BP component"
+            source="high_work_load"/>
+      </transitions>
+    </states>
+    <states
+        name="69 Received"
+        order="intermediate">
+      <transitions
+          xsi:type="StateMachine:LocalTransition"
+          target="/14/@states.6">
+        <actions
+            title="/70:reject vacation"
+            target="Manager:Lane"/>
+      </transitions>
+    </states>
+    <states
+        name="138 Performed"
+        order="intermediate">
+      <transitions
+          xsi:type="StateMachine:LocalTransition"
+          target="/14/@states.5">
+        <triggerEvent
+            name="138:changeState(condition)"
+            source="high_work_load"/>
+      </transitions>
+    </states>
+    <states
+        name="138 Received"
+        order="intermediate">
+      <transitions
+          xsi:type="StateMachine:LocalTransition"
+          target="/14/@states.7"/>
+    </states>
+    <states
+        name="70 Performed"
+        order="intermediate">
+      <transitions
+          xsi:type="StateMachine:LocalTransition"
+          target="/14/@states.4">
+        <actions
+            title="/138:changeState(condition)"
+            target="high_work_load"/>
+      </transitions>
+    </states>
+    <states
+        name="139 alt"
+        order="intermediate">
+      <transitions
+          xsi:type="StateMachine:LocalTransition"
+          target="/14/@states.8">
+        <guardCondition
+            description="[!not Defined]"/>
+        <actions
+            title="/140:create()"
+            target="reject_vacation"/>
+      </transitions>
+    </states>
+    <states
+        name="140 Performed"
+        order="intermediate">
+      <transitions
+          xsi:type="StateMachine:LocalTransition"
+          target="/14/@states.9"/>
+    </states>
+    <states
+        name="End"
+        order="final"/>
+  </StateMachine:StateMachine>
+  <StateMachine:StateMachine
+      name="low_work_load"
+      ownerObject="Manager">
+    <states
+        name="Start">
+      <transitions
+          xsi:type="StateMachine:LocalTransition"
+          target="/15/@states.1">
+        <triggerEvent
+            name="137:create()"
+            source="define_work_load_necessity"/>
+      </transitions>
+    </states>
+    <states
+        name="137 Received"
+        order="intermediate">
+      <transitions
+          xsi:type="StateMachine:LocalTransition"
+          target="/15/@states.2">
+        <actions
+            title="/71:call Task8 of BP component"
+            target="low_work_load"/>
+      </transitions>
+    </states>
+    <states
+        name="71 Performed"
+        order="intermediate">
+      <transitions
+          xsi:type="StateMachine:LocalTransition"
+          target="/15/@states.3">
+        <triggerEvent
+            name="71:call Task8 of BP component"
+            source="low_work_load"/>
+      </transitions>
+    </states>
+    <states
+        name="71 Received"
+        order="intermediate">
+      <transitions
+          xsi:type="StateMachine:LocalTransition"
+          target="/15/@states.6">
+        <actions
+            title="/72:confirm vacation"
+            target="Manager:Lane"/>
+      </transitions>
+    </states>
+    <states
+        name="141 Performed"
+        order="intermediate">
+      <transitions
+          xsi:type="StateMachine:LocalTransition"
+          target="/15/@states.5">
+        <triggerEvent
+            name="141:changeState(condition)"
+            source="low_work_load"/>
+      </transitions>
+    </states>
+    <states
+        name="141 Received"
+        order="intermediate">
+      <transitions
+          xsi:type="StateMachine:LocalTransition"
+          target="/15/@states.7"/>
+    </states>
+    <states
+        name="72 Performed"
+        order="intermediate">
+      <transitions
+          xsi:type="StateMachine:LocalTransition"
+          target="/15/@states.4">
+        <actions
+            title="/141:changeState(condition)"
+            target="low_work_load"/>
+      </transitions>
+    </states>
+    <states
+        name="142 alt"
+        order="intermediate">
+      <transitions
+          xsi:type="StateMachine:LocalTransition"
+          target="/15/@states.8">
+        <guardCondition
+            description="[!not Defined]"/>
+        <actions
+            title="/143:create()"
+            target="confirm_vacation"/>
+      </transitions>
+    </states>
+    <states
+        name="143 Performed"
+        order="intermediate">
+      <transitions
+          xsi:type="StateMachine:LocalTransition"
+          target="/15/@states.9"/>
+    </states>
+    <states
+        name="End"
+        order="final"/>
+  </StateMachine:StateMachine>
+  <StateMachine:StateMachine
+      name="reject_vacation"
+      ownerObject="Manager">
+    <states
+        name="Start">
+      <transitions
+          xsi:type="StateMachine:LocalTransition"
+          target="/16/@states.1">
+        <triggerEvent
+            name="140:create()"
+            source="high_work_load"/>
+      </transitions>
+    </states>
+    <states
+        name="140 Received"
+        order="intermediate">
+      <transitions
+          xsi:type="StateMachine:LocalTransition"
+          target="/16/@states.2">
+        <actions
+            title="/73:show rejection message"
+            target="reject_vacation"/>
+      </transitions>
+    </states>
+    <states
+        name="73 Performed"
+        order="intermediate">
+      <transitions
+          xsi:type="StateMachine:LocalTransition"
+          target="/16/@states.3">
+        <triggerEvent
+            name="73:show rejection message"
+            source="reject_vacation"/>
+      </transitions>
+    </states>
+    <states
+        name="73 Received"
+        order="intermediate">
+      <transitions
+          xsi:type="StateMachine:LocalTransition"
+          target="/16/@states.8">
+        <actions
+            title="/74:show"
+            target="rejection_msg"/>
+      </transitions>
+    </states>
+    <states
+        name="75 Performed"
+        order="intermediate">
+      <transitions
+          xsi:type="StateMachine:LocalTransition"
+          target="/16/@states.5">
+        <triggerEvent
+            name="75:call end event of BP component"
+            source="reject_vacation"/>
+      </transitions>
+    </states>
+    <states
+        name="75 Received"
+        order="intermediate">
+      <transitions
+          xsi:type="StateMachine:LocalTransition"
+          target="/16/@states.9">
+        <actions
+            title="/76:endEvent"
+            target="Employee:Lane"/>
+      </transitions>
+    </states>
+    <states
+        name="144 Performed"
+        order="intermediate">
+      <transitions
+          xsi:type="StateMachine:LocalTransition"
+          target="/16/@states.7">
+        <triggerEvent
+            name="144:changeState(condition)"
+            source="reject_vacation"/>
+      </transitions>
+    </states>
+    <states
+        name="144 Received"
+        order="intermediate">
+      <transitions
+          xsi:type="StateMachine:LocalTransition"
+          target="/16/@states.10"/>
+    </states>
+    <states
+        name="74 Performed"
+        order="intermediate">
+      <transitions
+          xsi:type="StateMachine:LocalTransition"
+          target="/16/@states.4">
+        <actions
+            title="/75:call end event of BP component"
+            target="reject_vacation"/>
+      </transitions>
+    </states>
+    <states
+        name="76 Performed"
+        order="intermediate">
+      <transitions
+          xsi:type="StateMachine:LocalTransition"
+          target="/16/@states.6">
+        <actions
+            title="/144:changeState(condition)"
+            target="reject_vacation"/>
+      </transitions>
+    </states>
+    <states
+        name="145 alt"
+        order="intermediate">
+      <transitions
+          xsi:type="StateMachine:LocalTransition"
+          target="/16/@states.11"/>
+    </states>
+    <states
+        name="End"
+        order="final"/>
+  </StateMachine:StateMachine>
+  <StateMachine:StateMachine
+      name="confirm_vacation"
+      ownerObject="Manager">
+    <states
+        name="Start">
+      <transitions
+          xsi:type="StateMachine:LocalTransition"
+          target="/17/@states.1">
+        <triggerEvent
+            name="143:create()"
+            source="low_work_load"/>
+      </transitions>
+    </states>
+    <states
+        name="143 Received"
+        order="intermediate">
+      <transitions
+          xsi:type="StateMachine:LocalTransition"
+          target="/17/@states.2">
+        <actions
+            title="/77:show confirmation message"
+            target="confirm_vacation"/>
+      </transitions>
+    </states>
+    <states
+        name="77 Performed"
+        order="intermediate">
+      <transitions
+          xsi:type="StateMachine:LocalTransition"
+          target="/17/@states.3">
+        <triggerEvent
+            name="77:show confirmation message"
+            source="confirm_vacation"/>
+      </transitions>
+    </states>
+    <states
+        name="77 Received"
+        order="intermediate">
+      <transitions
+          xsi:type="StateMachine:LocalTransition"
+          target="/17/@states.8">
+        <actions
+            title="/78:show"
+            target="confirmation_msg"/>
+      </transitions>
+    </states>
+    <states
+        name="79 Performed"
+        order="intermediate">
+      <transitions
+          xsi:type="StateMachine:LocalTransition"
+          target="/17/@states.5">
+        <triggerEvent
+            name="79:call end event of BP component"
+            source="confirm_vacation"/>
+      </transitions>
+    </states>
+    <states
+        name="79 Received"
+        order="intermediate">
+      <transitions
+          xsi:type="StateMachine:LocalTransition"
+          target="/17/@states.9">
+        <actions
+            title="/80:endEvent"
+            target="Employee:Lane"/>
+      </transitions>
+    </states>
+    <states
+        name="146 Performed"
+        order="intermediate">
+      <transitions
+          xsi:type="StateMachine:LocalTransition"
+          target="/17/@states.7">
+        <triggerEvent
+            name="146:changeState(condition)"
+            source="confirm_vacation"/>
+      </transitions>
+    </states>
+    <states
+        name="146 Received"
+        order="intermediate">
+      <transitions
+          xsi:type="StateMachine:LocalTransition"
+          target="/17/@states.10"/>
+    </states>
+    <states
+        name="78 Performed"
+        order="intermediate">
+      <transitions
+          xsi:type="StateMachine:LocalTransition"
+          target="/17/@states.4">
+        <actions
+            title="/79:call end event of BP component"
+            target="confirm_vacation"/>
+      </transitions>
+    </states>
+    <states
+        name="80 Performed"
+        order="intermediate">
+      <transitions
+          xsi:type="StateMachine:LocalTransition"
+          target="/17/@states.6">
+        <actions
+            title="/146:changeState(condition)"
+            target="confirm_vacation"/>
+      </transitions>
+    </states>
+    <states
+        name="147 alt"
+        order="intermediate">
+      <transitions
+          xsi:type="StateMachine:LocalTransition"
+          target="/17/@states.11"/>
+    </states>
+    <states
+        name="End"
+        order="final"/>
+  </StateMachine:StateMachine>
+  <StateMachine:StateMachine
+      name="level1startup"
+      ownerObject="level1startup">
+    <states
+        name="Start">
+      <transitions
+          xsi:type="StateMachine:LocalTransition"
+          target="/18/@states.1">
+        <triggerEvent
+            name="1:show"
+            source="Start_Level"/>
+      </transitions>
+    </states>
+    <states
+        name="1 Received"
+        order="intermediate">
+      <transitions
+          xsi:type="StateMachine:LocalTransition"
+          target="/18/@states.2"/>
+    </states>
+    <states
+        name="End"
+        order="final"/>
+  </StateMachine:StateMachine>
+  <StateMachine:StateMachine
+      name="employeeLog"
+      ownerObject="employeeLog">
+    <states
+        name="Start">
+      <transitions
+          xsi:type="StateMachine:LocalTransition"
+          target="/19/@states.1">
+        <triggerEvent
+            name="4:!not Defined"
+            source="Start_Level"/>
+      </transitions>
+    </states>
+    <states
+        name="4 Received"
+        order="intermediate">
+      <transitions
+          xsi:type="StateMachine:LocalTransition"
+          target="/19/@states.2">
+        <triggerEvent
+            name="55:!not Defined"
+            source="end_state"/>
+      </transitions>
+    </states>
+    <states
+        name="55 Received"
+        order="intermediate">
+      <transitions
+          xsi:type="StateMachine:LocalTransition"
+          target="/19/@states.3">
+        <triggerEvent
+            name="87:!not Defined: save challenge score"
+            source="email_title_format_reward"/>
+      </transitions>
+    </states>
+    <states
+        name="87 Received"
+        order="intermediate">
+      <transitions
+          xsi:type="StateMachine:LocalTransition"
+          target="/19/@states.4">
+        <triggerEvent
+            name="94:!not Defined: save challenge score"
+            source="email_address_reward"/>
+      </transitions>
+    </states>
+    <states
+        name="94 Received"
+        order="intermediate">
+      <transitions
+          xsi:type="StateMachine:LocalTransition"
+          target="/19/@states.5">
+        <triggerEvent
+            name="102:!not Defined: save challenge score"
+            source="valid_request_reward"/>
+      </transitions>
+    </states>
+    <states
+        name="102 Received"
+        order="intermediate">
+      <transitions
+          xsi:type="StateMachine:LocalTransition"
+          target="/19/@states.6"/>
+    </states>
+    <states
+        name="End"
+        order="final"/>
+  </StateMachine:StateMachine>
+  <StateMachine:StateMachine
+      name="Employee:Lane"
+      ownerObject="Employee_lane">
+    <states
+        name="Start">
+      <transitions
+          xsi:type="StateMachine:LocalTransition"
+          target="/20/@states.1">
+        <triggerEvent
+            name="6:request for vacation"
+            source="initialize_request"/>
+      </transitions>
+    </states>
+    <states
+        name="6 Received"
+        order="intermediate">
+      <transitions
+          xsi:type="StateMachine:LocalTransition"
+          target="/20/@states.2">
+        <actions
+            title="/7:return (correctOutputs)"
+            target="initialize_request"/>
+      </transitions>
+    </states>
+    <states
+        name="7 Performed"
+        order="intermediate">
+      <transitions
+          xsi:type="StateMachine:LocalTransition"
+          target="/20/@states.3">
+        <triggerEvent
+            name="12:Send request Email"
+            source="initialize_email"/>
+      </transitions>
+    </states>
+    <states
+        name="12 Received"
+        order="intermediate">
+      <transitions
+          xsi:type="StateMachine:LocalTransition"
+          target="/20/@states.18">
+        <actions
+            title="/13:!not defined: create/ update/ delete?"
+            target="Email_Addresses:Resource"/>
+      </transitions>
+    </states>
+    <states
+        name="14 Performed"
+        order="intermediate">
+      <transitions
+          xsi:type="StateMachine:LocalTransition"
+          target="/20/@states.5">
+        <triggerEvent
+            name="31:check work load"
+            source="make_new_email"/>
+      </transitions>
+    </states>
+    <states
+        name="31 Received"
+        order="intermediate">
+      <transitions
+          xsi:type="StateMachine:LocalTransition"
+          target="/20/@states.6">
+        <triggerEvent
+            name="35:degree of work load"
+            source="work_load_checking"/>
+      </transitions>
+    </states>
+    <states
+        name="35 Received"
+        order="intermediate">
+      <transitions
+          xsi:type="StateMachine:LocalTransition"
+          target="/20/@states.11"/>
+    </states>
+    <states
+        name="37 Performed"
+        order="intermediate">
+      <transitions
+          xsi:type="StateMachine:LocalTransition"
+          target="/20/@states.8">
+        <triggerEvent
+            name="37:setCorrectOutputs"
+            source="Employee:Lane"/>
+      </transitions>
+    </states>
+    <states
+        name="37 Received"
+        order="intermediate">
+      <transitions
+          xsi:type="StateMachine:LocalTransition"
+          target="/20/@states.12"/>
+    </states>
+    <states
+        name="38 Performed"
+        order="intermediate">
+      <transitions
+          xsi:type="StateMachine:LocalTransition"
+          target="/20/@states.10">
+        <triggerEvent
+            name="38:setCorrectOutputs"
+            source="Employee:Lane"/>
+      </transitions>
+    </states>
+    <states
+        name="38 Received"
+        order="intermediate">
+      <transitions
+          xsi:type="StateMachine:LocalTransition"
+          target="/20/@states.12">
+        <triggerEvent
+            name="41:Wait for manager confirmation"
+            source="determining_work_load_degree"/>
+      </transitions>
+    </states>
+    <states
+        name="36 alt"
+        order="intermediate">
+      <transitions
+          xsi:type="StateMachine:LocalTransition"
+          target="/20/@states.12"/>
+      <transitions
+          xsi:type="StateMachine:LocalTransition"
+          target="/20/@states.7">
+        <guardCondition
+            description="[!not Defined]"/>
+        <actions
+            title="/37:setCorrectOutputs"
+            target="Employee:Lane"/>
+      </transitions>
+      <transitions
+          xsi:type="StateMachine:LocalTransition"
+          target="/20/@states.9">
+        <guardCondition
+            description="[!not Defined]"/>
+        <actions
+            title="/38:setCorrectOutputs"
+            target="Employee:Lane"/>
+      </transitions>
+    </states>
+    <states
+        name="41 Received"
+        order="intermediate">
+      <transitions
+          xsi:type="StateMachine:LocalTransition"
+          target="/20/@states.13">
+        <triggerEvent
+            name="44:vacation confirmation"
+            source="determining_work_load_degree"/>
+      </transitions>
+    </states>
+    <states
+        name="44 Received"
+        order="intermediate">
+      <transitions
+          xsi:type="StateMachine:LocalTransition"
+          target="/20/@states.14">
+        <triggerEvent
+            name="53:endEvent"
+            source="go_to_vacation"/>
+      </transitions>
+    </states>
+    <states
+        name="53 Received"
+        order="intermediate">
+      <transitions
+          xsi:type="StateMachine:LocalTransition"
+          target="/20/@states.15">
+        <triggerEvent
+            name="76:endEvent"
+            source="reject_vacation"/>
+      </transitions>
+    </states>
+    <states
+        name="76 Received"
+        order="intermediate">
+      <transitions
+          xsi:type="StateMachine:LocalTransition"
+          target="/20/@states.16">
+        <triggerEvent
+            name="80:endEvent"
+            source="confirm_vacation"/>
+      </transitions>
+    </states>
+    <states
+        name="80 Received"
+        order="intermediate">
+      <transitions
+          xsi:type="StateMachine:LocalTransition"
+          target="/20/@states.17"/>
+    </states>
+    <states
+        name="End"
+        order="final"/>
+    <states
+        name="13 Performed"
+        order="intermediate">
+      <transitions
+          xsi:type="StateMachine:LocalTransition"
+          target="/20/@states.4">
+        <actions
+            title="/14:!not defined: create/ update/ delete?"
+            target="vacation_request_rules:Resource"/>
+      </transitions>
+    </states>
+  </StateMachine:StateMachine>
+  <StateMachine:StateMachine
+      name="request_vacation"
+      ownerObject="request vacation">
+    <states
+        name="Start">
+      <transitions
+          xsi:type="StateMachine:LocalTransition"
+          target="/21/@states.1">
+        <triggerEvent
+            name="9:show"
+            source="show_request_page"/>
+      </transitions>
+    </states>
+    <states
+        name="9 Received"
+        order="intermediate">
+      <transitions
+          xsi:type="StateMachine:LocalTransition"
+          target="/21/@states.2"/>
+    </states>
+    <states
+        name="End"
+        order="final"/>
+  </StateMachine:StateMachine>
+  <StateMachine:StateMachine
+      name="Email_Addresses:Resource"
+      ownerObject="Email Addresses">
+    <states
+        name="Start">
+      <transitions
+          xsi:type="StateMachine:LocalTransition"
+          target="/22/@states.1">
+        <triggerEvent
+            name="13:!not defined: create/ update/ delete?"
+            source="Employee:Lane"/>
+      </transitions>
+    </states>
+    <states
+        name="13 Received"
+        order="intermediate">
+      <transitions
+          xsi:type="StateMachine:LocalTransition"
+          target="/22/@states.2"/>
+    </states>
+    <states
+        name="End"
+        order="final"/>
+  </StateMachine:StateMachine>
+  <StateMachine:StateMachine
+      name="vacation_request_rules:Resource"
+      ownerObject="vacation request rules">
+    <states
+        name="Start">
+      <transitions
+          xsi:type="StateMachine:LocalTransition"
+          target="/23/@states.1">
+        <triggerEvent
+            name="14:!not defined: create/ update/ delete?"
+            source="Employee:Lane"/>
+      </transitions>
+    </states>
+    <states
+        name="14 Received"
+        order="intermediate">
+      <transitions
+          xsi:type="StateMachine:LocalTransition"
+          target="/23/@states.2"/>
+    </states>
+    <states
+        name="End"
+        order="final"/>
+  </StateMachine:StateMachine>
+  <StateMachine:StateMachine
+      name="sending_email"
+      ownerObject="sending email">
+    <states
+        name="Start">
+      <transitions
+          xsi:type="StateMachine:LocalTransition"
+          target="/24/@states.1">
+        <triggerEvent
+            name="16:show"
+            source="make_new_email"/>
+      </transitions>
+    </states>
+    <states
+        name="16 Received"
+        order="intermediate">
+      <transitions
+          xsi:type="StateMachine:LocalTransition"
+          target="/24/@states.2"/>
+    </states>
+    <states
+        name="End"
+        order="final"/>
+  </StateMachine:StateMachine>
+  <StateMachine:StateMachine
+      name="email_title_format_challange"
+      ownerObject="Employee">
+    <states
+        name="Start">
+      <transitions
+          xsi:type="StateMachine:LocalTransition"
+          target="/25/@states.1">
+        <triggerEvent
+            name="19:startChallenge"
+            source="make_new_email"/>
+      </transitions>
+    </states>
+    <states
+        name="19 Received"
+        order="intermediate">
+      <transitions
+          xsi:type="StateMachine:LocalTransition"
+          target="/25/@states.2"/>
+    </states>
+    <states
+        name="End"
+        order="final"/>
+  </StateMachine:StateMachine>
+  <StateMachine:StateMachine
+      name="email_address_challenge"
+      ownerObject="Employee">
+    <states
+        name="Start">
+      <transitions
+          xsi:type="StateMachine:LocalTransition"
+          target="/26/@states.1">
+        <triggerEvent
+            name="22:startChallenge"
+            source="make_new_email"/>
+      </transitions>
+    </states>
+    <states
+        name="22 Received"
+        order="intermediate">
+      <transitions
+          xsi:type="StateMachine:LocalTransition"
+          target="/26/@states.2"/>
+    </states>
+    <states
+        name="End"
+        order="final"/>
+  </StateMachine:StateMachine>
+  <StateMachine:StateMachine
+      name="vacation_rules"
+      ownerObject="vacation rules">
+    <states
+        name="Start">
+      <transitions
+          xsi:type="StateMachine:LocalTransition"
+          target="/27/@states.1">
+        <triggerEvent
+            name="25:show"
+            source="make_new_email"/>
+      </transitions>
+    </states>
+    <states
+        name="25 Received"
+        order="intermediate">
+      <transitions
+          xsi:type="StateMachine:LocalTransition"
+          target="/27/@states.2"/>
+    </states>
+    <states
+        name="End"
+        order="final"/>
+  </StateMachine:StateMachine>
+  <StateMachine:StateMachine
+      name="request_validation_challenge"
+      ownerObject="Employee">
+    <states
+        name="Start">
+      <transitions
+          xsi:type="StateMachine:LocalTransition"
+          target="/28/@states.1">
+        <triggerEvent
+            name="29:startChallenge"
+            source="make_new_email"/>
+      </transitions>
+    </states>
+    <states
+        name="29 Received"
+        order="intermediate">
+      <transitions
+          xsi:type="StateMachine:LocalTransition"
+          target="/28/@states.2"/>
+    </states>
+    <states
+        name="End"
+        order="final"/>
+  </StateMachine:StateMachine>
+  <StateMachine:StateMachine
+      name="workload"
+      ownerObject="workload">
+    <states
+        name="Start">
+      <transitions
+          xsi:type="StateMachine:LocalTransition"
+          target="/29/@states.1">
+        <triggerEvent
+            name="33:show"
+            source="work_load_checking"/>
+      </transitions>
+    </states>
+    <states
+        name="33 Received"
+        order="intermediate">
+      <transitions
+          xsi:type="StateMachine:LocalTransition"
+          target="/29/@states.2"/>
+    </states>
+    <states
+        name="End"
+        order="final"/>
+  </StateMachine:StateMachine>
+  <StateMachine:StateMachine
+      name="result1"
+      ownerObject="result1">
+    <states
+        name="Start">
+      <transitions
+          xsi:type="StateMachine:LocalTransition"
+          target="/30/@states.1">
+        <triggerEvent
+            name="46:show"
+            source="wait_for_manager_confirmation"/>
+      </transitions>
+    </states>
+    <states
+        name="46 Received"
+        order="intermediate">
+      <transitions
+          xsi:type="StateMachine:LocalTransition"
+          target="/30/@states.2"/>
+    </states>
+    <states
+        name="End"
+        order="final"/>
+  </StateMachine:StateMachine>
+  <StateMachine:StateMachine
+      name="Manager:Lane"
+      ownerObject="Manager_lane">
+    <states
+        name="Start">
+      <transitions
+          xsi:type="StateMachine:LocalTransition"
+          target="/31/@states.1">
+        <triggerEvent
+            name="48:vacation request checking"
+            source="wait_for_manager_confirmation"/>
+      </transitions>
+    </states>
+    <states
+        name="48 Received"
+        order="intermediate">
+      <transitions
+          xsi:type="StateMachine:LocalTransition"
+          target="/31/@states.2">
+        <actions
+            title="/49:return (correctOutputs)"
+            target="wait_for_manager_confirmation"/>
+      </transitions>
+    </states>
+    <states
+        name="49 Performed"
+        order="intermediate">
+      <transitions
+          xsi:type="StateMachine:LocalTransition"
+          target="/31/@states.3">
+        <triggerEvent
+            name="64:work load necessity degree"
+            source="manager_request_checking"/>
+      </transitions>
+    </states>
+    <states
+        name="64 Received"
+        order="intermediate">
+      <transitions
+          xsi:type="StateMachine:LocalTransition"
+          target="/31/@states.8"/>
+    </states>
+    <states
+        name="66 Performed"
+        order="intermediate">
+      <transitions
+          xsi:type="StateMachine:LocalTransition"
+          target="/31/@states.5">
+        <triggerEvent
+            name="66:setCorrectOutputs"
+            source="Manager:Lane"/>
+      </transitions>
+    </states>
+    <states
+        name="66 Received"
+        order="intermediate">
+      <transitions
+          xsi:type="StateMachine:LocalTransition"
+          target="/31/@states.9"/>
+    </states>
+    <states
+        name="67 Performed"
+        order="intermediate">
+      <transitions
+          xsi:type="StateMachine:LocalTransition"
+          target="/31/@states.7">
+        <triggerEvent
+            name="67:setCorrectOutputs"
+            source="Manager:Lane"/>
+      </transitions>
+    </states>
+    <states
+        name="67 Received"
+        order="intermediate">
+      <transitions
+          xsi:type="StateMachine:LocalTransition"
+          target="/31/@states.9">
+        <triggerEvent
+            name="70:reject vacation"
+            source="high_work_load"/>
+      </transitions>
+    </states>
+    <states
+        name="65 alt"
+        order="intermediate">
+      <transitions
+          xsi:type="StateMachine:LocalTransition"
+          target="/31/@states.9"/>
+      <transitions
+          xsi:type="StateMachine:LocalTransition"
+          target="/31/@states.4">
+        <guardCondition
+            description="[!not Defined]"/>
+        <actions
+            title="/66:setCorrectOutputs"
+            target="Manager:Lane"/>
+      </transitions>
+      <transitions
+          xsi:type="StateMachine:LocalTransition"
+          target="/31/@states.6">
+        <guardCondition
+            description="[!not Defined]"/>
+        <actions
+            title="/67:setCorrectOutputs"
+            target="Manager:Lane"/>
+      </transitions>
+    </states>
+    <states
+        name="70 Received"
+        order="intermediate">
+      <transitions
+          xsi:type="StateMachine:LocalTransition"
+          target="/31/@states.10">
+        <triggerEvent
+            name="72:confirm vacation"
+            source="low_work_load"/>
+      </transitions>
+    </states>
+    <states
+        name="72 Received"
+        order="intermediate">
+      <transitions
+          xsi:type="StateMachine:LocalTransition"
+          target="/31/@states.11"/>
+    </states>
+    <states
+        name="End"
+        order="final"/>
+  </StateMachine:StateMachine>
+  <StateMachine:StateMachine
+      name="result2"
+      ownerObject="result2">
+    <states
+        name="Start">
+      <transitions
+          xsi:type="StateMachine:LocalTransition"
+          target="/32/@states.1">
+        <triggerEvent
+            name="51:show"
+            source="go_to_vacation"/>
+      </transitions>
+    </states>
+    <states
+        name="51 Received"
+        order="intermediate">
+      <transitions
+          xsi:type="StateMachine:LocalTransition"
+          target="/32/@states.2"/>
+    </states>
+    <states
+        name="End"
+        order="final"/>
+  </StateMachine:StateMachine>
+  <StateMachine:StateMachine
+      name="score_menu"
+      ownerObject="score menu">
+    <states
+        name="Start">
+      <transitions
+          xsi:type="StateMachine:LocalTransition"
+          target="/33/@states.1">
+        <triggerEvent
+            name="58:show"
+            source="end_state"/>
+      </transitions>
+    </states>
+    <states
+        name="58 Received"
+        order="intermediate">
+      <transitions
+          xsi:type="StateMachine:LocalTransition"
+          target="/33/@states.2"/>
+    </states>
+    <states
+        name="End"
+        order="final"/>
+  </StateMachine:StateMachine>
+  <StateMachine:StateMachine
+      name="score"
+      ownerObject="score">
+    <states
+        name="Start">
+      <transitions
+          xsi:type="StateMachine:LocalTransition"
+          target="/34/@states.1">
+        <triggerEvent
+            name="60:show"
+            source="end_state"/>
+      </transitions>
+    </states>
+    <states
+        name="60 Received"
+        order="intermediate">
+      <transitions
+          xsi:type="StateMachine:LocalTransition"
+          target="/34/@states.2"/>
+    </states>
+    <states
+        name="End"
+        order="final"/>
+  </StateMachine:StateMachine>
+  <StateMachine:StateMachine
+      name="duration"
+      ownerObject="duration">
+    <states
+        name="Start">
+      <transitions
+          xsi:type="StateMachine:LocalTransition"
+          target="/35/@states.1">
+        <triggerEvent
+            name="62:show"
+            source="end_state"/>
+      </transitions>
+    </states>
+    <states
+        name="62 Received"
+        order="intermediate">
+      <transitions
+          xsi:type="StateMachine:LocalTransition"
+          target="/35/@states.2"/>
+    </states>
+    <states
+        name="End"
+        order="final"/>
+  </StateMachine:StateMachine>
+  <StateMachine:StateMachine
+      name="rejection_msg"
+      ownerObject="rejection msg">
+    <states
+        name="Start">
+      <transitions
+          xsi:type="StateMachine:LocalTransition"
+          target="/36/@states.1">
+        <triggerEvent
+            name="74:show"
+            source="reject_vacation"/>
+      </transitions>
+    </states>
+    <states
+        name="74 Received"
+        order="intermediate">
+      <transitions
+          xsi:type="StateMachine:LocalTransition"
+          target="/36/@states.2"/>
+    </states>
+    <states
+        name="End"
+        order="final"/>
+  </StateMachine:StateMachine>
+  <StateMachine:StateMachine
+      name="confirmation_msg"
+      ownerObject="confirmation msg">
+    <states
+        name="Start">
+      <transitions
+          xsi:type="StateMachine:LocalTransition"
+          target="/37/@states.1">
+        <triggerEvent
+            name="78:show"
+            source="confirm_vacation"/>
+      </transitions>
+    </states>
+    <states
+        name="78 Received"
+        order="intermediate">
+      <transitions
+          xsi:type="StateMachine:LocalTransition"
+          target="/37/@states.2"/>
+    </states>
+    <states
+        name="End"
+        order="final"/>
+  </StateMachine:StateMachine>
+  <StateMachine:StateMachine
+      name="email_title_accuracy_checking"
+      ownerObject="Employee">
+    <states
+        name="Start">
+      <transitions
+          xsi:type="StateMachine:LocalTransition"
+          target="/38/@states.1">
+        <triggerEvent
+            name="81:runScoringRule"
+            source="make_new_email"/>
+      </transitions>
+    </states>
+    <states
+        name="81 Received"
+        order="intermediate">
+      <transitions
+          xsi:type="StateMachine:LocalTransition"
+          target="/38/@states.2">
+        <actions
+            title="/82:calculateScore"
+            target="email_title_format_reward"/>
+      </transitions>
+    </states>
+    <states
+        name="82 Performed"
+        order="intermediate">
+      <transitions
+          xsi:type="StateMachine:LocalTransition"
+          target="/38/@states.3"/>
+    </states>
+    <states
+        name="End"
+        order="final"/>
+  </StateMachine:StateMachine>
+  <StateMachine:StateMachine
+      name="email_title_format_reward"
+      ownerObject="email title format reward">
+    <states
+        name="Start">
+      <transitions
+          xsi:type="StateMachine:LocalTransition"
+          target="/39/@states.1">
+        <triggerEvent
+            name="82:calculateScore"
+            source="email_title_accuracy_checking"/>
+      </transitions>
+    </states>
+    <states
+        name="82 Received"
+        order="intermediate">
+      <transitions
+          xsi:type="StateMachine:LocalTransition"
+          target="/39/@states.2"/>
+    </states>
+    <states
+        name="83 alt"
+        order="intermediate">
+      <transitions
+          xsi:type="StateMachine:LocalTransition"
+          target="/39/@states.3">
+        <guardCondition
+            description="[if (title format is correct) add 5 points ]"/>
+        <actions
+            title="/84:create()"
+            target="5_point"/>
+      </transitions>
+      <transitions
+          xsi:type="StateMachine:LocalTransition"
+          target="/39/@states.4">
+        <guardCondition
+            description="[if (title format is incorrect) subscribe 3 points ]"/>
+        <actions
+            title="/85:create()"
+            target="-3_point"/>
+      </transitions>
+      <transitions
+          xsi:type="StateMachine:LocalTransition"
+          target="/39/@states.5"/>
+    </states>
+    <states
+        name="84 Performed"
+        order="intermediate">
+      <transitions
+          xsi:type="StateMachine:LocalTransition"
+          target="/39/@states.5"/>
+    </states>
+    <states
+        name="85 Performed"
+        order="intermediate">
+      <transitions
+          xsi:type="StateMachine:LocalTransition"
+          target="/39/@states.5">
+        <actions
+            title="/87:!not Defined: save challenge score"
+            target="employeeLog"/>
+      </transitions>
+    </states>
+    <states
+        name="87 Performed"
+        order="intermediate">
+      <transitions
+          xsi:type="StateMachine:LocalTransition"
+          target="/39/@states.6"/>
+    </states>
+    <states
+        name="End"
+        order="final"/>
+  </StateMachine:StateMachine>
+  <StateMachine:StateMachine
+      name="5_point"
+      ownerObject="point">
+    <states
+        name="Start">
+      <transitions
+          xsi:type="StateMachine:LocalTransition"
+          target="/40/@states.1">
+        <triggerEvent
+            name="84:create()"
+            source="email_title_format_reward"/>
+      </transitions>
+    </states>
+    <states
+        name="84 Received"
+        order="intermediate">
+      <transitions
+          xsi:type="StateMachine:LocalTransition"
+          target="/40/@states.2"/>
+    </states>
+    <states
+        name="End"
+        order="final"/>
+  </StateMachine:StateMachine>
+  <StateMachine:StateMachine
+      name="-3_point"
+      ownerObject="point">
+    <states
+        name="Start">
+      <transitions
+          xsi:type="StateMachine:LocalTransition"
+          target="/41/@states.1">
+        <triggerEvent
+            name="85:create()"
+            source="email_title_format_reward"/>
+      </transitions>
+    </states>
+    <states
+        name="85 Received"
+        order="intermediate">
+      <transitions
+          xsi:type="StateMachine:LocalTransition"
+          target="/41/@states.2"/>
+    </states>
+    <states
+        name="End"
+        order="final"/>
+  </StateMachine:StateMachine>
+  <StateMachine:StateMachine
+      name="email_address_accuracy_checking"
+      ownerObject="Employee">
+    <states
+        name="Start">
+      <transitions
+          xsi:type="StateMachine:LocalTransition"
+          target="/42/@states.1">
+        <triggerEvent
+            name="88:runScoringRule"
+            source="make_new_email"/>
+      </transitions>
+    </states>
+    <states
+        name="88 Received"
+        order="intermediate">
+      <transitions
+          xsi:type="StateMachine:LocalTransition"
+          target="/42/@states.2">
+        <actions
+            title="/89:calculateScore"
+            target="email_address_reward"/>
+      </transitions>
+    </states>
+    <states
+        name="89 Performed"
+        order="intermediate">
+      <transitions
+          xsi:type="StateMachine:LocalTransition"
+          target="/42/@states.3"/>
+    </states>
+    <states
+        name="End"
+        order="final"/>
+  </StateMachine:StateMachine>
+  <StateMachine:StateMachine
+      name="email_address_reward"
+      ownerObject="email address reward">
+    <states
+        name="Start">
+      <transitions
+          xsi:type="StateMachine:LocalTransition"
+          target="/43/@states.1">
+        <triggerEvent
+            name="89:calculateScore"
+            source="email_address_accuracy_checking"/>
+      </transitions>
+    </states>
+    <states
+        name="89 Received"
+        order="intermediate">
+      <transitions
+          xsi:type="StateMachine:LocalTransition"
+          target="/43/@states.2"/>
+    </states>
+    <states
+        name="90 alt"
+        order="intermediate">
+      <transitions
+          xsi:type="StateMachine:LocalTransition"
+          target="/43/@states.3">
+        <guardCondition
+            description="[if (manager address is selected) add 5 points ]"/>
+        <actions
+            title="/91:create()"
+            target="5_point"/>
+      </transitions>
+      <transitions
+          xsi:type="StateMachine:LocalTransition"
+          target="/43/@states.4">
+        <guardCondition
+            description="[if (manager address is not selected) subscribe 3 points ]"/>
+        <actions
+            title="/92:create()"
+            target="-3_point"/>
+      </transitions>
+      <transitions
+          xsi:type="StateMachine:LocalTransition"
+          target="/43/@states.5"/>
+    </states>
+    <states
+        name="91 Performed"
+        order="intermediate">
+      <transitions
+          xsi:type="StateMachine:LocalTransition"
+          target="/43/@states.5"/>
+    </states>
+    <states
+        name="92 Performed"
+        order="intermediate">
+      <transitions
+          xsi:type="StateMachine:LocalTransition"
+          target="/43/@states.5">
+        <actions
+            title="/94:!not Defined: save challenge score"
+            target="employeeLog"/>
+      </transitions>
+    </states>
+    <states
+        name="94 Performed"
+        order="intermediate">
+      <transitions
+          xsi:type="StateMachine:LocalTransition"
+          target="/43/@states.6"/>
+    </states>
+    <states
+        name="End"
+        order="final"/>
+  </StateMachine:StateMachine>
+  <StateMachine:StateMachine
+      name="5_point"
+      ownerObject="point">
+    <states
+        name="Start">
+      <transitions
+          xsi:type="StateMachine:LocalTransition"
+          target="/44/@states.1">
+        <triggerEvent
+            name="91:create()"
+            source="email_address_reward"/>
+      </transitions>
+    </states>
+    <states
+        name="91 Received"
+        order="intermediate">
+      <transitions
+          xsi:type="StateMachine:LocalTransition"
+          target="/44/@states.2"/>
+    </states>
+    <states
+        name="End"
+        order="final"/>
+  </StateMachine:StateMachine>
+  <StateMachine:StateMachine
+      name="-3_point"
+      ownerObject="point">
+    <states
+        name="Start">
+      <transitions
+          xsi:type="StateMachine:LocalTransition"
+          target="/45/@states.1">
+        <triggerEvent
+            name="92:create()"
+            source="email_address_reward"/>
+      </transitions>
+    </states>
+    <states
+        name="92 Received"
+        order="intermediate">
+      <transitions
+          xsi:type="StateMachine:LocalTransition"
+          target="/45/@states.2"/>
+    </states>
+    <states
+        name="End"
+        order="final"/>
+  </StateMachine:StateMachine>
+  <StateMachine:StateMachine
+      name="valid_request_reward"
+      ownerObject="valid request reward">
+    <states
+        name="Start">
+      <transitions
+          xsi:type="StateMachine:LocalTransition"
+          target="/46/@states.1">
+        <triggerEvent
+            name="96:calculateScore"
+            source="request_validation"/>
+      </transitions>
+    </states>
+    <states
+        name="96 Received"
+        order="intermediate">
+      <transitions
+          xsi:type="StateMachine:LocalTransition"
+          target="/46/@states.2"/>
+    </states>
+    <states
+        name="97 alt"
+        order="intermediate">
+      <transitions
+          xsi:type="StateMachine:LocalTransition"
+          target="/46/@states.3">
+        <guardCondition
+            description="[if (request date &lt; vacation date) add 3 points ]"/>
+        <actions
+            title="/98:create()"
+            target="3_point"/>
+      </transitions>
+      <transitions
+          xsi:type="StateMachine:LocalTransition"
+          target="/46/@states.4">
+        <guardCondition
+            description="[if (request date = vacation date and request time &lt; work time) add 3 points]"/>
+        <actions
+            title="/99:create()"
+            target="3_point"/>
+      </transitions>
+      <transitions
+          xsi:type="StateMachine:LocalTransition"
+          target="/46/@states.5">
+        <guardCondition
+            description="[if (request date = vacation date and request time >= work time) subscribe 2 points ]"/>
+        <actions
+            title="/100:create()"
+            target="-2_point"/>
+      </transitions>
+      <transitions
+          xsi:type="StateMachine:LocalTransition"
+          target="/46/@states.6"/>
+    </states>
+    <states
+        name="98 Performed"
+        order="intermediate">
+      <transitions
+          xsi:type="StateMachine:LocalTransition"
+          target="/46/@states.6"/>
+    </states>
+    <states
+        name="99 Performed"
+        order="intermediate">
+      <transitions
+          xsi:type="StateMachine:LocalTransition"
+          target="/46/@states.6"/>
+    </states>
+    <states
+        name="100 Performed"
+        order="intermediate">
+      <transitions
+          xsi:type="StateMachine:LocalTransition"
+          target="/46/@states.6">
+        <actions
+            title="/102:!not Defined: save challenge score"
+            target="employeeLog"/>
+      </transitions>
+    </states>
+    <states
+        name="102 Performed"
+        order="intermediate">
+      <transitions
+          xsi:type="StateMachine:LocalTransition"
+          target="/46/@states.7"/>
+    </states>
+    <states
+        name="End"
+        order="final"/>
+  </StateMachine:StateMachine>
+  <StateMachine:StateMachine
+      name="3_point"
+      ownerObject="point">
+    <states
+        name="Start">
+      <transitions
+          xsi:type="StateMachine:LocalTransition"
+          target="/47/@states.1">
+        <triggerEvent
+            name="98:create()"
+            source="valid_request_reward"/>
+      </transitions>
+    </states>
+    <states
+        name="98 Received"
+        order="intermediate">
+      <transitions
+          xsi:type="StateMachine:LocalTransition"
+          target="/47/@states.2"/>
+    </states>
+    <states
+        name="End"
+        order="final"/>
+  </StateMachine:StateMachine>
+  <StateMachine:StateMachine
+      name="3_point"
+      ownerObject="point">
+    <states
+        name="Start">
+      <transitions
+          xsi:type="StateMachine:LocalTransition"
+          target="/48/@states.1">
+        <triggerEvent
+            name="99:create()"
+            source="valid_request_reward"/>
+      </transitions>
+    </states>
+    <states
+        name="99 Received"
+        order="intermediate">
+      <transitions
+          xsi:type="StateMachine:LocalTransition"
+          target="/48/@states.2"/>
+    </states>
+    <states
+        name="End"
+        order="final"/>
+  </StateMachine:StateMachine>
+  <StateMachine:StateMachine
+      name="-2_point"
+      ownerObject="point">
+    <states
+        name="Start">
+      <transitions
+          xsi:type="StateMachine:LocalTransition"
+          target="/49/@states.1">
+        <triggerEvent
+            name="100:create()"
+            source="valid_request_reward"/>
+      </transitions>
+    </states>
+    <states
+        name="100 Received"
+        order="intermediate">
+      <transitions
+          xsi:type="StateMachine:LocalTransition"
+          target="/49/@states.2"/>
+    </states>
+    <states
+        name="End"
+        order="final"/>
+  </StateMachine:StateMachine>
+</xmi:XMI>

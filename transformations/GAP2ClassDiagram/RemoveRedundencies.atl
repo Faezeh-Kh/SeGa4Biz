@@ -1,0 +1,133 @@
+-- @path UMLclassDiagram=/SeGa4Biz/metamodels/UMLclassDiagram.ecore
+
+module deleteRedundencies;
+create OUT: UMLclassDiagram from IN: UMLclassDiagram;
+
+helper def: allDependencies : Set (UMLclassDiagram!Dependency) = 
+	UMLclassDiagram!Dependency->allInstances();
+
+helper def: uniqueDependencies: Set(UMLclassDiagram!Dependency) =
+	thisModule.allDependencies->iterate(t; ts:Set(UMLclassDiagram!Dependency)=Set{} |
+		if ts->exists(e|(e.source = t.source) and (e.target = t.target)) then
+			ts
+		else
+			ts->including(t)
+		endif)
+;
+helper def: allAssociations : Set (UMLclassDiagram!Association) = 
+	UMLclassDiagram!Association->allInstances();
+
+helper def: uniqueAssociations: Set(UMLclassDiagram!Association) =
+	thisModule.allAssociations->iterate(t; ts:Set(UMLclassDiagram!Association)=Set{} |
+		if ts->exists(e|(e.source = t.source) and (e.target = t.target)) then
+			ts
+		else
+			ts->including(t)
+		endif)
+;
+
+rule package{
+	from
+		p_in: UMLclassDiagram!Package
+	to 
+		p_out: UMLclassDiagram!Package(
+			name <- p_in.name,
+			contents <- p_in.contents,
+			innerPackage <- p_in.innerPackage,
+			package <- p_in.package)
+}
+rule dataType{
+	from
+		datatype_in: UMLclassDiagram!DataType
+	to
+		datatype_out: UMLclassDiagram!DataType(
+			name <- datatype_in.name,
+			package <- datatype_in.package)
+}
+rule interface{
+	from
+		interface_in: UMLclassDiagram!Interface
+	to
+		interface_out: UMLclassDiagram!Interface(
+			name <- interface_in.name,
+			package <- interface_in.package)
+}
+rule class{
+	from
+		c_in: UMLclassDiagram!Class
+	to
+		c_out: UMLclassDiagram!Class (
+			attributes <- c_in.attributes,
+			implements <- c_in.implements,
+			isAbstract <- c_in.isAbstract,
+			name <- c_in.name,
+			operations <- c_in.operations,
+			outputRelations <- thisModule.uniqueDependencies.union(thisModule.uniqueAssociations),
+			package <- c_in.package,
+			superClass <- c_in.superClass)
+}
+rule attribute{
+	from
+		attr_in: UMLclassDiagram!Attribute
+	to
+		attr_out: UMLclassDiagram!Attribute(
+			name <- attr_in.name,
+			owner <- attr_in.owner,
+			package <- attr_in.package,
+			type <- attr_in.type)
+}
+rule operation{
+	from
+		op_in: UMLclassDiagram!Operation
+	to
+		op_out: UMLclassDiagram!Operation (
+			name <- op_in.name,
+			owner <- op_in.owner,
+			parameters <- op_in.parameters,
+			returnType <- op_in.returnType)
+}
+rule parameter{
+	from
+		par_in: UMLclassDiagram!Parameter
+	to
+		par_out: UMLclassDiagram!Parameter(
+			name <- par_in.name,
+			owner <- par_in.owner,
+			type <- par_in.type)
+}
+rule association{
+	from 
+		ass_in: UMLclassDiagram!Association(
+			thisModule.uniqueAssociations->includes(ass_in))
+	to
+		ass_out: UMLclassDiagram!Association (
+			isAggregation <- ass_in.isAggregation,
+			isComposition <- ass_in.isComposition,
+			multiplicity <- ass_in.multiplicity,
+			name <- ass_in.name,
+			package <- ass_in.package,
+			source <- ass_in.source,
+			target <- ass_in.target)
+}
+rule dependency{
+	from
+		de_in: UMLclassDiagram!Dependency(
+			thisModule.uniqueDependencies->includes(de_in))
+	to
+		de_out: UMLclassDiagram!Dependency (
+			name <- de_in.name,
+			package <- de_in.package,
+			source <- de_in.source,
+			target <- de_in.target)
+}
+rule interitance{
+	from
+		interitance_in: UMLclassDiagram!Inheritance
+	to
+		interitance_out: UMLclassDiagram!Inheritance (
+			name <- interitance_in.name,
+			package <- interitance_in.package,
+			source <- interitance_in.source,
+			target <- interitance_in.target)
+}
+

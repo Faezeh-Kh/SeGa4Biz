@@ -1,0 +1,1884 @@
+<?xml version="1.0" encoding="ISO-8859-1"?>
+<xmi:XMI xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:StateMachine="www.stateMachine.com">
+  <StateMachine:StateMachine name="Player:Student" ownerObject="Student">
+    <states name="Start">
+      <transitions xsi:type="StateMachine:LocalTransition" target="/0/@states.1">
+        <actions title="/4:walk to the computer" target="student_walking"/>
+      </transitions>
+    </states>
+    <states name="4 Performed" order="intermediate">
+      <transitions xsi:type="StateMachine:LocalTransition" target="/0/@states.2">
+        <actions title="/9:stand behind the computer" target="form_preparation"/>
+      </transitions>
+    </states>
+    <states name="9 Performed" order="intermediate">
+      <transitions xsi:type="StateMachine:LocalTransition" target="/0/@states.3">
+        <actions title="/12:choose download option" target="URL_challenge_finished"/>
+      </transitions>
+    </states>
+    <states name="12 Performed" order="intermediate">
+      <transitions xsi:type="StateMachine:LocalTransition" target="/0/@states.4">
+        <actions title="/13:choose print option" target="URL_challenge_finished"/>
+      </transitions>
+    </states>
+    <states name="13 Performed" order="intermediate">
+      <transitions xsi:type="StateMachine:LocalTransition" target="/0/@states.5">
+        <actions title="/18:walk to the supervisor room" target="meeting_supervisor"/>
+      </transitions>
+    </states>
+    <states name="18 Performed" order="intermediate">
+      <transitions xsi:type="StateMachine:LocalTransition" target="/0/@states.6">
+        <actions title="/19:enter to the room" target="meeting_supervisor"/>
+      </transitions>
+    </states>
+    <states name="19 Performed" order="intermediate">
+      <transitions xsi:type="StateMachine:LocalTransition" target="/0/@states.7">
+        <actions title="/20:stand in front of supervisor character" target="meeting_supervisor"/>
+      </transitions>
+    </states>
+    <states name="20 Performed" order="intermediate">
+      <transitions xsi:type="StateMachine:LocalTransition" target="/0/@states.8">
+        <actions title="/23:give the form to the supervisor character" target="form_delivery"/>
+      </transitions>
+    </states>
+    <states name="23 Performed" order="intermediate">
+      <transitions xsi:type="StateMachine:LocalTransition" target="/0/@states.9"/>
+    </states>
+    <states name="End" order="final"/>
+  </StateMachine:StateMachine>
+  <StateMachine:StateMachine name="Start_Level" ownerObject="Student">
+    <states name="0 Performed" order="intermediate">
+      <transitions xsi:type="StateMachine:LocalTransition" target="/1/@states.1">
+        <triggerEvent name="0:show level startup screen " source="Start_Level"/>
+      </transitions>
+    </states>
+    <states name="0 Received" order="intermediate">
+      <transitions xsi:type="StateMachine:LocalTransition" target="/1/@states.7">
+        <actions title="/1:show" target="level_startup"/>
+      </transitions>
+    </states>
+    <states name="2 Performed" order="intermediate">
+      <transitions xsi:type="StateMachine:LocalTransition" target="/1/@states.3">
+        <triggerEvent name="2:set level start time in player log" source="Start_Level"/>
+      </transitions>
+    </states>
+    <states name="2 Received" order="intermediate">
+      <transitions xsi:type="StateMachine:LocalTransition" target="/1/@states.8">
+        <actions title="/3:!not Defined" target="StudentLog"/>
+      </transitions>
+    </states>
+    <states name="107 Performed" order="intermediate">
+      <transitions xsi:type="StateMachine:LocalTransition" target="/1/@states.5">
+        <triggerEvent name="107:changeState(condition)" source="Start_Level"/>
+      </transitions>
+    </states>
+    <states name="107 Received" order="intermediate">
+      <transitions xsi:type="StateMachine:LocalTransition" target="/1/@states.9"/>
+    </states>
+    <states name="Start">
+      <transitions xsi:type="StateMachine:LocalTransition" target="/1/@states.0">
+        <actions title="/0:show level startup screen " target="Start_Level"/>
+      </transitions>
+    </states>
+    <states name="1 Performed" order="intermediate">
+      <transitions xsi:type="StateMachine:LocalTransition" target="/1/@states.2">
+        <actions title="/2:set level start time in player log" target="Start_Level"/>
+      </transitions>
+    </states>
+    <states name="3 Performed" order="intermediate">
+      <transitions xsi:type="StateMachine:LocalTransition" target="/1/@states.4">
+        <actions title="/107:changeState(condition)" target="Start_Level"/>
+      </transitions>
+    </states>
+    <states name="108 alt" order="intermediate">
+      <transitions xsi:type="StateMachine:LocalTransition" target="/1/@states.10">
+        <guardCondition description="[!not Defined]"/>
+        <actions title="/109:create()" target="student_walking"/>
+      </transitions>
+    </states>
+    <states name="109 Performed" order="intermediate">
+      <transitions xsi:type="StateMachine:LocalTransition" target="/1/@states.11"/>
+    </states>
+    <states name="End" order="final"/>
+  </StateMachine:StateMachine>
+  <StateMachine:StateMachine name="student_walking" ownerObject="Student">
+    <states name="Start">
+      <transitions xsi:type="StateMachine:LocalTransition" target="/2/@states.1">
+        <triggerEvent name="109:create()" source="Start_Level"/>
+      </transitions>
+    </states>
+    <states name="109 Received" order="intermediate">
+      <transitions xsi:type="StateMachine:LocalTransition" target="/2/@states.2">
+        <triggerEvent name="4:walk to the computer" source="Player:Student"/>
+      </transitions>
+    </states>
+    <states name="4 Received" order="intermediate">
+      <transitions xsi:type="StateMachine:LocalTransition" target="/2/@states.3">
+        <actions title="/5:call Task1 of BP component" target="student_walking"/>
+      </transitions>
+    </states>
+    <states name="5 Performed" order="intermediate">
+      <transitions xsi:type="StateMachine:LocalTransition" target="/2/@states.4">
+        <triggerEvent name="5:call Task1 of BP component" source="student_walking"/>
+      </transitions>
+    </states>
+    <states name="5 Received" order="intermediate">
+      <transitions xsi:type="StateMachine:LocalTransition" target="/2/@states.5">
+        <actions title="/6:preparing department thesis definition form" target="Student:Lane"/>
+      </transitions>
+    </states>
+    <states name="6 Performed" order="intermediate">
+      <transitions xsi:type="StateMachine:LocalTransition" target="/2/@states.6">
+        <triggerEvent name="8:return (correctOutputs)" source="Student:Lane"/>
+      </transitions>
+    </states>
+    <states name="8 Received" order="intermediate">
+      <transitions xsi:type="StateMachine:LocalTransition" target="/2/@states.7">
+        <actions title="/110:changeState(condition)" target="student_walking"/>
+      </transitions>
+    </states>
+    <states name="110 Performed" order="intermediate">
+      <transitions xsi:type="StateMachine:LocalTransition" target="/2/@states.8">
+        <triggerEvent name="110:changeState(condition)" source="student_walking"/>
+      </transitions>
+    </states>
+    <states name="110 Received" order="intermediate">
+      <transitions xsi:type="StateMachine:LocalTransition" target="/2/@states.9"/>
+    </states>
+    <states name="111 alt" order="intermediate">
+      <transitions xsi:type="StateMachine:LocalTransition" target="/2/@states.10">
+        <guardCondition description="[!not Defined]"/>
+        <actions title="/112:create()" target="form_preparation"/>
+      </transitions>
+    </states>
+    <states name="112 Performed" order="intermediate">
+      <transitions xsi:type="StateMachine:LocalTransition" target="/2/@states.11"/>
+    </states>
+    <states name="End" order="final"/>
+  </StateMachine:StateMachine>
+  <StateMachine:StateMachine name="form_preparation" ownerObject="Student">
+    <states name="Start">
+      <transitions xsi:type="StateMachine:LocalTransition" target="/3/@states.1">
+        <triggerEvent name="112:create()" source="student_walking"/>
+      </transitions>
+    </states>
+    <states name="112 Received" order="intermediate">
+      <transitions xsi:type="StateMachine:LocalTransition" target="/3/@states.2">
+        <triggerEvent name="9:stand behind the computer" source="Player:Student"/>
+      </transitions>
+    </states>
+    <states name="9 Received" order="intermediate">
+      <transitions xsi:type="StateMachine:LocalTransition" target="/3/@states.3">
+        <actions title="/10:run URL challenge " target="form_preparation"/>
+      </transitions>
+    </states>
+    <states name="10 Performed" order="intermediate">
+      <transitions xsi:type="StateMachine:LocalTransition" target="/3/@states.4">
+        <triggerEvent name="10:run URL challenge " source="form_preparation"/>
+      </transitions>
+    </states>
+    <states name="10 Received" order="intermediate">
+      <transitions xsi:type="StateMachine:LocalTransition" target="/3/@states.7">
+        <actions title="/11:startChallenge" target="URL_challenge"/>
+      </transitions>
+    </states>
+    <states name="113 Performed" order="intermediate">
+      <transitions xsi:type="StateMachine:LocalTransition" target="/3/@states.6">
+        <triggerEvent name="113:changeState(condition)" source="form_preparation"/>
+      </transitions>
+    </states>
+    <states name="113 Received" order="intermediate">
+      <transitions xsi:type="StateMachine:LocalTransition" target="/3/@states.9"/>
+    </states>
+    <states name="11 Performed" order="intermediate">
+      <transitions xsi:type="StateMachine:LocalTransition" target="/3/@states.8">
+        <actions title="/29:show URL Query screen" target="URL_query"/>
+      </transitions>
+    </states>
+    <states name="29 Performed" order="intermediate">
+      <transitions xsi:type="StateMachine:LocalTransition" target="/3/@states.5">
+        <actions title="/113:changeState(condition)" target="form_preparation"/>
+      </transitions>
+    </states>
+    <states name="114 alt" order="intermediate">
+      <transitions xsi:type="StateMachine:LocalTransition" target="/3/@states.10">
+        <guardCondition description="[!not Defined]"/>
+        <actions title="/115:create()" target="URL_query"/>
+      </transitions>
+    </states>
+    <states name="115 Performed" order="intermediate">
+      <transitions xsi:type="StateMachine:LocalTransition" target="/3/@states.11"/>
+    </states>
+    <states name="End" order="final"/>
+  </StateMachine:StateMachine>
+  <StateMachine:StateMachine name="printer_is_on" ownerObject="printer">
+    <states name="Start">
+      <transitions xsi:type="StateMachine:LocalTransition" target="/4/@states.1">
+        <triggerEvent name="118:create()" source="URL_challenge_finished"/>
+      </transitions>
+    </states>
+    <states name="118 Received" order="intermediate">
+      <transitions xsi:type="StateMachine:LocalTransition" target="/4/@states.2">
+        <actions title="/14:take the paper from printer" target="form_is_printed"/>
+      </transitions>
+    </states>
+    <states name="14 Performed" order="intermediate">
+      <transitions xsi:type="StateMachine:LocalTransition" target="/4/@states.3">
+        <triggerEvent name="80:play printer voice and show paper(constraint)" source="URL_challenge_finished"/>
+      </transitions>
+    </states>
+    <states name="80 Received" order="intermediate">
+      <transitions xsi:type="StateMachine:LocalTransition" target="/4/@states.6"/>
+    </states>
+    <states name="174 Performed" order="intermediate">
+      <transitions xsi:type="StateMachine:LocalTransition" target="/4/@states.5">
+        <triggerEvent name="174:changeState(condition)" source="printer_is_on"/>
+      </transitions>
+    </states>
+    <states name="174 Received" order="intermediate">
+      <transitions xsi:type="StateMachine:LocalTransition" target="/4/@states.7"/>
+    </states>
+    <states name="81 opt" order="intermediate">
+      <transitions xsi:type="StateMachine:LocalTransition" target="/4/@states.4">
+        <actions title="/174:changeState(condition)" target="printer_is_on"/>
+      </transitions>
+    </states>
+    <states name="175 alt" order="intermediate">
+      <transitions xsi:type="StateMachine:LocalTransition" target="/4/@states.8">
+        <guardCondition description="[!not Defined]"/>
+        <actions title="/176:create()" target="printer_is_off"/>
+      </transitions>
+    </states>
+    <states name="176 Performed" order="intermediate">
+      <transitions xsi:type="StateMachine:LocalTransition" target="/4/@states.9"/>
+    </states>
+    <states name="End" order="final"/>
+  </StateMachine:StateMachine>
+  <StateMachine:StateMachine name="form_is_printed" ownerObject="Student">
+    <states name="Start">
+      <transitions xsi:type="StateMachine:LocalTransition" target="/5/@states.1">
+        <triggerEvent name="14:take the paper from printer" source="printer_is_on"/>
+      </transitions>
+    </states>
+    <states name="14 Received" order="intermediate">
+      <transitions xsi:type="StateMachine:LocalTransition" target="/5/@states.4">
+        <actions title="/15:show form sections query screen" target="Form_sections_query"/>
+      </transitions>
+    </states>
+    <states name="119 Performed" order="intermediate">
+      <transitions xsi:type="StateMachine:LocalTransition" target="/5/@states.3">
+        <triggerEvent name="119:changeState(condition)" source="form_is_printed"/>
+      </transitions>
+    </states>
+    <states name="119 Received" order="intermediate">
+      <transitions xsi:type="StateMachine:LocalTransition" target="/5/@states.5"/>
+    </states>
+    <states name="15 Performed" order="intermediate">
+      <transitions xsi:type="StateMachine:LocalTransition" target="/5/@states.2">
+        <actions title="/119:changeState(condition)" target="form_is_printed"/>
+      </transitions>
+    </states>
+    <states name="120 alt" order="intermediate">
+      <transitions xsi:type="StateMachine:LocalTransition" target="/5/@states.6">
+        <guardCondition description="[!not Defined]"/>
+        <actions title="/121:create()" target="Form_sections_query"/>
+      </transitions>
+    </states>
+    <states name="121 Performed" order="intermediate">
+      <transitions xsi:type="StateMachine:LocalTransition" target="/5/@states.7"/>
+    </states>
+    <states name="End" order="final"/>
+  </StateMachine:StateMachine>
+  <StateMachine:StateMachine name="Form_sections_query" ownerObject="Student">
+    <states name="Start">
+      <transitions xsi:type="StateMachine:LocalTransition" target="/6/@states.1">
+        <triggerEvent name="121:create()" source="form_is_printed"/>
+      </transitions>
+    </states>
+    <states name="121 Received" order="intermediate">
+      <transitions xsi:type="StateMachine:LocalTransition" target="/6/@states.2">
+        <triggerEvent name="15:show form sections query screen" source="form_is_printed"/>
+      </transitions>
+    </states>
+    <states name="15 Received" order="intermediate">
+      <transitions xsi:type="StateMachine:LocalTransition" target="/6/@states.7">
+        <actions title="/16:show" target="form_sections_query"/>
+      </transitions>
+    </states>
+    <states name="17 Performed" order="intermediate">
+      <transitions xsi:type="StateMachine:LocalTransition" target="/6/@states.4">
+        <triggerEvent name="17:fill each section and save" source="Form_sections_query"/>
+      </transitions>
+    </states>
+    <states name="17 Received" order="intermediate">
+      <transitions xsi:type="StateMachine:LocalTransition" target="/6/@states.8">
+        <actions title="/83:save the form in player log(constraint)" target="form_creation"/>
+      </transitions>
+    </states>
+    <states name="122 Performed" order="intermediate">
+      <transitions xsi:type="StateMachine:LocalTransition" target="/6/@states.6">
+        <triggerEvent name="122:changeState(condition)" source="Form_sections_query"/>
+      </transitions>
+    </states>
+    <states name="122 Received" order="intermediate">
+      <transitions xsi:type="StateMachine:LocalTransition" target="/6/@states.9"/>
+    </states>
+    <states name="16 Performed" order="intermediate">
+      <transitions xsi:type="StateMachine:LocalTransition" target="/6/@states.3">
+        <actions title="/17:fill each section and save" target="Form_sections_query"/>
+      </transitions>
+    </states>
+    <states name="83 Performed" order="intermediate">
+      <transitions xsi:type="StateMachine:LocalTransition" target="/6/@states.5">
+        <actions title="/122:changeState(condition)" target="Form_sections_query"/>
+      </transitions>
+    </states>
+    <states name="123 alt" order="intermediate">
+      <transitions xsi:type="StateMachine:LocalTransition" target="/6/@states.10">
+        <guardCondition description="[!not Defined]"/>
+        <actions title="/124:create()" target="form_creation"/>
+      </transitions>
+    </states>
+    <states name="124 Performed" order="intermediate">
+      <transitions xsi:type="StateMachine:LocalTransition" target="/6/@states.11"/>
+    </states>
+    <states name="End" order="final"/>
+  </StateMachine:StateMachine>
+  <StateMachine:StateMachine name="meeting_supervisor" ownerObject="Student">
+    <states name="Start">
+      <transitions xsi:type="StateMachine:LocalTransition" target="/7/@states.1">
+        <triggerEvent name="179:create()" source="form_creation"/>
+      </transitions>
+    </states>
+    <states name="179 Received" order="intermediate">
+      <transitions xsi:type="StateMachine:LocalTransition" target="/7/@states.2">
+        <triggerEvent name="18:walk to the supervisor room" source="Player:Student"/>
+      </transitions>
+    </states>
+    <states name="18 Received" order="intermediate">
+      <transitions xsi:type="StateMachine:LocalTransition" target="/7/@states.3">
+        <triggerEvent name="19:enter to the room" source="Player:Student"/>
+      </transitions>
+    </states>
+    <states name="19 Received" order="intermediate">
+      <transitions xsi:type="StateMachine:LocalTransition" target="/7/@states.4">
+        <triggerEvent name="20:stand in front of supervisor character" source="Player:Student"/>
+      </transitions>
+    </states>
+    <states name="20 Received" order="intermediate">
+      <transitions xsi:type="StateMachine:LocalTransition" target="/7/@states.5">
+        <actions title="/21:call Task2 of BP component" target="meeting_supervisor"/>
+      </transitions>
+    </states>
+    <states name="21 Performed" order="intermediate">
+      <transitions xsi:type="StateMachine:LocalTransition" target="/7/@states.6">
+        <triggerEvent name="21:call Task2 of BP component" source="meeting_supervisor"/>
+      </transitions>
+    </states>
+    <states name="21 Received" order="intermediate">
+      <transitions xsi:type="StateMachine:LocalTransition" target="/7/@states.9">
+        <actions title="/22:deliver the form to the supervisor" target="Student:Lane"/>
+      </transitions>
+    </states>
+    <states name="125 Performed" order="intermediate">
+      <transitions xsi:type="StateMachine:LocalTransition" target="/7/@states.8">
+        <triggerEvent name="125:changeState(condition)" source="meeting_supervisor"/>
+      </transitions>
+    </states>
+    <states name="125 Received" order="intermediate">
+      <transitions xsi:type="StateMachine:LocalTransition" target="/7/@states.10"/>
+    </states>
+    <states name="22 Performed" order="intermediate">
+      <transitions xsi:type="StateMachine:LocalTransition" target="/7/@states.7">
+        <actions title="/125:changeState(condition)" target="meeting_supervisor"/>
+      </transitions>
+    </states>
+    <states name="126 alt" order="intermediate">
+      <transitions xsi:type="StateMachine:LocalTransition" target="/7/@states.11"/>
+    </states>
+    <states name="End" order="final"/>
+  </StateMachine:StateMachine>
+  <StateMachine:StateMachine name="form_rejection" ownerObject="Supervisor">
+    <states name="Start">
+      <transitions xsi:type="StateMachine:LocalTransition" target="/8/@states.1">
+        <triggerEvent name="154:create()" source="form_correctness_checking"/>
+      </transitions>
+    </states>
+    <states name="154 Received" order="intermediate">
+      <transitions xsi:type="StateMachine:LocalTransition" target="/8/@states.2">
+        <actions title="/24:student look at the paper" target="change_definition_form"/>
+      </transitions>
+    </states>
+    <states name="24 Performed" order="intermediate">
+      <transitions xsi:type="StateMachine:LocalTransition" target="/8/@states.3">
+        <triggerEvent name="51:color the form to red" source="form_correctness_checking"/>
+      </transitions>
+    </states>
+    <states name="51 Received" order="intermediate">
+      <transitions xsi:type="StateMachine:LocalTransition" target="/8/@states.4">
+        <actions title="/52:highlights wrong fields of the saved form" target="form_rejection"/>
+      </transitions>
+    </states>
+    <states name="52 Performed" order="intermediate">
+      <transitions xsi:type="StateMachine:LocalTransition" target="/8/@states.5">
+        <triggerEvent name="52:highlights wrong fields of the saved form" source="form_rejection"/>
+      </transitions>
+    </states>
+    <states name="52 Received" order="intermediate">
+      <transitions xsi:type="StateMachine:LocalTransition" target="/8/@states.6">
+        <actions title="/53:return form paper to the student" target="form_rejection"/>
+      </transitions>
+    </states>
+    <states name="53 Performed" order="intermediate">
+      <transitions xsi:type="StateMachine:LocalTransition" target="/8/@states.7">
+        <triggerEvent name="53:return form paper to the student" source="form_rejection"/>
+      </transitions>
+    </states>
+    <states name="53 Received" order="intermediate">
+      <transitions xsi:type="StateMachine:LocalTransition" target="/8/@states.8">
+        <actions title="/54:call Task4 of BP component" target="form_rejection"/>
+      </transitions>
+    </states>
+    <states name="54 Performed" order="intermediate">
+      <transitions xsi:type="StateMachine:LocalTransition" target="/8/@states.9">
+        <triggerEvent name="54:call Task4 of BP component" source="form_rejection"/>
+      </transitions>
+    </states>
+    <states name="54 Received" order="intermediate">
+      <transitions xsi:type="StateMachine:LocalTransition" target="/8/@states.12">
+        <actions title="/55:change definition form" target="Student:Lane"/>
+      </transitions>
+    </states>
+    <states name="155 Performed" order="intermediate">
+      <transitions xsi:type="StateMachine:LocalTransition" target="/8/@states.11">
+        <triggerEvent name="155:changeState(condition)" source="form_rejection"/>
+      </transitions>
+    </states>
+    <states name="155 Received" order="intermediate">
+      <transitions xsi:type="StateMachine:LocalTransition" target="/8/@states.13"/>
+    </states>
+    <states name="55 Performed" order="intermediate">
+      <transitions xsi:type="StateMachine:LocalTransition" target="/8/@states.10">
+        <actions title="/155:changeState(condition)" target="form_rejection"/>
+      </transitions>
+    </states>
+    <states name="156 alt" order="intermediate">
+      <transitions xsi:type="StateMachine:LocalTransition" target="/8/@states.14"/>
+    </states>
+    <states name="End" order="final"/>
+  </StateMachine:StateMachine>
+  <StateMachine:StateMachine name="change_definition_form" ownerObject="Student">
+    <states name="Start">
+      <transitions xsi:type="StateMachine:LocalTransition" target="/9/@states.1">
+        <triggerEvent name="24:student look at the paper" source="form_rejection"/>
+      </transitions>
+    </states>
+    <states name="24 Received" order="intermediate">
+      <transitions xsi:type="StateMachine:LocalTransition" target="/9/@states.2">
+        <actions title="/25:leave supervisor room" target="change_definition_form"/>
+      </transitions>
+    </states>
+    <states name="25 Performed" order="intermediate">
+      <transitions xsi:type="StateMachine:LocalTransition" target="/9/@states.3">
+        <triggerEvent name="25:leave supervisor room" source="change_definition_form"/>
+      </transitions>
+    </states>
+    <states name="25 Received" order="intermediate">
+      <transitions xsi:type="StateMachine:LocalTransition" target="/9/@states.6">
+        <actions title="/26:show highlighted form screen" target="Form_wrong_sections_query"/>
+      </transitions>
+    </states>
+    <states name="130 Performed" order="intermediate">
+      <transitions xsi:type="StateMachine:LocalTransition" target="/9/@states.5">
+        <triggerEvent name="130:changeState(condition)" source="change_definition_form"/>
+      </transitions>
+    </states>
+    <states name="130 Received" order="intermediate">
+      <transitions xsi:type="StateMachine:LocalTransition" target="/9/@states.7"/>
+    </states>
+    <states name="26 Performed" order="intermediate">
+      <transitions xsi:type="StateMachine:LocalTransition" target="/9/@states.4">
+        <actions title="/130:changeState(condition)" target="change_definition_form"/>
+      </transitions>
+    </states>
+    <states name="131 alt" order="intermediate">
+      <transitions xsi:type="StateMachine:LocalTransition" target="/9/@states.8">
+        <guardCondition description="[!not Defined]"/>
+        <actions title="/132:create()" target="Form_wrong_sections_query"/>
+      </transitions>
+    </states>
+    <states name="132 Performed" order="intermediate">
+      <transitions xsi:type="StateMachine:LocalTransition" target="/9/@states.9"/>
+    </states>
+    <states name="End" order="final"/>
+  </StateMachine:StateMachine>
+  <StateMachine:StateMachine name="Form_wrong_sections_query" ownerObject="Student">
+    <states name="Start">
+      <transitions xsi:type="StateMachine:LocalTransition" target="/10/@states.1">
+        <triggerEvent name="132:create()" source="change_definition_form"/>
+      </transitions>
+    </states>
+    <states name="132 Received" order="intermediate">
+      <transitions xsi:type="StateMachine:LocalTransition" target="/10/@states.2">
+        <triggerEvent name="26:show highlighted form screen" source="change_definition_form"/>
+      </transitions>
+    </states>
+    <states name="26 Received" order="intermediate">
+      <transitions xsi:type="StateMachine:LocalTransition" target="/10/@states.7">
+        <actions title="/27:show" target="highlighted_form"/>
+      </transitions>
+    </states>
+    <states name="28 Performed" order="intermediate">
+      <transitions xsi:type="StateMachine:LocalTransition" target="/10/@states.4">
+        <triggerEvent name="28:player edits each wrong sections" source="Form_wrong_sections_query"/>
+      </transitions>
+    </states>
+    <states name="28 Received" order="intermediate">
+      <transitions xsi:type="StateMachine:LocalTransition" target="/10/@states.8">
+        <actions title="/87:save updated form in player log(constraint)" target="form_updating"/>
+      </transitions>
+    </states>
+    <states name="133 Performed" order="intermediate">
+      <transitions xsi:type="StateMachine:LocalTransition" target="/10/@states.6">
+        <triggerEvent name="133:changeState(condition)" source="Form_wrong_sections_query"/>
+      </transitions>
+    </states>
+    <states name="133 Received" order="intermediate">
+      <transitions xsi:type="StateMachine:LocalTransition" target="/10/@states.9"/>
+    </states>
+    <states name="27 Performed" order="intermediate">
+      <transitions xsi:type="StateMachine:LocalTransition" target="/10/@states.3">
+        <actions title="/28:player edits each wrong sections" target="Form_wrong_sections_query"/>
+      </transitions>
+    </states>
+    <states name="87 Performed" order="intermediate">
+      <transitions xsi:type="StateMachine:LocalTransition" target="/10/@states.5">
+        <actions title="/133:changeState(condition)" target="Form_wrong_sections_query"/>
+      </transitions>
+    </states>
+    <states name="134 alt" order="intermediate">
+      <transitions xsi:type="StateMachine:LocalTransition" target="/10/@states.10">
+        <guardCondition description="[!not Defined]"/>
+        <actions title="/135:create()" target="form_updating"/>
+      </transitions>
+    </states>
+    <states name="135 Performed" order="intermediate">
+      <transitions xsi:type="StateMachine:LocalTransition" target="/10/@states.11"/>
+    </states>
+    <states name="End" order="final"/>
+  </StateMachine:StateMachine>
+  <StateMachine:StateMachine name="URL_query" ownerObject="Student">
+    <states name="Start">
+      <transitions xsi:type="StateMachine:LocalTransition" target="/11/@states.1">
+        <triggerEvent name="115:create()" source="form_preparation"/>
+      </transitions>
+    </states>
+    <states name="115 Received" order="intermediate">
+      <transitions xsi:type="StateMachine:LocalTransition" target="/11/@states.2">
+        <triggerEvent name="29:show URL Query screen" source="form_preparation"/>
+      </transitions>
+    </states>
+    <states name="29 Received" order="intermediate">
+      <transitions xsi:type="StateMachine:LocalTransition" target="/11/@states.7">
+        <actions title="/30:show" target="URL_query"/>
+      </transitions>
+    </states>
+    <states name="31 Performed" order="intermediate">
+      <transitions xsi:type="StateMachine:LocalTransition" target="/11/@states.4">
+        <triggerEvent name="31:select a URL from list" source="URL_query"/>
+      </transitions>
+    </states>
+    <states name="31 Received" order="intermediate">
+      <transitions xsi:type="StateMachine:LocalTransition" target="/11/@states.8">
+        <actions title="/32:ask task1 of BP component for correct answer" target="check_URL_challenge_response"/>
+      </transitions>
+    </states>
+    <states name="136 Performed" order="intermediate">
+      <transitions xsi:type="StateMachine:LocalTransition" target="/11/@states.6">
+        <triggerEvent name="136:changeState(condition)" source="URL_query"/>
+      </transitions>
+    </states>
+    <states name="136 Received" order="intermediate">
+      <transitions xsi:type="StateMachine:LocalTransition" target="/11/@states.9"/>
+    </states>
+    <states name="30 Performed" order="intermediate">
+      <transitions xsi:type="StateMachine:LocalTransition" target="/11/@states.3">
+        <actions title="/31:select a URL from list" target="URL_query"/>
+      </transitions>
+    </states>
+    <states name="32 Performed" order="intermediate">
+      <transitions xsi:type="StateMachine:LocalTransition" target="/11/@states.5">
+        <actions title="/136:changeState(condition)" target="URL_query"/>
+      </transitions>
+    </states>
+    <states name="137 alt" order="intermediate">
+      <transitions xsi:type="StateMachine:LocalTransition" target="/11/@states.10">
+        <guardCondition description="[!not Defined]"/>
+        <actions title="/138:create()" target="check_URL_challenge_response"/>
+      </transitions>
+    </states>
+    <states name="138 Performed" order="intermediate">
+      <transitions xsi:type="StateMachine:LocalTransition" target="/11/@states.11"/>
+    </states>
+    <states name="End" order="final"/>
+  </StateMachine:StateMachine>
+  <StateMachine:StateMachine name="show_URL_challenge_result" ownerObject="Student">
+    <states name="Start">
+      <transitions xsi:type="StateMachine:LocalTransition" target="/12/@states.1">
+        <triggerEvent name="141:create()" source="check_URL_challenge_response"/>
+      </transitions>
+    </states>
+    <states name="141 Received" order="intermediate">
+      <transitions xsi:type="StateMachine:LocalTransition" target="/12/@states.2">
+        <actions title="/34:show URL challenge result screen " target="show_URL_challenge_result"/>
+      </transitions>
+    </states>
+    <states name="34 Performed" order="intermediate">
+      <transitions xsi:type="StateMachine:LocalTransition" target="/12/@states.3">
+        <triggerEvent name="34:show URL challenge result screen " source="show_URL_challenge_result"/>
+      </transitions>
+    </states>
+    <states name="34 Received" order="intermediate">
+      <transitions xsi:type="StateMachine:LocalTransition" target="/12/@states.6">
+        <actions title="/35:show" target="URL_challenge_result"/>
+      </transitions>
+    </states>
+    <states name="142 Performed" order="intermediate">
+      <transitions xsi:type="StateMachine:LocalTransition" target="/12/@states.5">
+        <triggerEvent name="142:changeState(condition)" source="show_URL_challenge_result"/>
+      </transitions>
+    </states>
+    <states name="142 Received" order="intermediate">
+      <transitions xsi:type="StateMachine:LocalTransition" target="/12/@states.7"/>
+    </states>
+    <states name="35 Performed" order="intermediate">
+      <transitions xsi:type="StateMachine:LocalTransition" target="/12/@states.4">
+        <actions title="/142:changeState(condition)" target="show_URL_challenge_result"/>
+      </transitions>
+    </states>
+    <states name="143 alt" order="intermediate">
+      <transitions xsi:type="StateMachine:LocalTransition" target="/12/@states.8">
+        <guardCondition description="[!not Defined]"/>
+        <actions title="/144:create()" target="URL_challenge_finished"/>
+      </transitions>
+    </states>
+    <states name="144 Performed" order="intermediate">
+      <transitions xsi:type="StateMachine:LocalTransition" target="/12/@states.9"/>
+    </states>
+    <states name="End" order="final"/>
+  </StateMachine:StateMachine>
+  <StateMachine:StateMachine name="form_delivery" ownerObject="Student">
+    <states name="Start">
+      <transitions xsi:type="StateMachine:LocalTransition" target="/13/@states.1">
+        <triggerEvent name="23:give the form to the supervisor character" source="Player:Student"/>
+      </transitions>
+    </states>
+    <states name="23 Received" order="intermediate">
+      <transitions xsi:type="StateMachine:LocalTransition" target="/13/@states.4">
+        <actions title="/36:supervisor taking the paper" target="form_taking"/>
+      </transitions>
+    </states>
+    <states name="127 Performed" order="intermediate">
+      <transitions xsi:type="StateMachine:LocalTransition" target="/13/@states.3">
+        <triggerEvent name="127:changeState(condition)" source="form_delivery"/>
+      </transitions>
+    </states>
+    <states name="127 Received" order="intermediate">
+      <transitions xsi:type="StateMachine:LocalTransition" target="/13/@states.5"/>
+    </states>
+    <states name="36 Performed" order="intermediate">
+      <transitions xsi:type="StateMachine:LocalTransition" target="/13/@states.2">
+        <actions title="/127:changeState(condition)" target="form_delivery"/>
+      </transitions>
+    </states>
+    <states name="128 alt" order="intermediate">
+      <transitions xsi:type="StateMachine:LocalTransition" target="/13/@states.6">
+        <guardCondition description="[!not Defined]"/>
+        <actions title="/129:create()" target="form_taking"/>
+      </transitions>
+    </states>
+    <states name="129 Performed" order="intermediate">
+      <transitions xsi:type="StateMachine:LocalTransition" target="/13/@states.7"/>
+    </states>
+    <states name="End" order="final"/>
+  </StateMachine:StateMachine>
+  <StateMachine:StateMachine name="form_taking" ownerObject="Supervisor">
+    <states name="Start">
+      <transitions xsi:type="StateMachine:LocalTransition" target="/14/@states.1">
+        <triggerEvent name="129:create()" source="form_delivery"/>
+      </transitions>
+    </states>
+    <states name="129 Received" order="intermediate">
+      <transitions xsi:type="StateMachine:LocalTransition" target="/14/@states.2">
+        <triggerEvent name="36:supervisor taking the paper" source="form_delivery"/>
+      </transitions>
+    </states>
+    <states name="36 Received" order="intermediate">
+      <transitions xsi:type="StateMachine:LocalTransition" target="/14/@states.3">
+        <actions title="/37:call Task3 of BP component" target="form_taking"/>
+      </transitions>
+    </states>
+    <states name="37 Performed" order="intermediate">
+      <transitions xsi:type="StateMachine:LocalTransition" target="/14/@states.4">
+        <triggerEvent name="37:call Task3 of BP component" source="form_taking"/>
+      </transitions>
+    </states>
+    <states name="37 Received" order="intermediate">
+      <transitions xsi:type="StateMachine:LocalTransition" target="/14/@states.5">
+        <actions title="/38:form completeness checking" target="Supervisor:Lane"/>
+      </transitions>
+    </states>
+    <states name="38 Performed" order="intermediate">
+      <transitions xsi:type="StateMachine:LocalTransition" target="/14/@states.6">
+        <triggerEvent name="40:return (correctOutputs)" source="Supervisor:Lane"/>
+      </transitions>
+    </states>
+    <states name="40 Received" order="intermediate">
+      <transitions xsi:type="StateMachine:LocalTransition" target="/14/@states.9">
+        <actions title="/41:look at the paper" target="form_completeness_checking"/>
+      </transitions>
+    </states>
+    <states name="145 Performed" order="intermediate">
+      <transitions xsi:type="StateMachine:LocalTransition" target="/14/@states.8">
+        <triggerEvent name="145:changeState(condition)" source="form_taking"/>
+      </transitions>
+    </states>
+    <states name="145 Received" order="intermediate">
+      <transitions xsi:type="StateMachine:LocalTransition" target="/14/@states.10"/>
+    </states>
+    <states name="41 Performed" order="intermediate">
+      <transitions xsi:type="StateMachine:LocalTransition" target="/14/@states.7">
+        <actions title="/145:changeState(condition)" target="form_taking"/>
+      </transitions>
+    </states>
+    <states name="146 alt" order="intermediate">
+      <transitions xsi:type="StateMachine:LocalTransition" target="/14/@states.11">
+        <guardCondition description="[!not Defined]"/>
+        <actions title="/147:create()" target="form_completeness_checking"/>
+      </transitions>
+    </states>
+    <states name="147 Performed" order="intermediate">
+      <transitions xsi:type="StateMachine:LocalTransition" target="/14/@states.12"/>
+    </states>
+    <states name="End" order="final"/>
+  </StateMachine:StateMachine>
+  <StateMachine:StateMachine name="form_completeness_checking" ownerObject="Supervisor">
+    <states name="Start">
+      <transitions xsi:type="StateMachine:LocalTransition" target="/15/@states.1">
+        <triggerEvent name="147:create()" source="form_taking"/>
+      </transitions>
+    </states>
+    <states name="147 Received" order="intermediate">
+      <transitions xsi:type="StateMachine:LocalTransition" target="/15/@states.2">
+        <triggerEvent name="41:look at the paper" source="form_taking"/>
+      </transitions>
+    </states>
+    <states name="41 Received" order="intermediate">
+      <transitions xsi:type="StateMachine:LocalTransition" target="/15/@states.5">
+        <actions title="/42:call Gateway1 of BP component" target="form_correctness_checking"/>
+      </transitions>
+    </states>
+    <states name="148 Performed" order="intermediate">
+      <transitions xsi:type="StateMachine:LocalTransition" target="/15/@states.4">
+        <triggerEvent name="148:changeState(condition)" source="form_completeness_checking"/>
+      </transitions>
+    </states>
+    <states name="148 Received" order="intermediate">
+      <transitions xsi:type="StateMachine:LocalTransition" target="/15/@states.6"/>
+    </states>
+    <states name="42 Performed" order="intermediate">
+      <transitions xsi:type="StateMachine:LocalTransition" target="/15/@states.3">
+        <actions title="/148:changeState(condition)" target="form_completeness_checking"/>
+      </transitions>
+    </states>
+    <states name="149 alt" order="intermediate">
+      <transitions xsi:type="StateMachine:LocalTransition" target="/15/@states.7">
+        <guardCondition description="[!not Defined]"/>
+        <actions title="/150:create()" target="form_correctness_checking"/>
+      </transitions>
+    </states>
+    <states name="150 Performed" order="intermediate">
+      <transitions xsi:type="StateMachine:LocalTransition" target="/15/@states.8"/>
+    </states>
+    <states name="End" order="final"/>
+  </StateMachine:StateMachine>
+  <StateMachine:StateMachine name="form_correctness_checking" ownerObject="Supervisor">
+    <states name="Start">
+      <transitions xsi:type="StateMachine:LocalTransition" target="/16/@states.1">
+        <triggerEvent name="150:create()" source="form_completeness_checking"/>
+      </transitions>
+    </states>
+    <states name="150 Received" order="intermediate">
+      <transitions xsi:type="StateMachine:LocalTransition" target="/16/@states.2">
+        <triggerEvent name="42:call Gateway1 of BP component" source="form_completeness_checking"/>
+      </transitions>
+    </states>
+    <states name="42 Received" order="intermediate">
+      <transitions xsi:type="StateMachine:LocalTransition" target="/16/@states.9">
+        <actions title="/43:is the form complete?" target="Supervisor:Lane"/>
+      </transitions>
+    </states>
+    <states name="47 Performed" order="intermediate">
+      <transitions xsi:type="StateMachine:LocalTransition" target="/16/@states.4">
+        <triggerEvent name="47:save result in player log" source="form_correctness_checking"/>
+      </transitions>
+    </states>
+    <states name="47 Received" order="intermediate">
+      <transitions xsi:type="StateMachine:LocalTransition" target="/16/@states.10">
+        <actions title="/48:!not Defined" target="StudentLog"/>
+      </transitions>
+    </states>
+    <states name="49 Performed" order="intermediate">
+      <transitions xsi:type="StateMachine:LocalTransition" target="/16/@states.6">
+        <triggerEvent name="49:run Thesis definition accuracy challenge" source="form_correctness_checking"/>
+      </transitions>
+    </states>
+    <states name="49 Received" order="intermediate">
+      <transitions xsi:type="StateMachine:LocalTransition" target="/16/@states.11">
+        <actions title="/50:startChallenge" target="Thesis_definition_accuracy"/>
+      </transitions>
+    </states>
+    <states name="151 Performed" order="intermediate">
+      <transitions xsi:type="StateMachine:LocalTransition" target="/16/@states.8">
+        <triggerEvent name="151:changeState(condition)" source="form_correctness_checking"/>
+      </transitions>
+    </states>
+    <states name="151 Received" order="intermediate">
+      <transitions xsi:type="StateMachine:LocalTransition" target="/16/@states.16"/>
+    </states>
+    <states name="43 Performed" order="intermediate">
+      <transitions xsi:type="StateMachine:LocalTransition" target="/16/@states.3">
+        <actions title="/47:save result in player log" target="form_correctness_checking"/>
+      </transitions>
+    </states>
+    <states name="48 Performed" order="intermediate">
+      <transitions xsi:type="StateMachine:LocalTransition" target="/16/@states.5">
+        <actions title="/49:run Thesis definition accuracy challenge" target="form_correctness_checking"/>
+      </transitions>
+    </states>
+    <states name="50 Performed" order="intermediate">
+      <transitions xsi:type="StateMachine:LocalTransition" target="/16/@states.12">
+        <actions title="/51:color the form to red" target="form_rejection"/>
+      </transitions>
+    </states>
+    <states name="51 Performed" order="intermediate">
+      <transitions xsi:type="StateMachine:LocalTransition" target="/16/@states.13">
+        <actions title="/57:color the form to green" target="form_acceptance"/>
+      </transitions>
+    </states>
+    <states name="57 Performed" order="intermediate">
+      <transitions xsi:type="StateMachine:LocalTransition" target="/16/@states.14">
+        <actions title="/91:recall Task2 of BP component" target="form_updating"/>
+      </transitions>
+    </states>
+    <states name="91 Performed" order="intermediate">
+      <transitions xsi:type="StateMachine:LocalTransition" target="/16/@states.15">
+        <actions title="/100:runScoringRule" target="challenge_response_checking"/>
+      </transitions>
+    </states>
+    <states name="100 Performed" order="intermediate">
+      <transitions xsi:type="StateMachine:LocalTransition" target="/16/@states.7">
+        <actions title="/151:changeState(condition)" target="form_correctness_checking"/>
+      </transitions>
+    </states>
+    <states name="152 alt" order="intermediate">
+      <transitions xsi:type="StateMachine:LocalTransition" target="/16/@states.17">
+        <guardCondition description="[!not Defined]"/>
+        <actions title="/153:create()" target="form_acceptance"/>
+      </transitions>
+      <transitions xsi:type="StateMachine:LocalTransition" target="/16/@states.19">
+        <guardCondition description="[!not Defined]"/>
+        <actions title="/154:create()" target="form_rejection"/>
+      </transitions>
+    </states>
+    <states name="153 Performed" order="intermediate">
+      <transitions xsi:type="StateMachine:LocalTransition" target="/16/@states.18"/>
+    </states>
+    <states name="End" order="final"/>
+    <states name="154 Performed" order="intermediate">
+      <transitions xsi:type="StateMachine:LocalTransition" target="/16/@states.18"/>
+    </states>
+  </StateMachine:StateMachine>
+  <StateMachine:StateMachine name="form_acceptance" ownerObject="Supervisor">
+    <states name="Start">
+      <transitions xsi:type="StateMachine:LocalTransition" target="/17/@states.1">
+        <triggerEvent name="153:create()" source="form_correctness_checking"/>
+      </transitions>
+    </states>
+    <states name="153 Received" order="intermediate">
+      <transitions xsi:type="StateMachine:LocalTransition" target="/17/@states.2">
+        <triggerEvent name="57:color the form to green" source="form_correctness_checking"/>
+      </transitions>
+    </states>
+    <states name="57 Received" order="intermediate">
+      <transitions xsi:type="StateMachine:LocalTransition" target="/17/@states.3">
+        <actions title="/58:call Task5 of BP component" target="form_acceptance"/>
+      </transitions>
+    </states>
+    <states name="58 Performed" order="intermediate">
+      <transitions xsi:type="StateMachine:LocalTransition" target="/17/@states.4">
+        <triggerEvent name="58:call Task5 of BP component" source="form_acceptance"/>
+      </transitions>
+    </states>
+    <states name="58 Received" order="intermediate">
+      <transitions xsi:type="StateMachine:LocalTransition" target="/17/@states.7">
+        <actions title="/59:form confirmation and signing" target="Supervisor:Lane"/>
+      </transitions>
+    </states>
+    <states name="157 Performed" order="intermediate">
+      <transitions xsi:type="StateMachine:LocalTransition" target="/17/@states.6">
+        <triggerEvent name="157:changeState(condition)" source="form_acceptance"/>
+      </transitions>
+    </states>
+    <states name="157 Received" order="intermediate">
+      <transitions xsi:type="StateMachine:LocalTransition" target="/17/@states.9"/>
+    </states>
+    <states name="59 Performed" order="intermediate">
+      <transitions xsi:type="StateMachine:LocalTransition" target="/17/@states.8">
+        <actions title="/60:Supervisor write something on the form" target="form_confirmation_and_signing"/>
+      </transitions>
+    </states>
+    <states name="60 Performed" order="intermediate">
+      <transitions xsi:type="StateMachine:LocalTransition" target="/17/@states.5">
+        <actions title="/157:changeState(condition)" target="form_acceptance"/>
+      </transitions>
+    </states>
+    <states name="158 alt" order="intermediate">
+      <transitions xsi:type="StateMachine:LocalTransition" target="/17/@states.10">
+        <guardCondition description="[!not Defined]"/>
+        <actions title="/159:create()" target="form_confirmation_and_signing"/>
+      </transitions>
+    </states>
+    <states name="159 Performed" order="intermediate">
+      <transitions xsi:type="StateMachine:LocalTransition" target="/17/@states.11"/>
+    </states>
+    <states name="End" order="final"/>
+  </StateMachine:StateMachine>
+  <StateMachine:StateMachine name="form_confirmation_and_signing" ownerObject="Supervisor">
+    <states name="Start">
+      <transitions xsi:type="StateMachine:LocalTransition" target="/18/@states.1">
+        <triggerEvent name="159:create()" source="form_acceptance"/>
+      </transitions>
+    </states>
+    <states name="159 Received" order="intermediate">
+      <transitions xsi:type="StateMachine:LocalTransition" target="/18/@states.2">
+        <triggerEvent name="60:Supervisor write something on the form" source="form_acceptance"/>
+      </transitions>
+    </states>
+    <states name="60 Received" order="intermediate">
+      <transitions xsi:type="StateMachine:LocalTransition" target="/18/@states.3">
+        <actions title="/61:put the form on the table" target="form_confirmation_and_signing"/>
+      </transitions>
+    </states>
+    <states name="61 Performed" order="intermediate">
+      <transitions xsi:type="StateMachine:LocalTransition" target="/18/@states.4">
+        <triggerEvent name="61:put the form on the table" source="form_confirmation_and_signing"/>
+      </transitions>
+    </states>
+    <states name="61 Received" order="intermediate">
+      <transitions xsi:type="StateMachine:LocalTransition" target="/18/@states.5">
+        <actions title="/62:call End Event of BP component" target="form_confirmation_and_signing"/>
+      </transitions>
+    </states>
+    <states name="62 Performed" order="intermediate">
+      <transitions xsi:type="StateMachine:LocalTransition" target="/18/@states.6">
+        <triggerEvent name="62:call End Event of BP component" source="form_confirmation_and_signing"/>
+      </transitions>
+    </states>
+    <states name="62 Received" order="intermediate">
+      <transitions xsi:type="StateMachine:LocalTransition" target="/18/@states.9">
+        <actions title="/63:endEvent" target="Supervisor:Lane"/>
+      </transitions>
+    </states>
+    <states name="160 Performed" order="intermediate">
+      <transitions xsi:type="StateMachine:LocalTransition" target="/18/@states.8">
+        <triggerEvent name="160:changeState(condition)" source="form_confirmation_and_signing"/>
+      </transitions>
+    </states>
+    <states name="160 Received" order="intermediate">
+      <transitions xsi:type="StateMachine:LocalTransition" target="/18/@states.10"/>
+    </states>
+    <states name="63 Performed" order="intermediate">
+      <transitions xsi:type="StateMachine:LocalTransition" target="/18/@states.7">
+        <actions title="/160:changeState(condition)" target="form_confirmation_and_signing"/>
+      </transitions>
+    </states>
+    <states name="161 alt" order="intermediate">
+      <transitions xsi:type="StateMachine:LocalTransition" target="/18/@states.11"/>
+    </states>
+    <states name="End" order="final"/>
+  </StateMachine:StateMachine>
+  <StateMachine:StateMachine name="Final_State" ownerObject="Supervisor">
+    <states name="64 Performed" order="intermediate">
+      <transitions xsi:type="StateMachine:LocalTransition" target="/19/@states.1">
+        <triggerEvent name="64:save level finishing time in player log" source="Final_State"/>
+      </transitions>
+    </states>
+    <states name="64 Received" order="intermediate">
+      <transitions xsi:type="StateMachine:LocalTransition" target="/19/@states.9">
+        <actions title="/65:!not Defined" target="StudentLog"/>
+      </transitions>
+    </states>
+    <states name="66 Performed" order="intermediate">
+      <transitions xsi:type="StateMachine:LocalTransition" target="/19/@states.3">
+        <triggerEvent name="66:show end of level screen" source="Final_State"/>
+      </transitions>
+    </states>
+    <states name="66 Received" order="intermediate">
+      <transitions xsi:type="StateMachine:LocalTransition" target="/19/@states.10">
+        <actions title="/67:show" target="End_of_level"/>
+      </transitions>
+    </states>
+    <states name="68 Performed" order="intermediate">
+      <transitions xsi:type="StateMachine:LocalTransition" target="/19/@states.5">
+        <triggerEvent name="68:update game result for player" source="Final_State"/>
+      </transitions>
+    </states>
+    <states name="68 Received" order="intermediate">
+      <transitions xsi:type="StateMachine:LocalTransition" target="/19/@states.11">
+        <actions title="/69:!not Defined" target="StudentLog"/>
+      </transitions>
+    </states>
+    <states name="70 Performed" order="intermediate">
+      <transitions xsi:type="StateMachine:LocalTransition" target="/19/@states.7">
+        <triggerEvent name="70:show level result screen" source="Final_State"/>
+      </transitions>
+    </states>
+    <states name="70 Received" order="intermediate">
+      <transitions xsi:type="StateMachine:LocalTransition" target="/19/@states.12">
+        <actions title="/71:show" target="level_result"/>
+      </transitions>
+    </states>
+    <states name="Start">
+      <transitions xsi:type="StateMachine:LocalTransition" target="/19/@states.0">
+        <actions title="/64:save level finishing time in player log" target="Final_State"/>
+      </transitions>
+    </states>
+    <states name="65 Performed" order="intermediate">
+      <transitions xsi:type="StateMachine:LocalTransition" target="/19/@states.2">
+        <actions title="/66:show end of level screen" target="Final_State"/>
+      </transitions>
+    </states>
+    <states name="67 Performed" order="intermediate">
+      <transitions xsi:type="StateMachine:LocalTransition" target="/19/@states.4">
+        <actions title="/68:update game result for player" target="Final_State"/>
+      </transitions>
+    </states>
+    <states name="69 Performed" order="intermediate">
+      <transitions xsi:type="StateMachine:LocalTransition" target="/19/@states.6">
+        <actions title="/70:show level result screen" target="Final_State"/>
+      </transitions>
+    </states>
+    <states name="71 Performed" order="intermediate">
+      <transitions xsi:type="StateMachine:LocalTransition" target="/19/@states.13"/>
+    </states>
+    <states name="End" order="final"/>
+  </StateMachine:StateMachine>
+  <StateMachine:StateMachine name="open_s" ownerObject="door_s">
+    <states name="Start">
+      <transitions xsi:type="StateMachine:LocalTransition" target="/20/@states.1">
+        <triggerEvent name="167:create()" source="close_s"/>
+      </transitions>
+    </states>
+    <states name="167 Received" order="intermediate">
+      <transitions xsi:type="StateMachine:LocalTransition" target="/20/@states.2">
+        <actions title="/72:open the door_s(constraint)" target="open_s"/>
+      </transitions>
+    </states>
+    <states name="72 Performed" order="intermediate">
+      <transitions xsi:type="StateMachine:LocalTransition" target="/20/@states.3">
+        <triggerEvent name="72:open the door_s(constraint)" source="open_s"/>
+      </transitions>
+    </states>
+    <states name="72 Received" order="intermediate">
+      <transitions xsi:type="StateMachine:LocalTransition" target="/20/@states.6"/>
+    </states>
+    <states name="162 Performed" order="intermediate">
+      <transitions xsi:type="StateMachine:LocalTransition" target="/20/@states.5">
+        <triggerEvent name="162:changeState(condition)" source="open_s"/>
+      </transitions>
+    </states>
+    <states name="162 Received" order="intermediate">
+      <transitions xsi:type="StateMachine:LocalTransition" target="/20/@states.7"/>
+    </states>
+    <states name="73 opt" order="intermediate">
+      <transitions xsi:type="StateMachine:LocalTransition" target="/20/@states.4">
+        <actions title="/162:changeState(condition)" target="open_s"/>
+      </transitions>
+    </states>
+    <states name="163 alt" order="intermediate">
+      <transitions xsi:type="StateMachine:LocalTransition" target="/20/@states.8">
+        <guardCondition description="[!not Defined]"/>
+        <actions title="/164:create()" target="close_s"/>
+      </transitions>
+    </states>
+    <states name="164 Performed" order="intermediate">
+      <transitions xsi:type="StateMachine:LocalTransition" target="/20/@states.9"/>
+    </states>
+    <states name="End" order="final"/>
+  </StateMachine:StateMachine>
+  <StateMachine:StateMachine name="close_s" ownerObject="door_s">
+    <states name="Start">
+      <transitions xsi:type="StateMachine:LocalTransition" target="/21/@states.1">
+        <triggerEvent name="164:create()" source="open_s"/>
+      </transitions>
+    </states>
+    <states name="164 Received" order="intermediate">
+      <transitions xsi:type="StateMachine:LocalTransition" target="/21/@states.2">
+        <actions title="/74:close the door_s(constraint)" target="close_s"/>
+      </transitions>
+    </states>
+    <states name="74 Performed" order="intermediate">
+      <transitions xsi:type="StateMachine:LocalTransition" target="/21/@states.3">
+        <triggerEvent name="74:close the door_s(constraint)" source="close_s"/>
+      </transitions>
+    </states>
+    <states name="74 Received" order="intermediate">
+      <transitions xsi:type="StateMachine:LocalTransition" target="/21/@states.6"/>
+    </states>
+    <states name="165 Performed" order="intermediate">
+      <transitions xsi:type="StateMachine:LocalTransition" target="/21/@states.5">
+        <triggerEvent name="165:changeState(condition)" source="close_s"/>
+      </transitions>
+    </states>
+    <states name="165 Received" order="intermediate">
+      <transitions xsi:type="StateMachine:LocalTransition" target="/21/@states.7"/>
+    </states>
+    <states name="75 opt" order="intermediate">
+      <transitions xsi:type="StateMachine:LocalTransition" target="/21/@states.4">
+        <actions title="/165:changeState(condition)" target="close_s"/>
+      </transitions>
+    </states>
+    <states name="166 alt" order="intermediate">
+      <transitions xsi:type="StateMachine:LocalTransition" target="/21/@states.8">
+        <guardCondition description="[!not Defined]"/>
+        <actions title="/167:create()" target="open_s"/>
+      </transitions>
+    </states>
+    <states name="167 Performed" order="intermediate">
+      <transitions xsi:type="StateMachine:LocalTransition" target="/21/@states.9"/>
+    </states>
+    <states name="End" order="final"/>
+  </StateMachine:StateMachine>
+  <StateMachine:StateMachine name="open" ownerObject="door">
+    <states name="Start">
+      <transitions xsi:type="StateMachine:LocalTransition" target="/22/@states.1">
+        <triggerEvent name="173:create()" source="close"/>
+      </transitions>
+    </states>
+    <states name="173 Received" order="intermediate">
+      <transitions xsi:type="StateMachine:LocalTransition" target="/22/@states.2">
+        <actions title="/76:open the door(constraint,Animation)" target="open"/>
+      </transitions>
+    </states>
+    <states name="76 Performed" order="intermediate">
+      <transitions xsi:type="StateMachine:LocalTransition" target="/22/@states.3">
+        <triggerEvent name="76:open the door(constraint,Animation)" source="open"/>
+      </transitions>
+    </states>
+    <states name="76 Received" order="intermediate">
+      <transitions xsi:type="StateMachine:LocalTransition" target="/22/@states.6"/>
+    </states>
+    <states name="168 Performed" order="intermediate">
+      <transitions xsi:type="StateMachine:LocalTransition" target="/22/@states.5">
+        <triggerEvent name="168:changeState(condition)" source="open"/>
+      </transitions>
+    </states>
+    <states name="168 Received" order="intermediate">
+      <transitions xsi:type="StateMachine:LocalTransition" target="/22/@states.7"/>
+    </states>
+    <states name="77 opt" order="intermediate">
+      <transitions xsi:type="StateMachine:LocalTransition" target="/22/@states.4">
+        <actions title="/168:changeState(condition)" target="open"/>
+      </transitions>
+    </states>
+    <states name="169 alt" order="intermediate">
+      <transitions xsi:type="StateMachine:LocalTransition" target="/22/@states.8">
+        <guardCondition description="[!not Defined]"/>
+        <actions title="/170:create()" target="close"/>
+      </transitions>
+    </states>
+    <states name="170 Performed" order="intermediate">
+      <transitions xsi:type="StateMachine:LocalTransition" target="/22/@states.9"/>
+    </states>
+    <states name="End" order="final"/>
+  </StateMachine:StateMachine>
+  <StateMachine:StateMachine name="close" ownerObject="door">
+    <states name="Start">
+      <transitions xsi:type="StateMachine:LocalTransition" target="/23/@states.1">
+        <triggerEvent name="170:create()" source="open"/>
+      </transitions>
+    </states>
+    <states name="170 Received" order="intermediate">
+      <transitions xsi:type="StateMachine:LocalTransition" target="/23/@states.2">
+        <actions title="/78:close the door(constraint,Animation)" target="close"/>
+      </transitions>
+    </states>
+    <states name="78 Performed" order="intermediate">
+      <transitions xsi:type="StateMachine:LocalTransition" target="/23/@states.3">
+        <triggerEvent name="78:close the door(constraint,Animation)" source="close"/>
+      </transitions>
+    </states>
+    <states name="78 Received" order="intermediate">
+      <transitions xsi:type="StateMachine:LocalTransition" target="/23/@states.6"/>
+    </states>
+    <states name="171 Performed" order="intermediate">
+      <transitions xsi:type="StateMachine:LocalTransition" target="/23/@states.5">
+        <triggerEvent name="171:changeState(condition)" source="close"/>
+      </transitions>
+    </states>
+    <states name="171 Received" order="intermediate">
+      <transitions xsi:type="StateMachine:LocalTransition" target="/23/@states.7"/>
+    </states>
+    <states name="79 opt" order="intermediate">
+      <transitions xsi:type="StateMachine:LocalTransition" target="/23/@states.4">
+        <actions title="/171:changeState(condition)" target="close"/>
+      </transitions>
+    </states>
+    <states name="172 alt" order="intermediate">
+      <transitions xsi:type="StateMachine:LocalTransition" target="/23/@states.8">
+        <guardCondition description="[!not Defined]"/>
+        <actions title="/173:create()" target="open"/>
+      </transitions>
+    </states>
+    <states name="173 Performed" order="intermediate">
+      <transitions xsi:type="StateMachine:LocalTransition" target="/23/@states.9"/>
+    </states>
+    <states name="End" order="final"/>
+  </StateMachine:StateMachine>
+  <StateMachine:StateMachine name="URL_challenge_finished" ownerObject="Student">
+    <states name="Start">
+      <transitions xsi:type="StateMachine:LocalTransition" target="/24/@states.1">
+        <triggerEvent name="144:create()" source="show_URL_challenge_result"/>
+      </transitions>
+    </states>
+    <states name="144 Received" order="intermediate">
+      <transitions xsi:type="StateMachine:LocalTransition" target="/24/@states.2">
+        <triggerEvent name="12:choose download option" source="Player:Student"/>
+      </transitions>
+    </states>
+    <states name="12 Received" order="intermediate">
+      <transitions xsi:type="StateMachine:LocalTransition" target="/24/@states.3">
+        <triggerEvent name="13:choose print option" source="Player:Student"/>
+      </transitions>
+    </states>
+    <states name="13 Received" order="intermediate">
+      <transitions xsi:type="StateMachine:LocalTransition" target="/24/@states.6">
+        <actions title="/80:play printer voice and show paper(constraint)" target="printer_is_on"/>
+      </transitions>
+    </states>
+    <states name="116 Performed" order="intermediate">
+      <transitions xsi:type="StateMachine:LocalTransition" target="/24/@states.5">
+        <triggerEvent name="116:changeState(condition)" source="URL_challenge_finished"/>
+      </transitions>
+    </states>
+    <states name="116 Received" order="intermediate">
+      <transitions xsi:type="StateMachine:LocalTransition" target="/24/@states.7"/>
+    </states>
+    <states name="80 Performed" order="intermediate">
+      <transitions xsi:type="StateMachine:LocalTransition" target="/24/@states.4">
+        <actions title="/116:changeState(condition)" target="URL_challenge_finished"/>
+      </transitions>
+    </states>
+    <states name="117 alt" order="intermediate">
+      <transitions xsi:type="StateMachine:LocalTransition" target="/24/@states.8">
+        <guardCondition description="[!not Defined]"/>
+        <actions title="/118:create()" target="printer_is_on"/>
+      </transitions>
+    </states>
+    <states name="118 Performed" order="intermediate">
+      <transitions xsi:type="StateMachine:LocalTransition" target="/24/@states.9"/>
+    </states>
+    <states name="End" order="final"/>
+  </StateMachine:StateMachine>
+  <StateMachine:StateMachine name="printer_is_off" ownerObject="printer">
+    <states name="Start">
+      <transitions xsi:type="StateMachine:LocalTransition" target="/25/@states.1">
+        <triggerEvent name="176:create()" source="printer_is_on"/>
+      </transitions>
+    </states>
+    <states name="176 Received" order="intermediate">
+      <transitions xsi:type="StateMachine:LocalTransition" target="/25/@states.2">
+        <actions title="/82:stop printer voice" target="printer_is_off"/>
+      </transitions>
+    </states>
+    <states name="82 Performed" order="intermediate">
+      <transitions xsi:type="StateMachine:LocalTransition" target="/25/@states.3">
+        <triggerEvent name="82:stop printer voice" source="printer_is_off"/>
+      </transitions>
+    </states>
+    <states name="82 Received" order="intermediate">
+      <transitions xsi:type="StateMachine:LocalTransition" target="/25/@states.4"/>
+    </states>
+    <states name="End" order="final"/>
+  </StateMachine:StateMachine>
+  <StateMachine:StateMachine name="form_creation" ownerObject="form Paper">
+    <states name="Start">
+      <transitions xsi:type="StateMachine:LocalTransition" target="/26/@states.1">
+        <triggerEvent name="124:create()" source="Form_sections_query"/>
+      </transitions>
+    </states>
+    <states name="124 Received" order="intermediate">
+      <transitions xsi:type="StateMachine:LocalTransition" target="/26/@states.2">
+        <triggerEvent name="83:save the form in player log(constraint)" source="Form_sections_query"/>
+      </transitions>
+    </states>
+    <states name="83 Received" order="intermediate">
+      <transitions xsi:type="StateMachine:LocalTransition" target="/26/@states.7"/>
+    </states>
+    <states name="86 Performed" order="intermediate">
+      <transitions xsi:type="StateMachine:LocalTransition" target="/26/@states.4">
+        <triggerEvent name="86:Player write something on the form" source="form_creation"/>
+      </transitions>
+    </states>
+    <states name="86 Received" order="intermediate">
+      <transitions xsi:type="StateMachine:LocalTransition" target="/26/@states.9">
+        <actions title="/90:Player edit something on the form" target="form_updating"/>
+      </transitions>
+    </states>
+    <states name="177 Performed" order="intermediate">
+      <transitions xsi:type="StateMachine:LocalTransition" target="/26/@states.6">
+        <triggerEvent name="177:changeState(condition)" source="form_creation"/>
+      </transitions>
+    </states>
+    <states name="177 Received" order="intermediate">
+      <transitions xsi:type="StateMachine:LocalTransition" target="/26/@states.10"/>
+    </states>
+    <states name="84 opt" order="intermediate">
+      <transitions xsi:type="StateMachine:LocalTransition" target="/26/@states.8">
+        <guardCondition description="[&#x2018;save&#x2019; option is selected]"/>
+        <actions title="/85:!not Defined" target="StudentLog"/>
+      </transitions>
+      <transitions xsi:type="StateMachine:LocalTransition" target="/26/@states.3"/>
+    </states>
+    <states name="85 Performed" order="intermediate">
+      <transitions xsi:type="StateMachine:LocalTransition" target="/26/@states.3">
+        <actions title="/86:Player write something on the form" target="form_creation"/>
+      </transitions>
+    </states>
+    <states name="90 Performed" order="intermediate">
+      <transitions xsi:type="StateMachine:LocalTransition" target="/26/@states.5">
+        <actions title="/177:changeState(condition)" target="form_creation"/>
+      </transitions>
+    </states>
+    <states name="178 alt" order="intermediate">
+      <transitions xsi:type="StateMachine:LocalTransition" target="/26/@states.11">
+        <guardCondition description="[!not Defined]"/>
+        <actions title="/179:create()" target="meeting_supervisor"/>
+      </transitions>
+    </states>
+    <states name="179 Performed" order="intermediate">
+      <transitions xsi:type="StateMachine:LocalTransition" target="/26/@states.12"/>
+    </states>
+    <states name="End" order="final"/>
+  </StateMachine:StateMachine>
+  <StateMachine:StateMachine name="level_startup" ownerObject="level startup">
+    <states name="Start">
+      <transitions xsi:type="StateMachine:LocalTransition" target="/27/@states.1">
+        <triggerEvent name="1:show" source="Start_Level"/>
+      </transitions>
+    </states>
+    <states name="1 Received" order="intermediate">
+      <transitions xsi:type="StateMachine:LocalTransition" target="/27/@states.2"/>
+    </states>
+    <states name="End" order="final"/>
+  </StateMachine:StateMachine>
+  <StateMachine:StateMachine name="StudentLog" ownerObject="StudentLog">
+    <states name="Start">
+      <transitions xsi:type="StateMachine:LocalTransition" target="/28/@states.1">
+        <triggerEvent name="3:!not Defined" source="Start_Level"/>
+      </transitions>
+    </states>
+    <states name="3 Received" order="intermediate">
+      <transitions xsi:type="StateMachine:LocalTransition" target="/28/@states.2">
+        <triggerEvent name="48:!not Defined" source="form_correctness_checking"/>
+      </transitions>
+    </states>
+    <states name="48 Received" order="intermediate">
+      <transitions xsi:type="StateMachine:LocalTransition" target="/28/@states.3">
+        <triggerEvent name="65:!not Defined" source="Final_State"/>
+      </transitions>
+    </states>
+    <states name="65 Received" order="intermediate">
+      <transitions xsi:type="StateMachine:LocalTransition" target="/28/@states.4">
+        <triggerEvent name="69:!not Defined" source="Final_State"/>
+      </transitions>
+    </states>
+    <states name="69 Received" order="intermediate">
+      <transitions xsi:type="StateMachine:LocalTransition" target="/28/@states.5">
+        <triggerEvent name="85:!not Defined" source="form_creation"/>
+      </transitions>
+    </states>
+    <states name="85 Received" order="intermediate">
+      <transitions xsi:type="StateMachine:LocalTransition" target="/28/@states.6">
+        <triggerEvent name="89:!not Defined" source="form_updating"/>
+      </transitions>
+    </states>
+    <states name="89 Received" order="intermediate">
+      <transitions xsi:type="StateMachine:LocalTransition" target="/28/@states.7">
+        <triggerEvent name="99:!not Defined: save challenge score" source="URL_challenge_reward"/>
+      </transitions>
+    </states>
+    <states name="99 Received" order="intermediate">
+      <transitions xsi:type="StateMachine:LocalTransition" target="/28/@states.8">
+        <triggerEvent name="106:!not Defined: save challenge score" source="Thesis_definition_accuracy_challenge_reward"/>
+      </transitions>
+    </states>
+    <states name="106 Received" order="intermediate">
+      <transitions xsi:type="StateMachine:LocalTransition" target="/28/@states.9"/>
+    </states>
+    <states name="End" order="final"/>
+  </StateMachine:StateMachine>
+  <StateMachine:StateMachine name="Student:Lane" ownerObject="Student_lane">
+    <states name="Start">
+      <transitions xsi:type="StateMachine:LocalTransition" target="/29/@states.1">
+        <triggerEvent name="6:preparing department thesis definition form" source="student_walking"/>
+      </transitions>
+    </states>
+    <states name="6 Received" order="intermediate">
+      <transitions xsi:type="StateMachine:LocalTransition" target="/29/@states.9">
+        <actions title="/7:!not defined: create/ update/ delete?" target="department_thesis_definition_form:Resource"/>
+      </transitions>
+    </states>
+    <states name="8 Performed" order="intermediate">
+      <transitions xsi:type="StateMachine:LocalTransition" target="/29/@states.3">
+        <triggerEvent name="22:deliver the form to the supervisor" source="meeting_supervisor"/>
+      </transitions>
+    </states>
+    <states name="22 Received" order="intermediate">
+      <transitions xsi:type="StateMachine:LocalTransition" target="/29/@states.4">
+        <triggerEvent name="33:preparing department thesis definition form" source="check_URL_challenge_response"/>
+      </transitions>
+    </states>
+    <states name="33 Received" order="intermediate">
+      <transitions xsi:type="StateMachine:LocalTransition" target="/29/@states.5">
+        <triggerEvent name="55:change definition form" source="form_rejection"/>
+      </transitions>
+    </states>
+    <states name="55 Received" order="intermediate">
+      <transitions xsi:type="StateMachine:LocalTransition" target="/29/@states.6">
+        <actions title="/56:read" target="department_thesis_definition_form:Resource"/>
+      </transitions>
+    </states>
+    <states name="56 Performed" order="intermediate">
+      <transitions xsi:type="StateMachine:LocalTransition" target="/29/@states.7">
+        <triggerEvent name="92:deliver the form to the supervisor" source="form_updating"/>
+      </transitions>
+    </states>
+    <states name="92 Received" order="intermediate">
+      <transitions xsi:type="StateMachine:LocalTransition" target="/29/@states.8"/>
+    </states>
+    <states name="End" order="final"/>
+    <states name="7 Performed" order="intermediate">
+      <transitions xsi:type="StateMachine:LocalTransition" target="/29/@states.2">
+        <actions title="/8:return (correctOutputs)" target="student_walking"/>
+      </transitions>
+    </states>
+  </StateMachine:StateMachine>
+  <StateMachine:StateMachine name="department_thesis_definition_form:Resource" ownerObject="department thesis definition form">
+    <states name="Start">
+      <transitions xsi:type="StateMachine:LocalTransition" target="/30/@states.1">
+        <triggerEvent name="7:!not defined: create/ update/ delete?" source="Student:Lane"/>
+      </transitions>
+    </states>
+    <states name="7 Received" order="intermediate">
+      <transitions xsi:type="StateMachine:LocalTransition" target="/30/@states.2">
+        <triggerEvent name="39:read" source="Supervisor:Lane"/>
+      </transitions>
+    </states>
+    <states name="39 Received" order="intermediate">
+      <transitions xsi:type="StateMachine:LocalTransition" target="/30/@states.3">
+        <triggerEvent name="56:read" source="Student:Lane"/>
+      </transitions>
+    </states>
+    <states name="56 Received" order="intermediate">
+      <transitions xsi:type="StateMachine:LocalTransition" target="/30/@states.4"/>
+    </states>
+    <states name="End" order="final"/>
+  </StateMachine:StateMachine>
+  <StateMachine:StateMachine name="URL_challenge" ownerObject="Student">
+    <states name="Start">
+      <transitions xsi:type="StateMachine:LocalTransition" target="/31/@states.1">
+        <triggerEvent name="11:startChallenge" source="form_preparation"/>
+      </transitions>
+    </states>
+    <states name="11 Received" order="intermediate">
+      <transitions xsi:type="StateMachine:LocalTransition" target="/31/@states.2"/>
+    </states>
+    <states name="End" order="final"/>
+  </StateMachine:StateMachine>
+  <StateMachine:StateMachine name="form_sections_query" ownerObject="form sections query">
+    <states name="Start">
+      <transitions xsi:type="StateMachine:LocalTransition" target="/32/@states.1">
+        <triggerEvent name="16:show" source="Form_sections_query"/>
+      </transitions>
+    </states>
+    <states name="16 Received" order="intermediate">
+      <transitions xsi:type="StateMachine:LocalTransition" target="/32/@states.2"/>
+    </states>
+    <states name="End" order="final"/>
+  </StateMachine:StateMachine>
+  <StateMachine:StateMachine name="highlighted_form" ownerObject="highlighted form">
+    <states name="Start">
+      <transitions xsi:type="StateMachine:LocalTransition" target="/33/@states.1">
+        <triggerEvent name="27:show" source="Form_wrong_sections_query"/>
+      </transitions>
+    </states>
+    <states name="27 Received" order="intermediate">
+      <transitions xsi:type="StateMachine:LocalTransition" target="/33/@states.2"/>
+    </states>
+    <states name="End" order="final"/>
+  </StateMachine:StateMachine>
+  <StateMachine:StateMachine name="URL_query" ownerObject="URL query">
+    <states name="Start">
+      <transitions xsi:type="StateMachine:LocalTransition" target="/34/@states.1">
+        <triggerEvent name="30:show" source="URL_query"/>
+      </transitions>
+    </states>
+    <states name="30 Received" order="intermediate">
+      <transitions xsi:type="StateMachine:LocalTransition" target="/34/@states.2"/>
+    </states>
+    <states name="End" order="final"/>
+  </StateMachine:StateMachine>
+  <StateMachine:StateMachine name="check_URL_challenge_response" ownerObject="Student">
+    <states name="Start">
+      <transitions xsi:type="StateMachine:LocalTransition" target="/35/@states.1">
+        <triggerEvent name="138:create()" source="URL_query"/>
+      </transitions>
+    </states>
+    <states name="138 Received" order="intermediate">
+      <transitions xsi:type="StateMachine:LocalTransition" target="/35/@states.2">
+        <triggerEvent name="32:ask task1 of BP component for correct answer" source="URL_query"/>
+      </transitions>
+    </states>
+    <states name="32 Received" order="intermediate">
+      <transitions xsi:type="StateMachine:LocalTransition" target="/35/@states.7">
+        <actions title="/33:preparing department thesis definition form" target="Student:Lane"/>
+      </transitions>
+    </states>
+    <states name="93 Performed" order="intermediate">
+      <transitions xsi:type="StateMachine:LocalTransition" target="/35/@states.4">
+        <triggerEvent name="93:runScoringRule" source="check_URL_challenge_response"/>
+      </transitions>
+    </states>
+    <states name="93 Received" order="intermediate">
+      <transitions xsi:type="StateMachine:LocalTransition" target="/35/@states.8">
+        <actions title="/94:calculateScore" target="URL_challenge_reward"/>
+      </transitions>
+    </states>
+    <states name="139 Performed" order="intermediate">
+      <transitions xsi:type="StateMachine:LocalTransition" target="/35/@states.6">
+        <triggerEvent name="139:changeState(condition)" source="check_URL_challenge_response"/>
+      </transitions>
+    </states>
+    <states name="139 Received" order="intermediate">
+      <transitions xsi:type="StateMachine:LocalTransition" target="/35/@states.9"/>
+    </states>
+    <states name="33 Performed" order="intermediate">
+      <transitions xsi:type="StateMachine:LocalTransition" target="/35/@states.3">
+        <actions title="/93:runScoringRule" target="check_URL_challenge_response"/>
+      </transitions>
+    </states>
+    <states name="94 Performed" order="intermediate">
+      <transitions xsi:type="StateMachine:LocalTransition" target="/35/@states.5">
+        <actions title="/139:changeState(condition)" target="check_URL_challenge_response"/>
+      </transitions>
+    </states>
+    <states name="140 alt" order="intermediate">
+      <transitions xsi:type="StateMachine:LocalTransition" target="/35/@states.10">
+        <guardCondition description="[!not Defined]"/>
+        <actions title="/141:create()" target="show_URL_challenge_result"/>
+      </transitions>
+    </states>
+    <states name="141 Performed" order="intermediate">
+      <transitions xsi:type="StateMachine:LocalTransition" target="/35/@states.11"/>
+    </states>
+    <states name="End" order="final"/>
+  </StateMachine:StateMachine>
+  <StateMachine:StateMachine name="URL_challenge_result" ownerObject="URL challenge result">
+    <states name="Start">
+      <transitions xsi:type="StateMachine:LocalTransition" target="/36/@states.1">
+        <triggerEvent name="35:show" source="show_URL_challenge_result"/>
+      </transitions>
+    </states>
+    <states name="35 Received" order="intermediate">
+      <transitions xsi:type="StateMachine:LocalTransition" target="/36/@states.2"/>
+    </states>
+    <states name="End" order="final"/>
+  </StateMachine:StateMachine>
+  <StateMachine:StateMachine name="Supervisor:Lane" ownerObject="Supervisor_lane">
+    <states name="Start">
+      <transitions xsi:type="StateMachine:LocalTransition" target="/37/@states.1">
+        <triggerEvent name="38:form completeness checking" source="form_taking"/>
+      </transitions>
+    </states>
+    <states name="38 Received" order="intermediate">
+      <transitions xsi:type="StateMachine:LocalTransition" target="/37/@states.12">
+        <actions title="/39:read" target="department_thesis_definition_form:Resource"/>
+      </transitions>
+    </states>
+    <states name="40 Performed" order="intermediate">
+      <transitions xsi:type="StateMachine:LocalTransition" target="/37/@states.3">
+        <triggerEvent name="43:is the form complete?" source="form_correctness_checking"/>
+      </transitions>
+    </states>
+    <states name="43 Received" order="intermediate">
+      <transitions xsi:type="StateMachine:LocalTransition" target="/37/@states.8"/>
+    </states>
+    <states name="45 Performed" order="intermediate">
+      <transitions xsi:type="StateMachine:LocalTransition" target="/37/@states.5">
+        <triggerEvent name="45:setCorrectOutputs" source="Supervisor:Lane"/>
+      </transitions>
+    </states>
+    <states name="45 Received" order="intermediate">
+      <transitions xsi:type="StateMachine:LocalTransition" target="/37/@states.9"/>
+    </states>
+    <states name="46 Performed" order="intermediate">
+      <transitions xsi:type="StateMachine:LocalTransition" target="/37/@states.7">
+        <triggerEvent name="46:setCorrectOutputs" source="Supervisor:Lane"/>
+      </transitions>
+    </states>
+    <states name="46 Received" order="intermediate">
+      <transitions xsi:type="StateMachine:LocalTransition" target="/37/@states.9">
+        <triggerEvent name="59:form confirmation and signing" source="form_acceptance"/>
+      </transitions>
+    </states>
+    <states name="44 alt" order="intermediate">
+      <transitions xsi:type="StateMachine:LocalTransition" target="/37/@states.9"/>
+      <transitions xsi:type="StateMachine:LocalTransition" target="/37/@states.4">
+        <guardCondition description="[!not Defined]"/>
+        <actions title="/45:setCorrectOutputs" target="Supervisor:Lane"/>
+      </transitions>
+      <transitions xsi:type="StateMachine:LocalTransition" target="/37/@states.6">
+        <guardCondition description="[!not Defined]"/>
+        <actions title="/46:setCorrectOutputs" target="Supervisor:Lane"/>
+      </transitions>
+    </states>
+    <states name="59 Received" order="intermediate">
+      <transitions xsi:type="StateMachine:LocalTransition" target="/37/@states.10">
+        <triggerEvent name="63:endEvent" source="form_confirmation_and_signing"/>
+      </transitions>
+    </states>
+    <states name="63 Received" order="intermediate">
+      <transitions xsi:type="StateMachine:LocalTransition" target="/37/@states.11"/>
+    </states>
+    <states name="End" order="final"/>
+    <states name="39 Performed" order="intermediate">
+      <transitions xsi:type="StateMachine:LocalTransition" target="/37/@states.2">
+        <actions title="/40:return (correctOutputs)" target="form_taking"/>
+      </transitions>
+    </states>
+  </StateMachine:StateMachine>
+  <StateMachine:StateMachine name="Thesis_definition_accuracy" ownerObject="Student">
+    <states name="Start">
+      <transitions xsi:type="StateMachine:LocalTransition" target="/38/@states.1">
+        <triggerEvent name="50:startChallenge" source="form_correctness_checking"/>
+      </transitions>
+    </states>
+    <states name="50 Received" order="intermediate">
+      <transitions xsi:type="StateMachine:LocalTransition" target="/38/@states.2"/>
+    </states>
+    <states name="End" order="final"/>
+  </StateMachine:StateMachine>
+  <StateMachine:StateMachine name="End_of_level" ownerObject="End of level">
+    <states name="Start">
+      <transitions xsi:type="StateMachine:LocalTransition" target="/39/@states.1">
+        <triggerEvent name="67:show" source="Final_State"/>
+      </transitions>
+    </states>
+    <states name="67 Received" order="intermediate">
+      <transitions xsi:type="StateMachine:LocalTransition" target="/39/@states.2"/>
+    </states>
+    <states name="End" order="final"/>
+  </StateMachine:StateMachine>
+  <StateMachine:StateMachine name="level_result" ownerObject="level result">
+    <states name="Start">
+      <transitions xsi:type="StateMachine:LocalTransition" target="/40/@states.1">
+        <triggerEvent name="71:show" source="Final_State"/>
+      </transitions>
+    </states>
+    <states name="71 Received" order="intermediate">
+      <transitions xsi:type="StateMachine:LocalTransition" target="/40/@states.2"/>
+    </states>
+    <states name="End" order="final"/>
+  </StateMachine:StateMachine>
+  <StateMachine:StateMachine name="form_updating" ownerObject="form Paper">
+    <states name="Start">
+      <transitions xsi:type="StateMachine:LocalTransition" target="/41/@states.1">
+        <triggerEvent name="135:create()" source="Form_wrong_sections_query"/>
+      </transitions>
+    </states>
+    <states name="135 Received" order="intermediate">
+      <transitions xsi:type="StateMachine:LocalTransition" target="/41/@states.2">
+        <triggerEvent name="87:save updated form in player log(constraint)" source="Form_wrong_sections_query"/>
+      </transitions>
+    </states>
+    <states name="87 Received" order="intermediate">
+      <transitions xsi:type="StateMachine:LocalTransition" target="/41/@states.3"/>
+    </states>
+    <states name="88 opt" order="intermediate">
+      <transitions xsi:type="StateMachine:LocalTransition" target="/41/@states.4"/>
+      <transitions xsi:type="StateMachine:LocalTransition" target="/41/@states.5">
+        <guardCondition description="[&#x2018;save&#x2019; option is selected]"/>
+        <actions title="/89:!not Defined" target="StudentLog"/>
+      </transitions>
+    </states>
+    <states name="90 Received" order="intermediate">
+      <transitions xsi:type="StateMachine:LocalTransition" target="/41/@states.6">
+        <triggerEvent name="91:recall Task2 of BP component" source="form_correctness_checking"/>
+      </transitions>
+    </states>
+    <states name="89 Performed" order="intermediate">
+      <transitions xsi:type="StateMachine:LocalTransition" target="/41/@states.4">
+        <triggerEvent name="90:Player edit something on the form" source="form_creation"/>
+      </transitions>
+    </states>
+    <states name="91 Received" order="intermediate">
+      <transitions xsi:type="StateMachine:LocalTransition" target="/41/@states.9">
+        <actions title="/92:deliver the form to the supervisor" target="Student:Lane"/>
+      </transitions>
+    </states>
+    <states name="180 Performed" order="intermediate">
+      <transitions xsi:type="StateMachine:LocalTransition" target="/41/@states.8">
+        <triggerEvent name="180:changeState(condition)" source="form_updating"/>
+      </transitions>
+    </states>
+    <states name="180 Received" order="intermediate">
+      <transitions xsi:type="StateMachine:LocalTransition" target="/41/@states.10"/>
+    </states>
+    <states name="92 Performed" order="intermediate">
+      <transitions xsi:type="StateMachine:LocalTransition" target="/41/@states.7">
+        <actions title="/180:changeState(condition)" target="form_updating"/>
+      </transitions>
+    </states>
+    <states name="181 alt" order="intermediate">
+      <transitions xsi:type="StateMachine:LocalTransition" target="/41/@states.11"/>
+    </states>
+    <states name="End" order="final"/>
+  </StateMachine:StateMachine>
+  <StateMachine:StateMachine name="URL_challenge_reward" ownerObject="URL challenge reward">
+    <states name="Start">
+      <transitions xsi:type="StateMachine:LocalTransition" target="/42/@states.1">
+        <triggerEvent name="94:calculateScore" source="check_URL_challenge_response"/>
+      </transitions>
+    </states>
+    <states name="94 Received" order="intermediate">
+      <transitions xsi:type="StateMachine:LocalTransition" target="/42/@states.2"/>
+    </states>
+    <states name="95 alt" order="intermediate">
+      <transitions xsi:type="StateMachine:LocalTransition" target="/42/@states.3">
+        <guardCondition description="[if (user answer=correct answer) add 5 points]"/>
+        <actions title="/96:create()" target="5_point"/>
+      </transitions>
+      <transitions xsi:type="StateMachine:LocalTransition" target="/42/@states.4">
+        <guardCondition description="[else reduce 3 points]"/>
+        <actions title="/97:create()" target="3_point"/>
+      </transitions>
+    </states>
+    <states name="96 Performed" order="intermediate">
+      <transitions xsi:type="StateMachine:LocalTransition" target="/42/@states.5"/>
+    </states>
+    <states name="97 Performed" order="intermediate">
+      <transitions xsi:type="StateMachine:LocalTransition" target="/42/@states.5">
+        <actions title="/99:!not Defined: save challenge score" target="StudentLog"/>
+      </transitions>
+    </states>
+    <states name="99 Performed" order="intermediate">
+      <transitions xsi:type="StateMachine:LocalTransition" target="/42/@states.6"/>
+    </states>
+    <states name="End" order="final"/>
+  </StateMachine:StateMachine>
+  <StateMachine:StateMachine name="5_point" ownerObject="point">
+    <states name="Start">
+      <transitions xsi:type="StateMachine:LocalTransition" target="/43/@states.1">
+        <triggerEvent name="96:create()" source="URL_challenge_reward"/>
+      </transitions>
+    </states>
+    <states name="96 Received" order="intermediate">
+      <transitions xsi:type="StateMachine:LocalTransition" target="/43/@states.2"/>
+    </states>
+    <states name="End" order="final"/>
+  </StateMachine:StateMachine>
+  <StateMachine:StateMachine name="3_point" ownerObject="point">
+    <states name="Start">
+      <transitions xsi:type="StateMachine:LocalTransition" target="/44/@states.1">
+        <triggerEvent name="97:create()" source="URL_challenge_reward"/>
+      </transitions>
+    </states>
+    <states name="97 Received" order="intermediate">
+      <transitions xsi:type="StateMachine:LocalTransition" target="/44/@states.2"/>
+    </states>
+    <states name="End" order="final"/>
+  </StateMachine:StateMachine>
+  <StateMachine:StateMachine name="challenge_response_checking" ownerObject="Student">
+    <states name="Start">
+      <transitions xsi:type="StateMachine:LocalTransition" target="/45/@states.1">
+        <triggerEvent name="100:runScoringRule" source="form_correctness_checking"/>
+      </transitions>
+    </states>
+    <states name="100 Received" order="intermediate">
+      <transitions xsi:type="StateMachine:LocalTransition" target="/45/@states.2">
+        <actions title="/101:calculateScore" target="Thesis_definition_accuracy_challenge_reward"/>
+      </transitions>
+    </states>
+    <states name="101 Performed" order="intermediate">
+      <transitions xsi:type="StateMachine:LocalTransition" target="/45/@states.3"/>
+    </states>
+    <states name="End" order="final"/>
+  </StateMachine:StateMachine>
+  <StateMachine:StateMachine name="Thesis_definition_accuracy_challenge_reward" ownerObject="Thesis definition accuracy challenge reward">
+    <states name="Start">
+      <transitions xsi:type="StateMachine:LocalTransition" target="/46/@states.1">
+        <triggerEvent name="101:calculateScore" source="challenge_response_checking"/>
+      </transitions>
+    </states>
+    <states name="101 Received" order="intermediate">
+      <transitions xsi:type="StateMachine:LocalTransition" target="/46/@states.2"/>
+    </states>
+    <states name="102 alt" order="intermediate">
+      <transitions xsi:type="StateMachine:LocalTransition" target="/46/@states.3">
+        <guardCondition description="[if (form is accurate) give the player a Badge]"/>
+        <actions title="/103:create()" target="Thesis_definition_expertise"/>
+      </transitions>
+      <transitions xsi:type="StateMachine:LocalTransition" target="/46/@states.4">
+        <guardCondition description="[else reduce 1 points from his score for each wrong answer]"/>
+        <actions title="/104:create()" target="1_point"/>
+      </transitions>
+      <transitions xsi:type="StateMachine:LocalTransition" target="/46/@states.5"/>
+    </states>
+    <states name="103 Performed" order="intermediate">
+      <transitions xsi:type="StateMachine:LocalTransition" target="/46/@states.5"/>
+    </states>
+    <states name="104 Performed" order="intermediate">
+      <transitions xsi:type="StateMachine:LocalTransition" target="/46/@states.5">
+        <actions title="/106:!not Defined: save challenge score" target="StudentLog"/>
+      </transitions>
+    </states>
+    <states name="106 Performed" order="intermediate">
+      <transitions xsi:type="StateMachine:LocalTransition" target="/46/@states.6"/>
+    </states>
+    <states name="End" order="final"/>
+  </StateMachine:StateMachine>
+  <StateMachine:StateMachine name="Thesis_definition_expertise" ownerObject="badge">
+    <states name="Start">
+      <transitions xsi:type="StateMachine:LocalTransition" target="/47/@states.1">
+        <triggerEvent name="103:create()" source="Thesis_definition_accuracy_challenge_reward"/>
+      </transitions>
+    </states>
+    <states name="103 Received" order="intermediate">
+      <transitions xsi:type="StateMachine:LocalTransition" target="/47/@states.2"/>
+    </states>
+    <states name="End" order="final"/>
+  </StateMachine:StateMachine>
+  <StateMachine:StateMachine name="1_point" ownerObject="point">
+    <states name="Start">
+      <transitions xsi:type="StateMachine:LocalTransition" target="/48/@states.1">
+        <triggerEvent name="104:create()" source="Thesis_definition_accuracy_challenge_reward"/>
+      </transitions>
+    </states>
+    <states name="104 Received" order="intermediate">
+      <transitions xsi:type="StateMachine:LocalTransition" target="/48/@states.2"/>
+    </states>
+    <states name="End" order="final"/>
+  </StateMachine:StateMachine>
+</xmi:XMI>

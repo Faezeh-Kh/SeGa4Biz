@@ -1,0 +1,133 @@
+-- @path FSM=/SeGa4Biz/metamodels/FSM.ecore
+
+module RemoveRedundancies;
+create OUT: FSM from IN: FSM;
+
+helper context FSM!StateMachine def: neededStates: Set(FSM!State) =
+	self.states ->iterate(s; ts:Set(FSM!State)=Set{} |
+		if (s.actions->isEmpty() and s.events->size()=1) then
+			if (s.events->first().oclIsKindOf(FSM!CoreEvents))then
+				ts
+			else
+				ts->including(s)
+			endif
+		else
+			ts->including(s)
+		endif)
+; 
+rule stateMachine{
+	from
+		sm_in: FSM!StateMachine
+	to
+		sm_out: FSM!StateMachine(
+			name <- sm_in.name,
+			ownerObject <- sm_in.ownerObject,
+			states <- sm_in.neededStates,
+			systemEvents <- sm_in.systemEvents)
+}
+rule startCoreEvent{
+	from
+		event_in: FSM!CoreEvents (
+			event_in.ownerState.oclIsUndefined())
+	to
+		event_out: FSM!CoreEvents(
+			name <- event_in.name,
+			ownerMachine <- event_in.ownerMachine,
+			ownerState <- event_in.ownerState,
+			triggerTransition <- thisModule.transitionFromStartEvent(event_in.triggerTransition))
+}
+unique lazy rule transitionFromStartEvent{
+	from
+		transition_in: FSM!LocalTransition
+	to
+		transition_out: FSM!LocalTransition(
+			sourceState <- OclUndefined,
+			target <- 
+				if (transition_in.target.ownerMachine.neededStates->includes(transition_in.target)) then
+					transition_in.target
+				else
+					FSM!LocalTransition->allInstances()->select(t | t.sourceState = transition_in.target)->first().target
+				endif)
+}
+rule state{
+	from
+		state_in: FSM!State (
+			state_in.ownerMachine.neededStates->includes(state_in))
+	to
+		state_out: FSM!State (
+			name <- state_in.name,
+			isStartState <- state_in.isStartState,
+			actions <- state_in.actions,
+			events <- state_in.events -> collect(e | e.makeEvents),
+			ownerMachine <- state_in.ownerMachine)
+}
+helper context FSM!TransitionEvent def: makeEvents : OclAny = 
+	if (self.oclIsKindOf(FSM!CustomEvent)) then
+		thisModule.customEvent(self)
+	else
+		thisModule.finishedCoreEvents(self)
+	endif;
+
+unique lazy rule customEvent{
+	from
+		event_in: FSM!CustomEvent
+	to
+		event_out: FSM!CustomEvent(
+			name <- event_in.name,
+			isGlobal <- event_in.isGlobal,
+			isPlayerRequest <- event_in.isPlayerRequest,
+			ownerState <- event_in.ownerState,
+			triggerTransition <- thisModule.localTransition(event_in.triggerTransition))
+}
+unique lazy rule finishedCoreEvents{
+	from
+		event_in: FSM!CoreEvents
+	to
+		event_out: FSM!CoreEvents(
+			name <- event_in.name,
+			ownerMachine <- event_in.ownerMachine,
+			ownerState <- event_in.ownerState,
+			triggerTransition <- thisModule.localTransition(event_in.triggerTransition))
+}
+unique lazy rule localTransition{
+	from
+		transition_in: FSM!LocalTransition
+	to
+		transition_out: FSM!LocalTransition(
+			sourceState <- transition_in.sourceState,
+			target <- 
+				if (transition_in.target.ownerMachine.neededStates->includes(transition_in.target)) then
+					transition_in.target
+				else
+					FSM!LocalTransition->allInstances()->select(t | t.sourceState = transition_in.target)->first().target
+				endif)
+}
+rule customAction{
+	from
+		action_in: FSM!CustomAction
+	to
+		action_out: FSM!CustomAction(
+			title <- action_in.title,
+			parameters <- action_in.parameters,
+			ownerState <- action_in.ownerState)
+}
+rule systemAction{
+	from
+		action_in: FSM!SystemAction
+	to
+		action_out: FSM!SystemAction(
+			title <- action_in.title,
+			parameters <- action_in.parameters,
+			ownerState <- action_in.ownerState,
+			category <- action_in.category)
+}
+rule parameter{
+	from
+		parameter_in: FSM!Parameter
+	to
+		parameter_out: FSM!Parameter(
+			name <- parameter_in.name,
+			neededVariables <- parameter_in.neededVariables,
+			ownerAction <- parameter_in.ownerAction,
+			value <- parameter_in.value)
+}

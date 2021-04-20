@@ -1,0 +1,705 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xmi:XMI xmi:version="2.0"
+    xmlns:xmi="http://www.omg.org/XMI"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xmlns:BPMN="www.BPMN.com"
+    xmlns:GUI="www.GUI.com"
+    xmlns:GameLogic="www.GameLogic.com"
+    xmlns:ScoringModel="www.ScoringModel.com"
+    xsi:schemaLocation="www.BPMN.com /SeGa4Biz/metamodels/GAP.ecore#//BPMN www.GUI.com /SeGa4Biz/metamodels/GAP.ecore#//GUI www.GameLogic.com /SeGa4Biz/metamodels/GAP.ecore#//GameLogic www.ScoringModel.com /SeGa4Biz/metamodels/GAP.ecore#//GameLogic/ScoringModel">
+  <BPMN:BusinessProcess
+      name="Master Thesis Definition">
+    <participants
+        name="University">
+      <lanes
+          name="Student">
+        <elements
+            xsi:type="BPMN:StartEvent">
+          <flows
+              description=""
+              target="/0/@participants.0/@lanes.0/@elements.1"/>
+        </elements>
+        <elements
+            xsi:type="BPMN:Task"
+            title="preparing department thesis definition form">
+          <flows
+              target="/0/@participants.0/@lanes.0/@elements.2"/>
+        </elements>
+        <elements
+            xsi:type="BPMN:Task"
+            title="deliver the form to the supervisor"
+            type="manualTask">
+          <flows
+              target="/0/@participants.0/@lanes.1/@elements.0"/>
+        </elements>
+        <elements
+            xsi:type="BPMN:Task"
+            title="change definition form">
+          <flows
+              target="/0/@participants.0/@lanes.0/@elements.2"/>
+        </elements>
+        <relatedObjects
+            xsi:type="GUI:PlayerCharacter"
+            name="Student"
+            components="/1 /2 /5">
+          <states
+              name="Start Level"
+              isStartState="true">
+            <actions
+                title="show level startup screen "
+                relatedElementType="screen"
+                relatedScreen="/9"/>
+            <actions
+                title="set level start time in player log"
+                relatedElementType="log"
+                relatedLog="/0/@participants.0/@lanes.0/@relatedObjects.0/@playerLog">
+              <triggers
+                  source="/0/@participants.0/@lanes.0/@relatedObjects.0/@states.0/@actions.0"/>
+            </actions>
+            <changeRules
+                xsi:type="GameLogic:Deterministic"
+                targetState="/0/@participants.0/@lanes.0/@relatedObjects.0/@states.1"/>
+          </states>
+          <states
+              name="student walking">
+            <actions
+                title="walk to the computer"
+                isPlayerRequest="true"/>
+            <actions
+                title="call Task1 of BP component"
+                relatedElementType="bpElement"
+                relatedBPelement="/0/@participants.0/@lanes.0/@elements.1">
+              <triggers
+                  source="/0/@participants.0/@lanes.0/@relatedObjects.0/@states.1/@actions.0"/>
+            </actions>
+            <changeRules
+                xsi:type="GameLogic:Deterministic"
+                targetState="/0/@participants.0/@lanes.0/@relatedObjects.0/@states.2"/>
+          </states>
+          <states
+              name="form preparation">
+            <actions
+                title="stand behind the computer"
+                isPlayerRequest="true"/>
+            <actions
+                title="run URL challenge "
+                relatedElementType="challenge"
+                relatedChallenge="/0/@participants.0/@lanes.0/@relatedObjects.0/@challenges.0">
+              <triggers
+                  source="/0/@participants.0/@lanes.0/@relatedObjects.0/@states.2/@actions.0"/>
+            </actions>
+            <changeRules
+                xsi:type="GameLogic:Deterministic"
+                targetState="/0/@participants.0/@lanes.0/@relatedObjects.0/@challenges.0/@states.0"/>
+          </states>
+          <states
+              name="URL challenge finished">
+            <actions
+                title="choose download option"
+                isPlayerRequest="true"/>
+            <actions
+                title="choose print option"
+                isPlayerRequest="true"/>
+            <changeRules
+                xsi:type="GameLogic:Deterministic"
+                targetState="/0/@participants.0/@relatedObjects.0/@innerObjects.1/@innerObjects.4/@states.0"/>
+          </states>
+          <states
+              name="form is printed">
+            <actions
+                xsi:type="GameLogic:Interaction"
+                title="take the paper from printer"
+                isPlayerRequest="true"
+                from="/0/@participants.0/@lanes.0/@relatedObjects.0"
+                to="/0/@resources.0/@relatedObject.0">
+              <triggers
+                  source="/0/@participants.0/@relatedObjects.0/@innerObjects.1/@innerObjects.4/@states.0/@actions.0"/>
+            </actions>
+            <changeRules
+                xsi:type="GameLogic:Deterministic"
+                targetState="/0/@participants.0/@lanes.0/@relatedObjects.0/@states.5"/>
+          </states>
+          <states
+              name="Form sections query">
+            <actions
+                title="show form sections query screen"
+                relatedElementType="screen"
+                relatedScreen="/10">
+              <triggers
+                  source="/0/@participants.0/@lanes.0/@relatedObjects.0/@states.4/@actions.0"/>
+            </actions>
+            <actions
+                title="fill each section and save">
+              <triggers
+                  source="/0/@participants.0/@lanes.0/@relatedObjects.0/@states.5/@actions.0"/>
+            </actions>
+            <changeRules
+                xsi:type="GameLogic:Deterministic"
+                targetState="/0/@resources.0/@relatedObject.0/@states.0"/>
+          </states>
+          <states
+              name="meeting supervisor">
+            <actions
+                title="walk to the supervisor room"
+                isPlayerRequest="true"/>
+            <actions
+                title="enter to the room"
+                isPlayerRequest="true"/>
+            <actions
+                title="stand in front of supervisor character"
+                isPlayerRequest="true"/>
+            <actions
+                title="call Task2 of BP component"
+                relatedElementType="bpElement"
+                relatedBPelement="/0/@participants.0/@lanes.0/@elements.2">
+              <triggers
+                  source="/0/@participants.0/@lanes.0/@relatedObjects.0/@states.6/@actions.2"/>
+            </actions>
+            <changeRules
+                xsi:type="GameLogic:Deterministic"/>
+          </states>
+          <states
+              name="form delivery">
+            <actions
+                xsi:type="GameLogic:Interaction"
+                title="give the form to the supervisor character"
+                isPlayerRequest="true"
+                from="/0/@participants.0/@lanes.0/@relatedObjects.0"
+                to="/0/@participants.0/@lanes.1/@relatedObjects.0"/>
+            <changeRules
+                xsi:type="GameLogic:Deterministic"
+                targetState="/0/@participants.0/@lanes.1/@relatedObjects.0/@states.0"/>
+          </states>
+          <states
+              name="change definition form">
+            <actions
+                title="student look at the paper">
+              <triggers
+                  source="/0/@participants.0/@lanes.1/@relatedObjects.0/@states.3/@actions.2"/>
+            </actions>
+            <actions
+                title="leave supervisor room">
+              <triggers
+                  source="/0/@participants.0/@lanes.0/@relatedObjects.0/@states.8/@actions.0"/>
+            </actions>
+            <changeRules
+                xsi:type="GameLogic:Deterministic"
+                targetState="/0/@participants.0/@lanes.0/@relatedObjects.0/@states.9"/>
+          </states>
+          <states
+              name="Form wrong sections query">
+            <actions
+                title="show highlighted form screen"
+                relatedElementType="screen"
+                relatedScreen="/13">
+              <triggers
+                  source="/0/@participants.0/@lanes.0/@relatedObjects.0/@states.8/@actions.1"/>
+            </actions>
+            <actions
+                title="player edits each wrong sections">
+              <triggers
+                  source="/0/@participants.0/@lanes.0/@relatedObjects.0/@states.9/@actions.0"/>
+            </actions>
+            <changeRules
+                xsi:type="GameLogic:Deterministic"
+                targetState="/0/@resources.0/@relatedObject.0/@states.1"/>
+          </states>
+          <challenges
+              xsi:type="GameLogic:KnowledgeChallenge"
+              title="URL challenge"
+              description="show a list of URLs and ask student to choose one of them to get access to the thesis definition form ">
+            <scoringRule
+                title="URL challenge reward">
+              <rewardConditions
+                  title="if (user answer=correct answer) add 5 points">
+                <rewards
+                    xsi:type="ScoringModel:Point"
+                    value="5"/>
+              </rewardConditions>
+              <rewardConditions
+                  title="else reduce 3 points">
+                <rewards
+                    xsi:type="ScoringModel:Point"
+                    value="3"/>
+              </rewardConditions>
+            </scoringRule>
+            <states
+                name="URL query">
+              <actions
+                  title="show URL Query screen"
+                  relatedElementType="screen"
+                  relatedScreen="/11">
+                <triggers
+                    source="/0/@participants.0/@lanes.0/@relatedObjects.0/@states.2/@actions.1"/>
+              </actions>
+              <actions
+                  title="select a URL from list">
+                <triggers
+                    source="/0/@participants.0/@lanes.0/@relatedObjects.0/@challenges.0/@states.0/@actions.0"/>
+              </actions>
+              <changeRules
+                  xsi:type="GameLogic:Deterministic"
+                  targetState="/0/@participants.0/@lanes.0/@relatedObjects.0/@challenges.0/@states.1"/>
+            </states>
+            <states
+                name="check URL challenge response">
+              <actions
+                  title="ask task1 of BP component for correct answer"
+                  relatedElementType="bpElement"
+                  relatedBPelement="/0/@participants.0/@lanes.0/@elements.1">
+                <triggers
+                    source="/0/@participants.0/@lanes.0/@relatedObjects.0/@challenges.0/@states.0/@actions.1"/>
+              </actions>
+              <actions
+                  title="runScoringRule">
+                <triggers
+                    source="/0/@participants.0/@lanes.0/@relatedObjects.0/@challenges.0/@states.1/@actions.0"/>
+              </actions>
+              <changeRules
+                  xsi:type="GameLogic:Deterministic"
+                  targetState="/0/@participants.0/@lanes.0/@relatedObjects.0/@challenges.0/@states.2"/>
+            </states>
+            <states
+                name="show URL challenge result">
+              <actions
+                  title="show URL challenge result screen "
+                  relatedElementType="screen"
+                  relatedScreen="/12"/>
+              <changeRules
+                  xsi:type="GameLogic:Deterministic"
+                  targetState="/0/@participants.0/@lanes.0/@relatedObjects.0/@states.3"/>
+            </states>
+          </challenges>
+          <challenges
+              xsi:type="GameLogic:KnowledgeChallenge"
+              title="Thesis definition accuracy"
+              description="check whether the thesis definition is correct or not">
+            <scoringRule
+                title="Thesis definition accuracy challenge reward">
+              <rewardConditions
+                  title="if (form is accurate) give the player a Badge">
+                <rewards
+                    xsi:type="ScoringModel:Badge"
+                    title="Thesis definition expertise"/>
+              </rewardConditions>
+              <rewardConditions
+                  title="else reduce 1 points from his score for each wrong answer">
+                <rewards
+                    xsi:type="ScoringModel:Point"
+                    value="1"/>
+              </rewardConditions>
+            </scoringRule>
+            <states
+                name="challenge response checking">
+              <actions
+                  title="runScoringRule">
+                <triggers
+                    source="/0/@participants.0/@lanes.1/@relatedObjects.0/@states.2/@actions.2"/>
+              </actions>
+            </states>
+          </challenges>
+          <playerLog
+              name="StudentLog"/>
+        </relatedObjects>
+      </lanes>
+      <lanes
+          name="Supervisor">
+        <elements
+            xsi:type="BPMN:Task"
+            title="form completeness checking"
+            type="manualTask">
+          <flows
+              target="/0/@participants.0/@lanes.1/@elements.1"/>
+        </elements>
+        <elements
+            xsi:type="BPMN:Exclusive"
+            triggerCondition="is the form complete?">
+          <flows
+              description="yes"
+              target="/0/@participants.0/@lanes.1/@elements.2"/>
+          <flows
+              description="no"
+              target="/0/@participants.0/@lanes.0/@elements.3"/>
+        </elements>
+        <elements
+            xsi:type="BPMN:Task"
+            title="form confirmation and signing"
+            type="manualTask">
+          <flows
+              target="/0/@participants.0/@lanes.1/@elements.3"/>
+        </elements>
+        <elements
+            xsi:type="BPMN:EndEvent"/>
+        <relatedObjects
+            xsi:type="GUI:NonPlayerCharacter"
+            name="Supervisor"
+            components="/1 /3">
+          <states
+              name="form taking">
+            <actions
+                xsi:type="GameLogic:Interaction"
+                title="supervisor taking the paper"
+                from="/0/@participants.0/@lanes.1/@relatedObjects.0"
+                to="/0/@participants.0/@lanes.0/@relatedObjects.0">
+              <triggers
+                  source="/0/@participants.0/@lanes.0/@relatedObjects.0/@states.7/@actions.0"/>
+            </actions>
+            <actions
+                title="call Task3 of BP component"
+                relatedElementType="bpElement"
+                relatedBPelement="/0/@participants.0/@lanes.1/@elements.0">
+              <triggers
+                  source="/0/@participants.0/@lanes.1/@relatedObjects.0/@states.0/@actions.0"/>
+            </actions>
+            <changeRules
+                xsi:type="GameLogic:Deterministic"
+                targetState="/0/@participants.0/@lanes.1/@relatedObjects.0/@states.1"/>
+          </states>
+          <states
+              name="form completeness checking">
+            <actions
+                title="look at the paper">
+              <triggers
+                  source="/0/@participants.0/@lanes.1/@relatedObjects.0/@states.0/@actions.0"/>
+            </actions>
+            <changeRules
+                xsi:type="GameLogic:Deterministic"
+                targetState="/0/@participants.0/@lanes.1/@relatedObjects.0/@states.2"/>
+          </states>
+          <states
+              name="form correctness checking">
+            <actions
+                title="call Gateway1 of BP component"
+                relatedElementType="bpElement"
+                relatedBPelement="/0/@participants.0/@lanes.1/@elements.1">
+              <triggers
+                  source="/0/@participants.0/@lanes.1/@relatedObjects.0/@states.1/@actions.0"/>
+            </actions>
+            <actions
+                title="save result in player log"
+                relatedElementType="log"
+                relatedLog="/0/@participants.0/@lanes.0/@relatedObjects.0/@playerLog">
+              <triggers
+                  source="/0/@participants.0/@lanes.1/@relatedObjects.0/@states.2/@actions.0"/>
+            </actions>
+            <actions
+                title="run Thesis definition accuracy challenge"
+                relatedElementType="challenge"
+                relatedChallenge="/0/@participants.0/@lanes.0/@relatedObjects.0/@challenges.1">
+              <triggers
+                  source="/0/@participants.0/@lanes.1/@relatedObjects.0/@states.2/@actions.1"/>
+            </actions>
+            <changeRules
+                xsi:type="GameLogic:NonDeterministic"
+                targetState="/0/@participants.0/@lanes.1/@relatedObjects.0/@states.4 /0/@participants.0/@lanes.1/@relatedObjects.0/@states.3"/>
+          </states>
+          <states
+              name="form rejection">
+            <actions
+                title="color the form to red">
+              <triggers
+                  source="/0/@participants.0/@lanes.1/@relatedObjects.0/@states.2/@actions.2"/>
+            </actions>
+            <actions
+                title="highlights wrong fields of the saved form">
+              <triggers
+                  source="/0/@participants.0/@lanes.1/@relatedObjects.0/@states.3/@actions.0"/>
+            </actions>
+            <actions
+                xsi:type="GameLogic:Interaction"
+                title="return form paper to the student"
+                from="/0/@participants.0/@lanes.1/@relatedObjects.0"
+                to="/0/@participants.0/@lanes.0/@relatedObjects.0">
+              <triggers
+                  source="/0/@participants.0/@lanes.1/@relatedObjects.0/@states.3/@actions.1"/>
+            </actions>
+            <actions
+                title="call Task4 of BP component"
+                relatedElementType="bpElement"
+                relatedBPelement="/0/@participants.0/@lanes.0/@elements.3">
+              <triggers
+                  source="/0/@participants.0/@lanes.1/@relatedObjects.0/@states.3/@actions.2"/>
+            </actions>
+            <changeRules
+                xsi:type="GameLogic:Deterministic"/>
+          </states>
+          <states
+              name="form acceptance">
+            <actions
+                title="color the form to green">
+              <triggers
+                  source="/0/@participants.0/@lanes.1/@relatedObjects.0/@states.2/@actions.2"/>
+            </actions>
+            <actions
+                title="call Task5 of BP component"
+                relatedElementType="bpElement"
+                relatedBPelement="/0/@participants.0/@lanes.1/@elements.2">
+              <triggers
+                  source="/0/@participants.0/@lanes.1/@relatedObjects.0/@states.4/@actions.0"/>
+            </actions>
+            <changeRules
+                xsi:type="GameLogic:Deterministic"
+                targetState="/0/@participants.0/@lanes.1/@relatedObjects.0/@states.5"/>
+          </states>
+          <states
+              name="form confirmation and signing">
+            <actions
+                xsi:type="GameLogic:Interaction"
+                title="Supervisor write something on the form"
+                from="/0/@participants.0/@lanes.1/@relatedObjects.0"
+                to="/0/@resources.0/@relatedObject.0">
+              <triggers
+                  source="/0/@participants.0/@lanes.1/@relatedObjects.0/@states.4/@actions.0"/>
+            </actions>
+            <actions
+                xsi:type="GameLogic:Interaction"
+                title="put the form on the table"
+                from="/0/@participants.0/@lanes.1/@relatedObjects.0"
+                to="/0/@resources.0/@relatedObject.0">
+              <triggers
+                  source="/0/@participants.0/@lanes.1/@relatedObjects.0/@states.5/@actions.0"/>
+            </actions>
+            <actions
+                title="call End Event of BP component"
+                relatedElementType="bpElement"
+                relatedBPelement="/0/@participants.0/@lanes.1/@elements.3">
+              <triggers
+                  source="/0/@participants.0/@lanes.1/@relatedObjects.0/@states.5/@actions.1"/>
+            </actions>
+            <changeRules
+                xsi:type="GameLogic:Deterministic"/>
+          </states>
+          <states
+              name="Final State">
+            <actions
+                title="save level finishing time in player log"
+                relatedElementType="log"
+                relatedLog="/0/@participants.0/@lanes.0/@relatedObjects.0/@playerLog"/>
+            <actions
+                title="show end of level screen"
+                relatedElementType="screen"
+                relatedScreen="/14">
+              <triggers
+                  source="/0/@participants.0/@lanes.1/@relatedObjects.0/@states.6/@actions.0"/>
+            </actions>
+            <actions
+                title="update game result for player"
+                relatedElementType="log"
+                relatedLog="/0/@participants.0/@lanes.0/@relatedObjects.0/@playerLog">
+              <triggers
+                  source="/0/@participants.0/@lanes.1/@relatedObjects.0/@states.6/@actions.1"/>
+            </actions>
+            <actions
+                title="show level result screen"
+                relatedElementType="screen"
+                relatedScreen="/15">
+              <triggers
+                  source="/0/@participants.0/@lanes.1/@relatedObjects.0/@states.6/@actions.2"/>
+            </actions>
+          </states>
+        </relatedObjects>
+      </lanes>
+      <relatedObjects
+          name="University"
+          ownerScene="/0/@relatedLevel.0/@relatedScene"
+          components="/1">
+        <innerObjects
+            name="Supervisor Room"
+            components="/1">
+          <innerObjects
+              name="wall_s"
+              components="/1 /4"/>
+          <innerObjects
+              name="door_s"
+              components="/1 /3 /7">
+            <states
+                name="open_s">
+              <actions
+                  title="open the door_s">
+                <constraints
+                    description="door is closed"/>
+              </actions>
+              <changeRules
+                  xsi:type="GameLogic:Deterministic"
+                  targetState="/0/@participants.0/@relatedObjects.0/@innerObjects.0/@innerObjects.1/@states.1"/>
+            </states>
+            <states
+                name="close_s">
+              <actions
+                  title="close the door_s">
+                <constraints
+                    description="door is opened"/>
+              </actions>
+              <changeRules
+                  xsi:type="GameLogic:Deterministic"
+                  targetState="/0/@participants.0/@relatedObjects.0/@innerObjects.0/@innerObjects.1/@states.0"/>
+            </states>
+          </innerObjects>
+          <innerObjects
+              name="table_s"
+              components="/1"/>
+          <innerObjects
+              name="computer_s"
+              components="/1"/>
+        </innerObjects>
+        <innerObjects
+            name="Student Room"
+            components="/1">
+          <innerObjects
+              name="wall"
+              components="/1 /4"/>
+          <innerObjects
+              name="door"
+              components="/1 /3 /7">
+            <states
+                name="open">
+              <actions
+                  title="open the door"
+                  relatedElementType="art"
+                  relatedArt="/7">
+                <constraints
+                    description="door is closed"/>
+              </actions>
+              <changeRules
+                  xsi:type="GameLogic:Deterministic"
+                  targetState="/0/@participants.0/@relatedObjects.0/@innerObjects.1/@innerObjects.1/@states.1"/>
+            </states>
+            <states
+                name="close">
+              <actions
+                  title="close the door"
+                  relatedElementType="art"
+                  relatedArt="/7">
+                <constraints
+                    description="door is opened"/>
+              </actions>
+              <changeRules
+                  xsi:type="GameLogic:Deterministic"
+                  targetState="/0/@participants.0/@relatedObjects.0/@innerObjects.1/@innerObjects.1/@states.0"/>
+            </states>
+          </innerObjects>
+          <innerObjects
+              name="table"
+              components="/1"/>
+          <innerObjects
+              name="computer"
+              components="/1"/>
+          <innerObjects
+              name="printer"
+              components="/1 /6">
+            <states
+                name="printer is on">
+              <actions
+                  title="play printer voice and show paper">
+                <constraints
+                    description="‘print’ option is selected"/>
+                <triggers
+                    source="/0/@participants.0/@lanes.0/@relatedObjects.0/@states.3/@actions.1"/>
+              </actions>
+              <changeRules
+                  xsi:type="GameLogic:Deterministic"
+                  targetState="/0/@participants.0/@relatedObjects.0/@innerObjects.1/@innerObjects.4/@states.1"/>
+            </states>
+            <states
+                name="printer is off">
+              <actions
+                  title="stop printer voice"/>
+            </states>
+          </innerObjects>
+        </innerObjects>
+      </relatedObjects>
+    </participants>
+    <resources
+        xsi:type="BPMN:DataObject"
+        title="department thesis definition form">
+      <flows
+          sourceOrTarget="/0/@participants.0/@lanes.0/@elements.1"/>
+      <flows
+          sourceOrTarget="/0/@participants.0/@lanes.1/@elements.0"
+          type="outputFlow"/>
+      <flows
+          sourceOrTarget="/0/@participants.0/@lanes.0/@elements.3"
+          type="outputFlow"/>
+      <relatedObject
+          name="form Paper"
+          components="/1 /4 /8">
+        <states
+            name="form creation">
+          <actions
+              title="save the form in player log"
+              relatedElementType="log"
+              relatedLog="/0/@participants.0/@lanes.0/@relatedObjects.0/@playerLog">
+            <constraints
+                description="‘save’ option is selected"/>
+            <triggers
+                source="/0/@participants.0/@lanes.0/@relatedObjects.0/@states.5/@actions.1"/>
+          </actions>
+          <actions
+              xsi:type="GameLogic:Interaction"
+              title="Player write something on the form"
+              from="/0/@participants.0/@lanes.0/@relatedObjects.0"
+              to="/0/@resources.0/@relatedObject.0">
+            <triggers
+                source="/0/@resources.0/@relatedObject.0/@states.0/@actions.0"/>
+          </actions>
+          <changeRules
+              xsi:type="GameLogic:Deterministic"
+              targetState="/0/@participants.0/@lanes.0/@relatedObjects.0/@states.6"/>
+        </states>
+        <states
+            name="form updating">
+          <actions
+              title="save updated form in player log"
+              relatedElementType="log"
+              relatedLog="/0/@participants.0/@lanes.0/@relatedObjects.0/@playerLog">
+            <constraints
+                description="‘save’ option is selected"/>
+            <triggers
+                source="/0/@participants.0/@lanes.0/@relatedObjects.0/@states.9/@actions.1"/>
+          </actions>
+          <actions
+              xsi:type="GameLogic:Interaction"
+              title="Player edit something on the form"
+              from="/0/@participants.0/@lanes.0/@relatedObjects.0"
+              to="/0/@resources.0/@relatedObject.0">
+            <triggers
+                source="/0/@resources.0/@relatedObject.0/@states.0/@actions.0"/>
+          </actions>
+          <actions
+              title="recall Task2 of BP component"
+              relatedElementType="bpElement"
+              relatedBPelement="/0/@participants.0/@lanes.0/@elements.2">
+            <triggers
+                source="/0/@participants.0/@lanes.1/@relatedObjects.0/@states.2/@actions.1"/>
+          </actions>
+          <changeRules
+              xsi:type="GameLogic:Deterministic"
+              targetState="/0/@participants.0/@lanes.0/@relatedObjects.0/@states.6"/>
+        </states>
+      </relatedObject>
+    </resources>
+    <relatedLevel
+        levelTitle="Master Thesis Definition"
+        levelNumber="1">
+      <relatedScene
+          levelName="Master Thesis Definition"
+          objects="/0/@participants.0/@relatedObjects.0"/>
+    </relatedLevel>
+  </BPMN:BusinessProcess>
+  <GUI:Transform/>
+  <GUI:CharacterController/>
+  <GUI:Collider
+      isTrigger="true"/>
+  <GUI:Collider/>
+  <GUI:RigidBody/>
+  <GUI:Audio/>
+  <GUI:Animation/>
+  <GUI:Material/>
+  <GUI:UI name="level startup"/>
+  <GUI:UI name="form sections query"/>
+  <GUI:UI name="URL query"/>
+  <GUI:UI name="URL challenge result"/>
+  <GUI:UI name="highlighted form"/>
+  <GUI:UI name="End of level"/>
+  <GUI:UI name="level result"/>
+</xmi:XMI>
